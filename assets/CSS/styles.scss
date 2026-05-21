@@ -1,0 +1,36 @@
+@import './variables/variables';
+// @import '../CSS/variables/font';
+
+:root {
+  --primary-blue: #4A90E2;
+  --primary-green: #062824;
+  --secondary-green-light: #03FFAB;
+  --secondary-green-dark: #10635A;
+  --secondary-blue: #357ABD;
+  --table-header-bg: #E2DBCB;
+  --table-body-bg: #F9F7F0;
+  --success-green: #8FD14F;
+  --light-green: #d6f5d6;
+  --dark-green: #4caf50;
+  --light-red: #fecdc8;
+  --danger-red: #E74C3C;
+  --warning-orange: #F39C12;
+  --light-gray: #F5F7FA;
+  --border-gray: #E1E8ED;
+  --text-dark: #2C3E50;
+  --text-muted: #7F8C8D;
+  --primary-black: #202020;
+  --beige: #CCC1A9;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-syne-extra !important;
+  min-height: 100vh;
+  font-size: 14px !important;
+}
