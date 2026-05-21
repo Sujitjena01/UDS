@@ -1,0 +1,62 @@
+@import 'font';
+// FONT VARIABLES
+$font-outfit-thin: "Outfit",
+sans-serif; // 200 (ExtraLight)
+$font-outfit-light: "Outfit",
+sans-serif; // 300 (Light1)
+$font-outfit-regular: "Outfit-Regular",
+sans-serif; // 400
+$font-outfit-medium: "Outfit-Medium",
+sans-serif; // 500
+$font-outfit-semibold: "Outfit-SemiBold",
+sans-serif; // 600
+$font-outfit-bold: "Outfit-Bold",
+sans-serif; // 700
+$font-outfit-extrabold: "Outfit-ExtraBold",
+sans-serif; // 800
+$font-outfit-black: "Outfit-Black",
+sans-serif; // 900
+$font-outfit: "Outfit",
+sans-serif;
+
+// SYNE FONT VARIABLES
+
+$font-syne-regular: "Syne",
+sans-serif; // 400 normal
+$font-syne-bold: "Syne-Bold",
+sans-serif; // 700
+$font-syne-extra: "Syne-Extra",
+sans-serif; // 800
+$font-syne-italic: "Syne-Italic",
+sans-serif; // italic
+$font-syne-mono: "Syne-Mono",
+monospace; // mono version
+/*------------------- Responsive --------------------------*/
+
+$laptop: 'only screen and (min-width: 1200px) and (max-width: 1600px)';
+$lg :'only screen and (min-width: 992px) and (max-width: 1199px)';
+$md:'only screen and (min-width: 768px) and (max-width: 991px)';
+$sm: 'only screen and (min-width: 576px) and (max-width: 767px)';
+$xs:'(max-width: 575px)';
+$xs_360:'only screen and (min-width: 360px) and (max-width: 480px)';
+
+// Extra Responsive
+
+$medium_device : 'only screen and (min-width: 992px) and (max-width: 1200px)';
+$tab_device:'only screen and (min-width: 768px) and (max-width: 991px)';
+$large_mobile: 'only screen and (min-width: 576px) and (max-width: 767px)';
+$tab: '(max-width: 991px)';
+$small_mobile:'(max-width: 576px)';
+$xs_mobile:'(max-width: 420px)';
+$sm_mobile:'only screen and (min-width: 421px) and (max-width: 575px)';
+$big_screen:'only screen and (min-width: 1200px) and (max-width: 1440px)';
+$extra_big_screen: 'only screen and (min-width: 1200px) and (max-width: 3640px)';
+
+
+// More Extra Responsive
+$large_device_2:'(min-width: 1501px) and (max-width: 1700px)';
+$large_device:'(min-width: 1200px) and (max-width: 1500px)';
+$mid_device:'(min-width: 992px) and (max-width: 1200px)';
+$tablet_device:'(min-width: 768px) and (max-width: 991px)';
+$mobile_device:'(max-width: 767px)';
+$large_mobile:'only screen and (min-width: 480px) and (max-width: 767px)';
