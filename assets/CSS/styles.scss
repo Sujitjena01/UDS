@@ -21,6 +21,8 @@
   --text-muted: #7F8C8D;
   --primary-black: #202020;
   --beige: #CCC1A9;
+  --badge-icons: #9BF380;
+  --btn-login: #00D470
 }
 
 *,
@@ -31,178 +33,71 @@
   box-sizing: border-box;
 }
 
-html,
 body {
   height: 100%;
-  font-family: $font-outfit;
+  font-family: $font-syne-extra;
   font-size: 14px;
   color: #e0f2f1;
   background-color: var(--login-bg-dark);
-  overflow: hidden;
+  // overflow: hidden;
+
 }
 
-
-/* =========================
-   BACKGROUND
-   ========================= */
-
-.bg-scene {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  background-image: url('../IMAGES/Login.png');
-  background-size: cover;
-  background-position: center;
-  filter: brightness(0.80) saturate(1.1);
-}
-
-.bg-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 1;
-  background: linear-gradient(105deg,
-      rgba(2, 26, 18, 0.78) 0%,
-      rgba(2, 26, 18, 0.40) 55%,
-      rgba(2, 26, 18, 0.10) 100%);
-}
-
-
-/* =========================
-   FLOATING PARTICLES
-   ========================= */
-
-.particles {
-  position: fixed;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.particle {
-  position: absolute;
-  bottom: 0;
-  border-radius: 50%;
-  background: var(--login-accent);
-  opacity: 0;
-  animation: float-up linear infinite;
-}
-
-@keyframes float-up {
-  0% {
-    opacity: 0;
-    transform: translateY(0) scale(0.5);
-  }
-
-  10% {
-    opacity: 0.35;
-  }
-
-  90% {
-    opacity: 0.12;
-  }
-
-  100% {
-    opacity: 0;
-    transform: translateY(-100vh) scale(1.2);
-  }
-}
-
-// Individual particle positions & timing
-$particles: ((3px, 3px, 8%, 14s, 0s),
-  (2px, 2px, 18%, 18s, 3s),
-  (4px, 4px, 30%, 12s, 6s),
-  (2px, 2px, 45%, 16s, 1.5s),
-  (3px, 3px, 60%, 13s, 4s),
-  (2px, 2px, 72%, 19s, 8s),
-  (4px, 4px, 85%, 11s, 2s),
-  (2px, 2px, 92%, 15s, 5s),
-  (3px, 3px, 25%, 17s, 9s),
-  (2px, 2px, 55%, 14s, 7s),
-);
-
-@for $i from 1 through length($particles) {
-  $p: nth($particles, $i);
-
-  .p#{$i} {
-    width: nth($p, 1);
-    height: nth($p, 2);
-    left: nth($p, 3);
-    animation-duration: nth($p, 4);
-    animation-delay: nth($p, 5);
-  }
-}
-
-
-/* =========================
-   PAGE WRAPPER
-   ========================= */
-
-.page-wrapper {
-  position: relative;
-  z-index: 2;
+.login-page {
   min-height: 100vh;
   display: flex;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.58),
+      rgba(0, 0, 0, 0.58)),
+    url("../IMAGES/ChatGPT\ Image\ May\ 7\,\ 2026\,\ 10_58_53\ AM\ 1.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  align-items: stretch;
+}
+
+.login-left {
+  flex: 6;
+  padding: 25px 25px;
+  display: flex;
   flex-direction: column;
-  padding: 0 2.8rem;
 }
 
-
-
-
-.top-bar {
+.brand-top {
   display: flex;
-  align-items: center;
-  gap: 1.4rem;
-  padding: 1.4rem 0 0;
-}
-
-.logo-tata {
-  display: flex;
-  align-items: center;
+  justify-content: start;
 
   img {
-    height: 52px;
-    width: auto;
+    margin-bottom: 16px;
+    width: 150px;
+    max-width: 100%;
     object-fit: contain;
-    display: block;
   }
 }
 
-
-/* =========================
-   MAIN CONTENT
-   ========================= */
-
-.main-content {
-  flex: 1;
+.logo {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 0 2rem;
-  gap: 2rem;
+  justify-content: center;
+
+  img {
+    margin-bottom: 16px;
+    width: 150px;
+    max-width: 100%;
+    object-fit: contain;
+  }
 }
 
-
-/* =========================
-   LEFT PANEL
-   ========================= */
-
-.left-panel {
-  flex: 1;
-  max-width: 520px;
-}
 
 .headline-wrap {
   display: flex;
   align-items: flex-start;
-  gap: 0;
 }
 
 .headline-accent {
   width: 4px;
-  height: 60px;
-  background: var(--login-accent);
+  height: 88px;
+  background: var(--secondary-green-light);
   border-radius: 2px;
   flex-shrink: 0;
   margin-right: 14px;
@@ -210,17 +105,16 @@ $particles: ((3px, 3px, 8%, 14s, 0s),
 }
 
 .headline {
-  font-family: "Outfit-SemiBold", sans-serif;
-  font-size: 35px;
-  line-height: 1;
+  font-family: $font-outfit-medium;
+  font-size: 39px;
+  line-height: 1.1;
   color: #ffffff;
 
   &--green {
-    color: var(--login-accent);
+    color: var(--secondary-green-light);
   }
 }
 
-// Feature list
 .features-list {
   margin-top: 2.4rem;
   display: flex;
@@ -245,18 +139,18 @@ $particles: ((3px, 3px, 8%, 14s, 0s),
   justify-content: center;
   background: rgba(3, 255, 171, 0.07);
   font-size: 1.2rem;
-  color: var(--login-accent);
+  color: var(--secondary-green-light);
   transition: background 0.22s, border-color 0.22s;
 
   &:hover {
     background: rgba(3, 255, 171, 0.15);
-    border-color: var(--login-accent);
+    border-color: var(--secondary-green-light);
   }
 }
 
 .feature-text {
   h6 {
-    font-family: $font-outfit-bold;
+    font-family: $font-syne-bold;
     font-size: 0.98rem;
     color: #fff;
     margin-bottom: 2px;
@@ -265,32 +159,45 @@ $particles: ((3px, 3px, 8%, 14s, 0s),
   p {
     font-family: $font-outfit-regular;
     font-size: 0.80rem;
-    color: var(--login-text-muted);
+    color: #fff;
     margin: 0;
   }
 }
 
-// Bottom badges row
 .badges-row {
   display: flex;
-  gap: 0;
-  margin-top: 3rem;
+  gap: 72px;
+  margin-top: 22px;
 }
 
 .badge-item {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 6px;
   padding: 0 1.5rem;
-  border-right: 1px solid rgba(3, 255, 171, 0.18);
+
+  // Divider between items
+  &:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 10%;
+    right: -1.5rem;
+    width: 1px;
+    height: 80%;
+    background: linear-gradient(to bottom,
+        transparent,
+        rgba(3, 255, 171, 0.4),
+        transparent);
+  }
 
   &:first-child {
     padding-left: 0;
   }
 
   &:last-child {
-    border-right: none;
+    padding-right: 0;
   }
 }
 
@@ -298,17 +205,17 @@ $particles: ((3px, 3px, 8%, 14s, 0s),
   width: 46px;
   height: 46px;
   border-radius: 50%;
-  border: 2.5px solid var(--login-accent);
+  border: 2.5px solid var(--secondary-green-light);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.2rem;
-  color: var(--login-accent);
+  color: var(--secondary-green-light);
   background: rgba(3, 255, 171, 0.07);
   transition: transform 0.22s;
 
   &.filled {
-    background: var(--login-accent);
+    background: var(--secondary-green-light);
     color: var(--primary-green);
   }
 
@@ -328,7 +235,7 @@ $particles: ((3px, 3px, 8%, 14s, 0s),
 .badge-sub {
   font-family: $font-outfit-regular;
   font-size: 0.70rem;
-  color: var(--login-text-muted);
+  color: #fff;
   text-align: center;
 }
 
@@ -337,210 +244,424 @@ $particles: ((3px, 3px, 8%, 14s, 0s),
    LOGIN CARD
    ========================= */
 
-.login-card {
-  width: 400px;
-  flex-shrink: 0;
-  background: var(--login-card-bg);
-  border: 1px solid var(--login-card-border);
-  border-radius: 18px;
-  padding: 2.2rem 2rem 2rem;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  box-shadow:
-    0 0 0 1px rgba(3, 255, 171, 0.06),
-    0 24px 64px rgba(0, 0, 0, 0.55),
-    inset 0 1px 0 rgba(3, 255, 171, 0.10);
+.login-right {
+  flex: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+
 }
 
-// Brand block inside card
+.login-card {
+  width: 360px;
+  flex-shrink: 0;
+  background: rgba(21, 90, 82, 0.5);
+  ;
+  border: 1px solid var(--login-card-border);
+  border-radius: 20px;
+  padding: 2rem 2.2rem 2.2rem;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow:
+    0 0 0 1px rgba(3, 255, 171, 0.05),
+    0 32px 72px rgba(0, 0, 0, 0.60),
+    inset 0 1px 0 rgba(3, 255, 171, 0.08);
+}
+
+
+/* ── Brand header ── */
+
 .brand-header {
-  text-align: center;
-  margin-bottom: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.18rem;
+  padding-bottom: 1.4rem;
+  margin-bottom: 1.4rem;
+  border-bottom: 1px solid rgba(3, 255, 171, 0.10);
 }
 
 .brand-logo-name {
   font-family: $font-syne-extra;
-  font-size: 2.1rem;
-  letter-spacing: 0.04em;
+  font-size: 2.4rem;
+  letter-spacing: 0.06em;
   color: #fff;
+  line-height: 1;
 
   span {
-    color: var(--login-accent);
+    color: var(--secondary-green-light);
   }
 }
 
 .brand-sub {
   font-family: $font-outfit-semibold;
-  font-size: 0.72rem;
-  letter-spacing: 0.14em;
-  color: #80cbc4;
-  margin-top: 2px;
-  line-height: 1.4;
+  font-size: 0.70rem;
+  letter-spacing: 0.18em;
+  color: rgba(3, 255, 171, 0.75);
   text-transform: uppercase;
+  text-align: center;
+  line-height: 1.5;
+  margin-top: 0.25rem;
 }
 
 .brand-tagline {
   font-family: $font-outfit-regular;
-  font-size: 0.63rem;
-  color: rgba(180, 220, 210, 0.50);
-  margin-top: 3px;
+  font-size: 0.62rem;
+  color: rgba(200, 230, 220, 0.38);
+  text-align: center;
+  margin-top: 0.1rem;
 }
 
-// Card title
+
+/* ── Section title ── */
+
 .section-title {
   font-family: $font-syne-bold;
-  font-size: 1.9rem;
+  font-size: 1.75rem;
   text-align: center;
   color: #fff;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.28rem;
   letter-spacing: 0.02em;
 
   span {
-    color: var(--login-accent);
+    color: var(--secondary-green-light);
   }
 }
 
 .title-underline {
-  width: 48px;
-  height: 3px;
-  background: var(--login-accent);
+  width: 44px;
+  height: 2.5px;
+  background: var(--secondary-green-light);
   border-radius: 2px;
   margin: 0 auto 1.6rem;
+  opacity: 0.85;
 }
 
-// Form labels
+
+/* ── Form labels ── */
+
 .form-label-custom {
   font-family: $font-outfit-medium;
-  font-size: 0.80rem;
-  color: var(--login-text-muted);
-  margin-bottom: 0.42rem;
+  font-size: 0.78rem;
+  color: rgba(200, 230, 220, 0.55);
+  margin-bottom: 0.38rem;
   display: block;
+  letter-spacing: 0.01em;
 }
 
-// Inputs
+
+/* ── Inputs ── */
+
 .form-control-custom {
   width: 100%;
-  background: var(--login-input-bg);
-  border: 1px solid var(--login-input-border);
-  border-radius: 8px;
-  color: #e0f2f1;
+  background: rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(3, 255, 171, 0.18);
+  border-radius: 10px;
+  color: #e8f5f0;
   font-family: $font-outfit-regular;
-  font-size: 0.86rem;
-  padding: 0.65rem 0.9rem;
+  font-size: 0.875rem;
+  padding: 0.68rem 1rem;
   outline: none;
-  transition: border-color 0.25s, box-shadow 0.25s, background 0.25s;
+  transition: border-color 0.22s, box-shadow 0.22s, background 0.22s;
 
   &::placeholder {
-    color: rgba(180, 220, 210, 0.32);
+    color: rgba(180, 220, 210, 0.28);
     font-family: $font-outfit-regular;
+    font-size: 0.84rem;
   }
 
   &:focus {
-    border-color: var(--login-input-focus);
-    box-shadow: 0 0 0 3px rgba(3, 255, 171, 0.11);
-    background: rgba(0, 0, 0, 0.44);
+    border-color: rgba(3, 255, 171, 0.50);
+    box-shadow: 0 0 0 3px rgba(3, 255, 171, 0.09);
+    background: rgba(0, 0, 0, 0.40);
   }
 }
 
-// Forgot password link
+
+/* ── Forgot link ── */
+
 .forgot-link {
   display: block;
   text-align: right;
   font-family: $font-outfit-semibold;
-  font-size: 0.76rem;
-  color: var(--login-accent);
+  font-size: 0.75rem;
+  color: var(--secondary-green-light);
   text-decoration: none;
-  margin: 0.5rem 0 1rem;
-  transition: opacity 0.2s;
+  margin: 0.55rem 0 1.1rem;
+  letter-spacing: 0.01em;
+  transition: opacity 0.18s;
 
   &:hover {
-    opacity: 0.72;
-    color: var(--login-accent);
+    opacity: 0.68;
+    color: var(--secondary-green-light);
   }
 }
 
-// Captcha row
+
+/* ── Captcha row ── */
+
 .captcha-row {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 1.4rem;
+  gap: 0.55rem;
+  margin-bottom: 1.35rem;
 }
 
 .captcha-box {
   flex: 0 0 auto;
-  background: rgba(80, 80, 80, 0.52);
-  border-radius: 8px;
-  padding: 0.6rem 1rem;
-  font-family: $font-syne-mono;
-  font-size: 1.25rem;
-  letter-spacing: 0.32em;
-  color: #dde;
-  user-select: none;
-  min-width: 96px;
+  min-width: 100px;
   text-align: center;
-  border: 1px solid rgba(120, 120, 120, 0.28);
+  padding: 0.62rem 0.9rem;
+  background: rgba(60, 70, 65, 0.50);
+  border: 1px solid rgba(100, 110, 105, 0.30);
+  border-radius: 10px;
+  font-family: $font-syne-mono;
+  font-size: 1.2rem;
+  letter-spacing: 0.30em;
+  color: #c8d8d0;
+  user-select: none;
   position: relative;
   overflow: hidden;
 
+  // Subtle noise texture overlay
   &::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: repeating-linear-gradient(45deg,
+    background: repeating-linear-gradient(120deg,
         transparent,
-        transparent 4px,
-        rgba(255, 255, 255, 0.03) 4px,
-        rgba(255, 255, 255, 0.03) 5px);
+        transparent 5px,
+        rgba(255, 255, 255, 0.02) 5px,
+        rgba(255, 255, 255, 0.02) 6px);
+    pointer-events: none;
+  }
+
+  // Diagonal strike-through line (anti-bot visual)
+  &::after {
+    content: '';
+    position: absolute;
+    top: 30%;
+    left: -5%;
+    width: 110%;
+    height: 1px;
+    background: rgba(3, 255, 171, 0.18);
+    transform: rotate(-8deg);
   }
 }
 
 .captcha-refresh {
-  width: 36px;
-  height: 36px;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
   border-radius: 50%;
-  border: 2px solid rgba(3, 255, 171, 0.42);
-  background: rgba(3, 255, 171, 0.07);
-  color: var(--login-accent);
+  border: 1.5px solid rgba(3, 255, 171, 0.38);
+  background: rgba(3, 255, 171, 0.06);
+  color: var(--secondary-green-light);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  flex-shrink: 0;
-  transition: background 0.2s, transform 0.35s;
+  transition: background 0.18s, transform 0.32s ease;
 
   i {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 
   &:hover {
-    background: rgba(3, 255, 171, 0.17);
+    background: rgba(3, 255, 171, 0.15);
     transform: rotate(180deg);
   }
 }
 
-// Login button
+
+/* ── Login button ── */
+
 .btn-login {
   width: 100%;
-  background: linear-gradient(90deg, var(--secondary-green-light), var(--secondary-green-dark));
+  background: var(--btn-login);
   border: none;
   border-radius: 10px;
   font-family: $font-syne-bold;
-  font-size: 1.1rem;
-  letter-spacing: 0.10em;
-  color: var(--primary-green);
-  padding: 0.80rem;
+  font-size: 1.05rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #021a12;
+  padding: 0.82rem 1rem;
   cursor: pointer;
-  transition: opacity 0.22s, transform 0.18s, box-shadow 0.22s;
-  box-shadow: 0 4px 22px rgba(3, 255, 171, 0.30);
+  transition: opacity 0.20s, transform 0.16s, box-shadow 0.20s;
+  box-shadow: 0 4px 20px rgba(3, 255, 171, 0.28);
 
   &:hover {
-    opacity: 0.90;
-    transform: translateY(-1.5px);
-    box-shadow: 0 8px 30px rgba(3, 255, 171, 0.42);
+    opacity: 0.88;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 32px rgba(3, 255, 171, 0.38);
   }
 
   &:active {
     transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(3, 255, 171, 0.20);
+  }
+}
+
+/* =========================
+   TABLET + MOBILE
+   ========================= */
+
+@media #{$tab} {
+  // .login-page {
+  //   flex-direction: column;
+  // }
+
+  .login-left,
+  .login-right {
+    width: 100%;
+    flex: 1 1 100%;
+    padding: 30px 20px;
+  }
+
+  .login-left {
+    text-align: center;
+    align-items: center;
+  }
+
+  // .headline-wrap {
+  //   justify-content: center;
+  // }
+
+  .features-list {
+    width: 100%;
+    max-width: 700px;
+  }
+
+  .badges-row {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .badge-item {
+    padding: 0 10px;
+  }
+
+  .login-card {
+    width: 100%;
+    max-width: 500px;
+  }
+}
+
+
+
+@media #{$mobile_device} {
+
+  .login-page {
+    flex-direction: column;
+  }
+
+  .headline-wrap {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .headline-accent {
+    display: none;
+  }
+
+  .headline {
+    font-size: 2rem;
+    line-height: 1.3;
+  }
+
+  .feature-item {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+  }
+
+  .feature-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h6,p {
+      text-align: left;
+    }
+  }
+
+  .badges-row {
+    gap: 2rem 0;
+    justify-content: space-between;
+  }
+
+  .badge-item {
+    flex: 0 0 calc(50% - 1rem);
+  }
+
+  /* Remove old divider */
+  .badge-item::after {
+    display: none;
+  }
+
+  /* Add divider only between items in same row */
+  .badge-item:nth-child(odd)::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 10%;
+    right: -1rem;
+    width: 1px;
+    height: 80%;
+    background: linear-gradient(to bottom,
+        transparent,
+        rgba(3, 255, 171, 0.4),
+        transparent);
+  }
+
+  .captcha-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .captcha-refresh {
+    width: 100%;
+    border-radius: 10px;
+    height: 44px;
+  }
+
+  .login-card {
+    padding: 1.5rem;
+  }
+}
+
+
+
+@media #{$xs_mobile} {
+
+  .login-left,
+  .login-right {
+    padding: 20px 12px;
+  }
+
+  .headline {
+    font-size: 1.6rem;
+  }
+
+  .brand-logo-name {
+    font-size: 1.8rem;
+  }
+
+  .section-title {
+    font-size: 1.4rem;
+  }
+
+  .login-card {
+    padding: 1.2rem;
+    border-radius: 16px;
+  }
+
+  .btn-login {
+    font-size: 0.9rem;
+    padding: 0.8rem;
   }
 }
