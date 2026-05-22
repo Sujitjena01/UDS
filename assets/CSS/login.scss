@@ -2,36 +2,66 @@
 
 .login-page {
   min-height: 100vh;
-  display: flex;
+  display: grid;
+  grid-template-columns: 6fr 4fr;
   background:
     linear-gradient(rgba(0, 0, 0, 0.58),
       rgba(0, 0, 0, 0.58)),
-    url("../IMAGES/ChatGPT\ Image\ May\ 7\,\ 2026\,\ 10_58_53\ AM\ 1.png");
-
+    url("../IMAGES/login-bg.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   align-items: stretch;
-}
 
-.login-left {
-  flex: 6;
-  padding: 25px 25px;
-  display: flex;
-  flex-direction: column;
-}
+  .login-left {
+    flex: 6;
+    padding: 25px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 
-.brand-top {
-  display: flex;
-  justify-content: start;
+    .brand-top {
+      display: flex;
+      justify-content: start;
 
-  img {
-    margin-bottom: 16px;
-    width: 150px;
-    max-width: 100%;
-    object-fit: contain;
+      img {
+        width: 180px;
+        filter: brightness(35);
+      }
+    }
+  }
+
+  .headline-wrap {
+    display: flex;
+justify-content: flex-start;
+    align-items: center;
+    gap: 16px;
+
+    .headline-accent {
+      width: 4px;
+      height: 100%;
+      background: var(--secondary-green-light);
+      border-radius: 2px;
+      flex-shrink: 0;
+      margin: 0px;
+    }
+
+    .headline {
+      font-family: $font-syne-bold;
+      font-size: 40px;
+      line-height: 1.1;
+      color: #ffffff;
+      margin: 0px;
+      &--green {
+        color: var(--secondary-green-light);
+      }
+    }
   }
 }
+
+
+
+
 
 .logo {
   display: flex;
@@ -46,31 +76,11 @@
 }
 
 
-.headline-wrap {
-  display: flex;
-  align-items: flex-start;
-}
 
-.headline-accent {
-  width: 4px;
-  height: 88px;
-  background: var(--secondary-green-light);
-  border-radius: 2px;
-  flex-shrink: 0;
-  margin-right: 14px;
-  margin-top: 5px;
-}
 
-.headline {
-  font-family: $font-outfit-medium;
-  font-size: 39px;
-  line-height: 1.1;
-  color: #ffffff;
 
-  &--green {
-    color: var(--secondary-green-light);
-  }
-}
+
+
 
 .features-list {
   margin-top: 2.4rem;
@@ -535,7 +545,8 @@
     flex-direction: column;
     justify-content: center;
 
-    h6,p {
+    h6,
+    p {
       text-align: left;
     }
   }

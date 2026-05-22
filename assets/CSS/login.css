@@ -636,31 +636,52 @@ body {
 }
 .login-page {
   min-height: 100vh;
-  display: flex;
-  background: linear-gradient(rgba(0, 0, 0, 0.58), rgba(0, 0, 0, 0.58)), url("../IMAGES/ChatGPT Image May 7, 2026, 10_58_53 AM 1.png");
+  display: grid;
+  grid-template-columns: 6fr 4fr;
+  background: linear-gradient(rgba(0, 0, 0, 0.58), rgba(0, 0, 0, 0.58)), url("../IMAGES/login-bg.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   align-items: stretch;
 }
-
-.login-left {
+.login-page .login-left {
   flex: 6;
   padding: 25px 25px;
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
 }
-
-.brand-top {
+.login-page .login-left .brand-top {
   display: flex;
   justify-content: start;
 }
-.brand-top img {
-  margin-bottom: 16px;
-  width: 150px;
-  max-width: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+.login-page .login-left .brand-top img {
+  width: 180px;
+  filter: brightness(35);
+}
+.login-page .headline-wrap {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 16px;
+}
+.login-page .headline-wrap .headline-accent {
+  width: 4px;
+  height: 100%;
+  background: var(--secondary-green-light);
+  border-radius: 2px;
+  flex-shrink: 0;
+  margin: 0px;
+}
+.login-page .headline-wrap .headline {
+  font-family: "Syne-Bold", sans-serif;
+  font-size: 40px;
+  line-height: 1.1;
+  color: #ffffff;
+  margin: 0px;
+}
+.login-page .headline-wrap .headline--green {
+  color: var(--secondary-green-light);
 }
 
 .logo {
@@ -673,31 +694,6 @@ body {
   max-width: 100%;
   -o-object-fit: contain;
      object-fit: contain;
-}
-
-.headline-wrap {
-  display: flex;
-  align-items: flex-start;
-}
-
-.headline-accent {
-  width: 4px;
-  height: 88px;
-  background: var(--secondary-green-light);
-  border-radius: 2px;
-  flex-shrink: 0;
-  margin-right: 14px;
-  margin-top: 5px;
-}
-
-.headline {
-  font-family: "Outfit-Medium", sans-serif;
-  font-size: 39px;
-  line-height: 1.1;
-  color: #ffffff;
-}
-.headline--green {
-  color: var(--secondary-green-light);
 }
 
 .features-list {
@@ -1096,7 +1092,8 @@ body {
     flex-direction: column;
     justify-content: center;
   }
-  .feature-text h6, .feature-text p {
+  .feature-text h6,
+  .feature-text p {
     text-align: left;
   }
   .badges-row {
