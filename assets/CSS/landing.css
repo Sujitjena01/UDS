@@ -91,7 +91,8 @@
   --primary-black: #202020;
   --beige: #CCC1A9;
   --badge-icons: #9BF380;
-  --btn-login: #00D470 ;
+  --btn-login: #00D470
+  --bg: #0f1a17 ;
 }
 
 *,
@@ -120,7 +121,7 @@ body {
 
 body {
   font-family: "Outfit-Regular", sans-serif;
-  background: var(--bg);
+  background: var(--bg) !important;
   min-height: 100vh;
   transition: background 0.3s;
 }
@@ -136,6 +137,10 @@ body {
   align-items: center;
 }
 
+[data-theme=light] .landing-page {
+  background: none;
+}
+
 .header {
   padding: 0 2rem;
   height: 64px;
@@ -143,6 +148,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+[data-theme=light] .header {
+  background: #131d29;
 }
 @media (max-width: 767px) {
   .header {
@@ -171,7 +179,7 @@ body {
   }
 }
 .header-divider {
-  width: 1px;
+  width: 1.2px;
   height: 36px;
   background: var(--secondary-green-light);
 }
@@ -270,7 +278,6 @@ body {
   width: 44px;
   height: 24px;
   border-radius: 12px;
-  background: var(--card-bg);
   border: 1px solid var(--secondary-green-light);
   position: relative;
   transition: background 0.3s;
@@ -308,7 +315,7 @@ body {
 }
 
 .cards-container {
-  padding: 10px;
+  padding: 20pxpx;
   width: 100%;
   max-width: 1000px;
 }
@@ -372,12 +379,11 @@ body {
 }
 
 .app-card {
-  background: var(--card-bg);
   border: 1px solid var(--secondary-green-light);
   border-radius: 14px;
   overflow: hidden;
   cursor: pointer;
-  transition: border-color 0.2s, transform 0.2s;
+  transition: border-color 0.5s, transform 0.5s;
 }
 .app-card:hover {
   border-color: var(--secondary-green-light);
@@ -412,6 +418,10 @@ body {
   .card-footer {
     padding: 10px 12px !important;
   }
+}
+
+[data-theme=light] .card-footer {
+  background: rgb(21, 90, 82) !important;
 }
 
 .card-info .card-name {
