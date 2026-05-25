@@ -25,7 +25,7 @@
       justify-content: start;
 
       img {
-        width: 180px;
+        width: 140px;
         filter: brightness(35);
       }
     }
@@ -33,7 +33,7 @@
 
   .headline-wrap {
     display: flex;
-justify-content: flex-start;
+    justify-content: flex-start;
     align-items: center;
     gap: 16px;
 
@@ -48,10 +48,11 @@ justify-content: flex-start;
 
     .headline {
       font-family: $font-syne-bold;
-      font-size: 40px;
-      line-height: 1.1;
+      font-size: 34px;
+    line-height: 43px;
       color: #ffffff;
       margin: 0px;
+
       &--green {
         color: var(--secondary-green-light);
       }
@@ -83,7 +84,7 @@ justify-content: flex-start;
 
 
 .features-list {
-  margin-top: 2.4rem;
+  margin-top: 0rem;
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
@@ -93,118 +94,122 @@ justify-content: flex-start;
   display: flex;
   align-items: flex-start;
   gap: 1rem;
-}
 
-.feature-icon {
-  width: 44px;
-  height: 44px;
-  flex-shrink: 0;
-  border: 1.8px solid rgba(3, 255, 171, 0.45);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(3, 255, 171, 0.07);
-  font-size: 1.2rem;
-  color: var(--secondary-green-light);
-  transition: background 0.22s, border-color 0.22s;
+  .feature-text {
+    h6 {
+      font-family: $font-syne-regular;
+      font-weight: 500;
+      font-size: 1rem;
+      color: #fff;
+      margin-bottom: 2px;
+    }
 
-  &:hover {
-    background: rgba(3, 255, 171, 0.15);
-    border-color: var(--secondary-green-light);
+    p {
+      font-family: $font-outfit-regular;
+      font-size: 0.75rem;
+      color: #fff;
+      margin: 0;
+    }
+  }
+
+  .feature-icon {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    border: 1.8px solid rgba(3, 255, 171, 0.45);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(3, 255, 171, 0.07);
+    font-size: 1.2rem;
+    color: var(--secondary-green-light);
+    transition: background 0.22s, border-color 0.22s;
+
+    &:hover {
+      background: rgba(3, 255, 171, 0.15);
+      border-color: var(--secondary-green-light);
+    }
   }
 }
 
-.feature-text {
-  h6 {
-    font-family: $font-syne-bold;
-    font-size: 0.98rem;
-    color: #fff;
-    margin-bottom: 2px;
-  }
 
-  p {
-    font-family: $font-outfit-regular;
-    font-size: 0.80rem;
-    color: #fff;
-    margin: 0;
-  }
-}
+
+
 
 .badges-row {
   display: flex;
-  gap: 72px;
-  margin-top: 22px;
-}
+  gap: 10px;
+  justify-content:space-between;
 
-.badge-item {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  padding: 0 1.5rem;
-
-  // Divider between items
-  &:not(:last-child)::after {
-    content: "";
+  .badge-item {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 15px;
+border: 1.8px solid rgba(3, 255, 171, 0.45);
+    border-radius: 10px;
+    .badge-left {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+      position: relative;
+      &::after{
+            content: "";
     position: absolute;
-    top: 10%;
-    right: -1.5rem;
+    top: 0px;
+    right: -10px;
     width: 1px;
-    height: 80%;
-    background: linear-gradient(to bottom,
-        transparent,
-        rgba(3, 255, 171, 0.4),
-        transparent);
-  }
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, rgba(3, 255, 171, 0.4), transparent);
+      }
+      .badge-icon-wrap {
+            display: flex;
+    align-items: left;
+    justify-content: center;
+    font-size: 20px;
+    color: var(--secondary-green-light);
+    transition: transform 0.22s;
 
-  &:first-child {
-    padding-left: 0;
-  }
+        &.filled {
+          background: var(--secondary-green-light);
+          color: var(--primary-green);
+        }
 
-  &:last-child {
-    padding-right: 0;
-  }
-}
+        &:hover {
+          transform: scale(2);
+        }
+      }
 
-.badge-icon-wrap {
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  border: 2.5px solid var(--secondary-green-light);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  color: var(--secondary-green-light);
-  background: rgba(3, 255, 171, 0.07);
-  transition: transform 0.22s;
-
-  &.filled {
-    background: var(--secondary-green-light);
-    color: var(--primary-green);
-  }
-
-  &:hover {
-    transform: scale(1.08);
+      
+    }
+    .badge-right{
+      span{
+        font-family: $font-outfit-regular;
+        font-size: 1.0rem;
+        color: var(--secondary-green-light);
+        text-align: center;
+        line-height: 1.2;}
+    }
   }
 }
+
+
+
+
 
 .badge-label {
   font-family: $font-syne-bold;
   font-size: 0.80rem;
   color: #fff;
-  text-align: center;
+  text-align: left;
   line-height: 1.2;
 }
 
-.badge-sub {
-  font-family: $font-outfit-regular;
-  font-size: 0.70rem;
-  color: #fff;
-  text-align: center;
-}
 
 
 
@@ -325,7 +330,7 @@ justify-content: flex-start;
   color: #e8f5f0;
   font-family: $font-outfit-regular;
   font-size: 0.875rem;
-  padding: 0.68rem 1rem;
+  padding: 12px;
   outline: none;
   transition: border-color 0.22s, box-shadow 0.22s, background 0.22s;
 
@@ -443,23 +448,22 @@ justify-content: flex-start;
 
 .btn-login {
   width: 100%;
-  background: var(--btn-login);
-  border: none;
+  background: var(--secondary-green-light);
+  border: 1px solid var(--secondary-green-light);
   border-radius: 10px;
   font-family: $font-syne-bold;
   font-size: 1.05rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: #021a12;
-  padding: 0.82rem 1rem;
+  padding: 10px;
   cursor: pointer;
-  transition: opacity 0.20s, transform 0.16s, box-shadow 0.20s;
-  box-shadow: 0 4px 20px rgba(3, 255, 171, 0.28);
+  transition: 0.20s;
 
   &:hover {
-    opacity: 0.88;
-    transform: translateY(-2px);
-    box-shadow: 0 10px 32px rgba(3, 255, 171, 0.38);
+    background: var(--secondary-green-dark);
+    color: #fff;
+    border: 1px solid var(--secondary-green-light);
   }
 
   &:active {
