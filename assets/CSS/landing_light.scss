@@ -19,10 +19,10 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background:
-        linear-gradient(rgba(0, 0, 0, 0.58),
-            rgba(0, 0, 0, 0.58)),
-        url("../IMAGES/login-bg.png");
+    // background:
+    //     linear-gradient(rgba(0, 0, 0, 0.58),
+    //         rgba(0, 0, 0, 0.58)),
+    //     url("../IMAGES/login-bg.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -36,6 +36,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background: #131d29;
     // transition: background 0.3s;
 
     @media #{$mobile_device} {
@@ -301,10 +302,9 @@ body {
 .card-footer {
     padding: 5px 14px !important;
     display: flex;
-    // align-items: flex-end;
+    align-items: flex-end;
     justify-content: space-between;
-    align-items: anchor-center;
-    background: rgba(21, 90, 82, 0.5) !important;
+    background: rgba(21, 90, 82, 1.0) !important;
     border-top: 1px solid var(--secondary-green-light);
 
     @media #{$mobile_device} {
@@ -329,7 +329,6 @@ body {
         font-size: 16px;
         font-weight: 700;
         color: var(--secondary-green-light);
-        margin: 0;
 
         @media #{$mobile_device} {
             font-size: 14px;

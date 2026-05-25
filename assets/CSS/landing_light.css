@@ -129,7 +129,6 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(rgba(0, 0, 0, 0.58), rgba(0, 0, 0, 0.58)), url("../IMAGES/login-bg.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -143,6 +142,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background: #131d29;
 }
 @media (max-width: 767px) {
   .header {
@@ -403,9 +403,9 @@ body {
 .card-footer {
   padding: 5px 14px !important;
   display: flex;
+  align-items: flex-end;
   justify-content: space-between;
-  align-items: anchor-center;
-  background: rgba(21, 90, 82, 0.5) !important;
+  background: rgb(21, 90, 82) !important;
   border-top: 1px solid var(--secondary-green-light);
 }
 @media (max-width: 767px) {
@@ -429,7 +429,6 @@ body {
   font-size: 16px;
   font-weight: 700;
   color: var(--secondary-green-light);
-  margin: 0;
 }
 @media (max-width: 767px) {
   .card-info .card-abbr {
@@ -448,4 +447,4 @@ body {
   color: #fff;
   font-size: 14px;
   transition: background 0.2s, border-color 0.2s, color 0.2s;
-}/*# sourceMappingURL=landing.css.map */
+}/*# sourceMappingURL=landing_light.css.map */
