@@ -25,9 +25,6 @@
   }
 }
 
-// ============================================================
-// Left Panel
-// ============================================================
 .login-left {
   flex: 6;
   padding: 25px;
@@ -58,9 +55,7 @@
   }
 }
 
-// ============================================================
-// Headline
-// ============================================================
+
 .headline-wrap {
   display: flex;
   justify-content: flex-start;
@@ -68,9 +63,7 @@
   gap: 16px;
 
   @media #{$mobile_device} {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    gap: 8px;
   }
 
   .headline-accent {
@@ -81,7 +74,18 @@
     flex-shrink: 0;
 
     @media #{$mobile_device} {
-      display: none;
+      display: none; // ← hide accent on mobile
+    }
+  }
+
+  >div {
+    display: flex;
+    flex-direction: column; // stacked by default
+
+    @media #{$mobile_device} {
+      flex-direction: row; // ← both p tags in same row
+      align-items: center;
+      gap: 6px;
     }
   }
 
@@ -93,12 +97,13 @@
     margin: 0;
 
     @media #{$mobile_device} {
-      font-size: 2rem;
+      margin-bottom: 15px;
+      font-size: 20px;
       line-height: 1.3;
     }
 
     @media #{$xs_mobile} {
-      font-size: 1.6rem;
+      font-size: 0.85rem;
     }
 
     &--green {
@@ -107,9 +112,7 @@
   }
 }
 
-// ============================================================
-// Logo
-// ============================================================
+
 .logo {
   display: flex;
   justify-content: center;
@@ -134,6 +137,10 @@
     width: 100%;
     max-width: 700px;
   }
+
+  @media #{$mobile_device} {
+    display: none;
+  }
 }
 
 .feature-item {
@@ -141,10 +148,6 @@
   align-items: flex-start;
   gap: 1rem;
 
-  @media #{$mobile_device} {
-    align-items: center;
-    gap: 4rem;
-  }
 
   .feature-icon {
     width: 44px;
@@ -259,6 +262,7 @@
     align-items: flex-start;
     gap: 6px;
     position: relative;
+    margin-top: 7px;
 
     &::after {
       content: "";
@@ -306,6 +310,7 @@
   color: #fff;
   text-align: left;
   line-height: 1.2;
+  margin-bottom: 4px;
 }
 
 // ============================================================
@@ -325,7 +330,7 @@
   }
 
   @media #{$mobile_device} {
-    padding: 20px 12px;
+    padding: 0 12px 20px;
   }
 }
 
@@ -501,10 +506,7 @@
   gap: 0.55rem;
   margin-bottom: 1.35rem;
 
-  @media #{$mobile_device} {
-    flex-direction: column;
-    align-items: stretch;
-  }
+
 }
 
 .captcha-box {
@@ -561,11 +563,11 @@
   cursor: pointer;
   transition: background 0.18s, transform 0.32s ease;
 
-  @media #{$mobile_device} {
-    width: 100%;
-    border-radius: 10px;
-    height: 44px;
-  }
+  // @media #{$mobile_device} {
+  //   width: 100%;
+  //   border-radius: 10px;
+  //   height: 44px;
+  // }
 
   i {
     font-size: 0.95rem;
