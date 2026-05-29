@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TPCODL Login</title>
+
+    <link rel="stylesheet" href="assets/CSS/font-awesome/css/all.css">
+    <link rel="stylesheet" href="assets/CSS/dashboard.css">
+    <link href="assets/CSS/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <button class="sidebar__toggle-btn" id="mobileToggle" aria-label="Open sidebar">
+        <i class="fa fa-bars"></i>
+    </button>
+
+    <!-- Mobile backdrop -->
+    <div class="sidebar__overlay" id="sidebarOverlay"></div>
+
+    <main class="dashboard">
+
+        <aside class="sidebar" id="sidebar">
+
+            <button class="sidebar__collapse-btn" id="collapseBtn" title="Collapse sidebar">
+                <i class="fa fa-chevron-left"></i>
+            </button>
+
+            <a href="#" class="sidebar__logo">
+                <img src="assets/images/white-logo-with-green-bizli.png" alt="TPCODL Logo" />
+            </a>
+
+            <!-- ── Navigation ── -->
+            <nav class="nav">
+                <ul>
+
+                    <li class="btnToggle" data-div="dashboard" data-chevron="ch-dashboard">
+                        <a href="#">
+                            <span class="nav__icon"><i class="fa-solid fa-gauge-high"></i></span>
+                            <span class="nav__label">Dashboard</span>
+                            <span class="nav__chevron" id="ch-dashboard">
+                                <i class="fa fa-chevron-right"></i>
+                            </span>
+                        </a>
+                        <ul id="dashboard" class="toggleDiv">
+                            <li><a href="#">Basic Dashboard</a></li>
+                            <li><a href="#">Peer Dashboard</a></li>
+                            <li><a href="#">Hierarchy Dashboard</a></li>
+                            <li><a href="#">Draft Entry Dashboard</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- without toggle button -->
+                    <li>
+                        <a href="#">
+                            <span class="nav__icon"><i class="fa-regular fa-file-lines"></i></span>
+                            <span class="nav__label">Option</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </nav>
+
+            <!-- ── Bottom: Settings + Profile ── -->
+            <div class="sidebar__bottom">
+
+                <!-- Settings -->
+                <a href="#" class="sidebar__settings">
+                    <span class="sidebar__settings-icon">
+                        <i class="fa-solid fa-gear"></i>
+                    </span>
+                    <span class="sidebar__settings-label">Settings</span>
+                </a>
+
+                <!-- Profile -->
+                <a href="#" class="sidebar__profile">
+                    <img class="sidebar__profile-avatar" src="assets/images/profile.webp" alt="Sujit Kumar Jena" />
+                    <div class="sidebar__profile-info">
+                        <span class="sidebar__profile-name">Sujit Kumar Jena</span>
+                        <span class="sidebar__profile-role">Account Settings</span>
+                    </div>
+                </a>
+
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT (placeholder) -->
+        <div class="main-content">
+            <!-- Your dashboard content goes here -->
+        </div>
+
+    </main>
+
+    <script>
+        var sidebar = document.getElementById('sidebar');
+        var collapseBtn = document.getElementById('collapseBtn');
+        var mobileToggle = document.getElementById('mobileToggle');
+        var overlay = document.getElementById('sidebarOverlay');
+
+        // ── Helper: expand sidebar if collapsed ────────
+        function expandIfCollapsed() {
+            if (sidebar.classList.contains('collapsed')) {
+                sidebar.classList.remove('collapsed');
+            }
+        }
+
+        // ── Top-level items (no submenu) ───────────────
+        document.querySelectorAll('.nav > ul > li:not(.btnToggle) > a').forEach(function (link) {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                expandIfCollapsed();
+
+                document.querySelectorAll('.nav > ul > li').forEach(function (li) {
+                    li.classList.remove('active');
+                });
+                this.closest('li').classList.add('active');
+            });
+        });
+
+        // ── Submenu items ──────────────────────────────
+        document.querySelectorAll('.toggleDiv li a').forEach(function (link) {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                expandIfCollapsed();
+
+                document.querySelectorAll('.nav > ul > li').forEach(function (li) {
+                    li.classList.remove('active');
+                });
+                document.querySelectorAll('.toggleDiv li').forEach(function (li) {
+                    li.classList.remove('active');
+                });
+
+                this.closest('li').classList.add('active');
+                this.closest('.btnToggle').classList.add('active');
+            });
+        });
+
+        // ── Submenu accordion ──────────────────────────
+        document.querySelectorAll('.btnToggle').forEach(function (item) {
+            item.querySelector(':scope > a').addEventListener('click', function (e) {
+                e.preventDefault();
+
+                // Expand sidebar first if it is collapsed
+                expandIfCollapsed();
+
+                var targetId = item.dataset.div;
+                var chevronId = item.dataset.chevron;
+                var submenu = document.getElementById(targetId);
+                var chevron = document.getElementById(chevronId);
+                var isOpen = item.classList.contains('open');
+
+                // Close all open submenus
+                document.querySelectorAll('.btnToggle.open').forEach(function (el) {
+                    el.classList.remove('open');
+                    el.querySelector('.toggleDiv').style.display = 'none';
+                    el.querySelector('.nav__chevron').classList.remove('rotated');
+                });
+
+                // Open clicked item if it was closed
+                if (!isOpen) {
+                    item.classList.add('open');
+                    submenu.style.display = 'block';
+                    chevron.classList.add('rotated');
+                }
+            });
+        });
+
+        // ── Desktop collapse toggle ────────────────────
+        collapseBtn.addEventListener('click', function () {
+            sidebar.classList.toggle('collapsed');
+        });
+
+        // ── Mobile open/close ──────────────────────────
+        mobileToggle.addEventListener('click', function () {
+            sidebar.classList.toggle('open');
+            overlay.classList.toggle('active');
+        });
+
+        overlay.addEventListener('click', function () {
+            sidebar.classList.remove('open');
+            overlay.classList.remove('active');
+        });
+    </script>
+
+    <script src="assets/CSS/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
