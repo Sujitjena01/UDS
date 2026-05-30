@@ -123,7 +123,7 @@ body {
     img {
         width: 100px;
         height: 60px;
-        border-radius: 8px;
+        border-radius: $br-5;
         object-fit: contain;
         flex-shrink: 0;
 
@@ -153,7 +153,7 @@ body {
     .sidebar__logo-sub {
         font-size: 9px;
         font-weight: 400;
-        color: $color-text-muted;
+        color: $highlight-green;
         letter-spacing: 0.08em;
         text-transform: uppercase;
         white-space: nowrap;
@@ -167,7 +167,7 @@ body {
         background: $color-badge-bg;
         border: 1px solid rgba(0, 200, 150, 0.3);
         padding: 1px 5px;
-        border-radius: 3px;
+        border-radius: $br-3;
         margin-top: 3px;
         white-space: nowrap;
         letter-spacing: 0.05em;
@@ -175,7 +175,6 @@ body {
     }
 }
 
-// Nav
 
 .nav {
     flex: 1;
@@ -183,7 +182,6 @@ body {
     overflow-x: hidden;
     padding: 10px 0;
 
-    // Custom thin scrollbar
     &::-webkit-scrollbar {
         width: 3px;
     }
@@ -194,7 +192,7 @@ body {
 
     &::-webkit-scrollbar-thumb {
         background: rgba(0, 200, 150, 0.2);
-        border-radius: 2px;
+        border-radius: $br-2;
     }
 
     // ---- Section label ----
@@ -232,7 +230,7 @@ body {
             color: $color-text-muted;
             font-size: 13px;
             font-weight: 500;
-            border-radius: 8px;
+            border-radius: $br-8;
             margin: 1px 8px;
             transition: background 0.2s, color 0.2s, padding $sidebar-transition;
             white-space: nowrap;
@@ -346,7 +344,7 @@ body {
     align-items: center;
     gap: 10px;
     padding: 10px 10px;
-    border-radius: 8px;
+    border-radius: $br-8;
     color: $color-text-muted;
     text-decoration: none;
     font-size: 13px;
@@ -380,7 +378,7 @@ body {
     align-items: center;
     gap: 10px;
     padding: 10px 10px;
-    border-radius: 8px;
+    border-radius: $br-8;
     text-decoration: none;
     cursor: pointer;
     transition: background 0.2s;
@@ -437,7 +435,7 @@ body {
     color: $color-text-primary;
     width: 38px;
     height: 38px;
-    border-radius: 8px;
+    border-radius: $br-8;
     align-items: center;
     justify-content: center;
     cursor: pointer;
@@ -562,7 +560,7 @@ body {
         gap: 8px;
         background: #fff;
         border: 1px solid #E2E8F0;
-        border-radius: 8px;
+        border-radius: $br-8;
         padding: 0 14px;
         height: 38px;
         min-width: 220px;
@@ -593,7 +591,7 @@ body {
     gap: 6px;
     padding: 0 16px;
     height: 38px;
-    border-radius: 8px;
+    border-radius: $br-5;
     font-size: 13px;
     font-weight: 500;
     cursor: pointer;
@@ -611,7 +609,7 @@ body {
         color: #fff;
 
         &:hover {
-            background: $primary;
+            background: darken($primary, 7.5%);
         }
     }
 
@@ -620,23 +618,395 @@ body {
         color: $black;
 
         &:hover {
-            opacity: 0.88;
+            background: darken($neon, 7.5%);
         }
     }
 
     &--outline {
-        background: #fff;
-        color: #1A2E2B;
-        border: 1px solid #E2E8F0;
+        background: $highlight-green;
+        color: #fff;
+        border-radius: $br-5;
+        padding: 8px;
+        border: none;
+        height: 38px;
 
         &:hover {
-            background: #F7FAFA;
+            background: darken($highlight-green, 7.5%);
         }
     }
 
-    &--sm {
-        height: 32px;
-        padding: 0 12px;
-        font-size: 12px;
+}
+
+.stat-cards {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    color: $highlight-green;
+
+    .stat-card {
+        flex: 1;
+        background: $beige-40;
+    }
+
+    @media (max-width: 1200px) {
+        flex-wrap: wrap;
+
+        .stat-card {
+            flex: 1 1 calc(50% - 8px);
+        }
+    }
+
+    @media (max-width: 600px) {
+        flex-direction: column;
+
+        .stat-card {
+            flex: 1 1 100%;
+        }
     }
 }
+
+.stat-card {
+    background: #fff;
+    border: 1px solid #EDF2F0;
+    border-radius: $br-8;
+    padding: 12px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: box-shadow 0.2s;
+
+    &:hover {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        gap: 0px;
+    }
+
+    &__icon {
+        width: 34px;
+        height: 34px;
+        border-radius: $br-8;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        flex-shrink: 0;
+
+    }
+
+    &__label {
+        font-size: 12px;
+        font-weight: 500;
+        flex: 1;
+    }
+
+    &__bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__value {
+        font-size: 28px;
+        font-weight: 700;
+        color: $highlight-green;
+        letter-spacing: -0.8px;
+        line-height: 1;
+    }
+
+    &__badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 10px;
+        font-weight: 600;
+        padding: 3px 9px;
+        border-radius: $br-2;
+        width: fit-content;
+
+        &--up {
+            background: $highlight-green;
+            color: #fff;
+        }
+
+        &.chart {
+            background: rgba(#05c168, 0.2);
+            ;
+            color: #14CA74;
+        }
+
+        &--down {
+            background: $error-red;
+            color: #fff;
+        }
+
+        i {
+            font-size: 10px;
+        }
+    }
+}
+
+.charts-row {
+    display: grid;
+    grid-template-columns: 1fr 330px;
+    gap: 16px;
+    margin-bottom: 24px;
+
+    &--full {
+        grid-template-columns: 1fr; // override to single column
+    }
+
+    @media (max-width: 1100px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.chart-card {
+    background: #fff;
+    border: 1px solid $highlight-green;
+    border-radius: $br-8;
+    overflow: hidden;
+
+    // ---- Main large card ----
+    &--main {
+        display: flex;
+        flex-direction: column;
+    }
+
+    // ---- Trend card ----
+    &--trend {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+    }
+
+    &__header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        padding: 20px 20px 0;
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    &__title {
+        font-size: 25px;
+        font-weight: 500;
+        color: $highlight-green;
+        margin: 0 0 0px;
+    }
+
+    &__value {
+        font-size: 26px;
+        font-weight: 700;
+        color: #1A2E2B;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        letter-spacing: -0.5px;
+    }
+
+    &__controls {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+        padding-top: 4px;
+
+        .date {
+            font-size: 13px;
+            color: $white;
+        }
+    }
+
+    &__body {
+        flex: 1;
+        padding: 16px 20px 20px;
+        height: 280px;
+        position: relative;
+
+        canvas {
+            width: 100% !important;
+            height: 100% !important;
+        }
+    }
+
+    &__body--trend {
+        height: 220px;
+        padding: 16px 20px 20px;
+
+        canvas {
+            width: 100% !important;
+            height: 100% !important;
+        }
+    }
+
+    // ---- Mini side cards ----
+    &--mini {
+        display: flex;
+        flex-direction: column;
+        padding: 18px 18px 14px;
+    }
+
+    &__mini-header {
+        font-size: 12px;
+        font-weight: 500;
+        color: $highlight-green;
+        margin-bottom: 6px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+
+        i {
+            color: $color-accent;
+            font-size: 13px;
+        }
+    }
+
+    &__mini-value {
+        font-size: 24px;
+        font-weight: 700;
+        color: #1A2E2B;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 8px;
+        letter-spacing: -0.5px;
+    }
+
+    &__body--mini {
+        height: 100px;
+        position: relative;
+
+        canvas {
+            width: 100% !important;
+            height: 100% !important;
+        }
+    }
+
+    &__mini-footer {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 10px;
+        padding-top: 5px;
+        font-size: 12px;
+        border-top: 1px solid $highlight-green;
+    }
+}
+
+.chart-side {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .chart-card--mini {
+        flex: 1;
+    }
+}
+
+// Chart legend
+.chart-legend {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 12px;
+    color: $color-text-muted;
+
+    &__dot {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        margin-right: 4px;
+
+        &--installed {
+            background: $color-accent;
+        }
+
+        &--instock {
+            background: #38BDF8;
+        }
+    }
+}
+
+// Tooltip overlay (positioned inside chart body)
+.chart-tooltip {
+    position: absolute;
+    top: 38%;
+    left: 42%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    border: 1px solid #EDF2F0;
+    border-radius: $br-8;
+    padding: 10px 14px;
+    pointer-events: none;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.10);
+    z-index: 10;
+
+    &__value {
+        font-size: 16px;
+        font-weight: 700;
+        color: #1A2E2B;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 2px;
+    }
+
+    &__date {
+        font-size: 11px;
+        color: $color-text-muted;
+    }
+}
+
+// ── Utilities ────────────────────────────────────────────────
+.text-muted {
+    color: $color-text-muted;
+    flex: 1;
+}
+
+.link-accent {
+    color: $color-accent;
+    font-size: 12px;
+    font-weight: 500;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.live-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    font-weight: 600;
+    color: $color-accent;
+    background: rgba(0, 200, 150, 0.1);
+    padding: 2px 8px;
+    border-radius: $br-3;
+
+    i {
+        font-size: 7px;
+        animation: pulse-dot 1.5s ease-in-out infinite;
+    }
+}
+
+@keyframes pulse-dot {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+}
+

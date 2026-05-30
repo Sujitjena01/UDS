@@ -32,6 +32,15 @@ $font-syne-italic: "Syne-Italic",
 sans-serif; // italic
 $font-syne-mono: "Syne-Mono",
 monospace; // mono version
+
+/*------------------- Border radius --------------------------*/
+
+$br-2: 2px;
+$br-3: 3px;
+$br-4: 4px;
+$br-5: 5px;
+$br-8: 8px;
+
 /*------------------- Responsive --------------------------*/
 
 $laptop: 'only screen and (min-width: 1200px) and (max-width: 1600px)';

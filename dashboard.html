@@ -89,21 +89,209 @@
 
         <!-- MAIN CONTENT (placeholder) -->
         <div class="main-content">
+
+
             <div class="topbar">
                 <div class="topbar__left">
                     <h1 class="topbar__title">Welcome back, Sujit</h1>
                     <p class="topbar__subtitle">Measure your advertising ROI and report website traffic.</p>
                 </div>
                 <div class="topbar__right">
+                    <button class="tp-btn--outline btn--sm">
+                        <i class="fa-regular fa-calendar"></i> <span class="date">Jan 2026 – Dec 2026</span>
+                        <i class="fa-solid fa-chevron-down" style="font-size:10px;margin-left:4px;"></i>
+                    </button>
                     <button class="tp-btn tp-btn--primary">
-                        <i class="fa-solid fa-download"></i> Export data
+                        Export data <i class="fa-solid fa-download"></i>
                     </button>
                     <button class="tp-btn tp-btn--accent">
-                        <i class="fa-solid fa-plus"></i> Create report
+                        Create report<i class="fa-solid fa-plus"></i>
                     </button>
                 </div>
             </div>
+
+            <div class="stat-cards">
+
+                <div class="stat-card">
+                    <div class="stat-card__header">
+                        <div class="stat-card__icon ">
+                            <i class="fa-solid fa-gauge-high"></i>
+                        </div>
+                        <span class="stat-card__label">Total Meter</span>
+
+                    </div>
+                    <div class="stat-card__bottom">
+                        <div class="stat-card__value">147.7K</div>
+                        <span class="stat-card__badge stat-card__badge--up">
+                            28.4% <i class="fa-solid fa-arrow-trend-up"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-card__header">
+                        <div class="stat-card__icon ">
+                            <i class="fa-solid fa-plug-circle-check"></i>
+                        </div>
+                        <span class="stat-card__label">Meter Installed</span>
+
+                    </div>
+                    <div class="stat-card__bottom">
+                        <div class="stat-card__value">15.6K</div>
+                        <span class="stat-card__badge stat-card__badge--down">
+                            12.6% <i class="fa-solid fa-arrow-trend-down"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-card__header">
+                        <div class="stat-card__icon ">
+                            <i class="fa-solid fa-microchip"></i>
+                        </div>
+                        <span class="stat-card__label">Smart Prepaid</span>
+
+                    </div>
+                    <div class="stat-card__bottom">
+                        <div class="stat-card__value">1.2M</div>
+                        <span class="stat-card__badge stat-card__badge--up">
+                            28.4% <i class="fa-solid fa-arrow-trend-up"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-card__header">
+                        <div class="stat-card__icon ">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                        <span class="stat-card__label">Total Users</span>
+
+                    </div>
+                    <div class="stat-card__bottom">
+                        <div class="stat-card__value">50.8K</div>
+                        <span class="stat-card__badge stat-card__badge--up">
+                            28.4% <i class="fa-solid fa-arrow-trend-up"></i>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="charts-row">
+
+                <!-- Main Area Chart -->
+                <div class="chart-card chart-card--main">
+                    <div class="chart-card__header">
+                        <div>
+                            <p class="chart-card__title"> Total Revenue</p>
+                            <div class="chart-card__value">
+                                240.8K
+                                <span class="stat-card__badge stat-card__badge--up chart" style="font-size:11px;">
+                                    <i class="fa-solid fa-arrow-trend-up"></i> 24.6%
+                                </span>
+                            </div>
+                        </div>
+                        <div class="chart-card__controls">
+                            <button class="tp-btn--outline btn--sm">
+                                <i class="fa-regular fa-calendar"></i> <span class="date">Jan 2026 – Dec 2026</span>
+                                <i class="fa-solid fa-chevron-down" style="font-size:10px;margin-left:4px;"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="chart-card__body">
+                        <canvas id="mainAreaChart"></canvas>
+                        <!-- Tooltip -->
+                        <div class="chart-tooltip" id="chartTooltip" style="display:none;">
+                            <div class="chart-tooltip__value">125.2k <span class="stat-card__badge stat-card__badge--up"
+                                    style="font-size:10px;padding:2px 6px;"><i
+                                        class="fa-solid fa-arrow-trend-up chart"></i>
+                                    12.5%</span></div>
+                            <div class="chart-tooltip__date">June 21, 2026</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Side mini cards -->
+                <div class="chart-side">
+
+                    <!-- Daily Meter Installation -->
+                    <div class="chart-card chart-card--mini">
+                        <div class="chart-card__mini-header">
+                            Daily Meter Installation <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <div class="chart-card__mini-value">
+                            144.6K
+                            <span class="stat-card__badge stat-card__badge--up chart"
+                                style="font-size:10px;padding:2px 6px;">
+                                <i class="fa-solid fa-arrow-trend-up"></i> 28.5%
+                            </span>
+                        </div>
+                        <div class="chart-card__body--mini">
+                            <canvas id="dailyBarChart"></canvas>
+                        </div>
+                        <div class="chart-card__mini-footer">
+                            <span class="text-muted">Last 12 months</span>
+                            <a href="#" class="link-accent">View report</a>
+                        </div>
+                    </div>
+
+                    <div class="chart-card chart-card--mini">
+                        <div class="chart-card__mini-header">
+                            Total sessions <i class="fa-solid fa-clock-rotate-left"></i>
+                        </div>
+                        <div class="chart-card__mini-value">
+                            400
+                            <span class="stat-card__badge stat-card__badge--up chart"
+                                style="font-size:10px;padding:2px 6px;">
+                                <i class="fa-solid fa-arrow-trend-up"></i> 16.8%
+                            </span>
+                        </div>
+                        <div class="chart-card__body--mini">
+                            <canvas id="sessionLineChart"></canvas>
+                        </div>
+                        <div class="chart-card__mini-footer">
+                            <span class="live-badge"><i class="fa-solid fa-circle"></i> Live</span>
+                            <span class="text-muted" style="font-size:12px;">10k visitors</span>
+                            <a href="#" class="link-accent">View report</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="charts-row--full">
+                <div class="chart-card chart-card--trend">
+
+                    <div class="chart-card__header">
+                        <div>
+                            <p class="chart-card__title">Monthly Trend</p>
+                            <div class="chart-card__value">
+                                2.4M
+                                <span class="stat-card__badge stat-card__badge--up chart" style="font-size:11px;">
+                                    <i class="fa-solid fa-arrow-trend-up"></i> 18.2%
+                                </span>
+                            </div>
+                        </div>
+                        <div class="chart-card__controls">
+                            <button class="tp-btn tp-btn--outline tp-btn--sm">
+                                <i class="fa-regular fa-calendar"></i>
+                                <span class="date">Jan 2026 – Dec 2026</span>
+                                <i class="fa-solid fa-chevron-down" style="font-size:10px;"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="chart-card__body chart-card__body--trend">
+                        <canvas id="trendChart"></canvas>
+                    </div>
+
+                </div>
+            </div>
+
+
         </div>
+
 
     </main>
 
@@ -230,6 +418,248 @@
     </script>
 
     <script src="assets/CSS/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+    <script>
+        (function () {
+            // ── Colour tokens ────────────────────────────────────────
+            const accent = '#00C896';
+            const accentLt = 'rgba(0,200,150,0.15)';
+            const blue = '#38BDF8';
+            const blueLt = 'rgba(56,189,248,0.15)';
+            const muted = '#7EADA6';
+            const gridCol = 'rgba(0,0,0,0.06)';
+
+            Chart.defaults.font.family = "'Outfit', sans-serif";
+            Chart.defaults.font.size = 11;
+            Chart.defaults.color = muted;
+
+            // ── 1. Main area chart ───────────────────────────────────
+            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+            const installed = [28000, 30000, 45000, 55000, 80000, 125200, 155000, 185000, 210000, 230000, 238000, 240800];
+            const instock = [35000, 30000, 25000, 20000, 22000, 28000, 32000, 28000, 24000, 20000, 18000, 16000];
+
+            const mainCtx = document.getElementById('mainAreaChart').getContext('2d');
+
+            // Green gradient
+            const gGrad = mainCtx.createLinearGradient(0, 0, 0, 280);
+            gGrad.addColorStop(0, 'rgba(0,200,150,0.55)');
+            gGrad.addColorStop(1, 'rgba(0,200,150,0.02)');
+
+            // Blue gradient
+            const bGrad = mainCtx.createLinearGradient(0, 0, 0, 280);
+            bGrad.addColorStop(0, 'rgba(56,189,248,0.50)');
+            bGrad.addColorStop(1, 'rgba(56,189,248,0.02)');
+
+            new Chart(mainCtx, {
+                type: 'line',
+                data: {
+                    labels: months,
+                    datasets: [
+                        {
+                            label: 'Installed',
+                            data: installed,
+                            borderColor: accent,
+                            backgroundColor: gGrad,
+                            borderWidth: 2.5,
+                            fill: true,
+                            tension: 0.45,
+                            pointRadius: 0,
+                            pointHoverRadius: 6,
+                            pointHoverBackgroundColor: accent,
+                            pointHoverBorderColor: '#fff',
+                            pointHoverBorderWidth: 2,
+                        },
+                        {
+                            label: 'Instock',
+                            data: instock,
+                            borderColor: blue,
+                            backgroundColor: bGrad,
+                            borderWidth: 2.5,
+                            fill: true,
+                            tension: 0.45,
+                            pointRadius: 0,
+                            pointHoverRadius: 6,
+                            pointHoverBackgroundColor: blue,
+                            pointHoverBorderColor: '#fff',
+                            pointHoverBorderWidth: 2,
+                        },
+                    ],
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: { mode: 'index', intersect: false },
+                    plugins: {
+                        legend: { display: true, position: 'top', labels: { boxWidth: 12, padding: 20, usePointStyle: true, pointStyle: 'circle' } },
+                        tooltip: {
+                            backgroundColor: '#fff',
+                            titleColor: '#1A2E2B',
+                            bodyColor: muted,
+                            borderColor: '#EDF2F0',
+                            borderWidth: 1,
+                            padding: 12,
+                            cornerRadius: 10,
+                            callbacks: {
+                                label: ctx => ` ${(ctx.raw / 1000).toFixed(1)}K`,
+                            }
+                        },
+                    },
+                    scales: {
+                        x: {
+                            grid: { display: false },
+                            border: { display: false },
+                            ticks: { color: muted },
+                        },
+                        y: {
+                            min: 0,
+                            max: 250000,
+                            ticks: {
+                                color: muted,
+                                callback: v => v >= 1000 ? (v / 1000) + 'K' : v,
+                                stepSize: 50000,
+                            },
+                            grid: { color: gridCol },
+                            border: { display: false },
+                        },
+                    },
+                },
+            });
+
+            // ── 2. Daily bar chart ───────────────────────────────────
+            const hours = ['12 AM', '', '', '', '8 AM', '', '', '', '4 PM', '', '', '11 PM'];
+            const darkBars = [60, 45, 70, 55, 80, 65, 90, 75, 85, 70, 95, 80];
+            const yellBars = [30, 20, 40, 25, 50, 35, 60, 45, 55, 40, 65, 50];
+
+            const dailyCtx = document.getElementById('dailyBarChart').getContext('2d');
+            new Chart(dailyCtx, {
+                type: 'bar',
+                data: {
+                    labels: hours,
+                    datasets: [
+                        { label: 'Installed', data: darkBars, backgroundColor: '#1A2E2B', borderRadius: 3, barPercentage: 0.5 },
+                        { label: 'Pending', data: yellBars, backgroundColor: '#F5C842', borderRadius: 3, barPercentage: 0.5 },
+                    ],
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false }, tooltip: { mode: 'index' } },
+                    scales: {
+                        x: { grid: { display: false }, border: { display: false }, ticks: { color: muted, maxRotation: 0 } },
+                        y: { display: false },
+                    },
+                },
+            });
+
+            // ── 3. Sessions line chart ───────────────────────────────
+            const sessHours = ['12 AM', '', '', '', '8 AM', '', '', '', '4 PM', '', '', '11 PM'];
+            const sessData = [80, 60, 90, 50, 110, 70, 260, 100, 160, 80, 200, 110];
+
+            const sessCtx = document.getElementById('sessionLineChart').getContext('2d');
+            new Chart(sessCtx, {
+                type: 'line',
+                data: {
+                    labels: sessHours,
+                    datasets: [{
+                        data: sessData,
+                        borderColor: muted,
+                        borderWidth: 1.5,
+                        fill: false,
+                        tension: 0.4,
+                        pointRadius: 5,
+                    }],
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false }, tooltip: { enabled: true } },
+                    scales: {
+                        x: { grid: { display: false }, border: { display: false }, ticks: { color: muted, maxRotation: 0 } },
+                        y: {
+                            min: 0, max: 500,
+                            ticks: { color: muted, stepSize: 250, callback: v => v },
+                            grid: { color: gridCol },
+                            border: { display: false },
+                        },
+                    },
+                },
+            });
+
+            const trendCtx = document.getElementById('trendChart').getContext('2d');
+
+            const trendGrad = trendCtx.createLinearGradient(0, 0, 0, 220);
+            trendGrad.addColorStop(0, 'rgba(0,200,150,0.2)');
+            trendGrad.addColorStop(1, 'rgba(0,200,150,0.0)');
+
+            new Chart(trendCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    datasets: [
+                        {
+                            label: 'Revenue',
+                            data: [120000, 145000, 160000, 175000, 190000, 210000, 230000, 215000, 240000, 260000, 245000, 280000],
+                            backgroundColor: trendGrad,
+                            borderColor: accent,
+                            borderWidth: 2,
+                            borderRadius: 6,
+                            borderSkipped: false,
+                        },
+                        {
+                            label: 'Target',
+                            data: [150000, 150000, 170000, 170000, 200000, 200000, 220000, 220000, 250000, 250000, 260000, 260000],
+                            type: 'line',
+                            borderColor: blue,
+                            borderWidth: 2,
+                            borderDash: [5, 5],
+                            fill: false,
+                            tension: 0.4,
+                            pointRadius: 0,
+                            pointHoverRadius: 5,
+                            pointHoverBackgroundColor: blue,
+                            pointHoverBorderColor: '#fff',
+                            pointHoverBorderWidth: 2,
+                        }
+                    ],
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: { mode: 'index', intersect: false },
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top',
+                            labels: {
+                                boxWidth: 12,
+                                padding: 20,
+                                usePointStyle: true,
+                                pointStyle: 'circle',
+                                color: muted,
+                            }
+                        },
+                        tooltip: { enabled: true },
+                    },
+                    scales: {
+                        x: {
+                            grid: { display: false },
+                            border: { display: false },
+                            ticks: { color: muted },
+                        },
+                        y: {
+                            ticks: {
+                                color: muted,
+                                callback: v => (v / 1000) + 'K',
+                            },
+                            grid: { color: gridCol },
+                            border: { display: false },
+                        },
+                    },
+                },
+            });
+        })();
+    </script>
 
 </body>
 
