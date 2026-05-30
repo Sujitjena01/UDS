@@ -89,7 +89,20 @@
 
         <!-- MAIN CONTENT (placeholder) -->
         <div class="main-content">
-            <!-- Your dashboard content goes here -->
+            <div class="topbar">
+                <div class="topbar__left">
+                    <h1 class="topbar__title">Welcome back, Sujit</h1>
+                    <p class="topbar__subtitle">Measure your advertising ROI and report website traffic.</p>
+                </div>
+                <div class="topbar__right">
+                    <button class="tp-btn tp-btn--primary">
+                        <i class="fa-solid fa-download"></i> Export data
+                    </button>
+                    <button class="tp-btn tp-btn--accent">
+                        <i class="fa-solid fa-plus"></i> Create report
+                    </button>
+                </div>
+            </div>
         </div>
 
     </main>
@@ -108,16 +121,29 @@
         }
 
         // ── Top-level items (no submenu) ───────────────
+        // ── Top-level items (no submenu) ───────────────  ← find this comment
         document.querySelectorAll('.nav > ul > li:not(.btnToggle) > a').forEach(function (link) {
             link.addEventListener('click', function (e) {
                 e.preventDefault();
 
                 expandIfCollapsed();
 
+                // ↓ ADD THESE 6 LINES
+                document.querySelectorAll('.btnToggle.open').forEach(function (el) {
+                    el.classList.remove('open');
+                    el.querySelector('.toggleDiv').style.display = 'none';
+                    el.querySelector('.nav__chevron').classList.remove('rotated');
+                });
+                // ↑ ADD THESE 6 LINES
+
                 document.querySelectorAll('.nav > ul > li').forEach(function (li) {
                     li.classList.remove('active');
                 });
                 this.closest('li').classList.add('active');
+
+                document.querySelectorAll('.toggleDiv li').forEach(function (li) {
+                    li.classList.remove('active');
+                });
             });
         });
 
@@ -185,6 +211,22 @@
             sidebar.classList.remove('open');
             overlay.classList.remove('active');
         });
+
+        (function () {
+            var dashToggle = document.querySelector('[data-div="dashboard"]');
+            var submenu = document.getElementById('dashboard');
+            var chevron = document.getElementById('ch-dashboard');
+            var firstItem = submenu.querySelector('li:first-child');
+
+            // Open the accordion
+            dashToggle.classList.add('open');
+            submenu.style.display = 'block';
+            chevron.classList.add('rotated');
+
+            // Mark first submenu item + parent as active
+            firstItem.classList.add('active');
+            dashToggle.classList.add('active');
+        })();
     </script>
 
     <script src="assets/CSS/bootstrap.bundle.min.js"></script>

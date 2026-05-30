@@ -1,18 +1,6 @@
 @import '../CSS/styles';
 
 
-$color-sidebar-bg: #031C19;
-$color-sidebar-hover: #0A2E2A;
-$color-sidebar-active: #0D3B35;
-$color-accent: #00C896;
-$color-accent-light: rgba(5, 205, 155, 0.12);
-$color-text-primary: #E8F5F2;
-$color-text-muted: #7EADA6;
-$color-submenu-bg: #021512;
-$color-submenu-hover: #052E28;
-$color-divider: rgba(255, 255, 255, 0.07);
-$color-badge-bg: rgba(0, 200, 150, 0.15);
-
 
 *,
 *::before,
@@ -35,9 +23,7 @@ body {
     width: 100%;
 }
 
-// ============================================================
-// Sidebar
-// ============================================================
+
 .sidebar {
     background: #031C19;
     width: 260px;
@@ -52,10 +38,8 @@ body {
     z-index: 100;
     flex-shrink: 0;
 
-    // Subtle right border
     border-right: 1px solid $color-divider;
 
-    // ---- Collapsed state (JS toggles this) ----
     &.collapsed {
         width: $sidebar-collapsed-width;
         min-width: $sidebar-collapsed-width;
@@ -99,6 +83,10 @@ body {
         .sidebar__profile {
             justify-content: center;
             padding: 10px 0;
+        }
+
+        .toggleDiv {
+            display: none !important;
         }
     }
 
@@ -236,26 +224,26 @@ body {
         position: relative;
 
         >a {
-    display: flex;
-    align-items: center;
-    gap: 0;
-    padding: 10px 16px;
-    text-decoration: none;
-    color: $color-text-muted;
-    font-size: 13px;
-    font-weight: 500;
-    border-radius: 8px;
-    margin: 1px 8px;
-    transition: background 0.2s, color 0.2s, padding $sidebar-transition;
-    white-space: nowrap;
-    overflow: hidden;
-    
+            display: flex;
+            align-items: center;
+            gap: 0;
+            padding: 10px 16px;
+            text-decoration: none;
+            color: $color-text-muted;
+            font-size: 13px;
+            font-weight: 500;
+            border-radius: 8px;
+            margin: 1px 8px;
+            transition: background 0.2s, color 0.2s, padding $sidebar-transition;
+            white-space: nowrap;
+            overflow: hidden;
 
-    &:hover {
-        background: $color-sidebar-hover;
-        color: $color-text-primary;
-    }
-}
+
+            &:hover {
+                background: $color-sidebar-hover;
+                color: $color-text-primary;
+            }
+        }
 
         // Active state
         &.active>a {
@@ -528,5 +516,127 @@ body {
 
     @media #{$mobile_device} {
         padding: 70px 16px 20px;
+    }
+}
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 24px;
+    font-family: $font-outfit-regular;
+
+    &__left {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    &__title {
+        font-family: $font-outfit-medium;
+        font-size: 25px;
+        color: $oceanic-green;
+        margin: 0;
+        letter-spacing: -0.3px;
+    }
+
+    &__subtitle {
+
+        font-size: 13px;
+        color: $oceanic-green;
+        margin: 0;
+    }
+
+    &__right {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    &__search {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: #fff;
+        border: 1px solid #E2E8F0;
+        border-radius: 8px;
+        padding: 0 14px;
+        height: 38px;
+        min-width: 220px;
+
+        i {
+            color: $color-text-muted;
+            font-size: 13px;
+        }
+
+        input {
+            border: none;
+            outline: none;
+            background: transparent;
+            font-size: 13px;
+            color: #1A2E2B;
+            width: 100%;
+
+            &::placeholder {
+                color: #A0AEC0;
+            }
+        }
+    }
+}
+
+.tp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 16px;
+    height: 38px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    transition: background 0.2s, opacity 0.2s, box-shadow 0.2s;
+    white-space: nowrap;
+    text-decoration: none;
+
+    i {
+        font-size: 12px;
+    }
+
+    &--primary {
+        background: $primary;
+        color: #fff;
+
+        &:hover {
+            background: $primary;
+        }
+    }
+
+    &--accent {
+        background: $neon;
+        color: $black;
+
+        &:hover {
+            opacity: 0.88;
+        }
+    }
+
+    &--outline {
+        background: #fff;
+        color: #1A2E2B;
+        border: 1px solid #E2E8F0;
+
+        &:hover {
+            background: #F7FAFA;
+        }
+    }
+
+    &--sm {
+        height: 32px;
+        padding: 0 12px;
+        font-size: 12px;
     }
 }

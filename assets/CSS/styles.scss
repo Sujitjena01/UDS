@@ -22,9 +22,24 @@
   --primary-black: #202020;
   --beige: #CCC1A9;
   --badge-icons: #9BF380;
-  --btn-login: #00D470
-  --bg: #0f1a17
+  --btn-login: #00D470 --bg: #0f1a17
 }
+
+$color-sidebar-bg: #031C19;
+$color-sidebar-hover: #0A2E2A;
+$color-sidebar-active: #0D3B35;
+$color-accent: #00C896;
+$color-accent-light: rgba(5, 205, 155, 0.12);
+$color-text-primary: #E8F5F2;
+$color-text-muted: #7EADA6;
+$color-submenu-bg: #021512;
+$color-submenu-hover: #052E28;
+$color-divider: rgba(255, 255, 255, 0.07);
+$color-badge-bg: rgba(0, 200, 150, 0.15);
+
+$sidebar-width: 200px;
+$sidebar-collapsed-width: 68px;
+$sidebar-transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
 *,
 *::before,
@@ -43,4 +58,3 @@ body {
   // overflow: hidden;
 
 }
-

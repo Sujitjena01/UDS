@@ -348,8 +348,7 @@
   --primary-black: #202020;
   --beige: #CCC1A9;
   --badge-icons: #9BF380;
-  --btn-login: #00D470
-  --bg: #0f1a17 ;
+  --btn-login: #00D470 --bg: #0f1a17 ;
 }
 
 *,
