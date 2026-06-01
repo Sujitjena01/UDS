@@ -11,7 +11,7 @@
 }
 
 body {
-    font-family: $font-outfit-regular;
+    // font-family: $font-outfit-regular;
     background-color: none;
     min-height: 100vh;
     transition: background 0.3s;
@@ -201,7 +201,7 @@ body {
         font-weight: 600;
         letter-spacing: 0.12em;
         text-transform: uppercase;
-        color: $color-text-muted;
+        color: $highlight-green;
         padding: 14px 18px 6px;
         white-space: nowrap;
         overflow: hidden;
@@ -227,7 +227,7 @@ body {
             gap: 0;
             padding: 10px 16px;
             text-decoration: none;
-            color: $color-text-muted;
+            color: $highlight-green;
             font-size: 13px;
             font-weight: 500;
             border-radius: $br-8;
@@ -304,7 +304,7 @@ body {
                 display: block;
                 font-size: 12px;
                 padding: 8px 12px 8px 24px;
-                color: $color-text-muted;
+                color: $highlight-green;
                 text-decoration: none;
                 transition: background 0.2s, color 0.2s, padding-left 0.2s;
                 white-space: nowrap;
@@ -345,7 +345,7 @@ body {
     gap: 10px;
     padding: 10px 10px;
     border-radius: $br-8;
-    color: $color-text-muted;
+    color: $highlight-green;
     text-decoration: none;
     font-size: 13px;
     font-weight: 500;
@@ -415,7 +415,7 @@ body {
 
         .sidebar__profile-role {
             font-size: 10px;
-            color: $color-text-muted;
+            color: $highlight-green;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -478,7 +478,7 @@ body {
     background: $color-sidebar-bg;
     border: 1px solid $color-divider;
     border-radius: 50%;
-    color: $color-text-muted;
+    color: $highlight-green;
     cursor: pointer;
     font-size: 10px;
     z-index: 101;
@@ -508,7 +508,7 @@ body {
 .main-content {
     flex: 1;
     min-width: 0;
-    padding: 30px;
+    padding: 25px;
     color: #fff;
     transition: margin $sidebar-transition;
 
@@ -533,7 +533,7 @@ body {
     }
 
     &__title {
-        font-family: $font-outfit-medium;
+        font-family: $font-outfit-light;
         font-size: 25px;
         color: $oceanic-green;
         margin: 0;
@@ -566,7 +566,7 @@ body {
         min-width: 220px;
 
         i {
-            color: $color-text-muted;
+            color: $highlight-green;
             font-size: 13px;
         }
 
@@ -915,7 +915,7 @@ body {
     align-items: center;
     gap: 14px;
     font-size: 12px;
-    color: $color-text-muted;
+    color: $highlight-green;
 
     &__dot {
         display: inline-block;
@@ -960,13 +960,13 @@ body {
 
     &__date {
         font-size: 11px;
-        color: $color-text-muted;
+        color: $highlight-green;
     }
 }
 
 // ── Utilities ────────────────────────────────────────────────
 .text-muted {
-    color: $color-text-muted;
+    color: $highlight-green;
     flex: 1;
 }
 
@@ -1009,4 +1009,3 @@ body {
         opacity: 0.3;
     }
 }
-

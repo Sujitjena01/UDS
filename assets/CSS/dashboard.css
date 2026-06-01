@@ -3,7 +3,7 @@
    ========================= */
 @font-face {
   font-family: "Outfit-Black";
-  src: url("../../../FONTS/OutfitBlack.ttf") format("truetype");
+  src: url("../../FONTS/OutfitBlack.ttf") format("truetype");
   font-weight: 900;
 }
 @font-face {
@@ -41,31 +41,31 @@
    ============================ */
 @font-face {
   font-family: "Syne";
-  src: url("../FONTS/Syne-Regular.woff") format("woff");
+  src: url("../../FONTS/Syne-Regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: "Syne-Bold";
-  src: url("../FONTS/Syne-Bold.woff") format("woff");
+  src: url("../../FONTS/Syne-Bold.woff") format("woff");
   font-weight: 700;
   font-style: normal;
 }
 @font-face {
   font-family: "Syne-Extra";
-  src: url("../FONTS/Syne-Extra.woff") format("woff");
+  src: url("../../FONTS/Syne-Extra.woff") format("woff");
   font-weight: 800;
   font-style: normal;
 }
 @font-face {
   font-family: "Syne-Italic";
-  src: url("../FONTS/Syne-Italic.woff") format("woff");
+  src: url("../../FONTS/Syne-Italic.woff") format("woff");
   font-weight: 400;
   font-style: italic;
 }
 @font-face {
   font-family: "Syne-Mono";
-  src: url("../FONTS/Syne-Mono.woff") format("woff");
+  src: url("../../FONTS/Syne-Mono.woff") format("woff");
   font-weight: 400;
   font-style: normal;
 }
@@ -377,7 +377,6 @@ body {
 }
 
 body {
-  font-family: "Outfit-Regular", sans-serif;
   background-color: none;
   min-height: 100vh;
   transition: background 0.3s;
@@ -542,7 +541,7 @@ body {
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #7EADA6;
+  color: #10635A;
   padding: 14px 18px 6px;
   white-space: nowrap;
   overflow: hidden;
@@ -565,7 +564,7 @@ body {
   gap: 0;
   padding: 10px 16px;
   text-decoration: none;
-  color: #7EADA6;
+  color: #10635A;
   font-size: 13px;
   font-weight: 500;
   border-radius: 8px;
@@ -625,7 +624,7 @@ body {
   display: block;
   font-size: 12px;
   padding: 8px 12px 8px 24px;
-  color: #7EADA6;
+  color: #10635A;
   text-decoration: none;
   transition: background 0.2s, color 0.2s, padding-left 0.2s;
   white-space: nowrap;
@@ -658,7 +657,7 @@ body {
   gap: 10px;
   padding: 10px 10px;
   border-radius: 8px;
-  color: #7EADA6;
+  color: #10635A;
   text-decoration: none;
   font-size: 13px;
   font-weight: 500;
@@ -722,7 +721,7 @@ body {
 }
 .sidebar__profile .sidebar__profile-info .sidebar__profile-role {
   font-size: 10px;
-  color: #7EADA6;
+  color: #10635A;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -779,7 +778,7 @@ body {
   background: #031C19;
   border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 50%;
-  color: #7EADA6;
+  color: #10635A;
   cursor: pointer;
   font-size: 10px;
   z-index: 101;
@@ -805,7 +804,7 @@ body {
 .main-content {
   flex: 1;
   min-width: 0;
-  padding: 30px;
+  padding: 25px;
   color: #fff;
   transition: margin 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -830,7 +829,7 @@ body {
   gap: 4px;
 }
 .topbar__title {
-  font-family: "Outfit-Medium", sans-serif;
+  font-family: "Outfit", sans-serif;
   font-size: 25px;
   color: #062824;
   margin: 0;
@@ -859,7 +858,7 @@ body {
   min-width: 220px;
 }
 .topbar__search i {
-  color: #7EADA6;
+  color: #10635A;
   font-size: 13px;
 }
 .topbar__search input {
@@ -1162,7 +1161,7 @@ body {
   align-items: center;
   gap: 14px;
   font-size: 12px;
-  color: #7EADA6;
+  color: #10635A;
 }
 .chart-legend__dot {
   display: inline-block;
@@ -1202,11 +1201,11 @@ body {
 }
 .chart-tooltip__date {
   font-size: 11px;
-  color: #7EADA6;
+  color: #10635A;
 }
 
 .text-muted {
-  color: #7EADA6;
+  color: #10635A;
   flex: 1;
 }
 

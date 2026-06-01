@@ -326,6 +326,7 @@
   border-color: rgb(0, 232.5, 155);
 }
 
+/*------------------- Border radius --------------------------*/
 /*------------------- Responsive --------------------------*/
 :root {
   --primary-blue: #4A90E2;
@@ -348,8 +349,7 @@
   --primary-black: #202020;
   --beige: #CCC1A9;
   --badge-icons: #9BF380;
-  --btn-login: #00D470
-  --bg: #0f1a17 ;
+  --btn-login: #00D470 --bg: #0f1a17 ;
 }
 
 *,
