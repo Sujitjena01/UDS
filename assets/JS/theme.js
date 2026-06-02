@@ -1,8 +1,8 @@
 const toggle = document.getElementById('modeToggle');
-const saved = localStorage.getItem('theme') || 'dark';
+const saved = localStorage.getItem('theme') || 'light';  // ← light is now default
 
 document.documentElement.setAttribute('data-theme', saved);
-toggle.checked = saved === 'light';
+toggle.checked = saved === 'light'; 
 swapImages(saved);
 
 toggle.addEventListener('change', () => {

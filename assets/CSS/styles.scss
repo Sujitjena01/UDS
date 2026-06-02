@@ -58,3 +58,36 @@ body {
   // overflow: hidden;
 
 }
+
+.mode-toggle {
+    cursor: pointer;
+
+    input {
+        display: none;
+    }
+
+    .toggle-track {
+        display: block;
+        width: 44px;
+        height: 24px;
+        border-radius: 12px;
+        border: 1px solid var(--secondary-green-light);
+        position: relative;
+        transition: background 0.3s;
+    }
+
+    .toggle-thumb {
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: var(--secondary-green-light);
+        top: 2px;
+        left: 2px;
+        transition: transform 0.3s;
+    }
+
+    input:checked~.toggle-track .toggle-thumb {
+        transform: translateX(20px);
+    }
+}

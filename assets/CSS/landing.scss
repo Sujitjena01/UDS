@@ -190,7 +190,9 @@ body {
     }
 
     input:checked~.toggle-track .toggle-thumb {
+        
         transform: translateX(20px);
+        background: $yellow
     }
 }
 

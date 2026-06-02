@@ -97,13 +97,22 @@
                     <p class="topbar__subtitle">Measure your advertising ROI and report website traffic.</p>
                 </div>
                 <div class="topbar__right">
-                    
+                    <div class="topbar__search">
+                        <i class="fa fa-magnifying-glass"></i>
+                        <input type="text" placeholder="Search for..." />
+                    </div>
                     <button class="tp-btn tp-btn--primary">
                         Export data <i class="fa-solid fa-download"></i>
                     </button>
                     <button class="tp-btn tp-btn--accent">
-                        Create report<i class="fa-solid fa-plus"></i>
+                        Create report <i class="fa-solid fa-plus"></i>
                     </button>
+                    <label class="mode-toggle" title="Toggle light/dark mode">
+                        <input type="checkbox" id="modeToggle" hidden />
+                        <span class="toggle-track">
+                            <span class="toggle-thumb"></span>
+                        </span>
+                    </label>
                 </div>
             </div>
 
@@ -284,28 +293,23 @@
         var mobileToggle = document.getElementById('mobileToggle');
         var overlay = document.getElementById('sidebarOverlay');
 
-        // ── Helper: expand sidebar if collapsed ────────
         function expandIfCollapsed() {
             if (sidebar.classList.contains('collapsed')) {
                 sidebar.classList.remove('collapsed');
             }
         }
 
-        // ── Top-level items (no submenu) ───────────────
-        // ── Top-level items (no submenu) ───────────────  ← find this comment
         document.querySelectorAll('.nav > ul > li:not(.btnToggle) > a').forEach(function (link) {
             link.addEventListener('click', function (e) {
                 e.preventDefault();
 
                 expandIfCollapsed();
 
-                // ↓ ADD THESE 6 LINES
                 document.querySelectorAll('.btnToggle.open').forEach(function (el) {
                     el.classList.remove('open');
                     el.querySelector('.toggleDiv').style.display = 'none';
                     el.querySelector('.nav__chevron').classList.remove('rotated');
                 });
-                // ↑ ADD THESE 6 LINES
 
                 document.querySelectorAll('.nav > ul > li').forEach(function (li) {
                     li.classList.remove('active');
@@ -358,7 +362,6 @@
                     el.querySelector('.nav__chevron').classList.remove('rotated');
                 });
 
-                // Open clicked item if it was closed
                 if (!isOpen) {
                     item.classList.add('open');
                     submenu.style.display = 'block';
@@ -367,12 +370,10 @@
             });
         });
 
-        // ── Desktop collapse toggle ────────────────────
         collapseBtn.addEventListener('click', function () {
             sidebar.classList.toggle('collapsed');
         });
 
-        // ── Mobile open/close ──────────────────────────
         mobileToggle.addEventListener('click', function () {
             sidebar.classList.toggle('open');
             overlay.classList.toggle('active');
@@ -520,7 +521,7 @@
                 data: {
                     labels: hours,
                     datasets: [
-                        { label: 'Installed', data: darkBars, backgroundColor: '#1A2E2B', borderRadius: 3, barPercentage: 0.5 },
+                        { label: 'Installed', data: darkBars, backgroundColor: '#00C896', borderRadius: 3, barPercentage: 0.5 },
                         { label: 'Pending', data: yellBars, backgroundColor: '#F5C842', borderRadius: 3, barPercentage: 0.5 },
                     ],
                 },
@@ -643,6 +644,8 @@
             });
         })();
     </script>
+
+    <script src="assets/JS/theme.js"></script>
 
 </body>
 
