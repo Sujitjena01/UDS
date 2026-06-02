@@ -513,7 +513,7 @@ body {
     transition: margin $sidebar-transition;
 
     @media #{$mobile_device} {
-        padding: 70px 16px 20px;
+        padding: 55px 16px 20px;
     }
 }
 
@@ -627,9 +627,13 @@ body {
         width: 44px;
         height: 24px;
         border-radius: 12px;
-        border: 1px solid var(--secondary-green-light);
+        border: 2px solid $highlight-green;
         position: relative;
         transition: background 0.3s;
+
+        @at-root [data-theme="dark"] & {
+            border: 2px solid var(--secondary-green-light);
+        }
     }
 
     .toggle-thumb {
@@ -1121,5 +1125,31 @@ body {
 
     50% {
         opacity: 0.3;
+    }
+}
+
+.dashboard-footer {
+    margin-top: 15px;
+    background: $highlight-green;
+    color: $white;
+    padding: 10px 24px;
+    border-radius: 0px;
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        font-size: 14px;
+        font-weight: 500;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-footer {
+        &__content {
+            flex-direction: column;
+            text-align: center;
+        }
     }
 }
