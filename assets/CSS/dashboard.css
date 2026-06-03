@@ -830,6 +830,13 @@ body {
   transform: scaleX(-1);
 }
 
+.content-wrapper {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
 .main-content {
   flex: 1;
   min-width: 0;
@@ -848,12 +855,13 @@ body {
 }
 
 .topbar {
+  margin-bottom: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 16px;
-  margin-bottom: 24px;
+  padding: 15px;
   font-family: "Outfit-Regular", sans-serif;
 }
 .topbar__left {
@@ -933,6 +941,10 @@ body {
   color: #6A7E7C;
 }
 
+[data-theme=dark] .topbar {
+  background: #011210;
+}
+
 .mode-toggle {
   cursor: pointer;
   display: inline-flex;
@@ -959,7 +971,7 @@ body {
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background: #FFFFFF;
+  background: #03FFAB;
   top: 2px;
   left: 2px;
   transition: transform 0.3s;
@@ -1373,7 +1385,6 @@ body {
   }
 }
 .dashboard-footer {
-  margin-top: 15px;
   background: #10635A;
   color: #FFFFFF;
   padding: 10px 24px;

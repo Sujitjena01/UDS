@@ -504,6 +504,12 @@ body {
     transform: scaleX(-1);
 }
 
+.content-wrapper {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
 
 .main-content {
     flex: 1;
@@ -522,12 +528,13 @@ body {
 }
 
 .topbar {
+    margin-bottom: 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 16px;
-    margin-bottom: 24px;
+    padding: 15px;
     font-family: $font-outfit-regular;
 
     &__left {
@@ -613,6 +620,10 @@ body {
     }
 }
 
+@at-root [data-theme="dark"] .topbar {
+    background: $dark-green;
+}
+
 .mode-toggle {
     cursor: pointer;
     display: inline-flex;
@@ -641,7 +652,7 @@ body {
         width: 18px;
         height: 18px;
         border-radius: 50%;
-        background: $white;
+        background: $neon;
         top: 2px;
         left: 2px;
         transition: transform 0.3s;
@@ -1129,7 +1140,6 @@ body {
 }
 
 .dashboard-footer {
-    margin-top: 15px;
     background: $highlight-green;
     color: $white;
     padding: 10px 24px;
