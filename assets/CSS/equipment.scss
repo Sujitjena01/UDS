@@ -1,0 +1,299 @@
+@import '../CSS/styles'; // variables, tokens, mixins
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: none;
+    min-height: 100vh;
+    transition: background 0.3s;
+}
+
+// ── Layout ────────────────────────────────────────────────────
+.dashboard {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.content-wrapper {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    flex: 1;
+    min-width: 0;
+    padding: 25px;
+    color: $white;
+    transition: margin $sidebar-transition;
+
+    @media #{$mobile_device} {
+        padding: 55px 16px 20px;
+    }
+
+    @at-root [data-theme="dark"] & {
+        background: $dark-green;
+    }
+}
+
+
+.page-tabs {
+    display: flex;
+    align-items: flex-end;
+    gap: 0;
+    border-bottom: 2px solid $beige-60;
+    margin-bottom: 24px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    flex-wrap: nowrap;
+
+    &::-webkit-scrollbar {
+        height: 3px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $highlight-green;
+        border-radius: $br-2;
+    }
+}
+
+.page-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 18px;
+    font-size: 13px;
+    font-weight: 500;
+    color: $highlight-green;
+    text-decoration: none;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    transition: color 0.2s, border-color 0.2s, background 0.2s;
+    cursor: pointer;
+    background: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-family: $font-outfit-regular;
+
+    &:hover {
+        color: $oceanic-green;
+        background: $beige-40;
+    }
+
+    &.active {
+        color: $highlight-green;
+        border-bottom: 2px solid $highlight-green;
+        font-weight: 600;
+    }
+
+    @at-root [data-theme="dark"] & {
+        color: $oceanic-green-60;
+
+        &:hover {
+            background: rgba($white, 0.05);
+            color: $white;
+        }
+
+        &.active {
+            color: $neon;
+            border-bottom-color: $neon;
+        }
+    }
+}
+
+@at-root [data-theme="dark"] .page-tabs {
+    border-bottom-color: $oceanic-green-80;
+}
+
+.section-card {
+    background: $white;
+    border: 1px solid $beige-40;
+    border-radius: $br-8;
+    margin-bottom: 20px;
+    overflow: hidden;
+
+    @at-root [data-theme="dark"] & {
+        background: $oceanic-green;
+        border-color: $oceanic-green-80;
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 20px;
+        border-bottom: 1px solid $beige-40;
+
+        @at-root [data-theme="dark"] & {
+            border-bottom-color: $oceanic-green-80;
+        }
+    }
+
+    &__title {
+        font-size: 15px;
+        font-weight: 600;
+        color: $highlight-green;
+        display: flex;
+        align-items: center;
+        gap: 3px;
+
+        &::before {
+            content: '';
+            display: inline-block;
+            width: 3px;
+            height: 20px;
+            background: $olivine-green;
+            border-radius: $br-2;
+        }
+
+        @at-root [data-theme="dark"] & {
+            color: $neon;
+
+            &::before {
+                background: $neon;
+            }
+        }
+    }
+
+    &__body {
+        padding: 20px;
+    }
+}
+
+// ── Filter Form ───────────────────────────────────────────────
+.filter-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 16px;
+
+    &--3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: 1100px) {
+        grid-template-columns: repeat(2, 1fr);
+
+        &--3 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 600px) {
+        grid-template-columns: 1fr;
+
+        &--3 {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+.form-field {
+    position: relative;
+
+    &__label {
+        position: absolute;
+        top: 50%;
+        left: 12px;
+        transform: translateY(-50%);
+        font-size: 13px;
+        color: $black;
+        pointer-events: none;
+        transition: top 0.2s, font-size 0.2s, color 0.2s;
+        background: $white;
+        padding: 0 4px;
+
+        @at-root [data-theme="dark"] & {
+            background: $oceanic-green;
+            color: $oceanic-green-60;
+        }
+    }
+
+    // Float up when focused or has value
+    &__input:focus~&__label,
+    &__input:not(:placeholder-shown)~&__label,
+    &__select:focus~&__label,
+    &__select-wrap:has(select:focus)~&__label,
+    &__select-wrap:has(select option:checked:not([value=""]))~&__label {
+        top: 0;
+        font-size: 11px;
+        color: $highlight-green;
+
+        @at-root [data-theme="dark"] & {
+            color: $neon;
+        }
+    }
+
+    &__input,
+    &__select {
+        height: 44px;
+        padding: 12px 12px 0;
+        border: 1px solid $gray-40;
+        border-radius: $br-5;
+        font-size: 13px;
+        color: $oceanic-green;
+        background: $white;
+        outline: none;
+        transition: border-color 0.2s, box-shadow 0.2s;
+        width: 100%;
+        appearance: none;
+        -webkit-appearance: none;
+        font-family: $font-outfit-regular;
+
+        &:focus {
+            border-color: $highlight-green;
+            box-shadow: 0 0 0 3px rgba($highlight-green, 0.1);
+        }
+
+        @at-root [data-theme="dark"] & {
+            background: $oceanic-green;
+            border-color: $oceanic-green-80;
+            color: $white;
+
+            &:focus {
+                border-color: $neon;
+                box-shadow: 0 0 0 3px rgba($neon, 0.1);
+            }
+        }
+    }
+
+    &__select-wrap {
+        position: relative;
+
+        &::after {
+            content: '\f107';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: $highlight-green;
+            pointer-events: none;
+            font-size: 12px;
+        }
+
+        @at-root [data-theme="dark"] &::after {
+            color: $neon;
+        }
+    }
+}
+
+// ── Filter Actions ────────────────────────────────────────────
+.filter-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding-top: 4px;
+}

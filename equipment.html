@@ -7,7 +7,7 @@
     <title>TPCODL Login</title>
 
     <link rel="stylesheet" href="assets/CSS/font-awesome/css/all.css">
-    <link rel="stylesheet" href="assets/CSS/dashboard.css">
+    <link rel="stylesheet" href="assets/CSS/equipment.css">
     <link href="assets/CSS/bootstrap.min.css" rel="stylesheet">
 
 </head>
@@ -25,9 +25,94 @@
             <main-topbar></main-topbar>
             <!-- MAIN CONTENT (placeholder) -->
             <div class="main-content">
+                <div class="page-tabs">
+                    <button class="page-tab active">Home</button>
+                    <button class="page-tab">View Details</button>
+                    <button class="page-tab">Register Data</button>
+                    <button class="page-tab">Interval Data</button>
+                    <button class="page-tab">Alarm/Event Data</button>
+                    <button class="page-tab">Instantaneous Data</button>
+                    <button class="page-tab">Usage Data</button>
+                    <button class="page-tab">Billing Data</button>
+                    <button class="page-tab">Command History</button>
+                    <button class="page-tab">Exception</button>
+                    <button class="page-tab">Name Plate Details</button>
+                </div>
 
+                <div class="section-card">
+                    <div class="section-card__header">
+                        <span class="section-card__title">Equipment</span>
+                    </div>
+                    <div class="section-card__body">
 
+                        <!-- Row 1 -->
+                        <div class="filter-grid">
+                            <div class="form-field">
+                                <input type="text" class="form-field__input" id="enterId" placeholder=" "
+                                    value="67289126518929" />
+                                <label class="form-field__label" for="enterId">Enter ID</label>
+                            </div>
+                            <div class="form-field">
+                                <div class="form-field__select-wrap">
+                                    <select class="form-field__select" id="selectHes">
+                                        <option value="">Select HES</option>
+                                        <option>HES 1</option>
+                                        <option>HES 2</option>
+                                        <option>HES 3</option>
+                                    </select>
+                                </div>
+                                <label class="form-field__label" for="selectHes">Select HES</label>
+                            </div>
+                            <div class="form-field">
+                                <input type="text" class="form-field__input" id="meterId" placeholder=" " />
+                                <label class="form-field__label" for="meterId">Meter ID</label>
+                            </div>
+                            <div class="form-field">
+                                <input type="text" class="form-field__input" id="consumerId" placeholder=" " />
+                                <label class="form-field__label" for="consumerId">Consumer ID</label>
+                            </div>
+                        </div>
 
+                        <!-- Row 2 -->
+                        <div class="filter-grid filter-grid--3">
+                            <div class="form-field">
+                                <input type="text" class="form-field__input" id="meterId" placeholder=" " />
+                                <label class="form-field__label" for="meterId">Utility ID</label>
+                            </div>
+                            <div class="form-field">
+                                <div class="form-field__select-wrap">
+                                    <select class="form-field__select" id="selectHes">
+                                        <option value="">Select HES</option>
+                                        <option>HES 1</option>
+                                        <option>HES 2</option>
+                                        <option>HES 3</option>
+                                    </select>
+                                </div>
+                                <label class="form-field__label" for="selectHes">Select HES</label>
+                            </div>
+                            <div class="form-field">
+                                <input type="text" class="form-field__input" id="meterId" placeholder=" " />
+                                <label class="form-field__label" for="meterId">Material ID</label>
+                            </div>
+                        </div>
+
+                        <!-- Actions -->
+                        <div class="filter-actions">
+                            <button class="btn-tp btn-tp-primary">
+                                <i class="fa-solid fa-magnifying-glass"></i> Search
+                            </button>
+                            <button class="btn-tp btn-tp-warning">
+                                <i class="fa-solid fa-rotate-right"></i> Reset
+                            </button>
+                            <button class="btn-tp btn-tp-secondary">
+                                <i class="fa-solid fa-file-export"></i> Export All
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+                
 
 
             </div>
@@ -35,253 +120,12 @@
         </div>
 
 
+
     </main>
 
 
     <script src="assets/CSS/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
-    <script>
-        (function () {
-            // ── Colour tokens ────────────────────────────────────────
-            const accent = '#00C896';
-            const accentLt = 'rgba(0,200,150,0.15)';
-            const blue = '#38BDF8';
-            const blueLt = 'rgba(56,189,248,0.15)';
-            const muted = '#7EADA6';
-            const gridCol = 'rgba(0,0,0,0.06)';
-
-            Chart.defaults.font.family = "'Outfit', sans-serif";
-            Chart.defaults.font.size = 11;
-            Chart.defaults.color = muted;
-
-            // ── 1. Main area chart ───────────────────────────────────
-            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-
-            const installed = [28000, 30000, 45000, 55000, 80000, 125200, 155000, 185000, 210000, 230000, 238000, 240800];
-            const instock = [35000, 30000, 25000, 20000, 22000, 28000, 32000, 28000, 24000, 20000, 18000, 16000];
-
-            const mainCtx = document.getElementById('mainAreaChart').getContext('2d');
-
-            // Green gradient
-            const gGrad = mainCtx.createLinearGradient(0, 0, 0, 280);
-            gGrad.addColorStop(0, 'rgba(0,200,150,0.55)');
-            gGrad.addColorStop(1, 'rgba(0,200,150,0.02)');
-
-            // Blue gradient
-            const bGrad = mainCtx.createLinearGradient(0, 0, 0, 280);
-            bGrad.addColorStop(0, 'rgba(56,189,248,0.50)');
-            bGrad.addColorStop(1, 'rgba(56,189,248,0.02)');
-
-            new Chart(mainCtx, {
-                type: 'line',
-                data: {
-                    labels: months,
-                    datasets: [
-                        {
-                            label: 'Installed',
-                            data: installed,
-                            borderColor: accent,
-                            backgroundColor: gGrad,
-                            borderWidth: 2.5,
-                            fill: true,
-                            tension: 0.45,
-                            pointRadius: 0,
-                            pointHoverRadius: 6,
-                            pointHoverBackgroundColor: accent,
-                            pointHoverBorderColor: '#fff',
-                            pointHoverBorderWidth: 2,
-                        },
-                        {
-                            label: 'Instock',
-                            data: instock,
-                            borderColor: blue,
-                            backgroundColor: bGrad,
-                            borderWidth: 2.5,
-                            fill: true,
-                            tension: 0.45,
-                            pointRadius: 0,
-                            pointHoverRadius: 6,
-                            pointHoverBackgroundColor: blue,
-                            pointHoverBorderColor: '#fff',
-                            pointHoverBorderWidth: 2,
-                        },
-                    ],
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    interaction: { mode: 'index', intersect: false },
-                    plugins: {
-                        legend: { display: true, position: 'top', labels: { boxWidth: 12, padding: 20, usePointStyle: true, pointStyle: 'circle' } },
-                        tooltip: {
-                            backgroundColor: '#fff',
-                            titleColor: '#1A2E2B',
-                            bodyColor: muted,
-                            borderColor: '#EDF2F0',
-                            borderWidth: 1,
-                            padding: 12,
-                            cornerRadius: 10,
-                            callbacks: {
-                                label: ctx => ` ${(ctx.raw / 1000).toFixed(1)}K`,
-                            }
-                        },
-                    },
-                    scales: {
-                        x: {
-                            grid: { display: false },
-                            border: { display: false },
-                            ticks: { color: muted },
-                        },
-                        y: {
-                            min: 0,
-                            max: 250000,
-                            ticks: {
-                                color: muted,
-                                callback: v => v >= 1000 ? (v / 1000) + 'K' : v,
-                                stepSize: 50000,
-                            },
-                            grid: { color: gridCol },
-                            border: { display: false },
-                        },
-                    },
-                },
-            });
-
-            // ── 2. Daily bar chart ───────────────────────────────────
-            const hours = ['12 AM', '', '', '', '8 AM', '', '', '', '4 PM', '', '', '11 PM'];
-            const darkBars = [60, 45, 70, 55, 80, 65, 90, 75, 85, 70, 95, 80];
-            const yellBars = [30, 20, 40, 25, 50, 35, 60, 45, 55, 40, 65, 50];
-
-            const dailyCtx = document.getElementById('dailyBarChart').getContext('2d');
-            new Chart(dailyCtx, {
-                type: 'bar',
-                data: {
-                    labels: hours,
-                    datasets: [
-                        { label: 'Installed', data: darkBars, backgroundColor: '#00C896', borderRadius: 3, barPercentage: 0.5 },
-                        { label: 'Pending', data: yellBars, backgroundColor: '#F5C842', borderRadius: 3, barPercentage: 0.5 },
-                    ],
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: { legend: { display: false }, tooltip: { mode: 'index' } },
-                    scales: {
-                        x: { grid: { display: false }, border: { display: false }, ticks: { color: muted, maxRotation: 0 } },
-                        y: { display: false },
-                    },
-                },
-            });
-
-            // ── 3. Sessions line chart ───────────────────────────────
-            const sessHours = ['12 AM', '', '', '', '8 AM', '', '', '', '4 PM', '', '', '11 PM'];
-            const sessData = [80, 60, 90, 50, 110, 70, 260, 100, 160, 80, 200, 110];
-
-            const sessCtx = document.getElementById('sessionLineChart').getContext('2d');
-            new Chart(sessCtx, {
-                type: 'line',
-                data: {
-                    labels: sessHours,
-                    datasets: [{
-                        data: sessData,
-                        borderColor: muted,
-                        borderWidth: 1.5,
-                        fill: false,
-                        tension: 0.4,
-                        pointRadius: 5,
-                    }],
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: { legend: { display: false }, tooltip: { enabled: true } },
-                    scales: {
-                        x: { grid: { display: false }, border: { display: false }, ticks: { color: muted, maxRotation: 0 } },
-                        y: {
-                            min: 0, max: 500,
-                            ticks: { color: muted, stepSize: 250, callback: v => v },
-                            grid: { color: gridCol },
-                            border: { display: false },
-                        },
-                    },
-                },
-            });
-
-            const trendCtx = document.getElementById('trendChart').getContext('2d');
-
-            const trendGrad = trendCtx.createLinearGradient(0, 0, 0, 220);
-            trendGrad.addColorStop(0, 'rgba(0,200,150,0.2)');
-            trendGrad.addColorStop(1, 'rgba(0,200,150,0.0)');
-
-            new Chart(trendCtx, {
-                type: 'bar',
-                data: {
-                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-                    datasets: [
-                        {
-                            label: 'Revenue',
-                            data: [120000, 145000, 160000, 175000, 190000, 210000, 230000, 215000, 240000, 260000, 245000, 280000],
-                            backgroundColor: trendGrad,
-                            borderColor: accent,
-                            borderWidth: 2,
-                            borderRadius: 6,
-                            borderSkipped: false,
-                        },
-                        {
-                            label: 'Target',
-                            data: [150000, 150000, 170000, 170000, 200000, 200000, 220000, 220000, 250000, 250000, 260000, 260000],
-                            type: 'line',
-                            borderColor: blue,
-                            borderWidth: 2,
-                            borderDash: [5, 5],
-                            fill: false,
-                            tension: 0.4,
-                            pointRadius: 0,
-                            pointHoverRadius: 5,
-                            pointHoverBackgroundColor: blue,
-                            pointHoverBorderColor: '#fff',
-                            pointHoverBorderWidth: 2,
-                        }
-                    ],
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    interaction: { mode: 'index', intersect: false },
-                    plugins: {
-                        legend: {
-                            display: true,
-                            position: 'top',
-                            labels: {
-                                boxWidth: 12,
-                                padding: 20,
-                                usePointStyle: true,
-                                pointStyle: 'circle',
-                                color: muted,
-                            }
-                        },
-                        tooltip: { enabled: true },
-                    },
-                    scales: {
-                        x: {
-                            grid: { display: false },
-                            border: { display: false },
-                            ticks: { color: muted },
-                        },
-                        y: {
-                            ticks: {
-                                color: muted,
-                                callback: v => (v / 1000) + 'K',
-                            },
-                            grid: { color: gridCol },
-                            border: { display: false },
-                        },
-                    },
-                },
-            });
-        })();
-    </script>
-
     <script src="assets/JS/theme.js"></script>
     <script src="assets/Pages/sidebar.js"></script>
     <script src="assets/Pages/footer.js"></script>
