@@ -768,3 +768,68 @@ body {
         }
     }
 }
+
+// ── Pagination container ──────────────────────────────────────
+.pagination-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 12px 0;
+}
+
+.rows-selector {
+    font-size: 13px;
+    color: $oceanic-green-60;
+
+    label {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin: 0;
+    }
+
+    .form-control {
+        width: auto;
+        height: 30px;
+        padding: 0 8px;
+        font-size: 13px;
+        border-color: $highlight-green;
+        color: $highlight-green;
+        font-weight: 600;
+    }
+}
+
+// ── Pagination ────────────────────────────────────────────────
+.pagination {
+    margin: 0;
+
+    .page-item {
+        &.active .page-link {
+            background-color: $highlight-green !important;
+            border-color: $highlight-green !important;
+            color: $white !important;
+        }
+
+        &.disabled .page-link {
+            color: $gray-50 !important;
+            pointer-events: none;
+        }
+
+        .page-link {
+            color: $highlight-green !important;
+            font-size: 13px;
+            padding: 5px 10px;
+
+            &:focus {
+                box-shadow: 0 0 0 0.2rem rgba($highlight-green, 0.25) !important;
+            }
+
+            &:hover {
+                background-color: $beige-40;
+                border-color: $highlight-green;
+            }
+        }
+    }
+}
