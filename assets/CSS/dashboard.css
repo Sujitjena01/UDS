@@ -1321,7 +1321,6 @@ body {
   letter-spacing: -0.5px;
 }
 .chart-card__body--mini {
-  height: 100px;
   position: relative;
 }
 .chart-card__body--mini canvas {

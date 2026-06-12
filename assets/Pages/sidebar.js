@@ -23,17 +23,32 @@ class MainSidebar extends HTMLElement {
                             </span>
                         </a>
                         <ul id="dashboard" class="toggleDiv">
-                            <li><a href="#">Basic Dashboard</a></li>
-                            <li><a href="#">Peer Dashboard</a></li>
-                            <li><a href="#">Hierarchy Dashboard</a></li>
-                            <li><a href="#">Draft Entry Dashboard</a></li>
+                            <li><a href="#">Meter & Installation Status</a></li>
+                            <li><a href="#">Register Data Availabilty Status</a></li>
+                            <li><a href="#">Interval Data Availability Status</a></li>
+                            <li><a href="#">Commands & Control</a></li>
+                            <li><a href="#">Profile Data Availability</a></li>
+                            <li><a href="#">Stats Dashboard</a></li>
+
                         </ul>
                     </li>
 
                     <li>
                         <a href="#">
+                            <span class="nav__icon"><i class="fa-solid fa-upload"></i></span>
+                            <span class="nav__label">Bulk Upload</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
                             <span class="nav__icon"><i class="fa-regular fa-file-lines"></i></span>
-                            <span class="nav__label">Option</span>
+                            <span class="nav__label">Master Data</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="nav__icon"><i class="fa-regular fa-file-lines"></i></span>
+                            <span class="nav__label">Reports</span>
                         </a>
                     </li>
 
