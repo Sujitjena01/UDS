@@ -95,6 +95,32 @@
                                     </span>
                                 </div>
                             </div>
+                            <div class="chart__filter d-flex gap-2">
+                                <div class="dropdown">
+                                    <a class="btn-tp-sm btn-tp-primary dropdown-toggle" href="#" role="button"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        Year
+                                    </a>
+
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Action</a></li>
+                                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    </ul>
+                                </div>
+                                <div class="dropdown">
+                                    <a class="btn-tp-sm btn-tp-primary dropdown-toggle" href="#" role="button"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        HES Name
+                                    </a>
+
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Action</a></li>
+                                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                         <div class="chart-card__body">
                             <canvas id="mainAreaChart"></canvas>
@@ -167,9 +193,14 @@
 
     </main>
 
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
 
-    <script src="assets/CSS/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
     <script>
         (function () {
             // ── Colour tokens ────────────────────────────────────────
@@ -183,6 +214,7 @@
             Chart.defaults.font.family = "'Outfit', sans-serif";
             Chart.defaults.font.size = 11;
             Chart.defaults.color = muted;
+            Chart.register(ChartDataLabels);
 
             // ── 1. Main area chart ───────────────────────────────────
             const months = ['Jul-25', 'Aug-25', 'Sep-25', 'Oct-25', 'Nov-25', 'Dec-25', 'Jan-26', 'Feb-26', 'Mar-26', 'Apr-26', 'May-26', 'Jun-26'];
@@ -224,7 +256,7 @@
                     interaction: { mode: 'index', intersect: false },
                     plugins: {
                         legend: {
-                            display: true,
+                            display: false,
                             position: 'top',
                             labels: {
                                 boxWidth: 12,
@@ -251,7 +283,7 @@
                             anchor: 'end',
                             offset: 6,
                             color: '#1A2E2B',
-                            font: { weight: '600', size: 11 },
+                            font: { weight: '600', size: 15 },
                             formatter: v => (v / 1000).toFixed(1) + 'K',
                         },
                     },
@@ -313,8 +345,12 @@
                         },
                         datalabels: {
                             color: '#1A2E2B',
-                            font: { weight: '600', size: 11 },
-                            formatter: v => (v / 1000).toFixed(1) + 'K',
+                            font: { weight: '600', size: 15 },
+                            formatter: (value, ctx) => {
+                                const total = ctx.dataset.data.reduce((a, b) => a + b, 0);
+                                const percentage = ((value / total) * 100).toFixed(1);
+                                return percentage + '%';
+                            },
                         },
                     },
                 },
@@ -351,11 +387,11 @@
                     interaction: { mode: 'index', intersect: false },
                     plugins: {
                         legend: {
-                            display: true,
+                            display: false,
                             position: 'top',
                             labels: {
                                 boxWidth: 12,
-                                padding: 20,
+                                padding: 10,
                                 usePointStyle: true,
                                 pointStyle: 'circle',
                                 color: muted,

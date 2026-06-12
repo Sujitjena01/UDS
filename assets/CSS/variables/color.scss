@@ -82,6 +82,7 @@ $theme-colors: (
               background-color .15s ease-in-out,
               border-color .15s ease-in-out,
               box-shadow .15s ease-in-out;
+              text-decoration: none;
 
   &:focus,
   &:focus-visible { outline: 0; }
@@ -98,12 +99,14 @@ $theme-colors: (
   padding: 0.5rem 1rem;
   font-size: 1.25rem;
   border-radius: 0.5rem;
+  text-decoration: none;
 }
 
 .btn-tp-sm {
   padding: 0.25rem 0.5rem;
   font-size: 0.875rem;
   border-radius: 0.25rem;
+  text-decoration: none;
 }
 
 // ---------- Mixins ----------
