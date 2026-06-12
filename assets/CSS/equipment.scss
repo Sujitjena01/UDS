@@ -22,6 +22,7 @@ body {
 }
 
 .content-wrapper {
+    background: #f8f7f7;
     flex: 1;
     min-width: 0;
     display: flex;
@@ -31,7 +32,8 @@ body {
 .main-content {
     flex: 1;
     min-width: 0;
-    padding: 25px;
+    padding: 15px;
+    padding-top: 0px;
     color: $white;
     transition: margin $sidebar-transition;
 
@@ -44,13 +46,53 @@ body {
     }
 }
 
+.page-tabs-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    @at-root [data-theme="dark"] & {
+        border-bottom-color: $oceanic-green-80;
+    }
+}
+
+.page-tabs-arrow {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    margin-bottom: 8px;
+    border: none;
+    background: none;
+    color: $highlight-green;
+    cursor: pointer;
+    border-radius: $br-2;
+    transition: color 0.2s, background 0.2s;
+
+    &:hover {
+        color: $oceanic-green;
+        background: $beige-40;
+    }
+
+    @at-root [data-theme="dark"] & {
+        color: $oceanic-green-60;
+
+        &:hover {
+            background: rgba($white, 0.05);
+            color: $white;
+        }
+    }
+}
+
 
 .page-tabs {
     display: flex;
     align-items: flex-end;
     gap: 0;
     border-bottom: 2px solid $beige-60;
-    margin-bottom: 24px;
+    margin-bottom: 15px;
     overflow-x: auto;
     overflow-y: hidden;
     flex-wrap: nowrap;
@@ -131,7 +173,7 @@ body {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 14px 20px;
+        padding: 10px 15px;
         border-bottom: 1px solid $beige-40;
 
         @at-root [data-theme="dark"] & {
@@ -140,21 +182,22 @@ body {
     }
 
     &__title {
-        font-size: 15px;
+        font-size: 18px;
         font-weight: 600;
+        text-transform: uppercase;
         color: $highlight-green;
         display: flex;
         align-items: center;
         gap: 3px;
 
-        &::before {
-            content: '';
-            display: inline-block;
-            width: 3px;
-            height: 20px;
-            background: $olivine-green;
-            border-radius: $br-2;
-        }
+        // &::before {
+        //     content: '';
+        //     display: inline-block;
+        //     width: 3px;
+        //     height: 20px;
+        //     background: $olivine-green;
+        //     border-radius: $br-2;
+        // }
 
         @at-root [data-theme="dark"] & {
             color: $neon;
@@ -166,7 +209,8 @@ body {
     }
 
     &__body {
-        padding: 20px;
+        padding: 15px;
+        padding-bottom: 0px;
     }
 }
 
@@ -236,11 +280,11 @@ body {
 
     &__input,
     &__select {
-        height: 44px;
+        height: 40px;
         padding: 12px 12px 0;
         border: 1px solid $gray-40;
         border-radius: $br-5;
-        font-size: 13px;
+        font-size: 12px;
         color: $oceanic-green;
         background: $white;
         outline: none;
@@ -292,8 +336,180 @@ body {
 // ── Filter Actions ────────────────────────────────────────────
 .filter-actions {
     display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.tp-table-wrap {
+    overflow-x: auto;
+
+    &::-webkit-scrollbar {
+        height: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $highlight-green;
+        border-radius: $br-2;
+    }
+}
+
+.tp-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+
+    thead tr {
+        background: $highlight-green;
+        color: $white;
+    }
+
+    thead th {
+        padding: 11px 14px;
+        font-weight: 600;
+        font-size: 12px;
+        white-space: nowrap;
+        letter-spacing: 0.02em;
+        text-align: left;
+        border: none;
+
+        .sort-icon {
+            display: inline-flex;
+            flex-direction: column;
+            margin-left: 4px;
+            vertical-align: middle;
+            gap: 1px;
+            opacity: 0.7;
+
+            i {
+                font-size: 7px;
+                line-height: 1;
+            }
+        }
+    }
+
+    tbody tr {
+        border-bottom: 1px solid $beige-60;
+        transition: background 0.15s;
+
+        &:nth-child(even) {
+            background: $ivory-mist;
+        }
+
+        &:hover {
+            background: $beige-40;
+        }
+
+        @at-root [data-theme="dark"] & {
+            border-bottom-color: $oceanic-green-80;
+
+            &:nth-child(even) {
+                background: $oceanic-green;
+            }
+
+            &:hover {
+                background: $oceanic-green-80;
+            }
+        }
+    }
+
+    tbody td {
+        padding: 10px 14px;
+        text-align: center;
+        color: #062824;
+        white-space: nowrap;
+
+        @at-root [data-theme="dark"] & {
+            color: $beige;
+        }
+    }
+}
+
+// ── Table Footer / Pagination ─────────────────────────────────
+.table-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+    border-top: 1px solid $beige-40;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    @at-root [data-theme="dark"] & {
+        border-top-color: $oceanic-green-80;
+    }
+
+    &__info {
+        font-size: 13px;
+        color: $oceanic-green-60;
+    }
+
+    &__rows {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13px;
+        color: $oceanic-green-60;
+    }
+
+    &__pagination {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+}
+
+.rows-select {
+    height: 30px;
+    padding: 0 8px;
+    border: 1px solid $highlight-green;
+    border-radius: $br-3;
+    font-size: 12px;
+    color: $highlight-green;
+    background: $white;
+    font-weight: 600;
+    outline: none;
+    cursor: pointer;
+    font-family: $font-outfit-regular;
+
+    @at-root [data-theme="dark"] & {
+        background: $oceanic-green;
+        color: $neon;
+        border-color: $neon;
+    }
+}
+
+.page-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: $br-3;
+    border: 1px solid $highlight-green;
+    background: $highlight-green;
+    color: $white;
+    font-size: 12px;
+    display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    padding-top: 4px;
+    cursor: pointer;
+    transition: background 0.2s, opacity 0.2s;
+
+    &:hover {
+        background: $oceanic-green;
+        border-color: $oceanic-green;
+    }
+
+    &:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+    }
+
+    @at-root [data-theme="dark"] & {
+        background: $neon;
+        border-color: $neon;
+        color: $dark-green;
+
+        &:hover {
+            background: darken($neon, 10%);
+            border-color: darken($neon, 10%);
+        }
+    }
 }

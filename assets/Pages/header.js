@@ -6,8 +6,7 @@ class MainTopbar extends HTMLElement {
                 <button id="mobileToggle" class="sidebar__toggle-btn">
                     <i class="fa-solid fa-bars"></i>
                 </button>
-                <h1 class="topbar__title">Welcome back, Sujit</h1>
-                <p class="topbar__subtitle">Measure your advertising ROI and report website traffic.</p>
+                <p class="topbar__subtitle">Last Login On: 01/06/2026 00:00:00</p>
             </div>
             <div class="topbar__right">
                 <div class="topbar__search">

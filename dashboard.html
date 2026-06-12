@@ -147,26 +147,6 @@
                             </div>
                         </div>
 
-                        <div class="chart-card chart-card--mini">
-                            <div class="chart-card__mini-header">
-                                Total sessions <i class="fa-solid fa-clock-rotate-left"></i>
-                            </div>
-                            <div class="chart-card__mini-value">
-                                400
-                                <span class="stat-card__badge stat-card__badge--up chart"
-                                    style="font-size:10px;padding:2px 6px;">
-                                    <i class="fa-solid fa-arrow-trend-up"></i> 16.8%
-                                </span>
-                            </div>
-                            <div class="chart-card__body--mini">
-                                <canvas id="sessionLineChart"></canvas>
-                            </div>
-                            <div class="chart-card__mini-footer">
-                                <span class="live-badge"><i class="fa-solid fa-circle"></i> Live</span>
-                                <span class="text-muted" style="font-size:12px;">10k visitors</span>
-                                <a href="#" class="link-accent">View report</a>
-                            </div>
-                        </div>
 
                     </div>
                 </div>
@@ -220,10 +200,9 @@
             Chart.defaults.color = muted;
 
             // ── 1. Main area chart ───────────────────────────────────
-            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+            const months = ['Jul-25', 'Aug-25', 'Sep-25', 'Oct-25', 'Nov-25', 'Dec-25', 'Jan-26', 'Feb-26', 'Mar-26', 'Apr-26', 'May-26', 'Jun-26'];
 
-            const installed = [28000, 30000, 45000, 55000, 80000, 125200, 155000, 185000, 210000, 230000, 238000, 240800];
-            const instock = [35000, 30000, 25000, 20000, 22000, 28000, 32000, 28000, 24000, 20000, 18000, 16000];
+            const installed = [31100, 26200, 24000, 30000, 34800, 35200, 38400, 39600, 50200, 34400, 31900, 11100];
 
             const mainCtx = document.getElementById('mainAreaChart').getContext('2d');
 
@@ -231,11 +210,6 @@
             const gGrad = mainCtx.createLinearGradient(0, 0, 0, 280);
             gGrad.addColorStop(0, 'rgba(0,200,150,0.55)');
             gGrad.addColorStop(1, 'rgba(0,200,150,0.02)');
-
-            // Blue gradient
-            const bGrad = mainCtx.createLinearGradient(0, 0, 0, 280);
-            bGrad.addColorStop(0, 'rgba(56,189,248,0.50)');
-            bGrad.addColorStop(1, 'rgba(56,189,248,0.02)');
 
             new Chart(mainCtx, {
                 type: 'line',
@@ -250,23 +224,10 @@
                             borderWidth: 2.5,
                             fill: true,
                             tension: 0.45,
-                            pointRadius: 0,
+                            pointRadius: 4,
+                            pointBackgroundColor: accent,
                             pointHoverRadius: 6,
                             pointHoverBackgroundColor: accent,
-                            pointHoverBorderColor: '#fff',
-                            pointHoverBorderWidth: 2,
-                        },
-                        {
-                            label: 'Instock',
-                            data: instock,
-                            borderColor: blue,
-                            backgroundColor: bGrad,
-                            borderWidth: 2.5,
-                            fill: true,
-                            tension: 0.45,
-                            pointRadius: 0,
-                            pointHoverRadius: 6,
-                            pointHoverBackgroundColor: blue,
                             pointHoverBorderColor: '#fff',
                             pointHoverBorderWidth: 2,
                         },
@@ -277,7 +238,17 @@
                     maintainAspectRatio: false,
                     interaction: { mode: 'index', intersect: false },
                     plugins: {
-                        legend: { display: true, position: 'top', labels: { boxWidth: 12, padding: 20, usePointStyle: true, pointStyle: 'circle' } },
+                        legend: {
+                            display: true,
+                            position: 'top',
+                            labels: {
+                                boxWidth: 12,
+                                padding: 20,
+                                usePointStyle: true,
+                                pointStyle: 'circle',
+                                color: muted,
+                            }
+                        },
                         tooltip: {
                             backgroundColor: '#fff',
                             titleColor: '#1A2E2B',
@@ -290,6 +261,14 @@
                                 label: ctx => ` ${(ctx.raw / 1000).toFixed(1)}K`,
                             }
                         },
+                        datalabels: {
+                            align: 'top',
+                            anchor: 'end',
+                            offset: 6,
+                            color: '#1A2E2B',
+                            font: { weight: '600', size: 11 },
+                            formatter: v => (v / 1000).toFixed(1) + 'K',
+                        },
                     },
                     scales: {
                         x: {
@@ -299,11 +278,11 @@
                         },
                         y: {
                             min: 0,
-                            max: 250000,
+                            max: 60000,
                             ticks: {
                                 color: muted,
                                 callback: v => v >= 1000 ? (v / 1000) + 'K' : v,
-                                stepSize: 50000,
+                                stepSize: 10000,
                             },
                             grid: { color: gridCol },
                             border: { display: false },
@@ -313,103 +292,75 @@
             });
 
             // ── 2. Daily bar chart ───────────────────────────────────
-            const hours = ['12 AM', '', '', '', '8 AM', '', '', '', '4 PM', '', '', '11 PM'];
-            const darkBars = [60, 45, 70, 55, 80, 65, 90, 75, 85, 70, 95, 80];
-            const yellBars = [30, 20, 40, 25, 50, 35, 60, 45, 55, 40, 65, 50];
+            const pieCtx = document.getElementById('dailyBarChart').getContext('2d');
 
-            const dailyCtx = document.getElementById('dailyBarChart').getContext('2d');
-            new Chart(dailyCtx, {
-                type: 'bar',
+            new Chart(pieCtx, {
+                type: 'pie',
                 data: {
-                    labels: hours,
+                    labels: ['Installed', 'Instock'],
                     datasets: [
-                        { label: 'Installed', data: darkBars, backgroundColor: '#00C896', borderRadius: 3, barPercentage: 0.5 },
-                        { label: 'Pending', data: yellBars, backgroundColor: '#F5C842', borderRadius: 3, barPercentage: 0.5 },
+                        {
+                            data: [881200, 203700],
+                            backgroundColor: ['#00C896', '#F5C842'],
+                            borderWidth: 0,
+                        },
                     ],
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    plugins: { legend: { display: false }, tooltip: { mode: 'index' } },
-                    scales: {
-                        x: { grid: { display: false }, border: { display: false }, ticks: { color: muted, maxRotation: 0 } },
-                        y: { display: false },
-                    },
-                },
-            });
-
-            // ── 3. Sessions line chart ───────────────────────────────
-            const sessHours = ['12 AM', '', '', '', '8 AM', '', '', '', '4 PM', '', '', '11 PM'];
-            const sessData = [80, 60, 90, 50, 110, 70, 260, 100, 160, 80, 200, 110];
-
-            const sessCtx = document.getElementById('sessionLineChart').getContext('2d');
-            new Chart(sessCtx, {
-                type: 'line',
-                data: {
-                    labels: sessHours,
-                    datasets: [{
-                        data: sessData,
-                        borderColor: muted,
-                        borderWidth: 1.5,
-                        fill: false,
-                        tension: 0.4,
-                        pointRadius: 5,
-                    }],
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: { legend: { display: false }, tooltip: { enabled: true } },
-                    scales: {
-                        x: { grid: { display: false }, border: { display: false }, ticks: { color: muted, maxRotation: 0 } },
-                        y: {
-                            min: 0, max: 500,
-                            ticks: { color: muted, stepSize: 250, callback: v => v },
-                            grid: { color: gridCol },
-                            border: { display: false },
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'bottom',
+                            labels: {
+                                boxWidth: 12,
+                                padding: 20,
+                                usePointStyle: true,
+                                pointStyle: 'circle',
+                                color: muted,
+                            },
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: ctx => ` ${ctx.label}: ${(ctx.raw / 1000).toFixed(1)}K`,
+                            },
+                        },
+                        datalabels: {
+                            color: '#1A2E2B',
+                            font: { weight: '600', size: 11 },
+                            formatter: v => (v / 1000).toFixed(1) + 'K',
                         },
                     },
                 },
             });
 
+
+            // ── 3. Trend chart ───────────────────────────────────
             const trendCtx = document.getElementById('trendChart').getContext('2d');
 
-            const trendGrad = trendCtx.createLinearGradient(0, 0, 0, 220);
+            const trendGrad = trendCtx.createLinearGradient(0, 0, 220, 0);
             trendGrad.addColorStop(0, 'rgba(0,200,150,0.2)');
             trendGrad.addColorStop(1, 'rgba(0,200,150,0.0)');
 
             new Chart(trendCtx, {
                 type: 'bar',
                 data: {
-                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    labels: ['SEEC KALAHANDI', 'SEEC BALANGIR', 'SEEC ROURKELA', 'EEC SAMBALPUR', 'SEEC BARGARH', 'NA'],
                     datasets: [
                         {
-                            label: 'Revenue',
-                            data: [120000, 145000, 160000, 175000, 190000, 210000, 230000, 215000, 240000, 260000, 245000, 280000],
+                            label: 'Installed',
+                            data: [181400, 178300, 162500, 160700, 152100, 45400],
                             backgroundColor: trendGrad,
                             borderColor: accent,
                             borderWidth: 2,
                             borderRadius: 6,
                             borderSkipped: false,
                         },
-                        {
-                            label: 'Target',
-                            data: [150000, 150000, 170000, 170000, 200000, 200000, 220000, 220000, 250000, 250000, 260000, 260000],
-                            type: 'line',
-                            borderColor: blue,
-                            borderWidth: 2,
-                            borderDash: [5, 5],
-                            fill: false,
-                            tension: 0.4,
-                            pointRadius: 0,
-                            pointHoverRadius: 5,
-                            pointHoverBackgroundColor: blue,
-                            pointHoverBorderColor: '#fff',
-                            pointHoverBorderWidth: 2,
-                        }
                     ],
                 },
                 options: {
+                    indexAxis: 'y',
                     responsive: true,
                     maintainAspectRatio: false,
                     interaction: { mode: 'index', intersect: false },
@@ -429,17 +380,17 @@
                     },
                     scales: {
                         x: {
-                            grid: { display: false },
-                            border: { display: false },
-                            ticks: { color: muted },
-                        },
-                        y: {
                             ticks: {
                                 color: muted,
                                 callback: v => (v / 1000) + 'K',
                             },
                             grid: { color: gridCol },
                             border: { display: false },
+                        },
+                        y: {
+                            grid: { display: false },
+                            border: { display: false },
+                            ticks: { color: muted },
                         },
                     },
                 },

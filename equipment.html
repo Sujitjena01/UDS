@@ -5,7 +5,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TPCODL Login</title>
-
     <link rel="stylesheet" href="assets/CSS/font-awesome/css/all.css">
     <link rel="stylesheet" href="assets/CSS/equipment.css">
     <link href="assets/CSS/bootstrap.min.css" rel="stylesheet">
@@ -25,24 +24,49 @@
             <main-topbar></main-topbar>
 
             <div class="main-content">
-                <div class="page-tabs">
-                    <button class="page-tab active">Home</button>
-                    <button class="page-tab">View Details</button>
-                    <button class="page-tab">Register Data</button>
-                    <button class="page-tab">Interval Data</button>
-                    <button class="page-tab">Alarm/Event Data</button>
-                    <button class="page-tab">Instantaneous Data</button>
-                    <button class="page-tab">Usage Data</button>
-                    <button class="page-tab">Billing Data</button>
-                    <button class="page-tab">Command History</button>
-                    <button class="page-tab">Exception</button>
-                    <button class="page-tab">Name Plate Details</button>
+                <div class="page-tabs-wrapper">
+                    <button class="page-tabs-arrow page-tabs-arrow-left" onclick="scrollTabs(this, -1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+
+                    <div class="page-tabs" id="pageTabs">
+                        <button class="page-tab active">Home</button>
+                        <button class="page-tab">View Details</button>
+                        <button class="page-tab">Register Data</button>
+                        <button class="page-tab">Interval Data</button>
+                        <button class="page-tab">Alarm/Event Data</button>
+                        <button class="page-tab">Instantaneous Data</button>
+                        <button class="page-tab">Usage Data</button>
+                        <button class="page-tab">Billing Data</button>
+                        <button class="page-tab">Command History</button>
+                        <button class="page-tab">Exception</button>
+                        <button class="page-tab">Name Plate Details</button>
+                    </div>
+
+                    <button class="page-tabs-arrow page-tabs-arrow-right" onclick="scrollTabs(this, 1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
                 </div>
 
                 <div class="section-card">
                     <div class="section-card__header">
                         <span class="section-card__title">Equipment</span>
+
+                        <div class="filter-actions">
+                            <button class="btn-tp-sm btn-tp-primary">
+                                <i class="fa-solid fa-magnifying-glass"></i> Search
+                            </button>
+
+                            <button class="btn-tp-sm btn-tp-warning">
+                                <i class="fa-solid fa-rotate-right"></i> Reset
+                            </button>
+
+                            <button class="btn-tp-sm btn-tp-secondary">
+                                <i class="fa-solid fa-file-export"></i> Export All
+                            </button>
+                        </div>
                     </div>
+
                     <div class="section-card__body">
 
                         <!-- Row 1 -->
@@ -96,23 +120,188 @@
                             </div>
                         </div>
 
-                        <!-- Actions -->
-                        <div class="filter-actions">
-                            <button class="btn-tp btn-tp-primary">
-                                <i class="fa-solid fa-magnifying-glass"></i> Search
-                            </button>
-                            <button class="btn-tp btn-tp-warning">
-                                <i class="fa-solid fa-rotate-right"></i> Reset
-                            </button>
-                            <button class="btn-tp btn-tp-secondary">
-                                <i class="fa-solid fa-file-export"></i> Export All
-                            </button>
-                        </div>
 
                     </div>
                 </div>
 
-                
+                <div class="section-card">
+                    <div class="section-card__header">
+                        <span class="section-card__title">Equipment Table View</span>
+                        <button class="btn-tp btn-tp-sm btn-tp-primary">
+                            <i class="fa-solid fa-file-export"></i> Export
+                        </button>
+                    </div>
+
+                    <div class="tp-table-wrap">
+                        <table class="tp-table">
+                            <thead>
+                                <tr>
+                                    <th>ID <span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
+                                                class="fa-solid fa-caret-down"></i></span></th>
+                                    <th>Consumer ID <span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
+                                                class="fa-solid fa-caret-down"></i></span></th>
+                                    <th>Utility ID <span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
+                                                class="fa-solid fa-caret-down"></i></span></th>
+                                    <th>Consumer Segment <span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
+                                                class="fa-solid fa-caret-down"></i></span></th>
+                                    <th>Valid From <span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
+                                                class="fa-solid fa-caret-down"></i></span></th>
+                                    <th>Valid To <span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
+                                                class="fa-solid fa-caret-down"></i></span></th>
+                                    <th>Type <span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
+                                                class="fa-solid fa-caret-down"></i></span></th>
+                                    <th>Data Source <span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
+                                                class="fa-solid fa-caret-down"></i></span></th>
+                                    <th>Comp Cd <span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
+                                                class="fa-solid fa-caret-down"></i></span></th>
+                                    <th>Data Origin Code <span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
+                                                class="fa-solid fa-caret-down"></i></span></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>400529</td>
+                                    <td>400529</td>
+                                    <td>DT2871355776</td>
+                                    <td>DT2871355776</td>
+                                    <td>07-01-2025 00:00:00</td>
+                                    <td>31-12-9999 00:00:00</td>
+                                    <td>DT</td>
+                                    <td>2</td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                </tr>
+                                <tr>
+                                    <td>400529</td>
+                                    <td>400529</td>
+                                    <td>DT2871355776</td>
+                                    <td>DT2871355776</td>
+                                    <td>07-01-2025 00:00:00</td>
+                                    <td>31-12-9999 00:00:00</td>
+                                    <td>DT</td>
+                                    <td>2</td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                </tr>
+                                <tr>
+                                    <td>400529</td>
+                                    <td>400529</td>
+                                    <td>DT2871355776</td>
+                                    <td>DT2871355776</td>
+                                    <td>07-01-2025 00:00:00</td>
+                                    <td>31-12-9999 00:00:00</td>
+                                    <td>DT</td>
+                                    <td>2</td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                </tr>
+                                <tr>
+                                    <td>400529</td>
+                                    <td>400529</td>
+                                    <td>DT2871355776</td>
+                                    <td>DT2871355776</td>
+                                    <td>07-01-2025 00:00:00</td>
+                                    <td>31-12-9999 00:00:00</td>
+                                    <td>DT</td>
+                                    <td>2</td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                </tr>
+                                <tr>
+                                    <td>400529</td>
+                                    <td>400529</td>
+                                    <td>DT2871355776</td>
+                                    <td>DT2871355776</td>
+                                    <td>07-01-2025 00:00:00</td>
+                                    <td>31-12-9999 00:00:00</td>
+                                    <td>DT</td>
+                                    <td>2</td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                </tr>
+                                <tr>
+                                    <td>400529</td>
+                                    <td>400529</td>
+                                    <td>DT2871355776</td>
+                                    <td>DT2871355776</td>
+                                    <td>07-01-2025 00:00:00</td>
+                                    <td>31-12-9999 00:00:00</td>
+                                    <td>DT</td>
+                                    <td>2</td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                </tr>
+                                <tr>
+                                    <td>400529</td>
+                                    <td>400529</td>
+                                    <td>DT2871355776</td>
+                                    <td>DT2871355776</td>
+                                    <td>07-01-2025 00:00:00</td>
+                                    <td>31-12-9999 00:00:00</td>
+                                    <td>DT</td>
+                                    <td>2</td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                </tr>
+                                <tr>
+                                    <td>400529</td>
+                                    <td>400529</td>
+                                    <td>DT2871355776</td>
+                                    <td>DT2871355776</td>
+                                    <td>07-01-2025 00:00:00</td>
+                                    <td>31-12-9999 00:00:00</td>
+                                    <td>DT</td>
+                                    <td>2</td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                </tr>
+                                <tr>
+                                    <td>400529</td>
+                                    <td>400529</td>
+                                    <td>DT2871355776</td>
+                                    <td>DT2871355776</td>
+                                    <td>07-01-2025 00:00:00</td>
+                                    <td>31-12-9999 00:00:00</td>
+                                    <td>DT</td>
+                                    <td>2</td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                </tr>
+                                <tr>
+                                    <td>400529</td>
+                                    <td>400529</td>
+                                    <td>DT2871355776</td>
+                                    <td>DT2871355776</td>
+                                    <td>07-01-2025 00:00:00</td>
+                                    <td>31-12-9999 00:00:00</td>
+                                    <td>DT</td>
+                                    <td>2</td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="table-footer">
+                        <span class="table-footer__info">1 - 10 of 460</span>
+                        <div class="table-footer__rows">
+                            Rows per page:
+                            <select class="rows-select">
+                                <option>10</option>
+                                <option>25</option>
+                                <option>50</option>
+                                <option>100</option>
+                            </select>
+                        </div>
+                        <div class="table-footer__pagination">
+                            <button class="page-btn" disabled><i class="fa-solid fa-chevron-left"></i></button>
+                            <button class="page-btn"><i class="fa-solid fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+
 
 
             </div>
@@ -121,7 +310,20 @@
 
     </main>
 
-
+    <script>
+        document.querySelectorAll('.page-tab').forEach(tab => {
+            tab.addEventListener('click', function () {
+                document.querySelectorAll('.page-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+    <script>
+        function scrollTabs(btn, direction) {
+            const container = btn.parentElement.querySelector('.page-tabs');
+            container.scrollBy({ left: direction * 150, behavior: 'smooth' });
+        }
+    </script>
     <script src="assets/CSS/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
     <script src="assets/JS/theme.js"></script>

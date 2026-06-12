@@ -518,7 +518,7 @@ body {
 }
 .sidebar__logo .sidebar__logo-badge {
   font-size: 8px;
-  color: #00C896;
+  color: #5f9688;
   background: rgba(0, 200, 150, 0.15);
   border: 1px solid rgba(0, 200, 150, 0.3);
   padding: 1px 5px;
@@ -588,8 +588,8 @@ body {
 }
 .nav > ul > li.active > a {
   background: rgba(5, 205, 155, 0.12);
-  color: #00C896;
-  border-left: 2px solid #00C896;
+  color: #5f9688;
+  border-left: 2px solid #5f9688;
   margin-left: 6px;
   padding-left: 14px;
 }
@@ -607,6 +607,7 @@ body {
   transition: margin 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .nav .nav__label {
+  color: #5f9688;
   flex: 1;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -633,7 +634,7 @@ body {
   display: block;
   font-size: 12px;
   padding: 8px 12px 8px 24px;
-  color: #10635A;
+  color: #5f9688;
   text-decoration: none;
   transition: background 0.2s, color 0.2s, padding-left 0.2s;
   white-space: nowrap;
@@ -646,8 +647,8 @@ body {
   padding-left: 28px;
 }
 .nav .toggleDiv li.active a {
-  color: #00C896;
-  background: rgba(0, 200, 150, 0.06);
+  color: #03FFAB;
+  background: rgba(12, 197, 150, 0.24);
 }
 
 .sidebar__bottom {
@@ -683,6 +684,7 @@ body {
   justify-content: center;
 }
 .sidebar__settings .sidebar__settings-label {
+  color: #5f9688;
   transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .sidebar__settings:hover {
@@ -730,7 +732,7 @@ body {
 }
 .sidebar__profile .sidebar__profile-info .sidebar__profile-role {
   font-size: 10px;
-  color: #10635A;
+  color: #5f9688;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -797,7 +799,7 @@ body {
   right: -25px;
 }
 .sidebar__collapse-btn:hover {
-  color: #00C896;
+  color: #5f9688;
   background: rgba(5, 205, 155, 0.12);
 }
 @media (max-width: 767px) {
@@ -818,6 +820,7 @@ body {
   flex-wrap: wrap;
   gap: 16px;
   padding: 15px;
+  padding-bottom: 5px;
   font-family: "Outfit-Regular", sans-serif;
 }
 .topbar__left {
