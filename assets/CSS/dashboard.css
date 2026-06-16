@@ -831,6 +831,13 @@ body {
   flex-direction: column;
   gap: 4px;
 }
+@media (max-width: 767px) {
+  .topbar__left {
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+  }
+}
 .topbar__title {
   font-family: "Outfit", sans-serif;
   font-size: 25px;
@@ -846,6 +853,12 @@ body {
   font-size: 13px;
   color: #062824;
   margin: 0;
+}
+@media (max-width: 767px) {
+  .topbar__subtitle {
+    margin-left: auto;
+    margin-bottom: 10px;
+  }
 }
 [data-theme=dark] .topbar__subtitle {
   color: #FFFFFF;
@@ -1001,7 +1014,7 @@ body {
   font-size: 14px;
   font-weight: 500;
 }
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .dashboard-footer__content {
     flex-direction: column;
     text-align: center;
@@ -1098,7 +1111,7 @@ body {
 }
 @media (max-width: 767px) {
   .main-content {
-    padding: 55px 16px 20px;
+    padding: 25px 16px 20px;
   }
 }
 [data-theme=dark] .main-content {

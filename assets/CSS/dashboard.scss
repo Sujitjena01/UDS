@@ -39,7 +39,7 @@ body {
     transition: margin $sidebar-transition;
 
     @media #{$mobile_device} {
-        padding: 55px 16px 20px;
+        padding: 25px 16px 20px;
     }
 
     @at-root [data-theme="dark"] & {

@@ -571,6 +571,12 @@ body {
         display: flex;
         flex-direction: column;
         gap: 4px;
+
+        @media #{$mobile_device} {
+            flex-direction: row;
+            align-items: center;
+            width: 100%;
+        }
     }
 
     &__title {
@@ -589,6 +595,11 @@ body {
         font-size: 13px;
         color: $oceanic-green;
         margin: 0;
+
+        @media #{$mobile_device} {
+            margin-left: auto;
+            margin-bottom: 10px;
+        }
 
         @at-root [data-theme="dark"] & {
             color: $white;
@@ -764,7 +775,7 @@ body {
         font-weight: 500;
     }
 
-    @media (max-width: 768px) {
+    @media #{$mobile_device} {
         &__content {
             flex-direction: column;
             text-align: center;
