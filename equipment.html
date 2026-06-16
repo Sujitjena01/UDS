@@ -279,20 +279,47 @@
                                     <td>1</td>
                                     <td>2</td>
                                 </tr>
+                                <tr>
+                                    <td>400529</td>
+                                    <td>400529</td>
+                                    <td>DT2871355776</td>
+                                    <td>DT2871355776</td>
+                                    <td>07-01-2025 00:00:00</td>
+                                    <td>31-12-9999 00:00:00</td>
+                                    <td>DT</td>
+                                    <td>2</td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                </tr>
+                                <tr>
+                                    <td>400529</td>
+                                    <td>400529</td>
+                                    <td>DT2871355776</td>
+                                    <td>DT2871355776</td>
+                                    <td>07-01-2025 00:00:00</td>
+                                    <td>31-12-9999 00:00:00</td>
+                                    <td>DT</td>
+                                    <td>2</td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
 
                     <div class="table-footer">
-                        <span class="table-footer__info">1 - 10 of 460</span>
-                        <div class="table-footer__rows">
-                            Rows per page:
-                            <select class="rows-select">
-                                <option>10</option>
-                                <option>25</option>
-                                <option>50</option>
-                                <option>100</option>
-                            </select>
+                        <div class="table-footer__left">
+                            <span class="table-footer__info">1 - 10 of 460</span>
+
+                            <div class="table-footer__rows">
+                                Rows per page:
+                                <select class="rows-select">
+                                    <option>10</option>
+                                    <option>25</option>
+                                    <option>50</option>
+                                    <option>100</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="table-footer__pagination">
                             <button class="page-btn" disabled><i class="fa-solid fa-chevron-left"></i></button>
@@ -309,6 +336,74 @@
         </div>
 
     </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const tableRows = document.querySelectorAll('.tp-table tbody tr');
+
+            const info = document.querySelector('.table-footer__info');
+            const rowsSelect = document.querySelector('.rows-select');
+
+            const prevBtn = document.querySelector(
+                '.table-footer__pagination .page-btn:first-child'
+            );
+
+            const nextBtn = document.querySelector(
+                '.table-footer__pagination .page-btn:last-child'
+            );
+
+            let currentPage = 1;
+            let rowsPerPage = parseInt(rowsSelect.value);
+
+            function updateTable() {
+                const totalRows = tableRows.length;
+                const totalPages = Math.ceil(totalRows / rowsPerPage);
+
+                const startIndex = (currentPage - 1) * rowsPerPage;
+                const endIndex = startIndex + rowsPerPage;
+
+                tableRows.forEach((row, index) => {
+                    row.style.display =
+                        index >= startIndex && index < endIndex
+                            ? ''
+                            : 'none';
+                });
+
+                const startRow = totalRows === 0 ? 0 : startIndex + 1;
+                const endRow = Math.min(endIndex, totalRows);
+
+                info.textContent = `${startRow} - ${endRow} of ${totalRows}`;
+
+                prevBtn.disabled = currentPage === 1;
+                nextBtn.disabled = currentPage === totalPages || totalPages === 0;
+            }
+
+            prevBtn.addEventListener('click', () => {
+                if (currentPage > 1) {
+                    currentPage--;
+                    updateTable();
+                }
+            });
+
+            nextBtn.addEventListener('click', () => {
+                const totalPages = Math.ceil(tableRows.length / rowsPerPage);
+
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    updateTable();
+                }
+            });
+
+            rowsSelect.addEventListener('change', function () {
+                rowsPerPage = parseInt(this.value);
+                currentPage = 1;
+                updateTable();
+            });
+
+            updateTable();
+        });
+    </script>
 
     <script>
         document.querySelectorAll('.page-tab').forEach(tab => {

@@ -1462,6 +1462,11 @@ body {
   flex-wrap: wrap;
   gap: 10px;
 }
+.table-footer__left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
 [data-theme=dark] .table-footer {
   border-top-color: #385350;
 }

@@ -434,6 +434,12 @@ body {
     flex-wrap: wrap;
     gap: 10px;
 
+    &__left {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
     @at-root [data-theme="dark"] & {
         border-top-color: $oceanic-green-80;
     }
