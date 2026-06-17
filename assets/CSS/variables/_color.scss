@@ -1,3 +1,6 @@
+@use "sass:list";
+@use "sass:color";
+
 // ---------- Raw color palette (from Figma) ----------
 $oceanic-green:      #062824;
 $oceanic-green-80:   #385350;
@@ -117,23 +120,23 @@ $theme-colors: (
 
   &:hover {
     color: $color;
-    background-color: darken($bg, 7.5%);
-    border-color:     darken($bg, 10%);
+    background-color: color.scale($bg, $lightness: -7.5%);
+    border-color:     color.scale($bg, $lightness: -10%);
   }
 
   &:focus,
   &:focus-visible {
     color: $color;
-    background-color: darken($bg, 7.5%);
-    border-color:     darken($bg, 10%);
+    background-color: color.scale($bg, $lightness: -7.5%);
+    border-color:     color.scale($bg, $lightness: -10%);
     box-shadow: 0 0 0 0.2rem rgba($bg, 0.5);
   }
 
   &:active,
   &.active {
     color: $color;
-    background-color: darken($bg, 10%);
-    border-color:     darken($bg, 12.5%);
+    background-color: color.scale($bg, $lightness: -10%);
+    border-color:     color.scale($bg, $lightness: -12.5%);
   }
 }
 
@@ -159,16 +162,16 @@ $theme-colors: (
   &:active,
   &.active {
     color: $color;
-    background-color: darken($bg, 5%);
-    border-color:     darken($bg, 5%);
+    background-color: color.scale($bg, $lightness: -5%);
+    border-color:     color.scale($bg, $lightness: -5%);
   }
 }
 
 
 // ---------- Generate .btn-* and .btn-outline-* ----------
 @each $name, $pair in $theme-colors {
-  $bg:    nth($pair, 1);
-  $color: nth($pair, 2);
+  $bg:    list.nth($pair, 1);
+  $color: list.nth($pair, 2);
 
   .btn-tp-#{$name}         { @include button-variant($bg, $color); }
   .btn-tp-outline-#{$name} { @include button-outline-variant($bg, $color); }

@@ -1,4 +1,7 @@
-@import '../CSS/styles';
+@use "sass:map";
+@use "sass:list";
+@use 'variables/variables' as *;
+@use 'layout/shared';
 
 *,
 *::before,

@@ -1,4 +1,8 @@
-@import '../CSS/styles'; // variables, tokens, mixins
+@use "sass:map";
+@use "sass:list";
+@use "sass:color";
+@use 'variables/variables' as *;
+@use 'layout/shared' as *;
 
 *,
 *::before,
@@ -514,8 +518,8 @@ body {
         color: $dark-green;
 
         &:hover {
-            background: darken($neon, 10%);
-            border-color: darken($neon, 10%);
+            background: color.scale($neon, $lightness: -10%);
+            border-color: color.scale($neon, $lightness: -10%);
         }
     }
 }

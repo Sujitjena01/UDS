@@ -116,19 +116,19 @@
 }
 .btn-tp-primary:hover {
   color: #FFFFFF;
-  background-color: rgb(10.6782608696, 66.0717391304, 60.0652173913);
-  border-color: rgb(8.9043478261, 55.0956521739, 50.0869565217);
+  background-color: rgb(14.8, 91.575, 83.25);
+  border-color: rgb(14.4, 89.1, 81);
 }
 .btn-tp-primary:focus, .btn-tp-primary:focus-visible {
   color: #FFFFFF;
-  background-color: rgb(10.6782608696, 66.0717391304, 60.0652173913);
-  border-color: rgb(8.9043478261, 55.0956521739, 50.0869565217);
+  background-color: rgb(14.8, 91.575, 83.25);
+  border-color: rgb(14.4, 89.1, 81);
   box-shadow: 0 0 0 0.2rem rgba(16, 99, 90, 0.5);
 }
 .btn-tp-primary:active, .btn-tp-primary.active {
   color: #FFFFFF;
-  background-color: rgb(8.9043478261, 55.0956521739, 50.0869565217);
-  border-color: rgb(7.1304347826, 44.1195652174, 40.1086956522);
+  background-color: rgb(14.4, 89.1, 81);
+  border-color: rgb(14, 86.625, 78.75);
 }
 
 .btn-tp-outline-primary {
@@ -149,8 +149,8 @@
 }
 .btn-tp-outline-primary:active, .btn-tp-outline-primary.active {
   color: #FFFFFF;
-  background-color: rgb(12.452173913, 77.047826087, 70.0434782609);
-  border-color: rgb(12.452173913, 77.047826087, 70.0434782609);
+  background-color: rgb(15.2, 94.05, 85.5);
+  border-color: rgb(15.2, 94.05, 85.5);
 }
 
 .btn-tp-secondary {
@@ -160,19 +160,19 @@
 }
 .btn-tp-secondary:hover {
   color: #FFFFFF;
-  background-color: rgb(126.3337264151, 158.2051886792, 101.5448113208);
-  border-color: rgb(120.0047169811, 151.4622641509, 95.5377358491);
+  background-color: rgb(134.5087264151, 164.3551886792, 111.2948113208);
+  border-color: rgb(130.6783018868, 161.4735849057, 106.7264150943);
 }
 .btn-tp-secondary:focus, .btn-tp-secondary:focus-visible {
   color: #FFFFFF;
-  background-color: rgb(126.3337264151, 158.2051886792, 101.5448113208);
-  border-color: rgb(120.0047169811, 151.4622641509, 95.5377358491);
+  background-color: rgb(134.5087264151, 164.3551886792, 111.2948113208);
+  border-color: rgb(130.6783018868, 161.4735849057, 106.7264150943);
   box-shadow: 0 0 0 0.2rem rgba(146, 173, 125, 0.5);
 }
 .btn-tp-secondary:active, .btn-tp-secondary.active {
   color: #FFFFFF;
-  background-color: rgb(120.0047169811, 151.4622641509, 95.5377358491);
-  border-color: rgb(113.8101415094, 143.6438679245, 90.6061320755);
+  background-color: rgb(130.6783018868, 161.4735849057, 106.7264150943);
+  border-color: rgb(126.8478773585, 158.5919811321, 102.1580188679);
 }
 
 .btn-tp-outline-secondary {
@@ -193,8 +193,8 @@
 }
 .btn-tp-outline-secondary:active, .btn-tp-outline-secondary.active {
   color: #FFFFFF;
-  background-color: rgb(132.8891509434, 163.1367924528, 109.3632075472);
-  border-color: rgb(132.8891509434, 163.1367924528, 109.3632075472);
+  background-color: rgb(138.3391509434, 167.2367924528, 115.8632075472);
+  border-color: rgb(138.3391509434, 167.2367924528, 115.8632075472);
 }
 
 .btn-tp-warning {
@@ -204,19 +204,19 @@
 }
 .btn-tp-warning:hover {
   color: #FFFFFF;
-  background-color: rgb(177.1025345622, 107.0852534562, 1.6474654378);
-  border-color: rgb(164.4700460829, 99.4470046083, 1.5299539171);
+  background-color: rgb(198.875, 120.25, 1.85);
+  border-color: rgb(193.5, 117, 1.8);
 }
 .btn-tp-warning:focus, .btn-tp-warning:focus-visible {
   color: #FFFFFF;
-  background-color: rgb(177.1025345622, 107.0852534562, 1.6474654378);
-  border-color: rgb(164.4700460829, 99.4470046083, 1.5299539171);
+  background-color: rgb(198.875, 120.25, 1.85);
+  border-color: rgb(193.5, 117, 1.8);
   box-shadow: 0 0 0 0.2rem rgba(215, 130, 2, 0.5);
 }
 .btn-tp-warning:active, .btn-tp-warning.active {
   color: #FFFFFF;
-  background-color: rgb(164.4700460829, 99.4470046083, 1.5299539171);
-  border-color: rgb(151.8375576037, 91.8087557604, 1.4124423963);
+  background-color: rgb(193.5, 117, 1.8);
+  border-color: rgb(188.125, 113.75, 1.75);
 }
 
 .btn-tp-outline-warning {
@@ -237,8 +237,8 @@
 }
 .btn-tp-outline-warning:active, .btn-tp-outline-warning.active {
   color: #FFFFFF;
-  background-color: rgb(189.7350230415, 114.7235023041, 1.7649769585);
-  border-color: rgb(189.7350230415, 114.7235023041, 1.7649769585);
+  background-color: rgb(204.25, 123.5, 1.9);
+  border-color: rgb(204.25, 123.5, 1.9);
 }
 
 .btn-tp-danger {
@@ -248,19 +248,19 @@
 }
 .btn-tp-danger:hover {
   color: #FFFFFF;
-  background-color: rgb(177.6497933884, 26.1002066116, 26.1002066116);
-  border-color: rgb(166.5330578512, 24.4669421488, 24.4669421488);
+  background-color: rgb(195.175, 28.675, 28.675);
+  border-color: rgb(189.9, 27.9, 27.9);
 }
 .btn-tp-danger:focus, .btn-tp-danger:focus-visible {
   color: #FFFFFF;
-  background-color: rgb(177.6497933884, 26.1002066116, 26.1002066116);
-  border-color: rgb(166.5330578512, 24.4669421488, 24.4669421488);
+  background-color: rgb(195.175, 28.675, 28.675);
+  border-color: rgb(189.9, 27.9, 27.9);
   box-shadow: 0 0 0 0.2rem rgba(211, 31, 31, 0.5);
 }
 .btn-tp-danger:active, .btn-tp-danger.active {
   color: #FFFFFF;
-  background-color: rgb(166.5330578512, 24.4669421488, 24.4669421488);
-  border-color: rgb(155.416322314, 22.833677686, 22.833677686);
+  background-color: rgb(189.9, 27.9, 27.9);
+  border-color: rgb(184.625, 27.125, 27.125);
 }
 
 .btn-tp-outline-danger {
@@ -281,8 +281,8 @@
 }
 .btn-tp-outline-danger:active, .btn-tp-outline-danger.active {
   color: #FFFFFF;
-  background-color: rgb(188.7665289256, 27.7334710744, 27.7334710744);
-  border-color: rgb(188.7665289256, 27.7334710744, 27.7334710744);
+  background-color: rgb(200.45, 29.45, 29.45);
+  border-color: rgb(200.45, 29.45, 29.45);
 }
 
 .btn-tp-default {
@@ -292,19 +292,19 @@
 }
 .btn-tp-default:hover {
   color: #011210;
-  background-color: rgb(0, 219.75, 146.5);
-  border-color: #00cf8a;
+  background-color: rgb(0, 238.65, 159.1);
+  border-color: rgb(0, 232.2, 154.8);
 }
 .btn-tp-default:focus, .btn-tp-default:focus-visible {
   color: #011210;
-  background-color: rgb(0, 219.75, 146.5);
-  border-color: #00cf8a;
+  background-color: rgb(0, 238.65, 159.1);
+  border-color: rgb(0, 232.2, 154.8);
   box-shadow: 0 0 0 0.2rem rgba(3, 255, 171, 0.5);
 }
 .btn-tp-default:active, .btn-tp-default.active {
   color: #011210;
-  background-color: #00cf8a;
-  border-color: rgb(0, 194.25, 129.5);
+  background-color: rgb(0, 232.2, 154.8);
+  border-color: rgb(0, 225.75, 150.5);
 }
 
 .btn-tp-outline-default {
@@ -325,11 +325,10 @@
 }
 .btn-tp-outline-default:active, .btn-tp-outline-default.active {
   color: #011210;
-  background-color: rgb(0, 232.5, 155);
-  border-color: rgb(0, 232.5, 155);
+  background-color: rgb(0, 245.1, 163.4);
+  border-color: rgb(0, 245.1, 163.4);
 }
 
-/*------------------- Border radius --------------------------*/
 /*------------------- Responsive --------------------------*/
 :root {
   --primary-blue: #4A90E2;
@@ -486,7 +485,7 @@ body {
 .sidebar__logo img {
   width: 100px;
   height: 60px;
-  border-radius: 5px;
+  border-radius: 0.3125rem;
   -o-object-fit: contain;
      object-fit: contain;
   flex-shrink: 0;
@@ -525,7 +524,7 @@ body {
   background: rgba(0, 200, 150, 0.15);
   border: 1px solid rgba(0, 200, 150, 0.3);
   padding: 1px 5px;
-  border-radius: 3px;
+  border-radius: 0.1875rem;
   margin-top: 3px;
   white-space: nowrap;
   letter-spacing: 0.05em;
@@ -546,7 +545,7 @@ body {
 }
 .nav::-webkit-scrollbar-thumb {
   background: rgba(0, 200, 150, 0.2);
-  border-radius: 2px;
+  border-radius: 0.125rem;
 }
 .nav .nav__section-label {
   font-size: 9px;
@@ -579,7 +578,7 @@ body {
   color: #10635A;
   font-size: 13px;
   font-weight: 500;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   margin: 1px 8px;
   transition: background 0.2s, color 0.2s, padding 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   white-space: nowrap;
@@ -669,7 +668,7 @@ body {
   align-items: center;
   gap: 10px;
   padding: 10px;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   color: #10635A;
   text-decoration: none;
   font-size: 13px;
@@ -700,7 +699,7 @@ body {
   align-items: center;
   gap: 10px;
   padding: 10px;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   text-decoration: none;
   cursor: pointer;
   transition: background 0.2s;
@@ -752,7 +751,7 @@ body {
   color: #E8F5F2;
   width: 38px;
   height: 38px;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   align-items: center;
   justify-content: center;
   cursor: pointer;
@@ -876,7 +875,7 @@ body {
   gap: 8px;
   background: #FFFFFF;
   border: 1px solid #5F6368;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   padding: 0 14px;
   height: 38px;
   min-width: 220px;
@@ -962,7 +961,7 @@ body {
   gap: 6px;
   padding: 0 16px;
   height: 38px;
-  border-radius: 5px;
+  border-radius: 0.3125rem;
   font-size: 13px;
   font-weight: 500;
   cursor: pointer;
@@ -979,25 +978,25 @@ body {
   color: #fff;
 }
 .tp-btn--primary:hover {
-  background: rgb(10.6782608696, 66.0717391304, 60.0652173913);
+  background: rgb(14.8, 91.575, 83.25);
 }
 .tp-btn--accent {
   background: #03FFAB;
   color: #202020;
 }
 .tp-btn--accent:hover {
-  background: rgb(0, 219.75, 146.5);
+  background: rgb(0, 238.65, 159.1);
 }
 .tp-btn--outline {
   background: #10635A;
   color: #fff;
-  border-radius: 5px;
+  border-radius: 0.3125rem;
   padding: 8px;
   border: none;
   height: 38px;
 }
 .tp-btn--outline:hover {
-  background: rgb(10.6782608696, 66.0717391304, 60.0652173913);
+  background: rgb(14.8, 91.575, 83.25);
 }
 
 .dashboard-footer {
@@ -1151,7 +1150,7 @@ body {
 .stat-card {
   background: #ccffc3;
   border: 1.5px solid #73b966;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   padding: 12px;
   display: flex;
   flex-direction: column;
@@ -1168,7 +1167,7 @@ body {
 }
 .stat-card__icon {
   margin-right: 8px;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1201,7 +1200,7 @@ body {
   font-size: 10px;
   font-weight: 600;
   padding: 3px 9px;
-  border-radius: 2px;
+  border-radius: 0.125rem;
   width: -moz-fit-content;
   width: fit-content;
 }
@@ -1257,7 +1256,7 @@ body {
 .chart-card {
   background: #FFFFFF;
   border: 1px solid #10635A;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   overflow: hidden;
 }
 .chart-card--main, .chart-card--trend {
@@ -1381,7 +1380,7 @@ body {
   transform: translate(-50%, -50%);
   background: #FFFFFF;
   border: 1px solid #EDF2F0;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   padding: 10px 14px;
   pointer-events: none;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
@@ -1425,7 +1424,7 @@ body {
   color: #5f9688;
   background: rgba(0, 200, 150, 0.1);
   padding: 2px 8px;
-  border-radius: 3px;
+  border-radius: 0.1875rem;
 }
 .live-badge i {
   font-size: 7px;
