@@ -1160,7 +1160,7 @@ body {
   align-items: flex-end;
   gap: 0;
   border-bottom: 2px solid #E0DACB;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
   overflow-x: auto;
   overflow-y: hidden;
   flex-wrap: nowrap;
@@ -1222,7 +1222,7 @@ body {
   background: #FFFFFF;
   border: 1px solid #EBE6DD;
   border-radius: 0.5rem;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   overflow: hidden;
 }
 [data-theme=dark] .section-card {
@@ -1234,7 +1234,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 15px;
+  padding: 5px 15px;
   border-bottom: 1px solid #EBE6DD;
 }
 [data-theme=dark] .section-card__header {
@@ -1260,6 +1260,29 @@ body {
 .section-card__body {
   padding: 15px;
   padding-bottom: 0px;
+}
+
+.accordion-item {
+  border: 1px solid #EBE6DD;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+[data-theme=dark] .accordion-item {
+  border-color: #385350;
+}
+
+.accordion-button {
+  font-weight: 600;
+  background: #FFFFFF !important;
+  text-transform: uppercase;
+  color: #10635A;
+}
+.accordion-button:focus {
+  box-shadow: none;
+}
+
+.accordion-button:not(.collapsed) {
+  background: #FFFFFF;
 }
 
 .filter-grid {

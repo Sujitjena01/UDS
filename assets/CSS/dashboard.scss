@@ -1,7 +1,7 @@
 @use "sass:map";
 @use "sass:list";
-@use 'variables/variables' as *;
-@use 'layout/shared' as *;
+@use 'variables/variables'as *;
+@use 'layout/shared'as *;
 
 // ── Shared components ─────────────────────────────────────────
 
@@ -57,7 +57,9 @@ body {
     margin-bottom: 20px;
     color: $highlight-green;
 
-    .stat-card { flex: 1; }
+    .stat-card {
+        flex: 1;
+    }
 
     @at-root [data-theme="dark"] .stat-card {
         background: #031c19;
@@ -65,12 +67,18 @@ body {
 
     @media (max-width: 1200px) {
         flex-wrap: wrap;
-        .stat-card { flex: 1 1 calc(50% - 8px); }
+
+        .stat-card {
+            flex: 1 1 calc(50% - 8px);
+        }
     }
 
     @media (max-width: 600px) {
         flex-direction: column;
-        .stat-card { flex: 1 1 100%; }
+
+        .stat-card {
+            flex: 1 1 100%;
+        }
     }
 }
 
@@ -80,11 +88,13 @@ body {
     border-radius: $br-8;
     padding: 12px;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     gap: 10px;
     transition: box-shadow 0.2s;
 
-    &:hover { box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06); }
+    &:hover {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    }
 
     &__header {
         display: flex;
@@ -134,15 +144,24 @@ body {
         border-radius: $br-2;
         width: fit-content;
 
-        &--up   { background: $highlight-green; color: $white; }
-        &--down { background: $error-red;       color: $white; }
+        &--up {
+            background: $highlight-green;
+            color: $white;
+        }
+
+        &--down {
+            background: $error-red;
+            color: $white;
+        }
 
         &.chart {
             background: rgba(#05c168, 0.2);
             color: #14CA74;
         }
 
-        i { font-size: 10px; }
+        i {
+            font-size: 10px;
+        }
     }
 }
 
@@ -150,12 +169,24 @@ body {
     .stat-card {
         border-color: #343b4f;
 
-        &__label  { color: rgba($white, 0.6); }
-        &__value  { color: $white; }
+        &__label {
+            color: rgba($white, 0.6);
+        }
+
+        &__value {
+            color: $white;
+        }
     }
 
-    .stat-card__badge--up   { background: rgba($highlight-green, 0.2); color: $neon; }
-    .stat-card__badge--down { background: rgba($error-red, 0.2);       color: $error-red; }
+    .stat-card__badge--up {
+        background: rgba($highlight-green, 0.2);
+        color: $neon;
+    }
+
+    .stat-card__badge--down {
+        background: rgba($error-red, 0.2);
+        color: $error-red;
+    }
 }
 
 // ── Charts ────────────────────────────────────────────────────
@@ -165,9 +196,13 @@ body {
     gap: 16px;
     margin-bottom: 24px;
 
-    &--full { grid-template-columns: 1fr; }
+    &--full {
+        grid-template-columns: 1fr;
+    }
 
-    @media (max-width: 1100px) { grid-template-columns: 1fr; }
+    @media (max-width: 1100px) {
+        grid-template-columns: 1fr;
+    }
 }
 
 .chart-card {
@@ -175,9 +210,17 @@ body {
     border: 1px solid $highlight-green;
     border-radius: $br-8;
     overflow: hidden;
+    height: 366px !important;
 
-    &--main, &--trend { display: flex; flex-direction: column; }
-    &--trend          { width: 100%; }
+    &--main,
+    &--trend {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &--trend {
+        width: 100%;
+    }
 
     &__header {
         display: flex;
@@ -190,7 +233,7 @@ body {
 
     &__title {
         font-size: 20px;
-        font-weight:700;
+        font-weight: 700;
         color: $highlight-green;
         margin: 0;
     }
@@ -208,16 +251,22 @@ body {
     &__body {
         flex: 1;
         padding: 10px;
-        height: auto;
+        height: 200px;
         position: relative;
 
-        canvas { width: 100% !important; height: 100% !important; }
+        canvas {
+            width: 100% !important;
+            height: 100% !important;
+        }
     }
 
     &__body--trend {
         padding: 10px;
 
-        canvas { width: 100% !important; height: 100% !important; }
+        canvas {
+            width: 100% !important;
+            height: 100% !important;
+        }
     }
 
     &--mini {
@@ -235,7 +284,10 @@ body {
         align-items: center;
         gap: 6px;
 
-        i { color: $color-accent; font-size: 13px; }
+        i {
+            color: $color-accent;
+            font-size: 13px;
+        }
     }
 
     &__mini-value {
@@ -251,8 +303,12 @@ body {
 
     &__body--mini {
         position: relative;
+        height: 220px;
 
-        canvas { width: 100% !important; height: 100% !important; }
+        canvas {
+            width: 100% !important;
+            height: 100% !important;
+        }
     }
 
     &__mini-footer {
@@ -265,11 +321,24 @@ body {
     }
 }
 
+
 @at-root [data-theme="dark"] {
-    .chart-card             { background: #031c19; border-color: #343b4f; }
-    .chart-card__title      { color: $white; }
-    .chart-card__value      { color: $white; }
-    .chart-card__mini-value { color: $white; }
+    .chart-card {
+        background: #031c19;
+        border-color: #343b4f;
+    }
+
+    .chart-card__title {
+        color: $white;
+    }
+
+    .chart-card__value {
+        color: $white;
+    }
+
+    .chart-card__mini-value {
+        color: $white;
+    }
 }
 
 .chart-side {
@@ -277,7 +346,9 @@ body {
     flex-direction: column;
     gap: 16px;
 
-    .chart-card--mini { flex: 1; }
+    .chart-card--mini {
+        flex: 1;
+    }
 }
 
 .chart-tooltip {
@@ -321,7 +392,9 @@ body {
     font-weight: 500;
     text-decoration: none;
 
-    &:hover { text-decoration: underline; }
+    &:hover {
+        text-decoration: underline;
+    }
 }
 
 .live-badge {
@@ -342,6 +415,13 @@ body {
 }
 
 @keyframes pulse-dot {
-    0%, 100% { opacity: 1;   }
-    50%       { opacity: 0.3; }
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
 }

@@ -40,9 +40,6 @@
                         </div>
                         <div class="stat-card__bottom">
                             <div class="stat-card__value">1084911</div>
-                            <span class="stat-card__badge stat-card__badge--up">
-                                28.4% <i class="fa-solid fa-arrow-trend-up"></i>
-                            </span>
                         </div>
                     </div>
 
@@ -56,9 +53,6 @@
                         </div>
                         <div class="stat-card__bottom">
                             <div class="stat-card__value">11144</div>
-                            <span class="stat-card__badge stat-card__badge--down">
-                                12.6% <i class="fa-solid fa-arrow-trend-down"></i>
-                            </span>
                         </div>
                     </div>
 
@@ -72,9 +66,6 @@
                         </div>
                         <div class="stat-card__bottom">
                             <div class="stat-card__value">8224</div>
-                            <span class="stat-card__badge stat-card__badge--up">
-                                28.4% <i class="fa-solid fa-arrow-trend-up"></i>
-                            </span>
                         </div>
                     </div>
 
@@ -296,7 +287,7 @@
                                 anchor: 'end',
                                 offset: 6,
                                 color: datalabelColor,
-                                font: { weight: '600', size: isMobile ? 10 : 15 },
+                                font: { weight: '600', size: isMobile ? 10 : 12 },
                                 formatter: v => (v / 1000).toFixed(1) + 'K',
                             },
                         },
@@ -331,7 +322,7 @@
                         datasets: [
                             {
                                 data: [881200, 203700],
-                                backgroundColor: ['#00C896', '#F5C842'],
+                                backgroundColor: ['#00C896', '#92AD7D'],
                                 borderWidth: 0,
                             },
                         ],

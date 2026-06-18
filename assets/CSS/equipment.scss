@@ -1,8 +1,8 @@
 @use "sass:map";
 @use "sass:list";
 @use "sass:color";
-@use 'variables/variables' as *;
-@use 'layout/shared' as *;
+@use 'variables/variables'as *;
+@use 'layout/shared'as *;
 
 *,
 *::before,
@@ -96,7 +96,7 @@ body {
     align-items: flex-end;
     gap: 0;
     border-bottom: 2px solid $beige-60;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     overflow-x: auto;
     overflow-y: hidden;
     flex-wrap: nowrap;
@@ -165,7 +165,7 @@ body {
     background: $white;
     border: 1px solid $beige-40;
     border-radius: $br-8;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     overflow: hidden;
 
     @at-root [data-theme="dark"] & {
@@ -177,7 +177,7 @@ body {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 10px 15px;
+        padding: 5px 15px;
         border-bottom: 1px solid $beige-40;
 
         @at-root [data-theme="dark"] & {
@@ -216,6 +216,31 @@ body {
         padding: 15px;
         padding-bottom: 0px;
     }
+}
+
+.accordion-item {
+    border: 1px solid $beige-40;
+    border-radius: $br-8;
+    overflow: hidden;
+
+    @at-root [data-theme="dark"] & {
+        border-color: $oceanic-green-80;
+    }
+}
+
+.accordion-button {
+    font-weight: 600;
+    background: $white !important;
+    text-transform: uppercase;
+    color: $highlight-green;
+
+    &:focus {
+        box-shadow: none;
+    }
+}
+
+.accordion-button:not(.collapsed) {
+    background: $white;
 }
 
 // ── Filter Form ───────────────────────────────────────────────

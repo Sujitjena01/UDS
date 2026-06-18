@@ -48,94 +48,94 @@
                     </button>
                 </div>
 
-                <div class="section-card">
-                    <div class="section-card__header">
-                        <span class="section-card__title">Equipment</span>
-
-                        <!-- <div class="filter-actions">
-                            <button class="btn-tp btn-tp-sm btn-tp-primary">
-                                <i class="fa-solid fa-magnifying-glass"></i> Search
+                <div class="accordion mb-4" id="equipmentAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="equipmentHeading">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#equipmentCollapse" aria-expanded="true"
+                                aria-controls="equipmentCollapse">
+                                Equipment
                             </button>
+                        </h2>
 
-                            <button class="btn-tp btn-tp-sm btn-tp-warning">
-                                <i class="fa-solid fa-rotate-right"></i> Reset
-                            </button>
+                        <div id="equipmentCollapse" class="accordion-collapse collapse show"
+                            aria-labelledby="equipmentHeading" data-bs-parent="#equipmentAccordion">
 
-                            <button class="btn-tp btn-tp-sm btn-tp-secondary">
-                                <i class="fa-solid fa-file-export"></i> Export All
-                            </button>
-                        </div> -->
-                    </div>
+                            <div class="accordion-body">
 
-                    <div class="section-card__body">
+                                <!-- Row 1 -->
+                                <div class="filter-grid">
+                                    <div class="form-field">
+                                        <input type="text" class="form-field__input" id="enterId" placeholder=" "
+                                            value="67289126518929" />
+                                        <label class="form-field__label" for="enterId">Enter ID</label>
+                                    </div>
 
-                        <!-- Row 1 -->
-                        <div class="filter-grid">
-                            <div class="form-field">
-                                <input type="text" class="form-field__input" id="enterId" placeholder=" "
-                                    value="67289126518929" />
-                                <label class="form-field__label" for="enterId">Enter ID</label>
-                            </div>
-                            <div class="form-field">
-                                <div class="form-field__select-wrap">
-                                    <select class="form-field__select" id="selectHes">
-                                        <option value="">Select HES</option>
-                                        <option>HES 1</option>
-                                        <option>HES 2</option>
-                                        <option>HES 3</option>
-                                    </select>
+                                    <div class="form-field">
+                                        <div class="form-field__select-wrap">
+                                            <select class="form-field__select" id="selectHes">
+                                                <option value="">Select HES</option>
+                                                <option>HES 1</option>
+                                                <option>HES 2</option>
+                                                <option>HES 3</option>
+                                            </select>
+                                        </div>
+                                        <label class="form-field__label" for="selectHes">Select HES</label>
+                                    </div>
+
+                                    <div class="form-field">
+                                        <input type="text" class="form-field__input" id="meterId" placeholder=" " />
+                                        <label class="form-field__label" for="meterId">Meter ID</label>
+                                    </div>
+
+                                    <div class="form-field">
+                                        <input type="text" class="form-field__input" id="consumerId" placeholder=" " />
+                                        <label class="form-field__label" for="consumerId">Consumer ID</label>
+                                    </div>
                                 </div>
-                                <label class="form-field__label" for="selectHes">Select HES</label>
-                            </div>
-                            <div class="form-field">
-                                <input type="text" class="form-field__input" id="meterId" placeholder=" " />
-                                <label class="form-field__label" for="meterId">Meter ID</label>
-                            </div>
-                            <div class="form-field">
-                                <input type="text" class="form-field__input" id="consumerId" placeholder=" " />
-                                <label class="form-field__label" for="consumerId">Consumer ID</label>
-                            </div>
-                        </div>
 
-                        <!-- Row 2 -->
-                        <div class="filter-grid filter-grid--3">
-                            <div class="form-field">
-                                <input type="text" class="form-field__input" id="meterId" placeholder=" " />
-                                <label class="form-field__label" for="meterId">Utility ID</label>
-                            </div>
-                            <div class="form-field">
-                                <div class="form-field__select-wrap">
-                                    <select class="form-field__select" id="selectHes">
-                                        <option value="">Select HES</option>
-                                        <option>HES 1</option>
-                                        <option>HES 2</option>
-                                        <option>HES 3</option>
-                                    </select>
+                                <!-- Row 2 -->
+                                <div class="filter-grid filter-grid--3 mt-3">
+                                    <div class="form-field">
+                                        <input type="text" class="form-field__input" id="utilityId" placeholder=" " />
+                                        <label class="form-field__label" for="utilityId">Utility ID</label>
+                                    </div>
+
+                                    <div class="form-field">
+                                        <div class="form-field__select-wrap">
+                                            <select class="form-field__select" id="selectHes2">
+                                                <option value="">Select HES</option>
+                                                <option>HES 1</option>
+                                                <option>HES 2</option>
+                                                <option>HES 3</option>
+                                            </select>
+                                        </div>
+                                        <label class="form-field__label" for="selectHes2">Select HES</label>
+                                    </div>
+
+                                    <div class="form-field">
+                                        <input type="text" class="form-field__input" id="materialId" placeholder=" " />
+                                        <label class="form-field__label" for="materialId">Material ID</label>
+                                    </div>
                                 </div>
-                                <label class="form-field__label" for="selectHes">Select HES</label>
-                            </div>
-                            <div class="form-field">
-                                <input type="text" class="form-field__input" id="meterId" placeholder=" " />
-                                <label class="form-field__label" for="meterId">Material ID</label>
-                            </div>
-                            
-                        </div>
-                        <div class="row text-center mb-3">
-                            <div class="form-field">
-                                <button class="btn-tp btn-tp-sm btn-tp-primary">
-                                <i class="fa-solid fa-magnifying-glass"></i> Search
-                            </button>
 
-                            <button class="btn-tp btn-tp-sm btn-tp-warning">
-                                <i class="fa-solid fa-rotate-right"></i> Reset
-                            </button>
+                                <!-- Buttons -->
+                                <div class="text-center mt-4">
+                                    <button class="btn-tp btn-tp-sm btn-tp-primary">
+                                        <i class="fa-solid fa-magnifying-glass"></i> Search
+                                    </button>
 
-                            <button class="btn-tp btn-tp-sm btn-tp-secondary">
-                                <i class="fa-solid fa-file-export"></i> Export All
-                            </button>
+                                    <button class="btn-tp btn-tp-sm btn-tp-warning">
+                                        <i class="fa-solid fa-rotate-right"></i> Reset
+                                    </button>
+
+                                    <button class="btn-tp btn-tp-sm btn-tp-secondary">
+                                        <i class="fa-solid fa-file-export"></i> Export All
+                                    </button>
+                                </div>
+
                             </div>
                         </div>
-
                     </div>
                 </div>
 
