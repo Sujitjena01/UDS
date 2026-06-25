@@ -54,7 +54,7 @@ body {
 .stat-cards {
     display: flex;
     gap: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     color: $highlight-green;
 
     .stat-card {
@@ -239,7 +239,7 @@ body {
     }
 
     &__value {
-        font-size: 26px;
+        font-size: 22px;
         font-weight: 700;
         color: #1A2E2B;
         display: flex;
@@ -250,7 +250,7 @@ body {
 
     &__body {
         flex: 1;
-        padding: 10px;
+        padding: 0px 10px 10px 10px;
         height: 200px;
         position: relative;
 
@@ -261,7 +261,7 @@ body {
     }
 
     &__body--trend {
-        padding: 10px;
+        padding: 0px 10px 10px 10px;
 
         canvas {
             width: 100% !important;
@@ -272,14 +272,13 @@ body {
     &--mini {
         display: flex;
         flex-direction: column;
-        padding: 18px 18px 14px;
+        padding: 10px 10px 10px 10px;
     }
 
     &__mini-header {
         font-size: 20px;
         font-weight: 700;
         color: $highlight-green;
-        margin-bottom: 6px;
         display: flex;
         align-items: center;
         gap: 6px;
@@ -297,7 +296,6 @@ body {
         display: flex;
         align-items: center;
         gap: 8px;
-        margin-bottom: 8px;
         letter-spacing: -0.5px;
     }
 

@@ -578,7 +578,7 @@ body {
   color: #10635A;
   font-size: 13px;
   font-weight: 500;
-  border-radius: 0.5rem;
+  border-radius: 0.3125rem;
   margin: 1px 8px;
   transition: background 0.2s, color 0.2s, padding 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   white-space: nowrap;
@@ -631,11 +631,12 @@ body {
   margin: 0 8px 4px 16px;
   border-radius: 0 0 6px 6px;
   overflow: hidden;
+  width: 90%;
 }
 .nav .toggleDiv li a {
   display: block;
   font-size: 12px;
-  padding: 8px 12px 8px 24px;
+  padding: 8px 15px 8px 15px;
   color: #5f9688;
   text-decoration: none;
   transition: background 0.2s, color 0.2s, padding-left 0.2s;
@@ -821,8 +822,8 @@ body {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 16px;
-  padding: 15px;
-  padding-bottom: 5px;
+  padding: 10px;
+  background: #F0F0F0;
   font-family: "Outfit-Regular", sans-serif;
 }
 .topbar__left {
@@ -875,7 +876,7 @@ body {
   gap: 8px;
   background: #FFFFFF;
   border: 1px solid #5F6368;
-  border-radius: 0.5rem;
+  border-radius: 0.3125rem;
   padding: 0 14px;
   height: 38px;
   min-width: 220px;
@@ -1120,7 +1121,7 @@ body {
 .stat-cards {
   display: flex;
   gap: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   color: #10635A;
 }
 .stat-cards .stat-card {
@@ -1282,7 +1283,7 @@ body {
   margin: 0;
 }
 .chart-card__value {
-  font-size: 26px;
+  font-size: 22px;
   font-weight: 700;
   color: #1A2E2B;
   display: flex;
@@ -1292,7 +1293,7 @@ body {
 }
 .chart-card__body {
   flex: 1;
-  padding: 10px;
+  padding: 0px 10px 10px 10px;
   height: 200px;
   position: relative;
 }
@@ -1301,7 +1302,7 @@ body {
   height: 100% !important;
 }
 .chart-card__body--trend {
-  padding: 10px;
+  padding: 0px 10px 10px 10px;
 }
 .chart-card__body--trend canvas {
   width: 100% !important;
@@ -1310,13 +1311,12 @@ body {
 .chart-card--mini {
   display: flex;
   flex-direction: column;
-  padding: 18px 18px 14px;
+  padding: 10px 10px 10px 10px;
 }
 .chart-card__mini-header {
   font-size: 20px;
   font-weight: 700;
   color: #10635A;
-  margin-bottom: 6px;
   display: flex;
   align-items: center;
   gap: 6px;
@@ -1332,7 +1332,6 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 8px;
   letter-spacing: -0.5px;
 }
 .chart-card__body--mini {

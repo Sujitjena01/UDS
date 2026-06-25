@@ -6,7 +6,7 @@ class MainTopbar extends HTMLElement {
                 <button id="mobileToggle" class="sidebar__toggle-btn">
                     <i class="fa-solid fa-bars"></i>
                 </button>
-                <p class="topbar__subtitle">Last Login On: 01/06/2026 00:00:00</p>
+                <p class="topbar__subtitle"><strong>Last Updated On:</strong> 01/06/2026 00:00:00</p>
             </div>
             <div class="topbar__right">
                 <div class="topbar__search">
@@ -14,10 +14,10 @@ class MainTopbar extends HTMLElement {
                     <input type="text" placeholder="Search for..." />
                 </div>
                 <button class="tp-btn tp-btn--primary">
-                    Export data <i class="fa-solid fa-download"></i>
+                    Export Data <i class="fa-solid fa-download"></i>
                 </button>
                 <button class="tp-btn tp-btn--accent">
-                    Create report <i class="fa-solid fa-plus"></i>
+                    Create Report <i class="fa-solid fa-plus"></i>
                 </button>
                 <label class="mode-toggle" title="Toggle light/dark mode">
                     <input type="checkbox" id="modeToggle" hidden />

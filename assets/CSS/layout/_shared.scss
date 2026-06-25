@@ -294,7 +294,7 @@ body {
             color: $highlight-green;
             font-size: 13px;
             font-weight: 500;
-            border-radius: $br-8;
+            border-radius: $br-5;
             margin: 1px 8px;
             transition: background 0.2s, color 0.2s, padding $sidebar-transition;
             white-space: nowrap;
@@ -356,11 +356,12 @@ body {
         margin: 0 8px 4px 16px;
         border-radius: 0 0 6px 6px;
         overflow: hidden;
+        width: 90%;
 
         li a {
             display: block;
             font-size: 12px;
-            padding: 8px 12px 8px 24px;
+            padding: 8px 15px 8px 15px;
             color: $color-accent;
             text-decoration: none;
             transition: background 0.2s, color 0.2s, padding-left 0.2s;
@@ -564,8 +565,8 @@ body {
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 16px;
-    padding: 15px;
-    padding-bottom: 5px;
+    padding: 10px;
+    background: $gray-30;
     font-family: $font-outfit-regular;
 
     &__left {
@@ -620,7 +621,7 @@ body {
         gap: 8px;
         background: $white;
         border: 1px solid $gray-70;
-        border-radius: $br-8;
+        border-radius: $br-5;
         padding: 0 14px;
         height: 38px;
         min-width: 220px;
