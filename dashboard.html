@@ -2,450 +2,182 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TPCODL Login</title>
-
+    <title>BAMS :: Operational Dashboard</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="assets/images/color-map.png" type="image/x-icon">
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/test.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/CSS/font-awesome/css/all.css">
-    <link rel="stylesheet" href="assets/CSS/dashboard.css">
-    <link href="assets/CSS/bootstrap.min.css" rel="stylesheet">
-
 </head>
 
 <body>
 
+    <div class="app-shell">
 
-    <!-- Mobile backdrop -->
-    <div class="sidebar__overlay" id="sidebarOverlay"></div>
+        <div id="sidebar-placeholder" data-active="dashboard"></div>
 
-    <main class="dashboard">
-        <main-sidebar></main-sidebar>
+        <div id="header-placeholder" data-search-placeholder="Search by BA ID, Name, or Department..."
+            data-user-name="BA Login" data-user-sub="Adishakti Agency" data-user-avatar="assets/Images/profile.webp">
+</div>
 
-        <div class="content-wrapper">
-            <main-topbar></main-topbar>
-            <!-- MAIN CONTENT (placeholder) -->
-            <div class="main-content">
+        <main class="app-main">
+            <section>
 
-
-
-                <div class="stat-cards">
-
-                    <div class="stat-card">
-                        <div class="stat-card__header">
-                            <div class="stat-card__icon ">
-                                <i class="fa-solid fa-gauge-high"></i>
-                            </div>
-                            <span class="stat-card__label">Total Meter</span>
-
-                        </div>
-                        <div class="stat-card__bottom">
-                            <div class="stat-card__value">1084911</div>
-                        </div>
+                <div class="tp-page-head">
+                    <div>
+                        <h1 class="tp-page-head__title">Operational Dashboard</h1>
+                        <p class="tp-page-head__subtitle">Real-time status of ID card registrations and BA analytics.
+                        </p>
                     </div>
 
-                    <div class="stat-card">
-                        <div class="stat-card__header">
-                            <div class="stat-card__icon ">
-                                <i class="fa-solid fa-plug-circle-check"></i>
-                            </div>
-                            <span class="stat-card__label">Meter Installed</span>
-
-                        </div>
-                        <div class="stat-card__bottom">
-                            <div class="stat-card__value">11144</div>
-                        </div>
-                    </div>
-
-                    <div class="stat-card">
-                        <div class="stat-card__header">
-                            <div class="stat-card__icon ">
-                                <i class="fa-solid fa-microchip"></i>
-                            </div>
-                            <span class="stat-card__label">Smart Prepaid</span>
-
-                        </div>
-                        <div class="stat-card__bottom">
-                            <div class="stat-card__value">8224</div>
-                        </div>
-                    </div>
-
-
-                </div>
-
-                <div class="charts-row">
-
-                    <!-- Main Area Chart -->
-                    <div class="chart-card chart-card--main">
-                        <div class="chart-card__header">
-                            <div>
-                                <p class="chart-card__title">Month-wise Installation</p>
-                                <div class="chart-card__value">
-                                    240.8K
-                                    <span class="stat-card__badge stat-card__badge--up chart" style="font-size:11px;">
-                                        <i class="fa-solid fa-arrow-trend-up"></i> 24.6%
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="chart__filter d-flex gap-2">
-                                <div class="dropdown">
-                                    <a class="btn-tp-sm btn-tp-primary dropdown-toggle" href="#" role="button"
-                                        data-bs-toggle="dropdown" aria-expanded="false">
-                                        Year
-                                    </a>
-
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Action</a></li>
-                                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    </ul>
-                                </div>
-                                <div class="dropdown">
-                                    <a class="btn-tp-sm btn-tp-primary dropdown-toggle" href="#" role="button"
-                                        data-bs-toggle="dropdown" aria-expanded="false">
-                                        HES Name
-                                    </a>
-
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Action</a></li>
-                                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="chart-card__body">
-                            <canvas id="mainAreaChart"></canvas>
-                            <!-- Tooltip -->
-                            <div class="chart-tooltip" id="chartTooltip" style="display:none;">
-                                <div class="chart-tooltip__value">125.2k <span
-                                        class="stat-card__badge stat-card__badge--up"
-                                        style="font-size:10px;padding:2px 6px;"><i
-                                            class="fa-solid fa-arrow-trend-up chart"></i>
-                                        12.5%</span></div>
-                                <div class="chart-tooltip__date">June 21, 2026</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="chart-side">
-
-                        <div class="chart-card chart-card--mini">
-                            <div class="chart-card__mini-header">
-                                Meter Installation Status
-                            </div>
-                            <div class="chart-card__mini-value">
-                                144.6K
-                                <span class="stat-card__badge stat-card__badge--up chart"
-                                    style="font-size:10px;padding:2px 6px;">
-                                    <i class="fa-solid fa-arrow-trend-up"></i> 28.5%
-                                </span>
-                            </div>
-                            <div class="chart-card__body--mini">
-                                <canvas id="dailyBarChart"></canvas>
-                            </div>
-                            <div class="chart-card__mini-footer">
-                                <span class="text-muted">Last 12 months</span>
-                                <a href="#" class="link-accent">View report</a>
-                            </div>
-                        </div>
-
-
+                    <div class="tp-page-head__actions">
+                        <button type="button" class="btn-tp btn-tp-outline-secondary">
+                            <i class="fa-regular fa-calendar"></i>
+                            Last 30 Days
+                        </button>
+                        <button type="button" class="btn-tp btn-tp-primary">
+                            <i class="fa-solid fa-arrow-down-to-line"></i>
+                            Export Report
+                        </button>
                     </div>
                 </div>
 
-                <div class="charts-row--full">
-                    <div class="chart-card chart-card--trend">
-
-                        <div class="chart-card__header">
-                            <div>
-                                <p class="chart-card__title">Monthly Trend</p>
-                                <div class="chart-card__value">
-                                    2.4M
-                                    <span class="stat-card__badge stat-card__badge--up chart" style="font-size:11px;">
-                                        <i class="fa-solid fa-arrow-trend-up"></i> 18.2%
-                                    </span>
-                                </div>
+                <div class="tp-stats">
+                    <div class="tp-stat-card">
+                        <div class="tp-stat-card__top">
+                            <div class="tp-stat-card__icon">
+                                <i class="fa-solid fa-user-plus"></i>
                             </div>
-
+                            <span class="tp-badge" style="background:#E8F6DD;color:#10635A;">
+                                <i class="fa-solid fa-arrow-trend-up"></i> 10%
+                            </span>
                         </div>
+                        <p class="tp-stat-card__label">Submission Pending (Fresh)</p>
+                        <div class="tp-stat-card__value">10</div>
+                    </div>
 
-                        <div class="chart-card__body chart-card__body--trend">
-                            <canvas id="trendChart"></canvas>
+                    <div class="tp-stat-card">
+                        <div class="tp-stat-card__top">
+                            <div class="tp-stat-card__icon icon-warning">
+                                <i class="fa-solid fa-clipboard-list"></i>
+                            </div>
+                            <span class="tp-badge" style="background:#FFF3DD;color:#D78202;">Attention</span>
                         </div>
+                        <p class="tp-stat-card__label">Submission Pending (Renew)</p>
+                        <div class="tp-stat-card__value">45</div>
+                    </div>
 
+                    <div class="tp-stat-card">
+                        <div class="tp-stat-card__top">
+                            <div class="tp-stat-card__icon icon-danger">
+                                <i class="fa-solid fa-circle-xmark"></i>
+                            </div>
+                            <span class="tp-badge" style="background:#F0F0F0;color:#4C4C4C;">Last 30 Days</span>
+                        </div>
+                        <p class="tp-stat-card__label">Rejection by Discom</p>
+                        <div class="tp-stat-card__value">8</div>
                     </div>
                 </div>
 
+                <div class="tp-dashboard-grid">
+                    <div class="tp-region-card">
+                        <span class="tp-region-card__eyebrow">Regional Distribution</span>
+                        <h2 class="tp-region-card__title">Operational Coverage Area</h2>
+                        <p class="tp-region-card__desc">
+                            Real-time status of workforce distribution across Central Odisha regions.
+                            The map displays active deployments and response readiness.
+                        </p>
+                        <div class="tp-region-card__list" id="region-list"></div>
+                    </div>
 
-            </div>
-            <main-footer></main-footer>
-        </div>
+                    <div class="tp-map-card">
+                        <div id="coverage-map" class="tp-map-svg"></div>
 
+                        <div class="tp-map-controls">
+                            <button type="button" id="map-zoom-in" aria-label="Zoom in"><i
+                                    class="fa-solid fa-plus"></i></button>
+                            <button type="button" id="map-zoom-out" aria-label="Zoom out"><i
+                                    class="fa-solid fa-minus"></i></button>
+                            <button type="button" class="tp-map-locate" id="map-locate" aria-label="Locate me"><i
+                                    class="fa-solid fa-location-crosshairs"></i></button>
+                        </div>
 
-    </main>
+                        <div class="tp-map-legend">
+                            <div class="tp-map-legend__title">Live Status</div>
+                            <div class="tp-map-legend__item"><span class="dot dot-bhubaneswar"></span>Fully Operational
+                            </div>
+                            <div class="tp-map-legend__item"><span class="dot"
+                                    style="background:#03FFAB;"></span>Maintenance Mode</div>
+                            <div class="tp-map-legend__item"><span class="dot"
+                                    style="background:#D31F1F;"></span>Critical Alert</div>
+                        </div>
 
-    <script src="https://code.jquery.com/jquery-3.7.1.js"
-        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
+                        <div class="tp-map-mini" id="map-mini"></div>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
-    <script
-        src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+                        <button type="button" class="tp-map-expand" id="map-expand" aria-label="Expand map">
+                            <i class="fa-solid fa-expand"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </section>
+        </main>
+
+        <div id="footer-placeholder"></div>
+
+    </div>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="assets/JS/shared.js"></script>
     <script>
-        (function () {
-            const isDark = () => document.documentElement.getAttribute('data-theme') === 'dark';
-
-            function initCharts() {
-                Object.values(Chart.instances).forEach(c => c.destroy());
-
-                const dark = isDark();
-                const isMobile = window.innerWidth <= 768;
-
-                // ── Colour tokens ────────────────────────────────────────
-                const accent = '#00C896';
-                const accentLt = 'rgba(0,200,150,0.15)';
-                const blue = '#38BDF8';
-                const blueLt = 'rgba(56,189,248,0.15)';
-                const muted = '#7EADA6';
-                const gridCol = dark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)';
-
-                const tooltipTheme = {
-                    backgroundColor: dark ? '#1A2E2B' : '#fff',
-                    titleColor: dark ? '#fff' : '#1A2E2B',
-                    bodyColor: muted,
-                    borderColor: dark ? '#2E4A45' : '#EDF2F0',
-                    borderWidth: 1,
-                    padding: 12,
-                    cornerRadius: 10,
-                };
-
-                const datalabelColor = dark ? '#fff' : '#1A2E2B';
-
-                Chart.defaults.font.family = "'Outfit', sans-serif";
-                Chart.defaults.font.size = 11;
-                Chart.defaults.color = muted;
-                Chart.register(ChartDataLabels);
-
-                // ── 1. Main area chart ───────────────────────────────────
-                const months = ['Jul-25', 'Aug-25', 'Sep-25', 'Oct-25', 'Nov-25', 'Dec-25', 'Jan-26', 'Feb-26', 'Mar-26', 'Apr-26', 'May-26', 'Jun-26'];
-                const installed = [31100, 26200, 24000, 30000, 34800, 35200, 38400, 39600, 50200, 34400, 31900, 11100];
-
-                const mainCtx = document.getElementById('mainAreaChart').getContext('2d');
-
-                const gGrad = mainCtx.createLinearGradient(0, 0, 0, 280);
-                gGrad.addColorStop(0, 'rgba(0,200,150,0.55)');
-                gGrad.addColorStop(1, 'rgba(0,200,150,0.02)');
-
-                new Chart(mainCtx, {
-                    type: 'line',
-                    data: {
-                        labels: months,
-                        datasets: [
-                            {
-                                label: 'Installed',
-                                data: installed,
-                                borderColor: accent,
-                                backgroundColor: gGrad,
-                                borderWidth: 2.5,
-                                fill: true,
-                                tension: 0.45,
-                                pointRadius: 4,
-                                pointBackgroundColor: accent,
-                                pointHoverRadius: 6,
-                                pointHoverBackgroundColor: accent,
-                                pointHoverBorderColor: '#fff',
-                                pointHoverBorderWidth: 2,
-                            },
-                        ],
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        interaction: { mode: 'index', intersect: false },
-                        plugins: {
-                            legend: {
-                                display: false,
-                                position: 'top',
-                                labels: {
-                                    boxWidth: 12,
-                                    padding: 20,
-                                    usePointStyle: true,
-                                    pointStyle: 'circle',
-                                    color: muted,
-                                }
-                            },
-                            tooltip: {
-                                ...tooltipTheme,
-                                callbacks: {
-                                    label: ctx => ` ${(ctx.raw / 1000).toFixed(1)}K`,
-                                }
-                            },
-                            datalabels: {
-                                align: 'top',
-                                anchor: 'end',
-                                offset: 6,
-                                color: datalabelColor,
-                                font: { weight: '600', size: isMobile ? 10 : 12 },
-                                formatter: v => (v / 1000).toFixed(1) + 'K',
-                            },
-                        },
-                        scales: {
-                            x: {
-                                grid: { display: false },
-                                border: { display: false },
-                                ticks: { color: muted },
-                            },
-                            y: {
-                                min: 0,
-                                max: 60000,
-                                ticks: {
-                                    color: muted,
-                                    callback: v => v >= 1000 ? (v / 1000) + 'K' : v,
-                                    stepSize: 10000,
-                                },
-                                grid: { color: gridCol },
-                                border: { display: false },
-                            },
-                        },
-                    },
-                });
-
-                // ── 2. Pie chart ───────────────────────────────────
-                const pieCtx = document.getElementById('dailyBarChart').getContext('2d');
-
-                new Chart(pieCtx, {
-                    type: 'pie',
-                    data: {
-                        labels: ['Installed', 'Instock'],
-                        datasets: [
-                            {
-                                data: [881200, 203700],
-                                backgroundColor: ['#03FFAB', '#FFDF8B'],
-                                borderWidth: 0,
-                            },
-                        ],
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: {
-                            legend: {
-                                display: true,
-                                position: 'bottom',
-                                labels: {
-                                    boxWidth: 12,
-                                    padding: 20,
-                                    usePointStyle: true,
-                                    pointStyle: 'circle',
-                                    color: muted,
-                                },
-                            },
-                            tooltip: {
-                                ...tooltipTheme,
-                                callbacks: {
-                                    label: ctx => ` ${ctx.label}: ${(ctx.raw / 1000).toFixed(1)}K`,
-                                },
-                            },
-                            datalabels: {
-                                color: datalabelColor,
-                                font: { weight: '600', size: isMobile ? 10 : 15 },
-                                formatter: (value, ctx) => {
-                                    const total = ctx.dataset.data.reduce((a, b) => a + b, 0);
-                                    return ((value / total) * 100).toFixed(1) + '%';
-                                },
-                            },
-                        },
-                    },
-                });
-
-                // ── 3. Trend chart ───────────────────────────────────
-                const trendCtx = document.getElementById('trendChart').getContext('2d');
-
-                const trendGrad = trendCtx.createLinearGradient(0, 0, 220, 0);
-                trendGrad.addColorStop(0, 'rgba(0,200,150,0.2)');
-                trendGrad.addColorStop(1, 'rgba(0,200,150,0.0)');
-
-                new Chart(trendCtx, {
-                    type: 'bar',
-                    data: {
-                        labels: ['SEEC KALAHANDI', 'SEEC BALANGIR', 'SEEC ROURKELA', 'EEC SAMBALPUR', 'SEEC BARGARH', 'NA'],
-                        datasets: [
-                            {
-                                label: 'Installed',
-                                data: [181400, 178300, 162500, 160700, 152100, 45400],
-                                backgroundColor: trendGrad,
-                                borderColor: accent,
-                                borderWidth: 2,
-                                borderRadius: 6,
-                                borderSkipped: false,
-                            },
-                        ],
-                    },
-                    options: {
-                        indexAxis: 'y',
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        interaction: { mode: 'index', intersect: false },
-                        plugins: {
-                            legend: {
-                                display: false,
-                                position: 'top',
-                                labels: {
-                                    boxWidth: 12,
-                                    padding: 10,
-                                    usePointStyle: true,
-                                    pointStyle: 'circle',
-                                    color: muted,
-                                }
-                            },
-                            tooltip: {
-                                ...tooltipTheme,
-                                callbacks: {
-                                    label: ctx => ` ${(ctx.raw / 1000).toFixed(1)}K`,
-                                }
-                            },
-                            datalabels: { display: true },
-                        },
-                        scales: {
-                            x: {
-                                ticks: {
-                                    color: muted,
-                                    callback: v => (v / 1000) + 'K',
-                                },
-                                grid: { color: gridCol },
-                                border: { display: false },
-                            },
-                            y: {
-                                grid: { display: false },
-                                border: { display: false },
-                                ticks: { color: muted },
-                            },
-                        },
-                    },
-                });
+        (function ($) {
+            'use strict';
+            var REGIONS = [
+                { name: 'Bhubaneswar', pct: 92, lat: 20.2961, lng: 85.8245, dotClass: 'dot-bhubaneswar' },
+                { name: 'Cuttack', pct: 88, lat: 20.4625, lng: 85.8828, dotClass: 'dot-cuttack' },
+                { name: 'Puri', pct: 76, lat: 19.8135, lng: 85.8312, dotClass: 'dot-puri' }
+            ];
+            var STATUS_COLOR = { 'dot-bhubaneswar': '#10635A', 'dot-cuttack': '#1E9E8C', 'dot-puri': '#03FFAB' };
+            function renderRegionList() {
+                var $list = $('#region-list');
+                if (!$list.length) return;
+                var html = REGIONS.map(function (r) {
+                    return (
+                        '<div class="tp-region-card__row">' +
+                        '<span class="region-name"><span class="dot ' + r.dotClass + '"></span>' + r.name + '</span>' +
+                        '<span class="region-pct">' + r.pct + '%</span>' +
+                        '</div>'
+                    );
+                }).join('');
+                $list.html(html);
             }
-
-            initCharts();
-
-            // Re-render on theme toggle
-            new MutationObserver(initCharts).observe(document.documentElement, {
-                attributes: true,
-                attributeFilter: ['data-theme'],
-            });
-
-            // Re-render on window resize
-            window.addEventListener('resize', initCharts);
-
-        })();
+            function initMap() {
+                var $mapEl = $('#coverage-map');
+                if (!$mapEl.length || typeof L === 'undefined') return;
+                var center = [20.31, 85.85];
+                var map = L.map($mapEl.attr('id'), { zoomControl: false, center: center, zoom: 11, scrollWheelZoom: false });
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '&copy; OpenStreetMap contributors' }).addTo(map);
+                L.polygon([[20.34, 85.79], [20.42, 85.86], [20.40, 85.93], [20.30, 85.90], [20.23, 85.87], [20.20, 85.80], [20.26, 85.76]], { color: '#D31F1F', weight: 2, dashArray: '6 6', fillOpacity: 0.03 }).addTo(map);
+                REGIONS.forEach(function (region) {
+                    L.circleMarker([region.lat, region.lng], { radius: 8, color: '#fff', weight: 2, fillColor: STATUS_COLOR[region.dotClass], fillOpacity: 1 })
+                        .addTo(map).bindTooltip(region.name + ' — ' + region.pct + '% operational', { direction: 'top' });
+                });
+                L.marker([20.238, 85.8339]).addTo(map).bindTooltip('Lingaraj Temple');
+                $('#map-zoom-in').on('click', function () { map.zoomIn(); });
+                $('#map-zoom-out').on('click', function () { map.zoomOut(); });
+                var $mini = $('#map-mini');
+                if ($mini.length) {
+                    var miniMap = L.map($mini.attr('id'), { zoomControl: false, attributionControl: false, dragging: false, scrollWheelZoom: false, doubleClickZoom: false, boxZoom: false, keyboard: false, touchZoom: false, tap: false, center: center, zoom: 8 });
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18 }).addTo(miniMap);
+                }
+            }
+            $(function () { renderRegionList(); initMap(); });
+        })(jQuery);
     </script>
-
-    <script src="assets/JS/theme.js"></script>
-    <script src="assets/Pages/sidebar.js"></script>
-    <script src="assets/Pages/footer.js"></script>
-    <script src="assets/Pages/header.js"></script>
-
 </body>
 
 </html>

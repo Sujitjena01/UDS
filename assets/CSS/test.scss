@@ -1,0 +1,825 @@
+@use "sass:map";
+@use "sass:list";
+@use 'variables/variables'as *;
+
+$sidebar-width: 300px;
+$sidebar-width-collapsed: 88px;
+$header-height: 84px;
+$footer-height: 44px;
+
+
+
+// ---------- Shadows ----------
+$shadow-card: 0 1px 2px rgba(2, 8, 27, 0.04),
+0 8px 24px rgba(2, 8, 27, 0.06);
+$shadow-float: 0 4px 14px rgba(2, 8, 27, 0.14);
+
+// ---------- 5. APP SHELL ----------
+
+// The 4 top-level children of .app-shell are, in order:
+//   #sidebar-placeholder, #header-placeholder, main.app-main, #footer-placeholder
+// Sidebar is fixed full-height (minus the footer bar). Header + main are
+// pushed right by sidebar width. Footer spans the FULL page width, sitting
+// under the sidebar as well, matching the design.
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    background: $ivory-mist;
+    font-family: $font-outfit;
+    color: $black;
+}
+
+.app-shell {
+    position: relative;
+    min-height: 100vh;
+}
+
+// Sidebar placeholder itself takes no layout space — its child .tp-sidebar
+// is positioned fixed. Push right-hand content over.
+#header-placeholder,
+.app-main {
+    margin-left: $sidebar-width;
+    transition: margin-left .2s ease;
+}
+
+.app-shell.is-collapsed {
+
+    #header-placeholder,
+    .app-main {
+        margin-left: $sidebar-width-collapsed;
+    }
+}
+
+.app-main {
+    padding: 1.5rem;
+    min-height: calc(100vh - #{$header-height});
+    box-sizing: border-box;
+}
+
+#footer-placeholder {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 120;
+}
+
+@media #{$tab} {
+
+    #header-placeholder,
+    .app-main,
+    .app-shell.is-collapsed #header-placeholder,
+    .app-shell.is-collapsed .app-main {
+        margin-left: 0;
+    }
+}
+
+// ---------- 6. SIDEBAR ----------
+
+.tp-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: $sidebar-width;
+    height: calc(100vh - #{$footer-height});
+    z-index: 110;
+    background: linear-gradient(180deg, $oceanic-green 0%, $dark-green 100%);
+    transition: width .2s ease;
+    overflow: hidden;
+
+    // faint decorative watermark, echoes the transmission-tower brand mark
+    &::after {
+        content: '';
+        position: absolute;
+        inset: auto 0 0 0;
+        height: 45%;
+        background-image:
+            repeating-linear-gradient(115deg, rgba($white, 0.03) 0 2px, transparent 2px 40px);
+        pointer-events: none;
+    }
+
+    &.is-collapsed {
+        width: $sidebar-width-collapsed;
+
+        .tp-sidebar__brand-text,
+        .tp-sidebar__link-label,
+        .tp-sidebar__link-chevron,
+        .tp-sidebar__cta span {
+            display: none;
+        }
+
+        .tp-sidebar__cta {
+            justify-content: center;
+            padding: 0.75rem;
+        }
+
+        .tp-sidebar__link {
+            justify-content: center;
+            padding: 0.75rem;
+        }
+    }
+}
+
+.tp-sidebar__inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+// ---------- Brand ----------
+.tp-sidebar__brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.5rem 1.25rem;
+    position: relative;
+}
+
+.tp-sidebar__logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+}
+
+.tp-sidebar__brand-text {
+    min-width: 0;
+}
+
+.tp-sidebar__brand-name {
+    font-family: $font-syne-bold;
+    color: $neon;
+    font-size: 1.15rem;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+}
+
+.tp-sidebar__brand-sub {
+    font-family: $font-outfit;
+    color: rgba($beige, 0.75);
+    font-size: 0.6875rem;
+    line-height: 1.3;
+    margin-top: 0.15rem;
+}
+
+.tp-sidebar__collapse-btn {
+    position: absolute;
+    right: -14px;
+    top: 1.6rem;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1px solid rgba($white, 0.15);
+    background: $oceanic-green;
+    color: $white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    cursor: pointer;
+    z-index: 2;
+
+    &:hover {
+        background: $highlight-green;
+    }
+}
+
+// ---------- Nav ----------
+.tp-sidebar__nav {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    padding: 0.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+
+    &.tp-scrollbar {
+        scrollbar-width: thin;
+        scrollbar-color: rgba($white, 0.15) transparent;
+    }
+}
+
+.tp-sidebar__link {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.7rem 0.9rem;
+    border-radius: $br-10;
+    color: rgba($beige, 0.85);
+    font-family: $font-outfit-medium;
+    font-size: 0.9rem;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color .15s ease, color .15s ease;
+
+    i:first-child {
+        width: 18px;
+        text-align: center;
+        font-size: 0.95rem;
+        flex: 0 0 auto;
+    }
+
+    &:hover {
+        background: rgba($white, 0.06);
+        color: $white;
+        text-decoration: none;
+    }
+
+    &.is-active {
+        background: rgba($olivine-green, 0.35);
+        color: $white;
+    }
+}
+
+.tp-sidebar__link-label {
+    flex: 1 1 auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tp-sidebar__link-chevron {
+    flex: 0 0 auto;
+    font-size: 0.7rem;
+    opacity: 0.7;
+}
+
+// ---------- CTA ----------
+.tp-sidebar__cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: calc(100% - 2rem);
+    margin: 0.75rem auto;
+    padding: 0.8rem 1rem;
+    border: none;
+    border-radius: $br-10;
+    background: $olivine-green;
+    color: $dark-green;
+    font-family: $font-outfit-semibold;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color .15s ease;
+
+    &:hover {
+        background: color-mix(in srgb, #{$olivine-green} 85%, white);
+    }
+}
+
+// ---------- Footer nav (Settings / Logout) ----------
+.tp-sidebar__footer-nav {
+    padding: 0.5rem 1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    border-top: 1px solid rgba($white, 0.08);
+    margin-top: 0.25rem;
+
+    .tp-sidebar__link {
+        padding: 0.65rem 0.9rem;
+    }
+}
+
+// ---------- 7. HEADER ----------
+
+.tp-header {
+    position: sticky;
+    top: 0;
+    z-index: 90;
+    height: $header-height;
+    background: $white;
+    border-bottom: 1px solid $gray-30;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 0 2rem;
+}
+
+// ---------- Search ----------
+.tp-header__search {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    width: 100%;
+    max-width: 380px;
+    padding: 0.65rem 1rem;
+    border-radius: $br-10;
+    background: $gray-20;
+    color: $black-60;
+
+    i {
+        font-size: 0.9rem;
+    }
+
+    input {
+        border: 0;
+        outline: 0;
+        background: transparent;
+        width: 100%;
+        font-family: $font-outfit;
+        font-size: 0.875rem;
+        color: $black;
+
+        &::placeholder {
+            color: $black-60;
+        }
+    }
+}
+
+// ---------- Right cluster ----------
+.tp-header__right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 0 0 auto;
+}
+
+.tp-header__icon-btn {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid $gray-30;
+    background: $white;
+    color: $black-80;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color .15s ease;
+
+    &:hover {
+        background: $gray-20;
+    }
+}
+
+.tp-dot {
+    position: absolute;
+    top: 8px;
+    right: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: $error-red;
+    border: 1.5px solid $white;
+}
+
+.tp-header__divider {
+    width: 1px;
+    height: 32px;
+    background: $gray-30;
+}
+
+.tp-header__profile {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+}
+
+.tp-header__profile-text {
+    text-align: right;
+    line-height: 1.25;
+
+    .name {
+        font-family: $font-outfit-semibold;
+        font-size: 0.875rem;
+        color: $black;
+    }
+
+    .org {
+        font-family: $font-outfit;
+        font-size: 0.75rem;
+        color: $black-60;
+    }
+}
+
+.tp-header__avatar {
+    position: relative;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex: 0 0 auto;
+    background: $gray-30;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+}
+
+.tp-online {
+    position: absolute;
+    bottom: 1px;
+    right: 1px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: $neon;
+    border: 2px solid $white;
+}
+
+@media #{$small_mobile} {
+    .tp-header {
+        padding: 0 1rem;
+        gap: 0.75rem;
+    }
+
+    .tp-header__profile-text {
+        display: none;
+    }
+}
+
+// ---------- 8. FOOTER ----------
+
+.tp-footer {
+    height: $footer-height;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $dark-green;
+    color: rgba($beige, 0.7);
+    font-family: $font-outfit;
+    font-size: 0.75rem;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+// ---------- 9. DASHBOARD CONTENT ----------
+
+// =====================================================
+// Page head
+// =====================================================
+.tp-page-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.75rem;
+}
+
+.tp-page-head__title {
+    font-family: $font-syne-bold;
+    font-size: 1.75rem;
+    color: $black;
+    margin: 0 0 0.35rem;
+}
+
+.tp-page-head__subtitle {
+    font-family: $font-outfit;
+    font-size: 0.9rem;
+    color: $black-60;
+    margin: 0;
+}
+
+.tp-page-head__actions {
+    display: flex;
+    gap: 0.75rem;
+    flex: 0 0 auto;
+
+    .btn-tp {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+        font-family: $font-outfit-medium;
+        font-size: 0.875rem;
+        white-space: nowrap;
+    }
+}
+
+// =====================================================
+// Stat cards
+// =====================================================
+.tp-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.tp-stat-card {
+    background: $white;
+    border-radius: $br-16;
+    padding: 1.5rem;
+    box-shadow: $shadow-card;
+}
+
+.tp-stat-card__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+}
+
+.tp-stat-card__icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: $gray-30;
+    color: $black-80;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.05rem;
+
+    &.icon-warning {
+        background: rgba($yellow, 0.45);
+        color: $orange;
+    }
+
+    &.icon-danger {
+        background: rgba($error-red, 0.1);
+        color: $error-red;
+    }
+}
+
+.tp-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.3rem 0.7rem;
+    border-radius: $br-pill;
+    font-family: $font-outfit-medium;
+    font-size: 0.75rem;
+    white-space: nowrap;
+}
+
+.tp-stat-card__label {
+    font-family: $font-outfit;
+    font-size: 0.85rem;
+    color: $black-60;
+    margin: 0 0 0.4rem;
+}
+
+.tp-stat-card__value {
+    font-family: $font-syne-bold;
+    font-size: 2rem;
+    color: $black;
+}
+
+// =====================================================
+// Dashboard grid: region card + map card
+// =====================================================
+.tp-dashboard-grid {
+    display: grid;
+    grid-template-columns: minmax(280px, 340px) 1fr;
+    gap: 1.25rem;
+    align-items: stretch;
+}
+
+// ---------- Region card ----------
+.tp-region-card {
+    background: $white;
+    border-radius: $br-16;
+    padding: 1.75rem;
+    box-shadow: $shadow-card;
+}
+
+.tp-region-card__eyebrow {
+    display: inline-block;
+    padding: 0.3rem 0.75rem;
+    border-radius: $br-pill;
+    background: $pastel-green;
+    color: $highlight-green;
+    font-family: $font-outfit-semibold;
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 0.85rem;
+}
+
+.tp-region-card__title {
+    font-family: $font-syne-bold;
+    font-size: 1.35rem;
+    color: $black;
+    margin: 0 0 0.75rem;
+    line-height: 1.25;
+}
+
+.tp-region-card__desc {
+    font-family: $font-outfit;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: $black-60;
+    margin: 0 0 1.5rem;
+}
+
+.tp-region-card__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+.tp-region-card__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem 1rem;
+    border-radius: $br-10;
+    background: $gray-20;
+
+    .region-name {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        font-family: $font-outfit-medium;
+        font-size: 0.875rem;
+        color: $black;
+    }
+
+    .region-pct {
+        font-family: $font-outfit-semibold;
+        font-size: 0.875rem;
+        color: $black;
+    }
+}
+
+.dot {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: $highlight-green;
+    flex: 0 0 auto;
+}
+
+.dot-bhubaneswar {
+    background: $highlight-green;
+}
+
+.dot-cuttack {
+    background: #1E9E8C;
+}
+
+.dot-puri {
+    background: $neon;
+}
+
+// ---------- Map card ----------
+.tp-map-card {
+    position: relative;
+    min-height: 460px;
+    border-radius: $br-16;
+    overflow: hidden;
+    box-shadow: $shadow-card;
+    background: $sky-blue-60;
+}
+
+.tp-map-svg,
+#coverage-map {
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.tp-map-controls {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    z-index: 10;
+
+    button {
+        width: 34px;
+        height: 34px;
+        border: none;
+        border-radius: $br-8;
+        background: $white;
+        color: $black-80;
+        box-shadow: $shadow-float;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8rem;
+
+        &:hover {
+            background: $gray-20;
+        }
+    }
+}
+
+.tp-map-locate {
+    margin-top: 0.5rem;
+}
+
+.tp-map-legend {
+    position: absolute;
+    left: 1rem;
+    bottom: 1rem;
+    z-index: 11;
+    background: $white;
+    border-radius: $br-10;
+    padding: 0.9rem 1.1rem;
+    box-shadow: $shadow-float;
+    min-width: 160px;
+}
+
+.tp-map-legend__title {
+    font-family: $font-outfit-semibold;
+    font-size: 0.8rem;
+    color: $black;
+    margin-bottom: 0.5rem;
+}
+
+.tp-map-legend__item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: $font-outfit;
+    font-size: 0.78rem;
+    color: $black-80;
+    margin-bottom: 0.35rem;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.tp-map-mini {
+    position: absolute;
+    left: -1px;
+    bottom: -1px;
+    width: 120px;
+    height: 90px;
+    z-index: 9;
+    border-top-right-radius: $br-10;
+    overflow: hidden;
+    box-shadow: $shadow-float;
+    opacity: 0.85;
+    pointer-events: none;
+}
+
+.tp-map-expand {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 11;
+    width: 38px;
+    height: 38px;
+    border: none;
+    border-radius: 50%;
+    background: $white;
+    color: $black-80;
+    box-shadow: $shadow-float;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+
+    &:hover {
+        background: $gray-20;
+    }
+}
+
+// =====================================================
+// Responsive
+// =====================================================
+
+@media #{$tab} {
+    .tp-stats {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .tp-dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media #{$small_mobile} {
+    .tp-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .tp-page-head__actions {
+        width: 100%;
+    }
+
+    .tp-page-head__actions .btn-tp {
+        flex: 1 1 auto;
+        justify-content: center;
+    }
+}

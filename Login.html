@@ -2,178 +2,127 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TPCODL Login</title>
-
-    <link rel="stylesheet" href="assets/CSS/font-awesome/css/all.css">
-    <link rel="stylesheet" href="assets/CSS/login.css">
-    <link href="assets/CSS/bootstrap.min.css" rel="stylesheet">
+    <title>BAMS :: Business Associate Management System</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="assets/images/color-map.png" type="image/x-icon">
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <!-- <link href="assets/css/style.css" rel="stylesheet"> -->
+    <link href="assets/css/login.css" rel="stylesheet">
+    <script src="assets/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="assets/fontawesome/css/all.css">
+    <!-- <script src="https://use.fontawesome.com/0c456c5120.js"></script> -->
 
 </head>
 
-<body>
-
-    <main class="login-page">
-
-        <section class="login-left">
-
-            <div class="brand-top">
-                <img src="assets/IMAGES/Tatapower-logo.png" alt="Tata Power Logo">
-                <img src="assets/IMAGES/UDS-logo.png" alt="UDS Logo">
-            </div>
-
-            <div class="headline-wrap">
-                <div class="headline-accent" aria-hidden="true"></div>
-                <div>
-                    <p class="headline">Smart Energy.</p>
-                    <p class="headline headline--green">Smarter Monitoring.</p>
+<body onload="generate()">
+    <div class="page-wrapper">
+        <section class="login">
+            <div class="left">
+                <div class="internal">
+                    <img class="bams-brand__mark" src="assets/images/D&IT-New-Logo1-white.png" alt="D&IT">
+                    <h1 class="bams-brand__title">BAMS</h1>
+                    <h2 class="bams-brand__sub">(Business Associate Management System)</h2>
+                    <hr class="bams-brand__rule">
+                    <p class="bams-brand__copy">
+                        BAMS is a comprehensive platform designed to streamline the management of business associates.
+                        It offers secure access to associate profiles, contract details, and compliance tracking,
+                        enabling
+                        organizations to maintain strong partnerships and ensure regulatory adherence efficiently.
+                    </p>
                 </div>
             </div>
-
-            <ul class="features-list list-unstyled">
-
-                <li class="feature-item">
-                    <div class="feature-icon" aria-hidden="true">
-                        <i class="fas fa-network-wired"></i>
-                    </div>
-                    <div class="feature-text">
-                        <h6>Device Management</h6>
-                        <p>Track and manage devices</p>
-                    </div>
-                </li>
-
-                <li class="feature-item">
-                    <div class="feature-icon" aria-hidden="true">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <div class="feature-text">
-                        <h6>Data Collection</h6>
-                        <p>Collect and verify meter data in real-time</p>
-                    </div>
-                </li>
-
-                <li class="feature-item">
-                    <div class="feature-icon" aria-hidden="true">
-                        <i class="fas fa-chart-pie"></i>
-                    </div>
-                    <div class="feature-text">
-                        <h6>Data Analytics</h6>
-                        <p>Analyze consumption and performance</p>
-                    </div>
-                </li>
-
-            </ul>
-
-            <div class="badges-row" role="list" aria-label="Platform qualities">
-
-                <div class="badge-item" role="listitem">
-                    <div class="badge-left">
-                        <div class="badge-icon-wrap" aria-hidden="true">
-                            <i class="fa-solid fa-bolt energy-icon"></i>
+            <div class="right">
+                <div class="konark-wheel1"></div>
+                <div class="konark-wheel2"></div>
+                <div class="internal">
+                    <h1> Welcome.</h1>
+                    <p class="mb-3">Please login to your account.</p>
+                    <form action="">
+                        <div class="mb-3">
+                            <label for="login-email" class="form-label"><i class="fa fa-user" aria-hidden="true"></i>
+                                Email ID</label>
+                            <input type="mail" class="form-control" id="login-email">
                         </div>
-                        <span class="badge-label">Real-time <br>monitoring</span>
-                    </div>
-                    <div class="badge-right">
-                        <span>20</span>
-                    </div>
-                </div>
-
-                <div class="badge-item" role="listitem">
-                    <div class="badge-left">
-                        <div class="badge-icon-wrap" aria-hidden="true">
-                            <i class="fa-solid fa-circle-check"></i>
+                        <div class="mb-3">
+                            <label for="login-password" class="form-label"><i class="fa fa-key" aria-hidden="true"></i>
+                                Password</label>
+                            <input type="password" class="form-control" id="login-password">
                         </div>
-                        <span class="badge-label">Accurate <br>data</span>
-                    </div>
-                    <div class="badge-right">
-                        <span>99.9%</span>
-                    </div>
+                        <div class="captcha">
 
-                </div>
-
-                <div class="badge-item" role="listitem">
-                    <div class="badge-left">
-                        <div class="badge-icon-wrap" aria-hidden="true">
-                            <i class="fas fa-cog"></i>
+                            <div>
+                                <input type="text" readonly oncopy="return false" id="generated-captcha">
+                            </div>
+                            <div class="refresh">
+                                <a href="#" onclick="generate()"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+                            </div>
+                            <div class="d-flex">
+                                <input type="text" id="entered-captcha" class="form-control"
+                                    placeholder="Enter the captcha.." onchange="check()" onpaste="return false;">
+                                <h2 id="status" style="position: absolute; right: 5px;"></h2>
+                            </div>
                         </div>
-                        <span class="badge-label">Efficient <br>operation</span>
-                    </div>
-                    <div class="badge-right">
-                        <span>30%</span>
-                    </div>
-                </div>
 
-                <div class="badge-item" role="listitem">
-                    <div class="badge-left">
-                        <div class="badge-icon-wrap" aria-hidden="true">
-                            <i class="fas fa-lock"></i>
+                        <div class="row-between">
+                            <label class="remember"><input type="checkbox" checked> Remember me</label>
+                            <a href="#" class="forgot">Forgot password?</a>
                         </div>
-                        <span class="badge-label">Secure <br>System</span>
-                    </div>
-                    <div class="badge-right">
-                        <span>256-bit</span>
-                    </div>
-                </div>
 
+                        <div class="d-grid">
+                            <!-- <a href="#" class="btn btn-primary btn-block" type="button">SUBMIT</a> -->
+                            <input type="submit" name="btn_login" value="SUBMIT" id="btn_login"
+                                class="btn btn-primary btn-block">
+                        </div>
+
+
+                        <div class="message">
+                            <!-- <div class="error">
+                                <p>Sorry! The username and password you have entered is incorrect.</p>
+                            </div> -->
+                        </div>
+                        <div class="extra_text">
+                        </div>
+                    </form>
+                </div>
             </div>
-
         </section>
 
-        <section class="login-right">
+        <img class="illustration" src="assets/IMAGES/footer.png" alt="">
 
-            <div class="login-card" role="region" aria-label="Admin login form">
+        <footer class="site-footer">
+            <p>Powered by TP Odisha IT Shared Service</p>
+        </footer>
+    </div>
+    <script>
+        let captcha;
+        let alphabets = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz!@#$%^&*()";
+        let status = document.getElementById('status');
+        status.innerText = "";
 
-                <div class="logo">
-                    <img src="assets/IMAGES/white-logo-with-green-bizli.png" alt="TPCODL Logo">
-                </div>
+        generate = () => {
+            let first = alphabets[Math.floor(Math.random() * alphabets.length)];
+            let second = Math.floor(Math.random() * 10);
+            let third = Math.floor(Math.random() * 10);
+            let fourth = alphabets[Math.floor(Math.random() * alphabets.length)];
+            let fifth = alphabets[Math.floor(Math.random() * alphabets.length)];
+            let sixth = Math.floor(Math.random() * 10);
+            captcha = first.toString() + second.toString() + third.toString() + fourth.toString() + fifth.toString() + sixth.toString();
+            document.getElementById('generated-captcha').value = captcha;
+            document.getElementById("entered-captcha").value = '';
+            status.innerText = ""
+        }
 
-                <h1 class="section-title">Admin <span>Login</span></h1>
-                <div class="title-underline" aria-hidden="true"></div>
-
-                <div class="mb-3">
-                    <label class="form-label-custom" for="username">
-                        Enter your username or email address
-                    </label>
-                    <input type="text" id="username" class="form-control-custom" placeholder="Username or email address"
-                        autocomplete="username" />
-                </div>
-
-                <div class="mt-2">
-                    <label class="form-label-custom" for="password">
-                        Enter your Password
-                    </label>
-                    <input type="password" id="password" class="form-control-custom" placeholder="Password"
-                        autocomplete="current-password" />
-                </div>
-
-                <a href="#" class="forgot-link">Forgot Password ?</a>
-
-                <div class="captcha-row">
-                    <div class="captcha-box" id="captchaDisplay" aria-label="Captcha code">
-                        <span>AB12X</span>
-                    </div>
-
-                    <button class="captcha-refresh" id="captchaRefreshBtn" aria-label="Refresh captcha" type="button">
-                        <i class="fas fa-redo" aria-hidden="true"></i>
-                    </button>
-
-                    <input type="text" id="captchaInput" class="form-control-custom" placeholder="Enter Captcha"
-                        autocomplete="off" maxlength="5" style="flex: 1;" />
-                </div>
-
-                <button class="btn-login" id="loginBtn" type="button">
-                    Login
-                </button>
-
-            </div>
-
-        </section>
-
-
-    </main>
-    <script src="assets/JS/captcha.js"></script>
-
+        check = () => {
+            let userValue = document.getElementById("entered-captcha").value;
+            if (userValue == captcha) {
+                status.innerHTML = "<i class='fa fa-check' aria-hidden='true'></i>"
+            } else {
+                status.innerHTML = "<i class='fa fa-remove' aria-hidden='true'></i>"
+                document.getElementById("entered-captcha").value = '';
+            }
+        }
+    </script>
 </body>
 
 </html>
