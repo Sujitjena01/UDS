@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TPCODL Login</title>
+
+    <link rel="stylesheet" href="assets/CSS/font-awesome/css/all.css">
+    <link rel="stylesheet" href="assets/CSS/solaranalysis.css">
+    <link href="assets/CSS/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+    <!-- Mobile backdrop -->
+    <div class="sidebar__overlay" id="sidebarOverlay"></div>
+
+    <main class="dashboard">
+        <main-sidebar></main-sidebar>
+
+        <div class="content-wrapper">
+            <main-topbar></main-topbar>
+            <!-- MAIN CONTENT (placeholder) -->
+            <div class="main-content">
+
+
+
+                <div class="stat-cards">
+                    <div class="row g-2">
+
+                        <div class="col-6 col-xl-3">
+                            <div class="stat-card h-100">
+                                <div class="stat-card__header">
+                                    <div class="stat-card__icon"><i class="fa-solid fa-gauge-high"></i></div>
+                                    <span class="stat-card__label">Total Generation Connection</span>
+                                    <button class="stat-card__menu"><i class="fa-solid fa-ellipsis"></i></button>
+                                </div>
+                                <div class="stat-card__bottom">
+                                    <div class="stat-card__value">10,274</div>
+                                    <span class="stat-card__badge stat-card__badge--up"><i
+                                            class="fa-solid fa-arrow-trend-up"></i> 28.4%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-xl-3">
+                            <div class="stat-card h-100">
+                                <div class="stat-card__header">
+                                    <div class="stat-card__icon"><i class="fa-solid fa-sun"></i></div>
+                                    <span class="stat-card__label">Total Solar Generation</span>
+                                    <button class="stat-card__menu"><i class="fa-solid fa-ellipsis"></i></button>
+                                </div>
+                                <div class="stat-card__bottom">
+                                    <div class="stat-card__value">18,265 MW</div>
+                                    <span class="stat-card__badge stat-card__badge--down"><i
+                                            class="fa-solid fa-arrow-trend-down"></i> 12.6%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-xl-3">
+                            <div class="stat-card h-100">
+                                <div class="stat-card__header">
+                                    <div class="stat-card__icon"><i class="fa-solid fa-location-dot"></i></div>
+                                    <span class="stat-card__label">Net Consumption</span>
+                                    <button class="stat-card__menu"><i class="fa-solid fa-ellipsis"></i></button>
+                                </div>
+                                <div class="stat-card__bottom">
+                                    <div class="stat-card__value">16,732 MW</div>
+                                    <span class="stat-card__badge stat-card__badge--up"><i
+                                            class="fa-solid fa-arrow-trend-up"></i> 3.1%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-xl-3">
+                            <div class="stat-card h-100">
+                                <div class="stat-card__header">
+                                    <div class="stat-card__icon"><i class="fa-solid fa-battery-full"></i></div>
+                                    <span class="stat-card__label">Solar Contribution</span>
+                                    <button class="stat-card__menu"><i class="fa-solid fa-ellipsis"></i></button>
+                                </div>
+                                <div class="stat-card__bottom">
+                                    <div class="stat-card__value">52.3%</div>
+                                    <span class="stat-card__badge stat-card__badge--up"><i
+                                            class="fa-solid fa-arrow-trend-up"></i> 11.3%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-xl-3">
+                            <div class="stat-card h-100">
+                                <div class="stat-card__header">
+                                    <div class="stat-card__icon"><i class="fa-solid fa-chart-line"></i></div>
+                                    <span class="stat-card__label">Peak Generation</span>
+                                    <button class="stat-card__menu"><i class="fa-solid fa-ellipsis"></i></button>
+                                </div>
+                                <div class="stat-card__bottom">
+                                    <div class="stat-card__value">20,842 MW</div>
+                                    <span class="stat-card__badge stat-card__badge--up"><i
+                                            class="fa-solid fa-arrow-trend-up"></i> 28.4%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-xl-3">
+                            <div class="stat-card h-100">
+                                <div class="stat-card__header">
+                                    <div class="stat-card__icon"><i class="fa-solid fa-wave-square"></i></div>
+                                    <span class="stat-card__label">Peak Consumption</span>
+                                    <button class="stat-card__menu"><i class="fa-solid fa-ellipsis"></i></button>
+                                </div>
+                                <div class="stat-card__bottom">
+                                    <div class="stat-card__value">20,842 MW</div>
+                                    <span class="stat-card__badge stat-card__badge--down"><i
+                                            class="fa-solid fa-arrow-trend-down"></i> 12.6%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-xl-3">
+                            <div class="stat-card h-100">
+                                <div class="stat-card__header">
+                                    <div class="stat-card__icon"><i class="fa-solid fa-square"></i></div>
+                                    <span class="stat-card__label">Installed Capacity</span>
+                                    <button class="stat-card__menu"><i class="fa-solid fa-ellipsis"></i></button>
+                                </div>
+                                <div class="stat-card__bottom">
+                                    <div class="stat-card__value">8,512 kW</div>
+                                    <span class="stat-card__badge stat-card__badge--up"><i
+                                            class="fa-solid fa-arrow-trend-up"></i> 3.1%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-xl-3">
+                            <div class="stat-card h-100">
+                                <div class="stat-card__header">
+                                    <div class="stat-card__icon"><i class="fa-solid fa-bolt"></i></div>
+                                    <span class="stat-card__label">Energy Deficit</span>
+                                    <button class="stat-card__menu"><i class="fa-solid fa-ellipsis"></i></button>
+                                </div>
+                                <div class="stat-card__bottom">
+                                    <div class="stat-card__value">2,631 MW</div>
+                                    <span class="stat-card__badge stat-card__badge--up"><i
+                                            class="fa-solid fa-arrow-trend-up"></i> 11.3%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="charts-row">
+
+                    <!-- Main Area Chart -->
+                    <div class="chart-card chart-card--main">
+                        <div class="chart-card__header">
+                            <div>
+                                <p class="chart-card__title">Month-wise Installation</p>
+                                <div class="chart-card__value">
+                                    240.8K
+                                    <span class="stat-card__badge stat-card__badge--up chart" style="font-size:11px;">
+                                        <i class="fa-solid fa-arrow-trend-up"></i> 24.6%
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="chart__filter d-flex gap-2">
+                                <div class="dropdown">
+                                    <a class="btn-tp-sm btn-tp-primary dropdown-toggle" href="#" role="button"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        Year
+                                    </a>
+
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Action</a></li>
+                                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    </ul>
+                                </div>
+                                <div class="dropdown">
+                                    <a class="btn-tp-sm btn-tp-primary dropdown-toggle" href="#" role="button"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        HES Name
+                                    </a>
+
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Action</a></li>
+                                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chart-card__body">
+                            <canvas id="mainAreaChart"></canvas>
+                            <!-- Tooltip -->
+                            <div class="chart-tooltip" id="chartTooltip" style="display:none;">
+                                <div class="chart-tooltip__value">125.2k <span
+                                        class="stat-card__badge stat-card__badge--up"
+                                        style="font-size:10px;padding:2px 6px;"><i
+                                            class="fa-solid fa-arrow-trend-up chart"></i>
+                                        12.5%</span></div>
+                                <div class="chart-tooltip__date">June 21, 2026</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+            </div>
+            <main-footer></main-footer>
+        </div>
+
+
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+    <script>
+        (function () {
+            const isDark = () => document.documentElement.getAttribute('data-theme') === 'dark';
+
+            function initCharts() {
+                Object.values(Chart.instances).forEach(c => c.destroy());
+
+                const dark = isDark();
+                const isMobile = window.innerWidth <= 768;
+
+                // ── Colour tokens ────────────────────────────────────────
+                const accent = '#00C896';
+                const accentLt = 'rgba(0,200,150,0.15)';
+                const blue = '#38BDF8';
+                const blueLt = 'rgba(56,189,248,0.15)';
+                const muted = '#7EADA6';
+                const gridCol = dark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)';
+
+                const tooltipTheme = {
+                    backgroundColor: dark ? '#1A2E2B' : '#fff',
+                    titleColor: dark ? '#fff' : '#1A2E2B',
+                    bodyColor: muted,
+                    borderColor: dark ? '#2E4A45' : '#EDF2F0',
+                    borderWidth: 1,
+                    padding: 12,
+                    cornerRadius: 10,
+                };
+
+                const datalabelColor = dark ? '#fff' : '#1A2E2B';
+
+                Chart.defaults.font.family = "'Outfit', sans-serif";
+                Chart.defaults.font.size = 11;
+                Chart.defaults.color = muted;
+                Chart.register(ChartDataLabels);
+
+                // ── 1. Main area chart ───────────────────────────────────
+                const months = ['Jul-25', 'Aug-25', 'Sep-25', 'Oct-25', 'Nov-25', 'Dec-25', 'Jan-26', 'Feb-26', 'Mar-26', 'Apr-26', 'May-26', 'Jun-26'];
+                const installed = [31100, 26200, 24000, 30000, 34800, 35200, 38400, 39600, 50200, 34400, 31900, 11100];
+                const consumption = [28400, 30100, 27600, 25300, 29800, 33500, 36200, 34100, 41300, 38700, 35200, 24800];
+
+                const mainCtx = document.getElementById('mainAreaChart').getContext('2d');
+
+                const gGrad = mainCtx.createLinearGradient(0, 0, 0, 280);
+                gGrad.addColorStop(0, 'rgba(0,200,150,0.55)');
+                gGrad.addColorStop(1, 'rgba(0,200,150,0.02)');
+
+                const bGrad = mainCtx.createLinearGradient(0, 0, 0, 280);
+                bGrad.addColorStop(0, 'rgba(56,189,248,0.45)');
+                bGrad.addColorStop(1, 'rgba(56,189,248,0.02)');
+
+                new Chart(mainCtx, {
+                    type: 'line',
+                    data: {
+                        labels: months,
+                        datasets: [
+                            {
+                                label: 'Installed',
+                                data: installed,
+                                borderColor: accent,
+                                backgroundColor: gGrad,
+                                borderWidth: 2.5,
+                                fill: true,
+                                tension: 0.45,
+                                pointRadius: 4,
+                                pointBackgroundColor: accent,
+                                pointHoverRadius: 6,
+                                pointHoverBackgroundColor: accent,
+                                pointHoverBorderColor: '#fff',
+                                pointHoverBorderWidth: 2,
+                            },
+                            {
+                                label: 'Net Consumption',
+                                data: consumption,
+                                borderColor: blue,
+                                backgroundColor: bGrad,
+                                borderWidth: 2.5,
+                                fill: true,
+                                tension: 0.45,
+                                pointRadius: 4,
+                                pointBackgroundColor: blue,
+                                pointHoverRadius: 6,
+                                pointHoverBackgroundColor: blue,
+                                pointHoverBorderColor: '#fff',
+                                pointHoverBorderWidth: 2,
+                            },
+                        ],
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        interaction: { mode: 'index', intersect: false },
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'top',
+                                align: 'end',
+                                labels: {
+                                    boxWidth: 12,
+                                    padding: 20,
+                                    usePointStyle: true,
+                                    pointStyle: 'circle',
+                                    color: muted,
+                                }
+                            },
+                            tooltip: {
+                                ...tooltipTheme,
+                                callbacks: {
+                                    label: ctx => ` ${ctx.dataset.label}: ${(ctx.raw / 1000).toFixed(1)}K`,
+                                }
+                            },
+                            datalabels: {
+                                align: 'top',
+                                anchor: 'end',
+                                offset: 6,
+                                color: datalabelColor,
+                                font: { weight: '600', size: isMobile ? 10 : 12 },
+                                formatter: v => (v / 1000).toFixed(1) + 'K',
+                            },
+                        },
+                        scales: {
+                            x: {
+                                grid: { display: false },
+                                border: { display: false },
+                                ticks: { color: muted },
+                            },
+                            y: {
+                                min: 0,
+                                max: 60000,
+                                ticks: {
+                                    color: muted,
+                                    callback: v => v >= 1000 ? (v / 1000) + 'K' : v,
+                                    stepSize: 10000,
+                                },
+                                grid: { color: gridCol },
+                                border: { display: false },
+                            },
+                        },
+                    },
+                });
+            }
+
+            initCharts();
+
+            // Re-render on theme toggle
+            new MutationObserver(initCharts).observe(document.documentElement, {
+                attributes: true,
+                attributeFilter: ['data-theme'],
+            });
+
+            // Re-render on window resize
+            window.addEventListener('resize', initCharts);
+
+        })();
+    </script>
+
+    <script src="assets/JS/theme.js"></script>
+    <script src="assets/Pages/sidebar.js"></script>
+    <script src="assets/Pages/footer.js"></script>
+    <script src="assets/Pages/header.js"></script>
+
+</body>
+
+</html>
