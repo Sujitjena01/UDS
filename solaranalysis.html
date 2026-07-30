@@ -22,7 +22,45 @@
         <main-sidebar></main-sidebar>
 
         <div class="content-wrapper">
-            <main-topbar></main-topbar>
+
+            <div class="topbar">
+                <div class="topbar__left">
+                    <button id="mobileToggle" class="sidebar__toggle-btn">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <p class="topbar__subtitle"><strong>Last Updated On:</strong> 01/06/2026 00:00:00</p>
+                </div>
+                <div class="topbar__right">
+                    <div class="topbar__search">
+                        <i class="fa fa-magnifying-glass"></i>
+                        <input type="text" placeholder="Search for..." />
+                    </div>
+                    <button class="tp-btn tp-btn--primary">
+                        Export Data <i class="fa-solid fa-download"></i>
+                    </button>
+                    <button class="tp-btn tp-btn--accent">
+                        Create Report <i class="fa-solid fa-plus"></i>
+                    </button>
+                    <div class="dropdown">
+                        <a class="tp-btn tp-btn--primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Today
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Today</a></li>
+                            <li><a class="dropdown-item" href="#">Last 7 Days</a></li>
+                            <li><a class="dropdown-item" href="#">Last 30 Days</a></li>
+                        </ul>
+                    </div>
+                    <label class="mode-toggle" title="Toggle light/dark mode">
+                        <input type="checkbox" id="modeToggle" hidden />
+                        <span class="toggle-track">
+                            <span class="toggle-thumb"></span>
+                        </span>
+                    </label>
+                </div>
+            </div>
             <!-- MAIN CONTENT (placeholder) -->
             <div class="main-content">
 
@@ -34,7 +72,7 @@
                         <div class="col-6 col-xl-3">
                             <div class="stat-card h-100">
                                 <div class="stat-card__header">
-                                    <div class="stat-card__icon"><i class="fa-solid fa-gauge-high"></i></div>
+                                    <div class="stat-card__icon"><i class="fa-solid fa-people-group"></i></div>
                                     <span class="stat-card__label">Total Generation Connection</span>
                                     <button class="stat-card__menu"><i class="fa-solid fa-ellipsis"></i></button>
                                 </div>
@@ -64,7 +102,7 @@
                         <div class="col-6 col-xl-3">
                             <div class="stat-card h-100">
                                 <div class="stat-card__header">
-                                    <div class="stat-card__icon"><i class="fa-solid fa-location-dot"></i></div>
+                                    <div class="stat-card__icon"><i class="fa-solid fa-solar-panel"></i></div>
                                     <span class="stat-card__label">Net Consumption</span>
                                     <button class="stat-card__menu"><i class="fa-solid fa-ellipsis"></i></button>
                                 </div>
@@ -124,7 +162,7 @@
                         <div class="col-6 col-xl-3">
                             <div class="stat-card h-100">
                                 <div class="stat-card__header">
-                                    <div class="stat-card__icon"><i class="fa-solid fa-square"></i></div>
+                                    <div class="stat-card__icon"><i class="fa-solid fa-solar-panel"></i></div>
                                     <span class="stat-card__label">Installed Capacity</span>
                                     <button class="stat-card__menu"><i class="fa-solid fa-ellipsis"></i></button>
                                 </div>
@@ -160,22 +198,11 @@
                     <div class="chart-card chart-card--main">
                         <div class="chart-card__header">
                             <div>
-                                <p class="chart-card__title">Month-wise Installation</p>
-                                <div class="chart-card__value">
-                                    240.8K
-                                    <span class="stat-card__badge stat-card__badge--up chart" style="font-size:11px;">
-                                        <i class="fa-solid fa-arrow-trend-up"></i> 24.6%
-                                    </span>
-                                </div>
+                                <p class="chart-card__title">Solar Generation vs Net consumption.</p>
                             </div>
                             <div class="chart__filter d-flex gap-2">
 
                                 <div class="position-relative">
-                                    <button class="btn-tp-sm btn-tp-primary d-flex align-items-center gap-2"
-                                        type="button" id="calendarBtn">
-                                        <i class="bi bi-calendar3"></i>
-                                        <span id="calendarText">Select Date</span>
-                                    </button>
                                     <input type="date" id="calendarInput"
                                         class="position-absolute top-0 start-0 opacity-0"
                                         style="width: 100%; height: 100%; cursor: pointer;">
@@ -200,7 +227,7 @@
                     <div class="chart-card chart-card--main">
                         <div class="chart-card__header">
                             <div>
-                                <p class="chart-card__title">Performance Graph</p>
+                                <p class="chart-card__title">Generation During Peak Hours</p>
                             </div>
                         </div>
                         <div class="chart-card__body">
@@ -286,7 +313,7 @@
                         labels: hours,
                         datasets: [
                             {
-                                label: 'Installed',
+                                label: 'Solar Generation (kWh)',
                                 data: installed,
                                 borderColor: accent,
                                 backgroundColor: gGrad,
@@ -301,7 +328,7 @@
                                 pointHoverBorderWidth: 2,
                             },
                             {
-                                label: 'Net Consumption',
+                                label: 'Net Consumption (kWh)',
                                 data: consumption,
                                 borderColor: blue,
                                 backgroundColor: bGrad,
@@ -326,6 +353,7 @@
                                 display: true,
                                 position: 'top',
                                 align: 'end',
+                                align: 'center',
                                 labels: {
                                     boxWidth: 12,
                                     padding: 20,
@@ -402,7 +430,7 @@
                         plugins: {
                             legend: { display: false },
                             datalabels: {
-                                color: '#ffffff',
+                                color: datalabelColor,
                                 font: { weight: 'bold' },
                                 anchor: 'end',
                                 align: 'top',
