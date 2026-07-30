@@ -105,6 +105,7 @@ body {
     }
 
     &__icon {
+        color:$highlight-green;
         border-radius: $br-8;
         display: flex;
         align-items: center;
@@ -116,6 +117,7 @@ body {
 
     &__label {
         font-size: 10px;
+        color:$highlight-green;
         flex: 1;
         text-transform: uppercase;
         letter-spacing: 1px;
@@ -123,6 +125,7 @@ body {
     }
 
     &__menu {
+        color:$highlight-green !important;
         background: none;
         border: none;
         color: inherit;

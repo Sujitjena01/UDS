@@ -1169,6 +1169,7 @@ body {
   gap: 8px;
 }
 .stat-card__icon {
+  color: #10635A;
   border-radius: 0.5rem;
   display: flex;
   align-items: center;
@@ -1179,12 +1180,14 @@ body {
 }
 .stat-card__label {
   font-size: 10px;
+  color: #10635A;
   flex: 1;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 700;
 }
 .stat-card__menu {
+  color: #10635A !important;
   background: none;
   border: none;
   color: inherit;

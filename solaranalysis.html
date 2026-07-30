@@ -169,29 +169,16 @@
                                 </div>
                             </div>
                             <div class="chart__filter d-flex gap-2">
-                                <div class="dropdown">
-                                    <a class="btn-tp-sm btn-tp-primary dropdown-toggle" href="#" role="button"
-                                        data-bs-toggle="dropdown" aria-expanded="false">
-                                        Year
-                                    </a>
 
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Action</a></li>
-                                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    </ul>
-                                </div>
-                                <div class="dropdown">
-                                    <a class="btn-tp-sm btn-tp-primary dropdown-toggle" href="#" role="button"
-                                        data-bs-toggle="dropdown" aria-expanded="false">
-                                        HES Name
-                                    </a>
-
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Action</a></li>
-                                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    </ul>
+                                <div class="position-relative">
+                                    <button class="btn-tp-sm btn-tp-primary d-flex align-items-center gap-2"
+                                        type="button" id="calendarBtn">
+                                        <i class="bi bi-calendar3"></i>
+                                        <span id="calendarText">Select Date</span>
+                                    </button>
+                                    <input type="date" id="calendarInput"
+                                        class="position-absolute top-0 start-0 opacity-0"
+                                        style="width: 100%; height: 100%; cursor: pointer;">
                                 </div>
                             </div>
                         </div>
@@ -206,6 +193,18 @@
                                         12.5%</span></div>
                                 <div class="chart-tooltip__date">June 21, 2026</div>
                             </div>
+                        </div>
+                    </div>
+
+                    <!-- Performance Chart (Peak Point) -->
+                    <div class="chart-card chart-card--main">
+                        <div class="chart-card__header">
+                            <div>
+                                <p class="chart-card__title">Performance Graph</p>
+                            </div>
+                        </div>
+                        <div class="chart-card__body">
+                            <canvas id="performanceChart"></canvas>
                         </div>
                     </div>
 
@@ -245,6 +244,7 @@
                 const accentLt = 'rgba(0,200,150,0.15)';
                 const blue = '#38BDF8';
                 const blueLt = 'rgba(56,189,248,0.15)';
+                const peakColor = '#FFB020';
                 const muted = '#7EADA6';
                 const gridCol = dark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)';
 
@@ -265,10 +265,10 @@
                 Chart.defaults.color = muted;
                 Chart.register(ChartDataLabels);
 
-                // ── 1. Main area chart ───────────────────────────────────
-                const months = ['Jul-25', 'Aug-25', 'Sep-25', 'Oct-25', 'Nov-25', 'Dec-25', 'Jan-26', 'Feb-26', 'Mar-26', 'Apr-26', 'May-26', 'Jun-26'];
-                const installed = [31100, 26200, 24000, 30000, 34800, 35200, 38400, 39600, 50200, 34400, 31900, 11100];
-                const consumption = [28400, 30100, 27600, 25300, 29800, 33500, 36200, 34100, 41300, 38700, 35200, 24800];
+                // ── 1. Main area chart (Month-wise Installation) ─────────
+                const hours = ['00:00', '02:00', '04:00', '06:00', '08:00', '10:00', '12:00', '14:00', '16:00', '18:00', '20:00', '22:00', '24:00'];
+                const installed = [2, 4, 11, 23, 31, 39, 48, 56, 69, 83, 94, 66, 31];
+                const consumption = [21, 16, 12, 10, 14, 23, 34, 41, 46, 54, 73, 99, 88];
 
                 const mainCtx = document.getElementById('mainAreaChart').getContext('2d');
 
@@ -283,7 +283,7 @@
                 new Chart(mainCtx, {
                     type: 'line',
                     data: {
-                        labels: months,
+                        labels: hours,
                         datasets: [
                             {
                                 label: 'Installed',
@@ -337,7 +337,7 @@
                             tooltip: {
                                 ...tooltipTheme,
                                 callbacks: {
-                                    label: ctx => ` ${ctx.dataset.label}: ${(ctx.raw / 1000).toFixed(1)}K`,
+                                    label: ctx => ` ${ctx.dataset.label}: ${ctx.raw} MW`,
                                 }
                             },
                             datalabels: {
@@ -346,7 +346,7 @@
                                 offset: 6,
                                 color: datalabelColor,
                                 font: { weight: '600', size: isMobile ? 10 : 12 },
-                                formatter: v => (v / 1000).toFixed(1) + 'K',
+                                formatter: v => v,
                             },
                         },
                         scales: {
@@ -357,15 +357,60 @@
                             },
                             y: {
                                 min: 0,
-                                max: 60000,
+                                max: 100,
+                                title: {
+                                    display: true,
+                                    text: 'MW',
+                                    color: muted,
+                                    font: { weight: '600', size: 12 },
+                                },
                                 ticks: {
                                     color: muted,
-                                    callback: v => v >= 1000 ? (v / 1000) + 'K' : v,
-                                    stepSize: 10000,
+                                    stepSize: 10,
                                 },
                                 grid: { color: gridCol },
                                 border: { display: false },
                             },
+                        },
+                    },
+                });
+
+                // ── 2. Performance chart (Peak Point) ─────────────────────
+                Chart.register(ChartDataLabels);
+
+                const perfTimes = ['00:00', '02:00', '04:00', '06:00', '08:00', '10:00', '12:00', '14:00', '16:00', '18:00', '20:00', '22:00', '24:00'];
+                const perfGeneration = [5, 8, 12, 22, 34, 45, 58, 67, 74, 62, 41, 19, 7];
+
+                const perfPeakIndex = perfGeneration.indexOf(Math.max(...perfGeneration));
+
+                const perfCtx = document.getElementById('performanceChart').getContext('2d');
+
+                new Chart(perfCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: perfTimes,
+                        datasets: [{
+                            label: 'Generation (MW)',
+                            data: perfGeneration,
+                            backgroundColor: perfGeneration.map((_, i) => i === perfPeakIndex ? '#ff6b35' : '#00c896'),
+                            borderRadius: 8,
+                        }],
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: false },
+                            datalabels: {
+                                color: '#ffffff',
+                                font: { weight: 'bold' },
+                                anchor: 'end',
+                                align: 'top',
+                            },
+                        },
+                        scales: {
+                            x: { title: { display: true, text: 'Time' } },
+                            y: { min: 0, max: 100, title: { display: true, text: 'MW' } },
                         },
                     },
                 });
@@ -383,6 +428,27 @@
             window.addEventListener('resize', initCharts);
 
         })();
+    </script>
+    <script>
+        const calendarInput = document.getElementById('calendarInput');
+        const calendarText = document.getElementById('calendarText');
+
+        document.getElementById('calendarBtn').addEventListener('click', () => {
+            calendarInput.showPicker();
+        });
+
+        calendarInput.addEventListener('change', (e) => {
+            const selectedDate = new Date(e.target.value);
+            const formatted = selectedDate.toLocaleDateString('en-GB', {
+                day: '2-digit',
+                month: 'short',
+                year: 'numeric',
+            });
+            calendarText.textContent = formatted;
+
+            console.log('Selected date:', e.target.value);
+            // your logic here — e.g. refetch chart data for selected date
+        });
     </script>
 
     <script src="assets/JS/theme.js"></script>
