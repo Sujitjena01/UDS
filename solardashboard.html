@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TPCODL Login</title>
+
+    <link rel="stylesheet" href="assets/CSS/font-awesome/css/all.css">
+    <link rel="stylesheet" href="assets/CSS/dashboard2.css">
+    <link href="assets/CSS/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+    <!-- Mobile backdrop -->
+    <div class="sidebar__overlay" id="sidebarOverlay"></div>
+
+    <main class="dashboard">
+        <main-sidebar></main-sidebar>
+
+        <div class="content-wrapper">
+
+            <div class="topbar">
+                <div class="topbar__left">
+                    <button id="mobileToggle" class="sidebar__toggle-btn">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <p class="topbar__subtitle"><strong>Last Updated On:</strong> 01/06/2026 00:00:00</p>
+                </div>
+                <div class="topbar__right">
+                    <div class="topbar__search">
+                        <i class="fa fa-magnifying-glass"></i>
+                        <input type="text" placeholder="Search for..." />
+                    </div>
+                    <button class="tp-btn tp-btn--primary">
+                        Export Data <i class="fa-solid fa-download"></i>
+                    </button>
+                    <button class="tp-btn tp-btn--accent">
+                        Create Report <i class="fa-solid fa-plus"></i>
+                    </button>
+                    <div class="dropdown">
+                        <a class="tp-btn tp-btn--primary dropdown-toggle" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Today
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Today</a></li>
+                            <li><a class="dropdown-item" href="#">Last 7 Days</a></li>
+                            <li><a class="dropdown-item" href="#">Last 30 Days</a></li>
+                        </ul>
+                    </div>
+                    <label class="mode-toggle" title="Toggle light/dark mode">
+                        <input type="checkbox" id="modeToggle" hidden />
+                        <span class="toggle-track">
+                            <span class="toggle-thumb"></span>
+                        </span>
+                    </label>
+                </div>
+            </div>
+            <div class="tp-filter-bar">
+                <div class="tp-filter-bar__filters">
+
+                    <div class="tp-filter-bar__group">
+                        <label class="tp-filter-bar__label" for="filterCircle">Circle</label>
+                        <select class="tp-filter-bar__select" id="filterCircle">
+                            <option>Balasore Circle</option>
+                            <option>Bhadrak Circle</option>
+                            <option>Baripada Circle</option>
+                            <option>Keonjhar Circle</option>
+                        </select>
+                    </div>
+
+                    <div class="tp-filter-bar__group">
+                        <label class="tp-filter-bar__label" for="filterDivision">Division</label>
+                        <select class="tp-filter-bar__select" id="filterDivision">
+                            <option value="">Select</option>
+                        </select>
+                    </div>
+
+                    <div class="tp-filter-bar__group">
+                        <label class="tp-filter-bar__label" for="filterSubDivision">Sub-Division</label>
+                        <select class="tp-filter-bar__select" id="filterSubDivision">
+                            <option value="">Select</option>
+                        </select>
+                    </div>
+
+                    <div class="tp-filter-bar__group">
+                        <label class="tp-filter-bar__label" for="filterSection">Section</label>
+                        <select class="tp-filter-bar__select" id="filterSection">
+                            <option value="">Select</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="tp-filter-bar__actions">
+                    <button class="tp-btn tp-btn--outline-danger" id="filterReset">
+                        <i class="fa-solid fa-rotate-left"></i> Reset
+                    </button>
+                </div>
+            </div>
+            <!-- MAIN CONTENT (placeholder) -->
+            <div class="main-content">
+
+
+
+                <div class="stat-cards">
+                    <div class="row g-2 mb-2">
+                        <!-- Total Feeder Energy -->
+                        <div class="col-6 col-xl-3">
+                            <div class="stat-card stat-card--blue h-100">
+                                <div class="stat-card__content">
+                                    <span class="stat-card__label">Total Feeder Energy</span>
+                                    <div class="stat-card__value">196.07 MU</div>
+                                    <span class="stat-card__badge stat-card__badge--down">
+                                        <i class="fa-solid fa-arrow-trend-down"></i> 29.5% vs Previous Month
+                                    </span>
+                                </div>
+                                <div class="stat-card__icon"><i class="fa-solid fa-bolt"></i></div>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-xl-3">
+                            <div class="stat-card stat-card--yellow h-100">
+                                <div class="stat-card__content">
+                                    <span class="stat-card__label">Bus Coupler Energy</span>
+                                    <div class="stat-card__value">1.86 MU</div>
+                                    <span class="stat-card__badge stat-card__badge--up">
+                                        <i class="fa-solid fa-arrow-trend-up"></i> 3.0% vs Target
+                                    </span>
+                                </div>
+                                <div class="stat-card__icon"><i class="fa-solid fa-bolt"></i></div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-6 col-xl-3">
+                            <div class="stat-card stat-card--blue h-100">
+                                <div class="stat-card__content">
+                                    <span class="stat-card__label">Grand Total Energy</span>
+                                    <div class="stat-card__value">197.93 MU</div>
+                                    <span class="stat-card__badge stat-card__badge--up">
+                                        Target: 220 MU
+                                    </span>
+                                </div>
+                                <div class="stat-card__icon"><i class="fa-solid fa-plus"></i></div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-6 col-xl-3">
+                            <div class="stat-card stat-card--green h-100">
+                                <div class="stat-card__content">
+                                    <span class="stat-card__label">Healthy Feeders</span>
+                                    <div class="stat-card__value">312 / 332</div>
+                                    <span class="stat-card__badge stat-card__badge--up">
+                                        93.9 % Efficiency
+                                    </span>
+                                </div>
+                                <div class="stat-card__icon"><i class="fa-solid fa-circle-check"></i></div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row g-2">
+                        <!-- No Meter -->
+
+                        <div class="col-6 col-xl-3">
+                            <div class="stat-card stat-card--green h-100">
+                                <div class="stat-card__content">
+                                    <span class="stat-card__label">No Meter</span>
+                                    <div class="stat-card__value">0 Feeders</div>
+                                    <span class="stat-card__badge stat-card__badge--up">
+                                        Excellent
+                                    </span>
+                                </div>
+                                <div class="stat-card__icon"><i class="fa-solid fa-layer-group"></i></div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-6 col-xl-3">
+                            <div class="stat-card stat-card--red h-100">
+                                <div class="stat-card__content">
+                                    <span class="stat-card__label">Non Communicating</span>
+                                    <div class="stat-card__value">9 Feeders</div>
+                                    <span class="stat-card__badge stat-card__badge--down">
+                                        Needs Attention
+                                    </span>
+                                </div>
+                                <div class="stat-card__icon"><i class="fa-solid fa-link-slash"></i></div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-6 col-xl-3">
+                            <div class="stat-card stat-card--yellow h-100">
+                                <div class="stat-card__content">
+                                    <span class="stat-card__label">No Load Feeders</span>
+                                    <div class="stat-card__value">20 Feeders</div>
+                                    <span class="stat-card__badge stat-card__badge--down">
+                                        Warning Limit
+                                    </span>
+                                </div>
+                                <div class="stat-card__icon"><i class="fa-solid fa-link-slash"></i></div>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-xl-3">
+                            <div class="stat-card stat-card--green h-100">
+                                <div class="stat-card__content">
+                                    <span class="stat-card__label">Comm Success</span>
+                                    <div class="stat-card__value">97.3%</div>
+                                    <span class="stat-card__badge stat-card__badge--up">
+                                        9 Active Offlines
+                                    </span>
+                                </div>
+                                <div class="stat-card__icon"><i class="fa-solid fa-link-slash"></i></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="charts-row row g-3">
+
+                    <!-- Main Area Chart -->
+                    <div class="chart-card chart-card--main col-12 col-xl-8">
+                        <div class="chart-card__header">
+                            <div>
+                                <p class="chart-card__title">Solar Generation vs Net consumption.</p>
+                            </div>
+
+                            <div class="chart-card__header-right d-flex align-items-center gap-2">
+
+                                <div class="chart-card__stats-col d-flex flex-column gap-2">
+
+                                    <div class="stat-card stat-card--mini stat-card--green">
+                                        <div class="stat-card__header">
+                                            <div class="stat-card__icon"><i class="fa-solid fa-sun"></i></div>
+                                            <span class="stat-card__label">Total Solar Generation</span>
+                                        </div>
+                                        <div class="stat-card__bottom">
+                                            <div class="stat-card__value">18,265 MW</div>
+                                            <span class="stat-card__badge stat-card__badge--down">
+                                                <i class="fa-solid fa-arrow-trend-down"></i> 12.6%
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div class="stat-card stat-card--mini stat-card--blue">
+                                        <div class="stat-card__header">
+                                            <div class="stat-card__icon"><i class="fa-solid fa-solar-panel"></i></div>
+                                            <span class="stat-card__label">Net Consumption</span>
+                                        </div>
+                                        <div class="stat-card__bottom">
+                                            <div class="stat-card__value">16,732 MW</div>
+                                            <span class="stat-card__badge stat-card__badge--up">
+                                                <i class="fa-solid fa-arrow-trend-up"></i> 3.1%
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="chart__filter d-flex gap-2">
+                                    <div class="position-relative">
+                                        <input type="date" id="calendarInput"
+                                            class="position-absolute top-0 start-0 opacity-0"
+                                            style="width: 100%; height: 100%; cursor: pointer;">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="chart-card__body">
+                            <canvas id="mainAreaChart"></canvas>
+                            <!-- Tooltip -->
+                            <div class="chart-tooltip" id="chartTooltip" style="display:none;">
+                                <div class="chart-tooltip__value">125.2k <span
+                                        class="stat-card__badge stat-card__badge--up"
+                                        style="font-size:10px;padding:2px 6px;"><i
+                                            class="fa-solid fa-arrow-trend-up chart"></i>
+                                        12.5%</span></div>
+                                <div class="chart-tooltip__date">June 21, 2026</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+            </div>
+            <main-footer></main-footer>
+        </div>
+
+
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://ccdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+    <script>
+        (function () {
+            const isDark = () => document.documentElement.getAttribute('data-theme') === 'dark';
+
+            function initCharts() {
+                Object.values(Chart.instances).forEach(c => c.destroy());
+
+                const dark = isDark();
+                const isMobile = window.innerWidth <= 768;
+
+                // ── Colour tokens ────────────────────────────────────────
+                const accent = '#00C896';
+                const accentLt = 'rgba(0,200,150,0.15)';
+                const blue = '#38BDF8';
+                const blueLt = 'rgba(56,189,248,0.15)';
+                const peakGenColor = '#FFB020';   // Peak Generation (orange)
+                const peakConColor = '#FF3B30';   // Peak Consumption (red)
+                const muted = '#7EADA6';
+                const gridCol = dark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)';
+
+                const tooltipTheme = {
+                    backgroundColor: dark ? '#1A2E2B' : '#fff',
+                    titleColor: dark ? '#fff' : '#1A2E2B',
+                    bodyColor: muted,
+                    borderColor: dark ? '#2E4A45' : '#EDF2F0',
+                    borderWidth: 1,
+                    padding: 12,
+                    cornerRadius: 10,
+                };
+
+                const datalabelColor = dark ? '#fff' : '#1A2E2B';
+
+                Chart.defaults.font.family = "'Outfit', sans-serif";
+                Chart.defaults.font.size = 11;
+                Chart.defaults.color = muted;
+                Chart.register(ChartDataLabels);
+
+                // ── 1. Main area chart (Month-wise Installation) ─────────
+                const hours = ['00:00', '02:00', '04:00', '06:00', '08:00', '10:00', '12:00', '14:00', '16:00', '18:00', '20:00', '22:00', '24:00'];
+                const installed = [2, 4, 11, 23, 31, 39, 48, 56, 69, 83, 94, 66, 31];
+                const consumption = [21, 16, 12, 10, 14, 23, 34, 41, 46, 54, 73, 99, 88];
+
+                // Peak indices for each series
+                const peakInstalledIdx = installed.indexOf(Math.max(...installed));
+                const peakConsumptionIdx = consumption.indexOf(Math.max(...consumption));
+
+                const mainCtx = document.getElementById('mainAreaChart').getContext('2d');
+
+                const gGrad = mainCtx.createLinearGradient(0, 0, 0, 280);
+                gGrad.addColorStop(0, 'rgba(0,200,150,0.55)');
+                gGrad.addColorStop(1, 'rgba(0,200,150,0.02)');
+
+                const bGrad = mainCtx.createLinearGradient(0, 0, 0, 280);
+                bGrad.addColorStop(0, 'rgba(56,189,248,0.45)');
+                bGrad.addColorStop(1, 'rgba(56,189,248,0.02)');
+
+                new Chart(mainCtx, {
+                    type: 'line',
+                    data: {
+                        labels: hours,
+                        datasets: [
+                            {
+                                label: 'Solar Generation (kWh)',
+                                data: installed,
+                                borderColor: accent,
+                                backgroundColor: gGrad,
+                                borderWidth: 2.5,
+                                fill: true,
+                                tension: 0.45,
+                                pointRadius: installed.map((_, i) => i === peakInstalledIdx ? 6 : 4),
+                                pointBackgroundColor: installed.map((_, i) => i === peakInstalledIdx ? peakGenColor : accent),
+                                pointBorderColor: installed.map((_, i) => i === peakInstalledIdx ? peakGenColor : accent),
+                                pointHoverRadius: installed.map((_, i) => i === peakInstalledIdx ? 8 : 6),
+                                pointHoverBackgroundColor: installed.map((_, i) => i === peakInstalledIdx ? peakGenColor : accent),
+                                pointHoverBorderColor: '#fff',
+                                pointHoverBorderWidth: 2,
+                            },
+                            {
+                                label: 'Net Consumption (kWh)',
+                                data: consumption,
+                                borderColor: blue,
+                                backgroundColor: bGrad,
+                                borderWidth: 2.5,
+                                fill: true,
+                                tension: 0.45,
+                                pointRadius: consumption.map((_, i) => i === peakConsumptionIdx ? 6 : 4),
+                                pointBackgroundColor: consumption.map((_, i) => i === peakConsumptionIdx ? peakConColor : blue),
+                                pointBorderColor: consumption.map((_, i) => i === peakConsumptionIdx ? peakConColor : blue),
+                                pointHoverRadius: consumption.map((_, i) => i === peakConsumptionIdx ? 8 : 6),
+                                pointHoverBackgroundColor: consumption.map((_, i) => i === peakConsumptionIdx ? peakConColor : blue),
+                                pointHoverBorderColor: '#fff',
+                                pointHoverBorderWidth: 2,
+                            },
+                        ],
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        interaction: { mode: 'index', intersect: false },
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'top',
+                                align: 'center',
+                                labels: {
+                                    boxWidth: 12,
+                                    padding: 20,
+                                    usePointStyle: true,
+                                    pointStyle: 'circle',
+                                    color: muted,
+                                    // Append two extra, non-toggleable legend entries for the peak points
+                                    generateLabels: (chart) => {
+                                        const labels = Chart.defaults.plugins.legend.labels.generateLabels(chart);
+                                        labels.push(
+                                            {
+                                                text: 'Peak Generation',
+                                                fillStyle: peakGenColor,
+                                                strokeStyle: peakGenColor,
+                                                pointStyle: 'circle',
+                                                fontColor: muted,
+                                                datasetIndex: null,
+                                            },
+                                            {
+                                                text: 'Peak Consumption',
+                                                fillStyle: peakConColor,
+                                                strokeStyle: peakConColor,
+                                                pointStyle: 'circle',
+                                                fontColor: muted,
+                                                datasetIndex: null,
+                                            }
+                                        );
+                                        return labels;
+                                    },
+                                },
+                                onClick: (e, legendItem, legend) => {
+                                    // Ignore clicks on the two synthetic "Peak" legend entries
+                                    if (legendItem.datasetIndex === null || legendItem.datasetIndex === undefined) return;
+                                    const index = legendItem.datasetIndex;
+                                    const ci = legend.chart;
+                                    const meta = ci.getDatasetMeta(index);
+                                    meta.hidden = meta.hidden === null ? !ci.data.datasets[index].hidden : null;
+                                    ci.update();
+                                },
+                            },
+                            tooltip: {
+                                ...tooltipTheme,
+                                callbacks: {
+                                    label: ctx => ` ${ctx.dataset.label}: ${ctx.raw} MW`,
+                                }
+                            },
+                            datalabels: {
+                                align: 'top',
+                                anchor: 'end',
+                                offset: 6,
+                                color: datalabelColor,
+                                font: { weight: '600', size: isMobile ? 10 : 12 },
+                                formatter: v => v,
+                            },
+                        },
+                        scales: {
+                            x: {
+                                grid: { display: false },
+                                border: { display: false },
+                                ticks: { color: muted },
+                            },
+                            y: {
+                                min: 0,
+                                max: 100,
+                                title: {
+                                    display: true,
+                                    text: 'MW',
+                                    color: muted,
+                                    font: { weight: '600', size: 12 },
+                                },
+                                ticks: {
+                                    color: muted,
+                                    stepSize: 10,
+                                },
+                                grid: { color: gridCol },
+                                border: { display: false },
+                            },
+                        },
+                    },
+                });
+            }
+
+            initCharts();
+
+            // Re-render on theme toggle
+            new MutationObserver(initCharts).observe(document.documentElement, {
+                attributes: true,
+                attributeFilter: ['data-theme'],
+            });
+
+            // Re-render on window resize
+            window.addEventListener('resize', initCharts);
+
+        })();
+    </script>
+    <script>
+        const calendarInput = document.getElementById('calendarInput');
+        const calendarText = document.getElementById('calendarText');
+
+        document.getElementById('calendarBtn').addEventListener('click', () => {
+            calendarInput.showPicker();
+        });
+
+        calendarInput.addEventListener('change', (e) => {
+            const selectedDate = new Date(e.target.value);
+            const formatted = selectedDate.toLocaleDateString('en-GB', {
+                day: '2-digit',
+                month: 'short',
+                year: 'numeric',
+            });
+            calendarText.textContent = formatted;
+
+            console.log('Selected date:', e.target.value);
+            // your logic here — e.g. refetch chart data for selected date
+        });
+    </script>
+
+    <script src="assets/JS/theme.js"></script>
+    <script src="assets/Pages/sidebar.js"></script>
+    <script src="assets/Pages/footer.js"></script>
+    <script src="assets/Pages/header.js"></script>
+
+</body>
+
+</html>
