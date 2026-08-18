@@ -66,6 +66,7 @@ body {
     }
 
     &__label {
+        font-family: $font-outfit-regular;
         font-size: 11px;
         font-weight: 700;
         letter-spacing: 0.04em;
@@ -560,7 +561,7 @@ body {
     border: 1px solid $highlight-green;
     border-radius: $br-8;
     overflow: hidden;
-    height: 366px !important;
+    height: 450px !important;
 
     &--main,
     &--trend {

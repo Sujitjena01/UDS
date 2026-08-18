@@ -109,13 +109,13 @@
                     </div>
 
                     <div class="col-6 col-md-auto">
-                        <button class="btn-tp btn-tp-sm btn-tp-outline-danger w-100" id="filterReset">
+                        <button class="btn-tp btn-tp-outline-danger w-100" id="filterReset">
                             <i class="fa-solid fa-rotate-left"></i> Reset
                         </button>
                     </div>
 
                     <div class="col-6 col-md-auto">
-                        <button class="btn-tp btn-tp-sm btn-tp-primary w-100" id="filterSubmit">
+                        <button class="btn-tp btn-tp-primary w-100" id="filterSubmit">
                             <i class="fa-solid fa-check"></i> Submit
                         </button>
                     </div>
@@ -131,9 +131,9 @@
                     <div class="row g-2 mb-2">
                         <!-- Total Feeder Energy -->
                         <div class="col-6 col-xl-3">
-                            <div class="stat-card stat-card--blue h-100">
+                            <div class="stat-card stat-card--red h-100">
                                 <div class="stat-card__content">
-                                    <span class="stat-card__label">RTS PLANT INSTALLED</span>
+                                    <span class="stat-card__label">TOTAL SOLAR CONNECTION</span>
                                     <div class="stat-card__value">14922</div>
                                     <span class="stat-card__badge stat-card__badge--down">
                                         <i class="fa-solid fa-arrow-trend-down"></i> 14,922 kWp DC capacity
@@ -143,24 +143,11 @@
                             </div>
                         </div>
 
-                        <div class="col-6 col-xl-3">
-                            <div class="stat-card stat-card--yellow h-100">
-                                <div class="stat-card__content">
-                                    <span class="stat-card__label">MDMS DATA COVERAGE</span>
-                                    <div class="stat-card__value">59.2%</div>
-                                    <span class="stat-card__badge stat-card__badge--up">
-                                        <i class="fa-solid fa-arrow-trend-up"></i>829 of 14,922 plants reporting
-                                    </span>
-                                </div>
-                                <div class="stat-card__icon"><i class="fa-solid fa-bolt"></i></div>
-                            </div>
-                        </div>
-
 
                         <div class="col-6 col-xl-3">
                             <div class="stat-card stat-card--blue h-100">
                                 <div class="stat-card__content">
-                                    <span class="stat-card__label">Daily Generation</span>
+                                    <span class="stat-card__label">TOTAL SOLAR GENERATION</span>
                                     <div class="stat-card__value">13,487.3 kWh</div>
                                     <span class="stat-card__badge stat-card__badge--up">
                                         30 June 2026
@@ -172,9 +159,9 @@
 
 
                         <div class="col-6 col-xl-3">
-                            <div class="stat-card stat-card--green h-100">
+                            <div class="stat-card stat-card--yellow h-100">
                                 <div class="stat-card__content">
-                                    <span class="stat-card__label">CUMULATIVE</span>
+                                    <span class="stat-card__label">CUMULATIVE GENERATION</span>
                                     <div class="stat-card__value">749,829 kWh</div>
                                     <span class="stat-card__badge stat-card__badge--up">
                                         vs 0kWh in May
@@ -184,56 +171,10 @@
                             </div>
                         </div>
 
-                    </div>
-
-                    <div class="row g-2">
-                        <!-- No Meter -->
-
-                        <div class="col-6 col-xl-3">
+                         <div class="col-6 col-xl-3">
                             <div class="stat-card stat-card--green h-100">
                                 <div class="stat-card__content">
-                                    <span class="stat-card__label">GOOD PERFORMERS</span>
-                                    <div class="stat-card__value">41.2%</div>
-                                    <span class="stat-card__badge stat-card__badge--up">
-                                        36.37 plants > 95% output
-                                    </span>
-                                </div>
-                                <div class="stat-card__icon"><i class="fa-solid fa-layer-group"></i></div>
-                            </div>
-                        </div>
-
-
-                        <div class="col-6 col-xl-3">
-                            <div class="stat-card stat-card--red h-100">
-                                <div class="stat-card__content">
-                                    <span class="stat-card__label">Breakdown > 1 Day</span>
-                                    <div class="stat-card__value">577</div>
-                                    <span class="stat-card__badge stat-card__badge--down">
-                                        Needs Attention
-                                    </span>
-                                </div>
-                                <div class="stat-card__icon"><i class="fa-solid fa-link-slash"></i></div>
-                            </div>
-                        </div>
-
-
-                        <div class="col-6 col-xl-3">
-                            <div class="stat-card stat-card--yellow h-100">
-                                <div class="stat-card__content">
-                                    <span class="stat-card__label">No Load Feeders</span>
-                                    <div class="stat-card__value">20 Feeders</div>
-                                    <span class="stat-card__badge stat-card__badge--down">
-                                        Warning Limit
-                                    </span>
-                                </div>
-                                <div class="stat-card__icon"><i class="fa-solid fa-link-slash"></i></div>
-                            </div>
-                        </div>
-
-                        <div class="col-6 col-xl-3">
-                            <div class="stat-card stat-card--green h-100">
-                                <div class="stat-card__content">
-                                    <span class="stat-card__label">Non-Communicating</span>
+                                    <span class="stat-card__label">TOTAL CONSUMPTION</span>
                                     <div class="stat-card__value">181</div>
                                     <span class="stat-card__badge stat-card__badge--up">
                                         1.2% of installed, 2 > days
@@ -259,10 +200,10 @@
 
                                 <div class="chart-card__stats-col d-flex flex-row gap-2">
 
-                                    <div class="stat-card stat-card--mini stat-card--green">
+                                    <div class="stat-card stat-card--mini stat-card--yellow">
                                         <div class="stat-card__header">
                                             <div class="stat-card__icon"><i class="fa-solid fa-sun"></i></div>
-                                            <span class="stat-card__label">Total Solar Generation</span>
+                                            <span class="stat-card__label">Peak Generation</span>
                                         </div>
                                         <div class="stat-card__bottom">
                                             <div class="stat-card__value">18,265 MW</div>
@@ -272,10 +213,10 @@
                                         </div>
                                     </div>
 
-                                    <div class="stat-card stat-card--mini stat-card--blue">
+                                    <div class="stat-card stat-card--mini stat-card--red">
                                         <div class="stat-card__header">
                                             <div class="stat-card__icon"><i class="fa-solid fa-solar-panel"></i></div>
-                                            <span class="stat-card__label">Net Consumption</span>
+                                            <span class="stat-card__label">Peak Consumption</span>
                                         </div>
                                         <div class="stat-card__bottom">
                                             <div class="stat-card__value">16,732 MW</div>
@@ -476,6 +417,15 @@
                         responsive: true,
                         maintainAspectRatio: false,
                         interaction: { mode: 'index', intersect: false },
+                        layout: {
+                            padding: {
+                                top: 40,
+                                right: 16,
+                                bottom: 8,
+                                left: 8
+                            }
+                        },
+
                         plugins: {
                             legend: {
                                 display: true,

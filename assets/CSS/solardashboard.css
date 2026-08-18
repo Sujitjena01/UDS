@@ -1135,6 +1135,7 @@ body {
   }
 }
 .tp-filter-bar__label {
+  font-family: "Outfit-Regular", sans-serif;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -1564,7 +1565,7 @@ body {
   border: 1px solid #10635A;
   border-radius: 0.5rem;
   overflow: hidden;
-  height: 366px !important;
+  height: 450px !important;
 }
 .chart-card--main, .chart-card--trend {
   display: flex;
