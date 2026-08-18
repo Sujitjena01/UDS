@@ -7,8 +7,9 @@
     <title>TPCODL Login</title>
 
     <link rel="stylesheet" href="assets/CSS/font-awesome/css/all.css">
-    <link rel="stylesheet" href="assets/CSS/dashboard2.css">
     <link href="assets/CSS/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/CSS/solardashboard.css">
+
 
 </head>
 
@@ -35,14 +36,14 @@
                         <i class="fa fa-magnifying-glass"></i>
                         <input type="text" placeholder="Search for..." />
                     </div>
-                    <button class="tp-btn tp-btn--primary">
+                    <button class="btn-tp btn-tp-primary">
                         Export Data <i class="fa-solid fa-download"></i>
                     </button>
-                    <button class="tp-btn tp-btn--accent">
+                    <button class="btn-tp btn-tp-default">
                         Create Report <i class="fa-solid fa-plus"></i>
                     </button>
                     <div class="dropdown">
-                        <a class="tp-btn tp-btn--primary dropdown-toggle" href="#" role="button"
+                        <a class="btn-tp btn-tp-primary dropdown-toggle" href="#" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             Today
                         </a>
@@ -53,6 +54,10 @@
                             <li><a class="dropdown-item" href="#">Last 30 Days</a></li>
                         </ul>
                     </div>
+                    <button id="filterToggleBtn" class="topbar__filter-btn" aria-expanded="false"
+                        aria-controls="tpFilterBar">
+                        <i class="fa-solid fa-filter"></i>
+                    </button>
                     <label class="mode-toggle" title="Toggle light/dark mode">
                         <input type="checkbox" id="modeToggle" hidden />
                         <span class="toggle-track">
@@ -61,46 +66,60 @@
                     </label>
                 </div>
             </div>
-            <div class="tp-filter-bar">
-                <div class="tp-filter-bar__filters">
+            <div class="tp-filter-bar" id="tpFilterBar">
+                <div class="row g-2 align-items-end tp-filter-bar__row">
 
-                    <div class="tp-filter-bar__group">
-                        <label class="tp-filter-bar__label" for="filterCircle">Circle</label>
-                        <select class="tp-filter-bar__select" id="filterCircle">
-                            <option>Balasore Circle</option>
-                            <option>Bhadrak Circle</option>
-                            <option>Baripada Circle</option>
-                            <option>Keonjhar Circle</option>
-                        </select>
+                    <div class="col-6 col-md">
+                        <div class="tp-filter-bar__group">
+                            <label class="tp-filter-bar__label" for="filterCircle">Circle</label>
+                            <select class="tp-filter-bar__select" id="filterCircle">
+                                <option>Balasore Circle</option>
+                                <option>Bhadrak Circle</option>
+                                <option>Baripada Circle</option>
+                                <option>Keonjhar Circle</option>
+                            </select>
+                        </div>
                     </div>
 
-                    <div class="tp-filter-bar__group">
-                        <label class="tp-filter-bar__label" for="filterDivision">Division</label>
-                        <select class="tp-filter-bar__select" id="filterDivision">
-                            <option value="">Select</option>
-                        </select>
+                    <div class="col-6 col-md">
+                        <div class="tp-filter-bar__group">
+                            <label class="tp-filter-bar__label" for="filterDivision">Division</label>
+                            <select class="tp-filter-bar__select" id="filterDivision">
+                                <option value="">Select</option>
+                            </select>
+                        </div>
                     </div>
 
-                    <div class="tp-filter-bar__group">
-                        <label class="tp-filter-bar__label" for="filterSubDivision">Sub-Division</label>
-                        <select class="tp-filter-bar__select" id="filterSubDivision">
-                            <option value="">Select</option>
-                        </select>
+                    <div class="col-6 col-md">
+                        <div class="tp-filter-bar__group">
+                            <label class="tp-filter-bar__label" for="filterSubDivision">Sub-Division</label>
+                            <select class="tp-filter-bar__select" id="filterSubDivision">
+                                <option value="">Select</option>
+                            </select>
+                        </div>
                     </div>
 
-                    <div class="tp-filter-bar__group">
-                        <label class="tp-filter-bar__label" for="filterSection">Section</label>
-                        <select class="tp-filter-bar__select" id="filterSection">
-                            <option value="">Select</option>
-                        </select>
+                    <div class="col-6 col-md">
+                        <div class="tp-filter-bar__group">
+                            <label class="tp-filter-bar__label" for="filterSection">Section</label>
+                            <select class="tp-filter-bar__select" id="filterSection">
+                                <option value="">Select</option>
+                            </select>
+                        </div>
                     </div>
 
-                </div>
+                    <div class="col-6 col-md-auto">
+                        <button class="btn-tp btn-tp-sm btn-tp-outline-danger w-100" id="filterReset">
+                            <i class="fa-solid fa-rotate-left"></i> Reset
+                        </button>
+                    </div>
 
-                <div class="tp-filter-bar__actions">
-                    <button class="tp-btn tp-btn--outline-danger" id="filterReset">
-                        <i class="fa-solid fa-rotate-left"></i> Reset
-                    </button>
+                    <div class="col-6 col-md-auto">
+                        <button class="btn-tp btn-tp-sm btn-tp-primary w-100" id="filterSubmit">
+                            <i class="fa-solid fa-check"></i> Submit
+                        </button>
+                    </div>
+
                 </div>
             </div>
             <!-- MAIN CONTENT (placeholder) -->
@@ -114,10 +133,10 @@
                         <div class="col-6 col-xl-3">
                             <div class="stat-card stat-card--blue h-100">
                                 <div class="stat-card__content">
-                                    <span class="stat-card__label">Total Feeder Energy</span>
-                                    <div class="stat-card__value">196.07 MU</div>
+                                    <span class="stat-card__label">RTS PLANT INSTALLED</span>
+                                    <div class="stat-card__value">14922</div>
                                     <span class="stat-card__badge stat-card__badge--down">
-                                        <i class="fa-solid fa-arrow-trend-down"></i> 29.5% vs Previous Month
+                                        <i class="fa-solid fa-arrow-trend-down"></i> 14,922 kWp DC capacity
                                     </span>
                                 </div>
                                 <div class="stat-card__icon"><i class="fa-solid fa-bolt"></i></div>
@@ -127,10 +146,10 @@
                         <div class="col-6 col-xl-3">
                             <div class="stat-card stat-card--yellow h-100">
                                 <div class="stat-card__content">
-                                    <span class="stat-card__label">Bus Coupler Energy</span>
-                                    <div class="stat-card__value">1.86 MU</div>
+                                    <span class="stat-card__label">MDMS DATA COVERAGE</span>
+                                    <div class="stat-card__value">59.2%</div>
                                     <span class="stat-card__badge stat-card__badge--up">
-                                        <i class="fa-solid fa-arrow-trend-up"></i> 3.0% vs Target
+                                        <i class="fa-solid fa-arrow-trend-up"></i>829 of 14,922 plants reporting
                                     </span>
                                 </div>
                                 <div class="stat-card__icon"><i class="fa-solid fa-bolt"></i></div>
@@ -141,10 +160,10 @@
                         <div class="col-6 col-xl-3">
                             <div class="stat-card stat-card--blue h-100">
                                 <div class="stat-card__content">
-                                    <span class="stat-card__label">Grand Total Energy</span>
-                                    <div class="stat-card__value">197.93 MU</div>
+                                    <span class="stat-card__label">Daily Generation</span>
+                                    <div class="stat-card__value">13,487.3 kWh</div>
                                     <span class="stat-card__badge stat-card__badge--up">
-                                        Target: 220 MU
+                                        30 June 2026
                                     </span>
                                 </div>
                                 <div class="stat-card__icon"><i class="fa-solid fa-plus"></i></div>
@@ -155,10 +174,10 @@
                         <div class="col-6 col-xl-3">
                             <div class="stat-card stat-card--green h-100">
                                 <div class="stat-card__content">
-                                    <span class="stat-card__label">Healthy Feeders</span>
-                                    <div class="stat-card__value">312 / 332</div>
+                                    <span class="stat-card__label">CUMULATIVE</span>
+                                    <div class="stat-card__value">749,829 kWh</div>
                                     <span class="stat-card__badge stat-card__badge--up">
-                                        93.9 % Efficiency
+                                        vs 0kWh in May
                                     </span>
                                 </div>
                                 <div class="stat-card__icon"><i class="fa-solid fa-circle-check"></i></div>
@@ -173,10 +192,10 @@
                         <div class="col-6 col-xl-3">
                             <div class="stat-card stat-card--green h-100">
                                 <div class="stat-card__content">
-                                    <span class="stat-card__label">No Meter</span>
-                                    <div class="stat-card__value">0 Feeders</div>
+                                    <span class="stat-card__label">GOOD PERFORMERS</span>
+                                    <div class="stat-card__value">41.2%</div>
                                     <span class="stat-card__badge stat-card__badge--up">
-                                        Excellent
+                                        36.37 plants > 95% output
                                     </span>
                                 </div>
                                 <div class="stat-card__icon"><i class="fa-solid fa-layer-group"></i></div>
@@ -187,8 +206,8 @@
                         <div class="col-6 col-xl-3">
                             <div class="stat-card stat-card--red h-100">
                                 <div class="stat-card__content">
-                                    <span class="stat-card__label">Non Communicating</span>
-                                    <div class="stat-card__value">9 Feeders</div>
+                                    <span class="stat-card__label">Breakdown > 1 Day</span>
+                                    <div class="stat-card__value">577</div>
                                     <span class="stat-card__badge stat-card__badge--down">
                                         Needs Attention
                                     </span>
@@ -214,10 +233,10 @@
                         <div class="col-6 col-xl-3">
                             <div class="stat-card stat-card--green h-100">
                                 <div class="stat-card__content">
-                                    <span class="stat-card__label">Comm Success</span>
-                                    <div class="stat-card__value">97.3%</div>
+                                    <span class="stat-card__label">Non-Communicating</span>
+                                    <div class="stat-card__value">181</div>
                                     <span class="stat-card__badge stat-card__badge--up">
-                                        9 Active Offlines
+                                        1.2% of installed, 2 > days
                                     </span>
                                 </div>
                                 <div class="stat-card__icon"><i class="fa-solid fa-link-slash"></i></div>
@@ -238,7 +257,7 @@
 
                             <div class="chart-card__header-right d-flex align-items-center gap-2">
 
-                                <div class="chart-card__stats-col d-flex flex-column gap-2">
+                                <div class="chart-card__stats-col d-flex flex-row gap-2">
 
                                     <div class="stat-card stat-card--mini stat-card--green">
                                         <div class="stat-card__header">
@@ -288,6 +307,51 @@
                                             class="fa-solid fa-arrow-trend-up chart"></i>
                                         12.5%</span></div>
                                 <div class="chart-tooltip__date">June 21, 2026</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-xl-4">
+                        <div class="info-card h-100">
+                            <div class="info-card__header">
+                                <p class="info-card__title">Key Metrics Summary</p>
+                            </div>
+
+                            <div class="info-card__body">
+
+                                <div class="info-card__row">
+                                    <span class="info-card__label">
+                                        <i class="fa-solid fa-solar-panel info-card__icon info-card__icon--green"></i>
+                                        Solar Contribution
+                                    </span>
+                                    <span class="stat-card__badge stat-card__badge--up">42.8%</span>
+                                </div>
+
+                                <div class="info-card__row">
+                                    <span class="info-card__label">
+                                        <i class="fa-solid fa-bolt info-card__icon info-card__icon--blue"></i>
+                                        Installed Capacity
+                                    </span>
+                                    <span class="stat-card__badge stat-card__badge--down">14,922 kWp</span>
+                                </div>
+
+                                <div class="info-card__row">
+                                    <span class="info-card__label">
+                                        <i
+                                            class="fa-solid fa-triangle-exclamation info-card__icon info-card__icon--orange"></i>
+                                        Energy Deficit
+                                    </span>
+                                    <span class="stat-card__badge stat-card__badge--up">1,286 kWh</span>
+                                </div>
+
+                                <div class="info-card__row">
+                                    <span class="info-card__label">
+                                        <i class="fa-solid fa-leaf info-card__icon info-card__icon--green"></i>
+                                        CO<sub>2</sub> Credit
+                                    </span>
+                                    <span class="stat-card__badge stat-card__badge--up">7,01,840 kg</span>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -415,7 +479,7 @@
                         plugins: {
                             legend: {
                                 display: true,
-                                position: 'top',
+                                position: 'bottom',
                                 align: 'center',
                                 labels: {
                                     boxWidth: 12,
@@ -423,44 +487,29 @@
                                     usePointStyle: true,
                                     pointStyle: 'circle',
                                     color: muted,
-                                    // Append two extra, non-toggleable legend entries for the peak points
-                                    generateLabels: (chart) => {
-                                        const labels = Chart.defaults.plugins.legend.labels.generateLabels(chart);
-                                        labels.push(
-                                            {
-                                                text: 'Peak Generation',
-                                                fillStyle: peakGenColor,
-                                                strokeStyle: peakGenColor,
-                                                pointStyle: 'circle',
-                                                fontColor: muted,
-                                                datasetIndex: null,
-                                            },
-                                            {
-                                                text: 'Peak Consumption',
-                                                fillStyle: peakConColor,
-                                                strokeStyle: peakConColor,
-                                                pointStyle: 'circle',
-                                                fontColor: muted,
-                                                datasetIndex: null,
-                                            }
-                                        );
-                                        return labels;
-                                    },
-                                },
-                                onClick: (e, legendItem, legend) => {
-                                    // Ignore clicks on the two synthetic "Peak" legend entries
-                                    if (legendItem.datasetIndex === null || legendItem.datasetIndex === undefined) return;
-                                    const index = legendItem.datasetIndex;
-                                    const ci = legend.chart;
-                                    const meta = ci.getDatasetMeta(index);
-                                    meta.hidden = meta.hidden === null ? !ci.data.datasets[index].hidden : null;
-                                    ci.update();
                                 },
                             },
                             tooltip: {
                                 ...tooltipTheme,
                                 callbacks: {
-                                    label: ctx => ` ${ctx.dataset.label}: ${ctx.raw} MW`,
+                                    label: ctx => {
+                                        // Swap label text to "Peak Generation" / "Peak Consumption"
+                                        // when the hovered point is that series' peak index.
+                                        const isPeakGen = ctx.datasetIndex === 0 && ctx.dataIndex === peakInstalledIdx;
+                                        const isPeakCon = ctx.datasetIndex === 1 && ctx.dataIndex === peakConsumptionIdx;
+
+                                        if (isPeakGen) return ` Peak Generation: ${ctx.raw} MW`;
+                                        if (isPeakCon) return ` Peak Consumption: ${ctx.raw} MW`;
+                                        return ` ${ctx.dataset.label}: ${ctx.raw} MW`;
+                                    },
+                                    labelTextColor: ctx => {
+                                        const isPeakGen = ctx.datasetIndex === 0 && ctx.dataIndex === peakInstalledIdx;
+                                        const isPeakCon = ctx.datasetIndex === 1 && ctx.dataIndex === peakConsumptionIdx;
+
+                                        if (isPeakGen) return peakGenColor;
+                                        if (isPeakCon) return peakConColor;
+                                        return muted;
+                                    },
                                 }
                             },
                             datalabels: {
@@ -476,6 +525,12 @@
                             x: {
                                 grid: { display: false },
                                 border: { display: false },
+                                title: {
+                                    display: true,
+                                    text: 'Time',
+                                    color: muted,
+                                    font: { weight: '600', size: 12 },
+                                },
                                 ticks: { color: muted },
                             },
                             y: {
@@ -532,6 +587,20 @@
             console.log('Selected date:', e.target.value);
             // your logic here — e.g. refetch chart data for selected date
         });
+    </script>
+    <script>
+        (function () {
+            const filterToggleBtn = document.getElementById('filterToggleBtn');
+            const tpFilterBar = document.getElementById('tpFilterBar');
+
+            if (!filterToggleBtn || !tpFilterBar) return;
+
+            filterToggleBtn.addEventListener('click', () => {
+                const isOpen = tpFilterBar.classList.toggle('is-open');
+                filterToggleBtn.classList.toggle('is-active', isOpen);
+                filterToggleBtn.setAttribute('aria-expanded', isOpen);
+            });
+        })();
     </script>
 
     <script src="assets/JS/theme.js"></script>

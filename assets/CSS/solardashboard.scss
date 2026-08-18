@@ -1,0 +1,867 @@
+@use "sass:map";
+@use "sass:list";
+@use 'variables/variables'as *;
+@use 'layout/shared'as *;
+
+// ── Shared components ─────────────────────────────────────────
+
+// ── Base reset ────────────────────────────────────────────────
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: none;
+    min-height: 100vh;
+    transition: background 0.3s;
+}
+
+// ── Filter bar ───────────────────────────────────────────────
+.tp-filter-bar {
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    background-color: $white;
+    padding: 0.5rem 0.5rem;
+    box-shadow: 0 1px 3px rgba($black, 0.06);
+
+    @at-root [data-theme="dark"] & {
+        background-color: #031c19;
+        border: 1px solid $oceanic-green-80;
+        box-shadow: none;
+    }
+
+    &__filters {
+        display: flex;
+        gap: 1rem;
+        flex: 1 1 auto;
+        flex-wrap: wrap;
+
+        @media #{$tab} {
+            gap: 0.75rem;
+        }
+
+        @media #{$mobile_device} {
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+    }
+
+    &__group {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        min-width: 180px;
+        flex: 1 1 200px;
+
+        @media #{$mobile_device} {
+            min-width: 0;
+            width: 100%;
+            flex: 1;
+        }
+    }
+
+    &__label {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: $black-60;
+
+        @at-root [data-theme="dark"] & {
+            color: rgba($white, 0.6);
+        }
+    }
+
+    &__select {
+        appearance: none;
+        -webkit-appearance: none;
+        width: 100%;
+        padding: 8px 36px 8px 12px;
+        font-size: 13px;
+        font-weight: 500;
+        color: $black;
+        background-color: transparent;
+        border: 1px solid $gray-40;
+        border-radius: $br-5;
+        cursor: pointer;
+
+        // Chevron uses $black-60 (#797979) — remember to URL-encode # as %23
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6' fill='none'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23797979' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 12px center;
+
+        &:focus {
+            outline: none;
+            border-color: $highlight-green;
+            box-shadow: 0 0 0 3px rgba($highlight-green, 0.12);
+        }
+
+        // Larger touch target on mobile — 44px is the standard minimum tap size
+        @media #{$mobile_device} {
+            padding: 12px 36px 12px 12px;
+            font-size: 14px; // also prevents iOS Safari auto-zoom-on-focus below 16px
+        }
+
+        @at-root [data-theme="dark"] & {
+            color: rgba($white, 0.85);
+            border-color: $oceanic-green-80;
+
+            // Chevron needs to be re-encoded for dark mode — %23FFFFFF (or a light muted tone) instead of %23797979,
+            // since the same dark chevron would be near-invisible on this background
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6' fill='none'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23BFBFBF' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+
+            &:focus {
+                border-color: $highlight-green;
+                box-shadow: 0 0 0 3px rgba($highlight-green, 0.2);
+            }
+        }
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        flex-shrink: 0;
+
+        @media #{$tab} {
+            gap: 0.75rem;
+        }
+
+        @media #{$mobile_device} {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 0.75rem;
+            width: 100%;
+        }
+    }
+
+    // Wrap Reset + Export in this element in the HTML so they can be targeted as a pair on mobile
+    &__buttons {
+        display: flex;
+        gap: 0.75rem;
+        flex-shrink: 0;
+
+        @media #{$mobile_device} {
+            width: 100%;
+
+            .btn-tp {
+                flex: 1 1 0;
+                justify-content: center;
+            }
+        }
+    }
+
+    &__sync {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        padding-left: 1rem;
+        border-left: 1px solid $gray-40;
+        white-space: nowrap;
+
+        @at-root [data-theme="dark"] & {
+            border-left-color: $oceanic-green-80;
+        }
+
+        &-label {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: $black-60;
+
+            @at-root [data-theme="dark"] & {
+                color: rgba($white, 0.6);
+            }
+        }
+
+        &-value {
+            font-size: 13px;
+            font-weight: 700;
+            color: $black;
+
+            @at-root [data-theme="dark"] & {
+                color: $white;
+            }
+        }
+
+        // Border-left reads fine sitting beside the buttons on desktop,
+        // but once everything stacks it becomes a stray vertical line —
+        // swap to a border-top full-width divider instead.
+        @media #{$mobile_device} {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding-left: 0;
+            padding-top: 0.75rem;
+            border-left: none;
+            border-top: 1px solid $gray-40;
+            white-space: normal;
+
+            @at-root [data-theme="dark"] & {
+                border-top-color: $oceanic-green-80;
+            }
+        }
+    }
+
+    @media #{$tab} {
+        padding: 1rem;
+    }
+
+    @media #{$mobile_device} {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0.85rem;
+        gap: 0.85rem;
+        border-radius: 0.6rem;
+    }
+}
+
+.topbar__filter-btn {
+    display: none; // hidden on desktop by default
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: 1px solid $gray-40;
+    border-radius: $br-5;
+    background-color: $white;
+    color: $highlight-green;
+    font-size: 14px;
+    cursor: pointer;
+    flex-shrink: 0;
+
+    &:hover {
+        border-color: $highlight-green;
+        color: $highlight-green;
+    }
+
+    &.is-active {
+        background-color: $highlight-green;
+        border-color: $highlight-green;
+        color: $white;
+    }
+
+    @media #{$mobile_device} {
+        display: inline-flex; // only shown on mobile
+    }
+
+    @at-root [data-theme="dark"] & {
+        background-color: #031c19;
+        border-color: $oceanic-green-80;
+        color: rgba($white, 0.6);
+    }
+}
+
+// Collapse the filter bar on mobile by default, expand via JS toggle
+@media #{$mobile_device} {
+    .tp-filter-bar {
+        display: none;
+
+        &.is-open {
+            display: flex;
+        }
+    }
+}
+
+// ── Layout ────────────────────────────────────────────────────
+.dashboard {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.content-wrapper {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    flex: 1;
+    min-width: 0;
+    padding: 15px;
+    color: $white;
+    transition: margin $sidebar-transition;
+
+    @media #{$mobile_device} {
+        padding: 25px 16px 20px;
+    }
+
+    @at-root [data-theme="dark"] & {
+        background: $dark-green;
+    }
+}
+
+// ── Stat cards ───────────────────────────────────────────────
+.stat-cards {
+    margin-bottom: 15px;
+}
+
+.stat-card {
+    border-radius: $br-8;
+    padding: 7px 7px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    transition: box-shadow 0.2s, transform 0.15s;
+
+    &:hover {
+        box-shadow: 0 4px 16px rgba($black, 0.08);
+        transform: translateY(-1px);
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+        min-width: 0; // allows text truncation if needed
+    }
+
+    &__label {
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+        color: $black-60;
+    }
+
+    &__value {
+        font-size: 20px;
+        font-weight: 700;
+        letter-spacing: -0.6px;
+        line-height: 1;
+        color: $black;
+    }
+
+    &__icon {
+        width: 35px;
+        height: 35px;
+        border-radius: $br-8;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        flex-shrink: 0;
+        align-self: center; // vertically centered against the card
+    }
+
+    &__badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 11px;
+        font-weight: 600;
+        width: fit-content;
+
+        i {
+            font-size: 10px;
+        }
+
+        &--up {
+            color: $highlight-green;
+
+            @at-root [data-theme="dark"] & {
+                color: $neon;
+            }
+        }
+
+        &--down {
+            color: $error-red;
+        }
+    }
+
+    &__caption {
+        font-size: 11px;
+        font-weight: 600;
+
+        &--muted {
+            color: $black-60;
+        }
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-bottom: 0;
+    }
+
+    &__bottom {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+
+    // ── Accent variants ──────────────────────────────
+    &--blue {
+        background: rgba($royal-blue, 0.07);
+        border: 1px solid rgba($royal-blue, 0.25);
+        border-left: 4px solid $royal-blue;
+
+        .stat-card__icon {
+            background: rgba($royal-blue, 0.15);
+            color: $royal-blue;
+        }
+
+        .stat-card__caption:not(.stat-card__caption--muted) {
+            color: $royal-blue;
+        }
+    }
+
+    &--yellow {
+        background: rgba($orange, 0.07);
+        border: 1px solid rgba($orange, 0.25);
+        border-left: 4px solid $orange;
+
+        .stat-card__icon {
+            background: rgba($orange, 0.15);
+            color: $orange;
+        }
+
+        .stat-card__caption:not(.stat-card__caption--muted) {
+            color: $orange;
+        }
+    }
+
+    &--green {
+        background: rgba($highlight-green, 0.07);
+        border: 1px solid rgba($highlight-green, 0.25);
+        border-left: 4px solid $highlight-green;
+
+        .stat-card__icon {
+            background: rgba($highlight-green, 0.15);
+            color: $highlight-green;
+
+
+            @at-root [data-theme="dark"] & {
+                color: $neon;
+
+            }
+        }
+
+        .stat-card__caption:not(.stat-card__caption--muted) {
+            color: $highlight-green;
+        }
+    }
+
+    &--red {
+        background: rgba($error-red, 0.07);
+        border: 1px solid rgba($error-red, 0.25);
+        border-left: 4px solid $error-red;
+
+        .stat-card__icon {
+            background: rgba($error-red, 0.15);
+            color: $error-red;
+        }
+
+        .stat-card__caption:not(.stat-card__caption--muted) {
+            color: $error-red;
+        }
+    }
+
+    // ── Mini variant (chart-header stat chips) ────────
+    &--mini {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        width: auto; // override base .stat-card's 100% width
+        flex: 0 0 auto; // don't grow/shrink to fill the row — size to content
+        min-width: max-content;
+        padding: 6px 10px;
+        border-radius: $br-2;
+
+        .stat-card__icon {
+            width: 18px;
+            height: 18px;
+            font-size: 10px;
+            flex-shrink: 0;
+        }
+
+        .stat-card__label {
+            font-size: 10px;
+            white-space: nowrap;
+            line-height: 1;
+        }
+
+        .stat-card__value {
+            font-size: 13px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .stat-card__badge {
+            font-size: 9px;
+            padding: 1px 5px;
+            white-space: nowrap;
+        }
+    }
+}
+
+@at-root [data-theme="dark"] {
+    .stat-card {
+        background: #031c19;
+        border-color: $oceanic-green-80;
+
+        &__label {
+            color: rgba($white, 0.6);
+        }
+
+        &__value {
+            color: $white;
+        }
+
+        &__caption--muted {
+            color: rgba($white, 0.55);
+        }
+
+        &--blue {
+            background: rgba($royal-blue, 0.12);
+            border-color: rgba($royal-blue, 0.4);
+        }
+
+        &--yellow {
+            background: rgba($orange, 0.12);
+            border-color: rgba($orange, 0.4);
+        }
+
+        &--green {
+            background: rgba($highlight-green, 0.15);
+            border-color: rgba($highlight-green, 0.4);
+        }
+
+        &--red {
+            background: rgba($error-red, 0.12);
+            border-color: rgba($error-red, 0.4);
+        }
+    }
+}
+
+// ── Charts ────────────────────────────────────────────────────
+// Layout (display/columns) is handled entirely by Bootstrap's
+// .row + col-12/col-xl-8/col-xl-4 classes in the HTML — this class
+// only adds spacing, so it doesn't fight Bootstrap's flex grid.
+.charts-row {
+    margin-bottom: 24px;
+}
+
+.chart-card {
+    background: $white;
+    border: 1px solid $highlight-green;
+    border-radius: $br-8;
+    overflow: hidden;
+    height: 366px !important;
+
+    &--main,
+    &--trend {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &--trend {
+        width: 100%;
+    }
+
+    &--mini {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    &__header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        padding: 10px;
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    &__title {
+        font-size: 20px;
+        font-weight: 700;
+        color: $highlight-green;
+        margin: 0;
+    }
+
+    &__value {
+        font-size: 22px;
+        font-weight: 700;
+        color: #1A2E2B;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        letter-spacing: -0.5px;
+    }
+
+    &__body {
+        flex: 1;
+        padding: 0 10px 10px;
+        height: 200px;
+        position: relative;
+
+        canvas {
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        &--trend {
+            padding: 0 10px 10px;
+
+            canvas {
+                width: 100% !important;
+                height: 100% !important;
+            }
+        }
+
+        &--mini {
+            position: relative;
+            height: 220px;
+
+            canvas {
+                width: 100% !important;
+                height: 100% !important;
+            }
+        }
+    }
+
+    &__mini-header {
+        font-size: 20px;
+        font-weight: 700;
+        color: $highlight-green;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+
+        i {
+            color: $color-accent;
+            font-size: 13px;
+        }
+    }
+
+    &__mini-value {
+        font-size: 24px;
+        font-weight: 700;
+        color: #1A2E2B;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        letter-spacing: -0.5px;
+    }
+
+    &__mini-footer {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 10px;
+        padding-top: 5px;
+        font-size: 12px;
+    }
+}
+
+@at-root [data-theme="dark"] {
+    .chart-card {
+        background: #031c19;
+        border-color: #343b4f;
+
+        &__title,
+        &__value,
+        &__mini-value {
+            color: $white;
+        }
+    }
+}
+
+.chart-side {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .chart-card--mini {
+        flex: 1;
+    }
+}
+
+.chart-tooltip {
+    position: absolute;
+    top: 38%;
+    left: 42%;
+    transform: translate(-50%, -50%);
+    background: $white;
+    border: 1px solid #EDF2F0;
+    border-radius: $br-8;
+    padding: 10px 14px;
+    pointer-events: none;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.10);
+    z-index: 10;
+
+    &__value {
+        font-size: 16px;
+        font-weight: 700;
+        color: #1A2E2B;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 2px;
+    }
+
+    &__date {
+        font-size: 11px;
+        color: $highlight-green;
+    }
+}
+
+// ── Utilities ─────────────────────────────────────────────────
+.text-muted {
+    color: $highlight-green;
+    flex: 1;
+}
+
+.link-accent {
+    color: $color-accent;
+    font-size: 12px;
+    font-weight: 500;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.live-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    font-weight: 600;
+    color: $color-accent;
+    background: rgba(0, 200, 150, 0.1);
+    padding: 2px 8px;
+    border-radius: $br-3;
+
+    i {
+        font-size: 7px;
+        animation: pulse-dot 1.5s ease-in-out infinite;
+    }
+}
+
+@keyframes pulse-dot {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+}
+
+// ── Info card ────────────────────────────────────────────────
+.info-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #000;
+    background-color: $white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba($black, 0.06);
+    overflow: hidden;
+
+
+    @at-root [data-theme="dark"] & {
+        background-color: #031c19;
+        border-color: #343b4f;
+    }
+
+    &__header {
+        padding: 10px 13px;
+
+        @at-root [data-theme="dark"] & {
+            border-color: $gray-80;
+        }
+    }
+
+    &__title {
+        margin: 0;
+        font-size: 18px;
+        font-weight: 700;
+        color: $highlight-green;
+
+        @at-root [data-theme="dark"] & {
+            color: $white;
+        }
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        padding: 0.5rem 1.25rem;
+    }
+
+    &__row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
+        padding: 0.85rem 0;
+
+        &:not(:last-child) {
+            border-bottom: 1px solid $gray-40;
+
+            @at-root [data-theme="dark"] & {
+                border-color: $gray-90;
+            }
+        }
+    }
+
+    &__label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 13px;
+        font-weight: 500;
+        color: $black-60;
+
+        @at-root [data-theme="dark"] & {
+            color: $gray-50;
+        }
+    }
+
+    &__icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 28px;
+        border-radius: 50px;
+        font-size: 12px;
+        flex-shrink: 0;
+
+        &--green {
+            background-color: rgba($highlight-green, 0.12);
+            color: $highlight-green;
+        }
+
+        &--blue {
+            background-color: rgba($royal-blue, 0.12);
+            color: $royal-blue;
+        }
+
+        &--orange {
+            background-color: rgba($orange, 0.12);
+            color: $orange;
+        }
+    }
+
+}

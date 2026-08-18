@@ -57,6 +57,7 @@ $warning:   $orange;
 $danger:    $error-red;
 $default:   $neon;
 
+
 // (background, text-color) pairs
 $theme-colors: (
   "primary":   ($primary,   $white),
@@ -64,6 +65,7 @@ $theme-colors: (
   "warning":   ($warning,   $white),
   "danger":    ($danger,    $white),
   "default":   ($default,   $dark-green)   // Neon is very bright → dark text
+  // "accent":    ($accent,    $neon)
 );
 
 
