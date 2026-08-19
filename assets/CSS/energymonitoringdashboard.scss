@@ -548,6 +548,185 @@ body {
     }
 }
 
+// ── Alert card ──────────────────────────────────────────────
+.alert-card {
+    display: flex;
+    flex-direction: column;
+    background-color: $white;
+    border: 1px solid $highlight-green;
+    border-radius: $br-8;
+    box-shadow: 0 1px 3px rgba($black, 0.06);
+    overflow: hidden;
+
+    @at-root [data-theme="dark"] & {
+        background-color: #031c19;
+        border: 1px solid $oceanic-green-80;
+        box-shadow: none;
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 16px;
+        border-bottom: 1px solid $gray-40;
+
+        @at-root [data-theme="dark"] & {
+            border-color: $oceanic-green-80;
+        }
+    }
+
+    &__title {
+        margin: 0;
+        font-size: 13px;
+        font-weight: 700;
+        color: $highlight-green;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        @at-root [data-theme="dark"] & {
+            color: $white;
+        }
+    }
+
+    &__count {
+        font-size: 11px;
+        font-weight: 600;
+        color: $black-60;
+
+        @at-root [data-theme="dark"] & {
+            color: rgba($white, 0.6);
+        }
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        padding: 4px 5px;
+        overflow-y: auto;
+        gap: 4px;
+    }
+
+    &__item {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 6px 8px;
+
+        &:not(:last-child) {
+            border-bottom: 1px solid $gray-40;
+
+        }
+    }
+
+    &__item--critical {
+        border-left: 3px solid $error-red;
+
+
+    }
+
+    &__item--warning {
+        border-left: 3px solid $warning;
+
+    }
+
+    &__item--caution {
+        border-left: 3px solid $yellow;
+
+    }
+
+    &__item--ok {
+        border-left: 3px solid $highlight-green;
+
+        @at-root [data-theme="dark"] & {
+            border-left: 3px solid $neon;
+        }
+    }
+
+    &__item--critical &__text strong {
+        color: $error-red;
+    }
+
+    &__item--warning &__text strong {
+        color: $orange;
+    }
+
+    &__item--caution &__text strong {
+        color: $orange;
+    }
+
+    &__item--ok &__text strong {
+        color: $highlight-green;
+
+        @at-root [data-theme="dark"] & {
+            color: $neon;
+        }
+    }
+
+    &__dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        margin-top: 5px;
+        flex-shrink: 0;
+    }
+
+    &__content {
+        flex: 1;
+        min-width: 0;
+    }
+
+    &__text {
+        margin: 0 0 2px;
+        font-size: 11px;
+        color: $black;
+        line-height: 1.4;
+
+        strong {
+            font-weight: 700;
+        }
+
+        @at-root [data-theme="dark"] & {
+            color: rgba($white, 0.85);
+        }
+    }
+
+    &__time {
+        font-size: 11px;
+        color: $black-60;
+
+        @at-root [data-theme="dark"] & {
+            color: rgba($white, 0.5);
+        }
+    }
+
+    &__arrow {
+        font-size: 11px;
+        color: $black-60;
+        align-self: center;
+        flex-shrink: 0;
+    }
+
+    // ── Severity variants (dot colour only) ───────────
+    &__item--critical &__dot {
+        background-color: $error-red;
+    }
+
+    &__item--warning &__dot {
+        background-color: $orange;
+    }
+
+    &__item--caution &__dot {
+        background-color: $orange;
+    }
+
+    &__item--ok &__dot {
+        background-color: $highlight-green;
+    }
+}
+
 // ── Charts ────────────────────────────────────────────────────
 // Layout (display/columns) is handled entirely by Bootstrap's
 // .row + col-12/col-xl-8/col-xl-4 classes in the HTML — this class
@@ -561,7 +740,7 @@ body {
     border: 1px solid $highlight-green;
     border-radius: $br-8;
     overflow: hidden;
-    height: 450px !important;
+    height: 250px !important;
 
     &--main,
     &--trend {
@@ -583,16 +762,20 @@ body {
         display: flex;
         align-items: flex-start;
         justify-content: space-between;
-        padding: 10px;
+        padding: 12px;
         gap: 12px;
         flex-wrap: wrap;
     }
 
     &__title {
-        font-size: 20px;
+        font-size: 14px;
         font-weight: 700;
         color: $highlight-green;
         margin: 0;
+    }
+
+    &__title--status {
+        width: 90px; // whatever override you need
     }
 
     &__value {
@@ -668,6 +851,35 @@ body {
         padding-top: 5px;
         font-size: 12px;
     }
+
+    &__status {
+        font-size: 10px;
+        font-weight: 700;
+        padding: 3px 10px;
+        border-radius: $br-3;
+
+        &--ok {
+            background-color: rgba($highlight-green, 0.12);
+            color: $highlight-green;
+        }
+    }
+
+    &__status--warn {
+        background-color: rgba($orange, 0.12);
+        color: $orange;
+    }
+
+    &--status {
+        height: auto !important; // overrides the fixed 450px on the base .chart-card
+    }
+
+    &__body--mtd {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        padding: 0 16px 16px;
+    }
 }
 
 @at-root [data-theme="dark"] {
@@ -683,6 +895,125 @@ body {
     }
 }
 
+.mtd-donut {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    flex-shrink: 0;
+
+    canvas {
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    &__center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        pointer-events: none; // let hover/tooltip pass through to the canvas
+    }
+
+    &__value {
+        font-size: 24px;
+        font-weight: 700;
+        color: $black;
+        line-height: 1;
+
+        @at-root [data-theme="dark"] & {
+            color: $white;
+        }
+    }
+
+    &__label {
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: $black-60;
+        margin-top: 4px;
+
+        @at-root [data-theme="dark"] & {
+            color: rgba($white, 0.6);
+        }
+    }
+}
+
+.mtd-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+    min-width: 0;
+
+    &__row {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    &__label {
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: $black-60;
+
+        @at-root [data-theme="dark"] & {
+            color: rgba($white, 0.6);
+        }
+    }
+
+    &__value {
+        font-size: 12px;
+        font-weight: 700;
+        color: $black;
+
+        @at-root [data-theme="dark"] & {
+            color: $white;
+        }
+
+        &--down {
+            color: $error-red;
+        }
+
+        &--up {
+            color: $highlight-green;
+        }
+    }
+}
+
+.mtd-donut--sm {
+    width: 90px;
+    height: 90px;
+}
+
+.mtd-donut__value--sm {
+    font-size: 16px;
+}
+
+.chart-card__body--mtd-wide {
+    justify-content: space-between; // pushes donut left, stats right
+    padding: 0 32px 24px;
+}
+
+.mtd-donut--lg {
+    width: 160px;
+    height: 160px;
+}
+
+.mtd-stats--right {
+    align-items: flex-end; // right-aligns the label/value pairs
+    flex: 0 1 auto; // don't stretch to fill remaining space
+
+    .mtd-stats__row {
+        align-items: flex-end;
+    }
+}
+
 .chart-side {
     display: flex;
     flex-direction: column;
@@ -693,32 +1024,32 @@ body {
     }
 }
 
-.chart-tooltip {
-    position: absolute;
-    top: 38%;
-    left: 42%;
-    transform: translate(-50%, -50%);
-    background: $white;
-    border: 1px solid #EDF2F0;
-    border-radius: $br-8;
-    padding: 10px 14px;
-    pointer-events: none;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.10);
-    z-index: 10;
-
-    &__value {
-        font-size: 16px;
-        font-weight: 700;
-        color: #1A2E2B;
-        display: flex;
+// ── Circle contribution chart card ─────────────────────────
+.chart-card--circle {
+    .chart-card__header {
         align-items: center;
-        gap: 8px;
-        margin-bottom: 2px;
     }
 
-    &__date {
+    .chart-card__unit {
         font-size: 11px;
-        color: $highlight-green;
+        font-weight: 600;
+        color: $black-60;
+        letter-spacing: 0.04em;
+
+        @at-root [data-theme="dark"] & {
+            color: rgba($white, 0.5);
+        }
+    }
+
+    .chart-card__body--circle {
+        position: relative;
+        flex: 1;
+        padding: 10px 16px 16px;
+
+        canvas {
+            width: 100% !important;
+            height: 100% !important;
+        }
     }
 }
 
@@ -878,3 +1209,89 @@ body {
     }
 
 }
+
+.tp-table--feeder {
+    thead th {
+        // background: $oceanic-green;
+        color: #fff;
+        font-weight: 600;
+        white-space: nowrap;
+
+        .sort-icon {
+            color: rgba(#fff, 0.6);
+        }
+    }
+}
+
+.tp-status-dot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    margin-right: 6px;
+
+    &--online {
+        background: $highlight-green;
+    }
+
+    &--offline {
+        background: $error-red;
+    }
+}
+
+.tp-variance {
+    font-weight: 600;
+
+    &--up {
+        color: $highlight-green;
+    }
+
+    &--down {
+        color: $error-red;
+    }
+}
+
+.tp-badge {
+    display: inline-block;
+    padding: 2px $p-2;
+    border-radius: $br-2;
+    font-size: 0.75rem;
+    font-weight: 600;
+
+    &--active {
+        background: rgba($highlight-green, 0.12);
+        color: $highlight-green;
+    }
+
+    &--faulty {
+        background: rgba($error-red, 0.12);
+        color: $error-red;
+    }
+
+    &--noload {
+        background: rgba($orange, 0.15);
+        color: $orange;
+    }
+
+    &--score {
+        min-width: 40px;
+        text-align: center;
+
+        &-good {
+            background: rgba($highlight-green, 0.12);
+            color: $highlight-green;
+        }
+
+        &-warn {
+            background: rgba($orange, 0.15);
+            color: darken($orange, 10%);
+        }
+
+        &-bad {
+            background: rgba($error-red, 0.12);
+            color: $error-red;
+        }
+    }
+}
+
+

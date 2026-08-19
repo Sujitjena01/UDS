@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TPCODL Login</title>
+    <link rel="stylesheet" href="assets/CSS/font-awesome/css/all.css">
+    <link href="assets/CSS/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/CSS/energymonitoringdashboard.css">
+    <link rel="stylesheet" href="assets/CSS/equipment.css">
+
+
+
+</head>
+
+<body>
+
+
+    <!-- Mobile backdrop -->
+    <div class="sidebar__overlay" id="sidebarOverlay"></div>
+
+    <main class="dashboard">
+        <main-sidebar></main-sidebar>
+
+        <div class="content-wrapper">
+
+            <div class="topbar">
+                <div class="topbar__left">
+                    <button id="mobileToggle" class="sidebar__toggle-btn">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <p class="topbar__subtitle"><strong>Last Updated On:</strong> 01/06/2026 00:00:00</p>
+                </div>
+                <div class="topbar__right">
+                    <div class="topbar__search">
+                        <i class="fa fa-magnifying-glass"></i>
+                        <input type="text" placeholder="Search for..." />
+                    </div>
+                    <button class="btn-tp btn-tp-primary">
+                        Export Data <i class="fa-solid fa-download"></i>
+                    </button>
+                    <button class="btn-tp btn-tp-default">
+                        Create Report <i class="fa-solid fa-plus"></i>
+                    </button>
+                    <div class="dropdown">
+                        <a class="btn-tp btn-tp-primary dropdown-toggle" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Today
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Today</a></li>
+                            <li><a class="dropdown-item" href="#">Last 7 Days</a></li>
+                            <li><a class="dropdown-item" href="#">Last 30 Days</a></li>
+                        </ul>
+                    </div>
+                    <button id="filterToggleBtn" class="topbar__filter-btn" aria-expanded="false"
+                        aria-controls="tpFilterBar">
+                        <i class="fa-solid fa-filter"></i>
+                    </button>
+                    <label class="mode-toggle" title="Toggle light/dark mode">
+                        <input type="checkbox" id="modeToggle" hidden />
+                        <span class="toggle-track">
+                            <span class="toggle-thumb"></span>
+                        </span>
+                    </label>
+                </div>
+            </div>
+            <div class="tp-filter-bar" id="tpFilterBar">
+                <div class="row g-2 align-items-end tp-filter-bar__row">
+
+                    <div class="col-6 col-md">
+                        <div class="tp-filter-bar__group">
+                            <label class="tp-filter-bar__label" for="filterCircle">Circle</label>
+                            <select class="tp-filter-bar__select" id="filterCircle">
+                                <option>Balasore Circle</option>
+                                <option>Bhadrak Circle</option>
+                                <option>Baripada Circle</option>
+                                <option>Keonjhar Circle</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-md">
+                        <div class="tp-filter-bar__group">
+                            <label class="tp-filter-bar__label" for="filterDivision">Division</label>
+                            <select class="tp-filter-bar__select" id="filterDivision">
+                                <option value="">Select</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-md">
+                        <div class="tp-filter-bar__group">
+                            <label class="tp-filter-bar__label" for="filterSubDivision">Sub-Division</label>
+                            <select class="tp-filter-bar__select" id="filterSubDivision">
+                                <option value="">Select</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-md">
+                        <div class="tp-filter-bar__group">
+                            <label class="tp-filter-bar__label" for="filterSection">Section</label>
+                            <select class="tp-filter-bar__select" id="filterSection">
+                                <option value="">Select</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-md-auto">
+                        <button class="btn-tp btn-tp-outline-danger w-100" id="filterReset">
+                            <i class="fa-solid fa-rotate-left"></i> Reset
+                        </button>
+                    </div>
+
+                    <div class="col-6 col-md-auto">
+                        <button class="btn-tp btn-tp-primary w-100" id="filterSubmit">
+                            <i class="fa-solid fa-check"></i> Submit
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+            <!-- MAIN CONTENT (placeholder) -->
+            <div class="main-content">
+
+
+
+                <div class="stat-cards">
+                    <div class="row g-2 mb-2">
+                        <!-- Total Feeder Energy -->
+                        <div class="col-6 col-xl-3">
+                            <div class="stat-card stat-card--red h-100">
+                                <div class="stat-card__content">
+                                    <span class="stat-card__label">TOTAL FEEDER ENERGY</span>
+                                    <div class="stat-card__value">196.07MU</div>
+                                    <span class="stat-card__badge stat-card__badge--down">
+                                        <i class="fa-solid fa-arrow-trend-down"></i> 29.5% vs previous month
+                                    </span>
+                                </div>
+                                <div class="stat-card__icon"><i class="fa-solid fa-bolt"></i></div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-6 col-xl-3">
+                            <div class="stat-card stat-card--blue h-100">
+                                <div class="stat-card__content">
+                                    <span class="stat-card__label">BUS COUPLER ENERGY</span>
+                                    <div class="stat-card__value">1.86 MU</div>
+                                    <span class="stat-card__badge stat-card__badge--up">
+                                        <i class="fa-solid fa-arrow-trend-up"></i>3.0% vs Target
+                                    </span>
+                                </div>
+                                <div class="stat-card__icon"><i class="fa-solid fa-plus"></i></div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-6 col-xl-3">
+                            <div class="stat-card stat-card--yellow h-100">
+                                <div class="stat-card__content">
+                                    <span class="stat-card__label">GRAND TOTAL ENERGY</span>
+                                    <div class="stat-card__value">197.93 MU</div>
+                                    <span class="stat-card__badge stat-card__badge--up">
+                                        Target: 220 MU
+                                    </span>
+                                </div>
+                                <div class="stat-card__icon"><i class="fa-solid fa-circle-check"></i></div>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-xl-3">
+                            <div class="stat-card stat-card--green h-100">
+                                <div class="stat-card__content">
+                                    <span class="stat-card__label">HEALTHY FEEDERS</span>
+                                    <div class="stat-card__value">312/323</div>
+                                    <span class="stat-card__badge stat-card__badge--up">
+                                        93.9% Efficiency
+                                    </span>
+                                </div>
+                                <div class="stat-card__icon"><i class="fa-solid fa-link-slash"></i></div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row g-2 mb-2">
+                        <!-- Total Feeder Energy -->
+                        <div class="col-6 col-xl-3">
+                            <div class="stat-card stat-card--red h-100">
+                                <div class="stat-card__content">
+                                    <span class="stat-card__label">NO METER</span>
+                                    <div class="stat-card__value">0 Feeders</div>
+                                    <span class="stat-card__badge stat-card__badge--up">
+                                        Excellent
+                                    </span>
+                                </div>
+                                <div class="stat-card__icon"><i class="fa-solid fa-bolt"></i></div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-6 col-xl-3">
+                            <div class="stat-card stat-card--blue h-100">
+                                <div class="stat-card__content">
+                                    <span class="stat-card__label">NON-COMMUNICATING</span>
+                                    <div class="stat-card__value">9 Feeders</div>
+                                    <span class="stat-card__badge stat-card__badge--up">
+                                        <i class="fa-solid fa-arrow-trend-up"></i>Need Attnetion
+                                    </span>
+                                </div>
+                                <div class="stat-card__icon"><i class="fa-solid fa-plus"></i></div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-6 col-xl-3">
+                            <div class="stat-card stat-card--yellow h-100">
+                                <div class="stat-card__content">
+                                    <span class="stat-card__label">NO LOAD FEERDERS</span>
+                                    <div class="stat-card__value">20 Feeders</div>
+                                    <span class="stat-card__badge stat-card__badge--down">
+                                        Warning Limit
+                                    </span>
+                                </div>
+                                <div class="stat-card__icon"><i class="fa-solid fa-circle-check"></i></div>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-xl-3">
+                            <div class="stat-card stat-card--green h-100">
+                                <div class="stat-card__content">
+                                    <span class="stat-card__label">COMM SUCCESS</span>
+                                    <div class="stat-card__value">97.3%</div>
+                                    <span class="stat-card__badge stat-card__badge--up">
+                                        9 Active Offline
+                                    </span>
+                                </div>
+                                <div class="stat-card__icon"><i class="fa-solid fa-link-slash"></i></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row g-3 mb-3">
+
+                    <!-- Active Operational Alerts -->
+                    <div class="col-12 col-xl-4">
+                        <div class="alert-card h-100">
+                            <div class="alert-card__header">
+                                <p class="alert-card__title">
+                                    <i class="fa-solid fa-bell"></i> Active Operational Alerts
+                                </p>
+                                <span class="alert-card__count">4 Outstanding</span>
+                            </div>
+
+                            <div class="alert-card__body">
+                                <div class="alert-card__item alert-card__item--critical">
+                                    <div class="alert-card__content">
+                                        <p class="alert-card__text"><strong>Critical:</strong> 9 Non-Communicating
+                                            Feeders (Odisha Central)</p>
+                                        <span class="alert-card__time">5m ago</span>
+                                    </div>
+                                    <i class="fa-solid fa-chevron-right alert-card__arrow"></i>
+                                </div>
+
+                                <div class="alert-card__item alert-card__item--warning">
+                                    <div class="alert-card__content">
+                                        <p class="alert-card__text"><strong>Warning:</strong> 20 No-Load Feeders
+                                            reported in Dhenkanal</p>
+                                        <span class="alert-card__time">15m ago</span>
+                                    </div>
+                                    <i class="fa-solid fa-chevron-right alert-card__arrow"></i>
+                                </div>
+
+                                <div class="alert-card__item alert-card__item--caution">
+                                    <div class="alert-card__content">
+                                        <p class="alert-card__text"><strong>Caution:</strong> Energy consumption down by
+                                            29.5% MoM</p>
+                                        <span class="alert-card__time">1h ago</span>
+                                    </div>
+                                    <i class="fa-solid fa-chevron-right alert-card__arrow"></i>
+                                </div>
+
+                                <div class="alert-card__item alert-card__item--ok">
+                                    <div class="alert-card__content">
+                                        <p class="alert-card__text"><strong>Operational Compliance:</strong> No missing
+                                            meters detected</p>
+                                        <span class="alert-card__time">Routine Check</span>
+                                    </div>
+                                    <i class="fa-solid fa-chevron-right alert-card__arrow"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Circle Wise Energy Contribution -->
+                    <div class="col-12 col-xl-8">
+                        <div class="chart-card chart-card--circle h-100">
+                            <div class="chart-card__header">
+                                <p class="chart-card__title">
+                                    <i class="fa-solid fa-chart-simple"></i> Circle Wise Energy Contribution
+                                </p>
+                                <span class="chart-card__unit">UNIT: MU (MTD)</span>
+                            </div>
+                            <div class="chart-card__body chart-card__body--circle">
+                                <canvas id="circleContributionChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row g-3 mb-3">
+
+                    <!-- Daily Energy Trend -->
+                    <div class="col-12 col-xl-4">
+                        <div class="chart-card chart-card--trend h-100">
+                            <div class="chart-card__header">
+                                <p class="chart-card__title">
+                                    <i class="fa-solid fa-chart-line"></i> Daily Energy Trend (MU)
+                                </p>
+                            </div>
+                            <div class="chart-card__body chart-card__body--trend">
+                                <canvas id="dailyTrendChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Monthly Cumulative Energy -->
+                    <div class="col-12 col-xl-4">
+                        <div class="chart-card chart-card--trend h-100">
+                            <div class="chart-card__header">
+                                <p class="chart-card__title">
+                                    <i class="fa-solid fa-chart-column"></i> Monthly Cumulative Energy (MU)
+                                </p>
+                            </div>
+                            <div class="chart-card__body chart-card__body--trend">
+                                <canvas id="monthlyCumulativeChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MTD Target Achievement -->
+                    <!-- MTD Target Achievement -->
+                    <div class="col-12 col-xl-4">
+                        <div class="chart-card chart-card--trend h-100">
+                            <div class="chart-card__header">
+                                <p class="chart-card__title">
+                                    <i class="fa-solid fa-bullseye"></i> MTD Target Achievement
+                                </p>
+                                <span class="chart-card__status chart-card__status--ok">On Track</span>
+                            </div>
+                            <div class="chart-card__body chart-card__body--mtd">
+                                <div class="mtd-donut">
+                                    <canvas id="mtdTargetChart"></canvas>
+                                    <div class="mtd-donut__center">
+                                        <span class="mtd-donut__value">90%</span>
+                                        <span class="mtd-donut__label">Achieved</span>
+                                    </div>
+                                </div>
+
+                                <div class="mtd-stats">
+                                    <div class="mtd-stats__row">
+                                        <span class="mtd-stats__label">Target Energy</span>
+                                        <span class="mtd-stats__value">220.00 MU</span>
+                                    </div>
+                                    <div class="mtd-stats__row">
+                                        <span class="mtd-stats__label">Actual Energy</span>
+                                        <span class="mtd-stats__value mtd-stats__value--up">197.93 MU</span>
+                                    </div>
+                                    <div class="mtd-stats__row">
+                                        <span class="mtd-stats__label">Variance</span>
+                                        <span class="mtd-stats__value mtd-stats__value--down">-22.07 MU</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row g-3 mb-3">
+
+                    <!-- No Meter Status -->
+                    <div class="col-12 col-md-6 col-xl-6">
+                        <div class="chart-card chart-card--status h-100">
+                            <div class="chart-card__header">
+                                <p class="chart-card__title">No Meter Status</p>
+                                <span class="chart-card__status chart-card__status--ok">100% Compliant</span>
+                            </div>
+                            <div class="chart-card__body chart-card__body--mtd chart-card__body--mtd-wide">
+                                <div class="mtd-donut mtd-donut--lg mtd-donut--green">
+                                    <canvas id="noMeterChart"></canvas>
+                                    <div class="mtd-donut__center">
+                                        <span class="mtd-donut__value">0</span>
+                                        <span class="mtd-donut__label">No Meter</span>
+                                    </div>
+                                </div>
+                                <div class="mtd-stats mtd-stats--right">
+                                    <div class="mtd-stats__row">
+                                        <span class="mtd-stats__label">Compliant Feeders</span>
+                                        <span class="mtd-stats__value">332</span>
+                                    </div>
+                                    <div class="mtd-stats__row">
+                                        <span class="mtd-stats__label">Exception Feeders</span>
+                                        <span class="mtd-stats__value">0</span>
+                                    </div>
+                                    <div class="mtd-stats__row">
+                                        <span class="mtd-stats__label">Total Feeders</span>
+                                        <span class="mtd-stats__value">332</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Communication Status -->
+                    <!-- Communication Status -->
+                    <div class="col-12 col-md-6 col-xl-6">
+                        <div class="chart-card chart-card--status h-100">
+                            <div class="chart-card__header">
+                                <p class="chart-card__title">Communication Status</p>
+                                <span class="chart-card__status chart-card__status--ok">97.3% Online</span>
+                            </div>
+                            <div class="chart-card__body chart-card__body--mtd chart-card__body--mtd-wide">
+                                <div class="mtd-donut mtd-donut--lg mtd-donut--red">
+                                    <canvas id="commStatusChart"></canvas>
+                                    <div class="mtd-donut__center">
+                                        <span class="mtd-donut__value">9</span>
+                                        <span class="mtd-donut__label">Non-Comm</span>
+                                    </div>
+                                </div>
+                                <div class="mtd-stats mtd-stats--right">
+                                    <div class="mtd-stats__row">
+                                        <span class="mtd-stats__label">Compliant Feeders</span>
+                                        <span class="mtd-stats__value">323</span>
+                                    </div>
+                                    <div class="mtd-stats__row">
+                                        <span class="mtd-stats__label">Exception Feeders</span>
+                                        <span class="mtd-stats__value mtd-stats__value--down">9</span>
+                                    </div>
+                                    <div class="mtd-stats__row">
+                                        <span class="mtd-stats__label">Total Feeders</span>
+                                        <span class="mtd-stats__value">332</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- No Load Analysis -->
+                    <div class="col-12 col-md-6 col-xl-6">
+                        <div class="chart-card chart-card--status h-100">
+                            <div class="chart-card__header">
+                                <p class="chart-card__title">No Load Analysis</p>
+                                <span class="chart-card__status chart-card__status--warn">94% Active</span>
+                            </div>
+                            <div class="chart-card__body chart-card__body--mtd chart-card__body--mtd-wide">
+                                <div class="mtd-donut mtd-donut--lg mtd-donut--yellow">
+                                    <canvas id="noLoadChart"></canvas>
+                                    <div class="mtd-donut__center">
+                                        <span class="mtd-donut__value">20</span>
+                                        <span class="mtd-donut__label">No Load</span>
+                                    </div>
+                                </div>
+                                <div class="mtd-stats mtd-stats--right">
+                                    <div class="mtd-stats__row">
+                                        <span class="mtd-stats__label">Compliant Feeders</span>
+                                        <span class="mtd-stats__value">312</span>
+                                    </div>
+                                    <div class="mtd-stats__row">
+                                        <span class="mtd-stats__label">Exception Feeders</span>
+                                        <span class="mtd-stats__value mtd-stats__value--down">20</span>
+                                    </div>
+                                    <div class="mtd-stats__row">
+                                        <span class="mtd-stats__label">Total Feeders</span>
+                                        <span class="mtd-stats__value">332</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Feeder Availability -->
+                    <div class="col-12 col-md-6 col-xl-6">
+                        <div class="chart-card chart-card--status h-100">
+                            <div class="chart-card__header">
+                                <p class="chart-card__title">Feeder Availability</p>
+                                <span class="chart-card__status chart-card__status--ok">312/332 Online</span>
+                            </div>
+                            <div class="chart-card__body chart-card__body--mtd chart-card__body--mtd-wide">
+                                <div class="mtd-donut mtd-donut--lg mtd-donut--green">
+                                    <canvas id="feederAvailabilityChart"></canvas>
+                                    <div class="mtd-donut__center">
+                                        <span class="mtd-donut__value">94%</span>
+                                        <span class="mtd-donut__label">Available</span>
+                                    </div>
+                                </div>
+                                <div class="mtd-stats mtd-stats--right">
+                                    <div class="mtd-stats__row">
+                                        <span class="mtd-stats__label">Compliant Feeders</span>
+                                        <span class="mtd-stats__value">238</span>
+                                    </div>
+                                    <div class="mtd-stats__row">
+                                        <span class="mtd-stats__label">Exception Feeders</span>
+                                        <span class="mtd-stats__value">94%</span>
+                                    </div>
+                                    <div class="mtd-stats__row">
+                                        <span class="mtd-stats__label">Total Feeders</span>
+                                        <span class="mtd-stats__value">332</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-3 mb-3">
+
+                    <div class="col-12 col-xl-6">
+                        <div class="section-card">
+                            <div class="section-card__header">
+                                <span class="section-card__title"><i class="fa-solid fa-trophy"
+                                        style="color: #FFD700;"></i>
+                                    Top 10 Highest Energy Feeders</span>
+
+                            </div>
+                            <div class="tp-table-wrap">
+                                <table class="tp-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Rank<span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
+                                                        class="fa-solid fa-caret-down"></i></span></th>
+                                            <th>Feeder Name <span class="sort-icon"><i
+                                                        class="fa-solid fa-caret-up"></i><i
+                                                        class="fa-solid fa-caret-down"></i></span></th>
+                                            <th>circle <span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
+                                                        class="fa-solid fa-caret-down"></i></span></th>
+                                            <th>Today's MU <span class="sort-icon"><i
+                                                        class="fa-solid fa-caret-up"></i><i
+                                                        class="fa-solid fa-caret-down"></i></span></th>
+                                            <th>MTD MU <span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
+                                                        class="fa-solid fa-caret-down"></i></span></th>
+                                            <th>Trend <span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
+                                                        class="fa-solid fa-caret-down"></i></span></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+
+                                            <td>1</td>
+                                            <td>BBSR-01 Industrial</td>
+                                            <td>BBSR</td>
+                                            <td>2.84 MU</td>
+                                            <td>68.2 MU</td>
+                                            <td> <i
+                                                    class="stat-card__badge stat-card__badge--up fa-solid fa-arrow-up"></i>
+                                            </td>
+
+                                        </tr>
+                                        </tr>
+                                        <!-- Row 2 -->
+                                        <tr>
+
+                                            <td>2</td>
+                                            <td>BBSR-03 commercial</td>
+                                            <td>BBSR</td>
+                                            <td>2.61 MU</td>
+                                            <td>62.1 MU</td>
+                                            <td> <i
+                                                    class="stat-card__badge stat-card__badge--up fa-solid fa-arrow-up"></i>
+                                            </td>
+
+                                        </tr>
+                                        <!-- Row 3 -->
+                                        <tr>
+                                            <td>3</td>
+                                            <td>CTC-02 Main</td>
+                                            <td>Cuttack</td>
+                                            <td>2.45 MU</td>
+                                            <td>58.7 MU</td>
+                                            <td> <i
+                                                    class="stat-card__badge stat-card__badge--up fa-solid fa-arrow-up"></i>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>BBSR-05 Grid</td>
+                                            <td>BBSR</td>
+                                            <td>2.31 MU</td>
+                                            <td>55.2 MU</td>
+                                            <td> <i
+                                                    class="stat-card__badge stat-card__badge--up fa-solid fa-arrow-up"></i>
+                                            </td>
+
+                                        </tr>
+
+                                        <tr>
+                                            <td>5</td>
+                                            <td>PRD-01 Port</td>
+                                            <td>Paradeep</td>
+                                            <td>2.18 MU</td>
+                                            <td>52.8 MU</td>
+                                            <td> <i
+                                                    class="stat-card__badge stat-card__badge--up fa-solid fa-arrow-up"></i>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td>CTC-4 South</td>
+                                            <td>Cuttack</td>
+                                            <td>2.05 MU</td>
+                                            <td>49.1 MU</td>
+                                            <td> <i
+                                                    class="stat-card__badge stat-card__badge--down stat-card__badge stat-card__badge--down fa-solid fa-arrow-down"></i>
+                                            </td>
+
+                                        </tr>
+
+                                        <tr>
+                                            <td>7</td>
+                                            <td>BBSR-05 East</td>
+                                            <td>BBSR</td>
+                                            <td>1.94 MU</td>
+                                            <td>46.3 MU</td>
+                                            <td> <i
+                                                    class="stat-card__badge stat-card__badge--up fa-solid fa-arrow-up"></i>
+                                            </td>
+
+                                        </tr>
+
+                                        <tr>
+                                            <td>8</td>
+                                            <td>DHK-01 Central</td>
+                                            <td>Dhanakanal</td>
+                                            <td>1.82 MU</td>
+                                            <td>43.7 MU</td>
+                                            <td> <i
+                                                    class="stat-card__badge stat-card__badge--down fa-solid fa-arrow-down"></i>
+                                            </td>
+
+                                        </tr>
+
+                                        <tr>
+                                            <td>9</td>
+                                            <td>PRD-03 Industrial</td>
+                                            <td>Paradeep</td>
+                                            <td>1.76 MU</td>
+                                            <td>41.2 MU</td>
+                                            <td> <i
+                                                    class="stat-card__badge stat-card__badge--up fa-solid fa-arrow-up"></i>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>10</td>
+                                            <td>CTC-06 North</td>
+                                            <td>Cuttack</td>
+                                            <td>1.68 MU</td>
+                                            <td>39.8 MU</td>
+                                            <td> <i
+                                                    class="stat-card__badge stat-card__badge--up fa-solid fa-arrow-up"></i>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="table-footer">
+                                <div class="table-footer__left">
+                                    <span class="table-footer__info">1 - 10 of 460</span>
+                                    <div class="table-footer__rows">
+                                        Rows per page:
+                                        <select class="rows-select">
+                                            <option>10</option>
+                                            <option>25</option>
+                                            <option>50</option>
+                                            <option>100</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="table-footer__pagination">
+                                    <button class="page-btn" disabled><i class="fa-solid fa-chevron-left"></i></button>
+                                    <button class="page-btn"><i class="fa-solid fa-chevron-right"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-xl-6">
+                        <div class="section-card">
+                            <div class="section-card__header">
+                                <span class="section-card__title">Equipment Table View</span>
+                                <button class="btn-tp btn-tp-sm btn-tp-primary">
+                                    <i class="fa-solid fa-file-export"></i> Export
+                                </button>
+                            </div>
+                            <div class="tp-table-wrap">
+                                <table class="tp-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Rank<span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
+                                                        class="fa-solid fa-caret-down"></i></span></th>
+                                            <th>Feeder Name <span class="sort-icon"><i
+                                                        class="fa-solid fa-caret-up"></i><i
+                                                        class="fa-solid fa-caret-down"></i></span></th>
+                                            <th>circle <span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
+                                                        class="fa-solid fa-caret-down"></i></span></th>
+                                            <th>Today's MU <span class="sort-icon"><i
+                                                        class="fa-solid fa-caret-up"></i><i
+                                                        class="fa-solid fa-caret-down"></i></span></th>
+                                            <th>MTD MU <span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
+                                                        class="fa-solid fa-caret-down"></i></span></th>
+                                            <th>Trend <span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
+                                                        class="fa-solid fa-caret-down"></i></span></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Row 1 -->
+                                        <tr>
+
+                                            <td>1</td>
+                                            <td>DHK-08 Rural</td>
+                                            <td>Dhenkanal</td>
+                                            <td>0.02 MU</td>
+                                            <td>0.4 MU</td>
+                                            <td> <i
+                                                    class="stat-card__badge stat-card__badge--down fa-solid fa-arrow-down"></i>
+                                            </td>
+
+                                        </tr>
+                                        <!-- Row 2 -->
+                                        <tr>
+
+                                            <td>2</td>
+                                            <td>DHK-07 West</td>
+                                            <td>Dhenkanal</td>
+                                            <td>0.05 MU</td>
+                                            <td>1.1 MU</td>
+                                            <td> <i
+                                                    class="stat-card__badge stat-card__badge--down fa-solid fa-arrow-down"></i>
+                                            </td>
+
+                                        </tr>
+                                        <!-- Row 3 -->
+                                        <tr>
+                                            <td>3</td>
+                                            <td>PRD-06 Coastal</td>
+                                            <td>Paradeep</td>
+                                            <td>0.08 MU</td>
+                                            <td>1.8 MU</td>
+                                            <td> <i
+                                                    class="stat-card__badge stat-card__badge--down fa-solid fa-arrow-down"></i>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>CTC-09 suburb</td>
+                                            <td>Cuttack</td>
+                                            <td>0.11 MU</td>
+                                            <td>2.4 MU</td>
+                                            <td> <i
+                                                    class="stat-card__badge stat-card__badge--down fa-solid fa-arrow-down"></i>
+                                            </td>
+
+                                        </tr>
+
+                                        <tr>
+                                            <td>5</td>
+                                            <td>DHK-05 North</td>
+                                            <td>Dhenkanal</td>
+                                            <td>0.14 MU</td>
+                                            <td>3.1 MU</td>
+                                            <td> <i
+                                                    class="stat-card__badge stat-card__badge--up fa-solid fa-arrow-up"></i>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td>PRD-08 south</td>
+                                            <td>Paradeep</td>
+                                            <td>0.18 MU</td>
+                                            <td>3.8 MU</td>
+                                            <td> <i
+                                                    class="stat-card__badge stat-card__badge--down fa-solid fa-arrow-down"></i>
+                                            </td>
+
+                                        </tr>
+
+                                        <tr>
+                                            <td>7</td>
+                                            <td>CTC-11 East</td>
+                                            <td>Cuttack</td>
+                                            <td>0.21 MU</td>
+                                            <td>4.5 MU</td>
+                                            <td> <i
+                                                    class="stat-card__badge stat-card__badge--down fa-solid fa-arrow-down"></i>
+                                            </td>
+
+                                        </tr>
+
+                                        <tr>
+                                            <td>8</td>
+                                            <td>DHK-03 South</td>
+                                            <td>Dhanakanal</td>
+                                            <td>0.25 MU</td>
+                                            <td>5.2 MU</td>
+                                            <td> <i
+                                                    class="stat-card__badge stat-card__badge--up fa-solid fa-arrow-up"></i>
+                                            </td>
+
+                                        </tr>
+
+                                        <tr>
+                                            <td>9</td>
+                                            <td>BBSR-12 outer</td>
+                                            <td>BBSR</td>
+                                            <td>0.28 MU</td>
+                                            <td>5.9 MU</td>
+                                            <td> <i
+                                                    class="stat-card__badge stat-card__badge--down fa-solid fa-arrow-down"></i>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>10</td>
+                                            <td>PRD-10 North</td>
+                                            <td>Paradeep</td>
+                                            <td>0.31 MU</td>
+                                            <td>6.6 MU</td>
+                                            <td> <i
+                                                    class="stat-card__badge stat-card__badge--up fa-solid fa-arrow-up"></i>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="table-footer">
+                                <div class="table-footer__left">
+                                    <span class="table-footer__info">1 - 10 of 460</span>
+                                    <div class="table-footer__rows">
+                                        Rows per page:
+                                        <select class="rows-select">
+                                            <option>10</option>
+                                            <option>25</option>
+                                            <option>50</option>
+                                            <option>100</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="table-footer__pagination">
+                                    <button class="page-btn" disabled><i class="fa-solid fa-chevron-left"></i></button>
+                                    <button class="page-btn"><i class="fa-solid fa-chevron-right"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row g-3 mb-3">
+
+                    <div class="section-card">
+                        <div class="section-card__header">
+                            <span class="section-card__title">
+                                <i class="fa-solid fa-database"></i> Detailed Feeder Analysis
+                            </span>
+
+                        </div>
+
+                        <div class="tp-table-wrap">
+                            <table class="tp-table tp-table--feeder">
+                                <thead>
+                                    <tr>
+                                        <th>Circle <span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
+                                                    class="fa-solid fa-caret-down"></i></span></th>
+                                        <th>Division <span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
+                                                    class="fa-solid fa-caret-down"></i></span></th>
+                                        <th>Sub Division <span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
+                                                    class="fa-solid fa-caret-down"></i></span></th>
+                                        <th>Section <span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
+                                                    class="fa-solid fa-caret-down"></i></span></th>
+                                        <th>Feeder <span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
+                                                    class="fa-solid fa-caret-down"></i></span></th>
+                                        <th class="text-end">Today (MU) <span class="sort-icon"><i
+                                                    class="fa-solid fa-caret-up"></i><i
+                                                    class="fa-solid fa-caret-down"></i></span></th>
+                                        <th class="text-end">Yest (MU) <span class="sort-icon"><i
+                                                    class="fa-solid fa-caret-up"></i><i
+                                                    class="fa-solid fa-caret-down"></i></span></th>
+                                        <th class="text-end">MTD (MU) <span class="sort-icon"><i
+                                                    class="fa-solid fa-caret-up"></i><i
+                                                    class="fa-solid fa-caret-down"></i></span></th>
+                                        <th class="text-end">Target (MU) <span class="sort-icon"><i
+                                                    class="fa-solid fa-caret-up"></i><i
+                                                    class="fa-solid fa-caret-down"></i></span></th>
+                                        <th class="text-end">Variance <span class="sort-icon"><i
+                                                    class="fa-solid fa-caret-up"></i><i
+                                                    class="fa-solid fa-caret-down"></i></span></th>
+                                        <th>Comm Status <span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
+                                                    class="fa-solid fa-caret-down"></i></span></th>
+                                        <th>Feeder Status <span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
+                                                    class="fa-solid fa-caret-down"></i></span></th>
+                                        <th class="text-end">Availability <span class="sort-icon"><i
+                                                    class="fa-solid fa-caret-up"></i><i
+                                                    class="fa-solid fa-caret-down"></i></span></th>
+                                        <th class="text-end">Health Score <span class="sort-icon"><i
+                                                    class="fa-solid fa-caret-up"></i><i
+                                                    class="fa-solid fa-caret-down"></i></span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Odisha Central</td>
+                                        <td>BBSR-I</td>
+                                        <td>BBSR-01</td>
+                                        <td>SEC-A</td>
+                                        <td><b>BBSR-01 Industrial</b></td>
+                                        <td class="text-end"><b>2.84</b></td>
+                                        <td class="text-end">2.65</td>
+                                        <td class="text-end"><b>68.2</b></td>
+                                        <td class="text-end">65.0</td>
+                                        <td class="text-end tp-variance tp-variance--up">+4.9%</td>
+                                        <td><span class="tp-status-dot tp-status-dot--online"></span>Online</td>
+                                        <td><span class="tp-badge tp-badge--active">Active</span></td>
+                                        <td class="text-end"><b>99.8%</b></td>
+                                        <td class="text-end"><span
+                                                class="tp-badge tp-badge--score tp-badge--score-good">98%</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Odisha Central</td>
+                                        <td>BBSR-I</td>
+                                        <td>BBSR-01</td>
+                                        <td>SEC-B</td>
+                                        <td><b>BBSR-03 Commercial</b></td>
+                                        <td class="text-end"><b>2.61</b></td>
+                                        <td class="text-end">2.50</td>
+                                        <td class="text-end"><b>62.1</b></td>
+                                        <td class="text-end">60.0</td>
+                                        <td class="text-end tp-variance tp-variance--up">+3.5%</td>
+                                        <td><span class="tp-status-dot tp-status-dot--online"></span>Online</td>
+                                        <td><span class="tp-badge tp-badge--active">Active</span></td>
+                                        <td class="text-end"><b>99.5%</b></td>
+                                        <td class="text-end"><span
+                                                class="tp-badge tp-badge--score tp-badge--score-good">95%</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Odisha Central</td>
+                                        <td>CTC-I</td>
+                                        <td>CTC-02</td>
+                                        <td>SEC-C</td>
+                                        <td><b>CTC-02 Main</b></td>
+                                        <td class="text-end"><b>2.45</b></td>
+                                        <td class="text-end">2.51</td>
+                                        <td class="text-end"><b>58.7</b></td>
+                                        <td class="text-end">58.0</td>
+                                        <td class="text-end tp-variance tp-variance--up">+1.2%</td>
+                                        <td><span class="tp-status-dot tp-status-dot--online"></span>Online</td>
+                                        <td><span class="tp-badge tp-badge--active">Active</span></td>
+                                        <td class="text-end"><b>98.9%</b></td>
+                                        <td class="text-end"><span
+                                                class="tp-badge tp-badge--score tp-badge--score-good">92%</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Odisha Central</td>
+                                        <td>BBSR-I</td>
+                                        <td>BBSR-01</td>
+                                        <td>SEC-D</td>
+                                        <td><b>BBSR-05 Grid</b></td>
+                                        <td class="text-end"><b>2.31</b></td>
+                                        <td class="text-end">2.45</td>
+                                        <td class="text-end"><b>55.2</b></td>
+                                        <td class="text-end">56.0</td>
+                                        <td class="text-end tp-variance tp-variance--down">-1.4%</td>
+                                        <td><span class="tp-status-dot tp-status-dot--online"></span>Online</td>
+                                        <td><span class="tp-badge tp-badge--active">Active</span></td>
+                                        <td class="text-end"><b>97.2%</b></td>
+                                        <td class="text-end"><span
+                                                class="tp-badge tp-badge--score tp-badge--score-warn">88%</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Odisha Central</td>
+                                        <td>PRD-I</td>
+                                        <td>PRD-01</td>
+                                        <td>SEC-E</td>
+                                        <td><b>PRD-01 Port</b></td>
+                                        <td class="text-end"><b>2.18</b></td>
+                                        <td class="text-end">2.05</td>
+                                        <td class="text-end"><b>52.8</b></td>
+                                        <td class="text-end">50.0</td>
+                                        <td class="text-end tp-variance tp-variance--up">+5.6%</td>
+                                        <td><span class="tp-status-dot tp-status-dot--online"></span>Online</td>
+                                        <td><span class="tp-badge tp-badge--active">Active</span></td>
+                                        <td class="text-end"><b>99.1%</b></td>
+                                        <td class="text-end"><span
+                                                class="tp-badge tp-badge--score tp-badge--score-good">94%</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Odisha Central</td>
+                                        <td>DHK-I</td>
+                                        <td>DHK-01</td>
+                                        <td>SEC-F</td>
+                                        <td><b>DHK-08 Rural</b></td>
+                                        <td class="text-end"><b>0.02</b></td>
+                                        <td class="text-end">0.03</td>
+                                        <td class="text-end"><b>0.4</b></td>
+                                        <td class="text-end">5.0</td>
+                                        <td class="text-end tp-variance tp-variance--down">-92.0%</td>
+                                        <td><span class="tp-status-dot tp-status-dot--offline"></span>Offline</td>
+                                        <td><span class="tp-badge tp-badge--faulty">Faulty</span></td>
+                                        <td class="text-end"><b>42.5%</b></td>
+                                        <td class="text-end"><span
+                                                class="tp-badge tp-badge--score tp-badge--score-bad">38%</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Odisha Central</td>
+                                        <td>DHK-I</td>
+                                        <td>DHK-01</td>
+                                        <td>SEC-G</td>
+                                        <td><b>DHK-07 West</b></td>
+                                        <td class="text-end"><b>0.05</b></td>
+                                        <td class="text-end">0.06</td>
+                                        <td class="text-end"><b>1.1</b></td>
+                                        <td class="text-end">4.5</td>
+                                        <td class="text-end tp-variance tp-variance--down">-75.5%</td>
+                                        <td><span class="tp-status-dot tp-status-dot--online"></span>Online</td>
+                                        <td><span class="tp-badge tp-badge--noload">No Load</span></td>
+                                        <td class="text-end"><b>95.0%</b></td>
+                                        <td class="text-end"><span
+                                                class="tp-badge tp-badge--score tp-badge--score-warn">71%</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Odisha Central</td>
+                                        <td>PRD-I</td>
+                                        <td>PRD-01</td>
+                                        <td>SEC-H</td>
+                                        <td><b>PRD-06 Coastal</b></td>
+                                        <td class="text-end"><b>0.08</b></td>
+                                        <td class="text-end">0.10</td>
+                                        <td class="text-end"><b>1.8</b></td>
+                                        <td class="text-end">5.5</td>
+                                        <td class="text-end tp-variance tp-variance--down">-67.2%</td>
+                                        <td><span class="tp-status-dot tp-status-dot--offline"></span>Offline</td>
+                                        <td><span class="tp-badge tp-badge--noload">No Load</span></td>
+                                        <td class="text-end"><b>88.0%</b></td>
+                                        <td class="text-end"><span
+                                                class="tp-badge tp-badge--score tp-badge--score-warn">62%</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                    <div class="table-footer">
+                        <div class="table-footer__left">
+                            <span class="table-footer__info">1 - 10 of 460</span>
+
+                            <div class="table-footer__rows">
+                                Rows per page:
+                                <select class="rows-select">
+                                    <option>10</option>
+                                    <option>25</option>
+                                    <option>50</option>
+                                    <option>100</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="table-footer__pagination">
+                            <button class="page-btn" disabled><i class="fa-solid fa-chevron-left"></i></button>
+                            <button class="page-btn"><i class="fa-solid fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+            </div>
+            <main-footer></main-footer>
+        </div>
+
+
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+    <script>
+        (function () {
+            const isDark = () => document.documentElement.getAttribute('data-theme') === 'dark';
+
+            function initCircleChart() {
+                const el = document.getElementById('circleContributionChart');
+                if (!el) return;
+
+                const existing = Chart.getChart(el);
+                if (existing) existing.destroy();
+
+                const dark = isDark();
+                const muted = '#7EADA6';
+                const gridCol = dark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)';
+
+                Chart.register(ChartDataLabels);
+
+                new Chart(el.getContext('2d'), {
+                    type: 'bar',
+                    data: {
+                        labels: ['BBSR', 'Cuttack', 'Paradeep', 'Dhenkanal'],
+                        datasets: [
+                            {
+                                label: 'Feeder Energy',
+                                data: [63.04, 26.3, 19.5, 12.5],
+                                backgroundColor: '#8FA98C',
+                                borderRadius: 4,
+                                datalabels: {
+                                    color: '#1A2E2B',
+                                },
+                            },
+                            {
+                                label: 'Bus Coupler Energy',
+                                data: [25, 26.3, 9.5, 12.5],
+                                backgroundColor: '#10635A',
+                                borderRadius: 4,
+                                datalabels: {
+                                    color: '#fff',
+                                },
+                            },
+                        ],
+                    },
+                    options: {
+                        indexAxis: 'y',
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: {
+                                callbacks: {
+                                    label: ctx => ` ${ctx.dataset.label}: ${ctx.raw}%`,
+                                },
+                            },
+                            datalabels: {
+                                anchor: 'center',
+                                align: 'center',
+                                font: { weight: '600', size: 11 },
+                                formatter: v => `${v}%`,
+                            },
+                        },
+                        scales: {
+                            x: {
+                                stacked: true,
+                                display: false,
+                            },
+                            y: {
+                                stacked: true,
+                                grid: { display: false },
+                                ticks: { color: muted, font: { weight: '600' } },
+                                border: { display: false },
+                            },
+                        },
+                    },
+                });
+            }
+
+            initCircleChart();
+            new MutationObserver(initCircleChart).observe(document.documentElement, {
+                attributes: true,
+                attributeFilter: ['data-theme'],
+            });
+            window.addEventListener('resize', initCircleChart);
+        })();
+    </script>
+    <script>
+        (function () {
+            const isDark = () => document.documentElement.getAttribute('data-theme') === 'dark';
+            let dailyChart, monthlyChart, mtdChart;
+
+            function initRowThreeCharts() {
+                const dark = isDark();
+                const muted = '#7EADA6';
+                const gridCol = dark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)';
+
+                // ── Daily Energy Trend (line) ─────────────────────
+                const dailyEl = document.getElementById('dailyTrendChart');
+                if (dailyEl) {
+                    if (dailyChart) dailyChart.destroy();
+
+                    dailyChart = new Chart(dailyEl.getContext('2d'), {
+                        type: 'line',
+                        data: {
+                            labels: ['1', '5', '10', '15', '20', '25', '31'],
+                            datasets: [
+                                {
+                                    label: 'Current',
+                                    data: [4.1, 4.8, 4.6, 5.3, 5.5, 5.8, 6.2],
+                                    borderColor: '#00C896',
+                                    tension: 0.4,
+                                },
+                                {
+                                    label: 'Previous',
+                                    data: [4.5, 4.2, 4.9, 4.4, 3.9, 3.2, 2.6],
+                                    borderColor: '#7EADA6',
+                                    borderDash: [4, 4],
+                                    tension: 0.4,
+                                },
+                            ],
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                legend: { display: true, position: 'bottom', },
+                                datalabels: { display: false },
+                            },
+                            scales: {
+                                x: { grid: { display: false }, ticks: { color: muted } },
+                                y: { grid: { color: gridCol }, ticks: { color: muted } },
+                            },
+                        },
+                    });
+                }
+
+                // ── Monthly Cumulative Energy (bar) ───────────────
+                const monthlyEl = document.getElementById('monthlyCumulativeChart');
+                if (monthlyEl) {
+                    if (monthlyChart) monthlyChart.destroy();
+
+                    monthlyChart = new Chart(monthlyEl.getContext('2d'), {
+                        type: 'bar',
+                        data: {
+                            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
+                            datasets: [
+                                {
+                                    label: 'Current YR',
+                                    data: [155, 168, 195, 200, 218, 250, 202, 170],
+                                    backgroundColor: '#10635A',
+                                },
+                                {
+                                    label: 'Prev YR',
+                                    data: [148, 158, 165, 175, 178, 190, 195, 165],
+                                    backgroundColor: '#A9C6A4',
+                                },
+                            ],
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                legend: { display: true, position: 'bottom' },
+                                datalabels: { display: false },
+                            },
+                            scales: {
+                                x: { grid: { display: false }, ticks: { color: muted } },
+                                y: { grid: { color: gridCol }, ticks: { color: muted } },
+                            },
+                        },
+                    });
+                }
+
+                // ── MTD Target Achievement (doughnut) ─────────────
+                const mtdEl = document.getElementById('mtdTargetChart');
+                if (mtdEl) {
+                    if (mtdChart) mtdChart.destroy();
+
+                    mtdChart = new Chart(mtdEl.getContext('2d'), {
+                        type: 'doughnut',
+                        data: {
+                            labels: ['Achieved', 'Remaining'],
+                            datasets: [
+                                {
+                                    data: [90, 10],
+                                    backgroundColor: ['#10635A', gridCol],
+                                    borderWidth: 0,
+                                },
+                            ],
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            cutout: '75%',
+                            plugins: {
+                                legend: { display: false },
+                                datalabels: { display: false },
+                            },
+                        },
+                    });
+                }
+            }
+
+            initRowThreeCharts();
+            new MutationObserver(initRowThreeCharts).observe(document.documentElement, {
+                attributes: true,
+                attributeFilter: ['data-theme'],
+            });
+            window.addEventListener('resize', initRowThreeCharts);
+        })();
+    </script>
+    <script>
+        (function () {
+            const isDark = () => document.documentElement.getAttribute('data-theme') === 'dark';
+            const statusCharts = {};
+
+            const statusConfigs = [
+                { id: 'noMeterChart', value: 0, total: 332, color: '#10635A' },
+                { id: 'commStatusChart', value: 9, total: 332, color: '#FF3B30' },
+                { id: 'noLoadChart', value: 20, total: 332, color: '#FFB020' },
+                { id: 'feederAvailabilityChart', value: 94, total: 100, color: '#10635A' },
+            ];
+
+            function initStatusCharts() {
+                const dark = isDark();
+                const gridCol = dark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)';
+
+                statusConfigs.forEach(cfg => {
+                    const el = document.getElementById(cfg.id);
+                    if (!el) return;
+
+                    if (statusCharts[cfg.id]) statusCharts[cfg.id].destroy();
+
+                    const remaining = cfg.total - cfg.value;
+
+                    statusCharts[cfg.id] = new Chart(el.getContext('2d'), {
+                        type: 'doughnut',
+                        data: {
+                            labels: ['Value', 'Remaining'],
+                            datasets: [
+                                {
+                                    data: [cfg.value, remaining],
+                                    backgroundColor: [cfg.color, gridCol],
+                                    borderWidth: 0,
+                                },
+                            ],
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            cutout: '75%',
+                            plugins: {
+                                legend: { display: false },
+                                datalabels: { display: false },
+                            },
+                        },
+                    });
+                });
+            }
+
+            initStatusCharts();
+            new MutationObserver(initStatusCharts).observe(document.documentElement, {
+                attributes: true,
+                attributeFilter: ['data-theme'],
+            });
+            window.addEventListener('resize', initStatusCharts);
+        })();
+    </script>
+    <script>
+        (function () {
+            const filterToggleBtn = document.getElementById('filterToggleBtn');
+            const tpFilterBar = document.getElementById('tpFilterBar');
+
+            if (!filterToggleBtn || !tpFilterBar) return;
+
+            filterToggleBtn.addEventListener('click', () => {
+                const isOpen = tpFilterBar.classList.toggle('is-open');
+                filterToggleBtn.classList.toggle('is-active', isOpen);
+                filterToggleBtn.setAttribute('aria-expanded', isOpen);
+            });
+        })();
+    </script>
+
+    <script src="assets/JS/theme.js"></script>
+    <script src="assets/Pages/sidebar.js"></script>
+    <script src="assets/Pages/footer.js"></script>
+    <script src="assets/Pages/header.js"></script>
+    <script src="assets/JS/customTable.js"></script>
+
+</body>
+
+</html>

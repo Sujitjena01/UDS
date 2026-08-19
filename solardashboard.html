@@ -5,10 +5,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TPCODL Login</title>
-
     <link rel="stylesheet" href="assets/CSS/font-awesome/css/all.css">
-    <link href="assets/CSS/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/CSS/solardashboard.css">
+    <link href="assets/CSS/bootstrap.min.css" rel="stylesheet">
+
 
 
 </head>
@@ -171,7 +171,7 @@
                             </div>
                         </div>
 
-                         <div class="col-6 col-xl-3">
+                        <div class="col-6 col-xl-3">
                             <div class="stat-card stat-card--green h-100">
                                 <div class="stat-card__content">
                                     <span class="stat-card__label">TOTAL CONSUMPTION</span>
@@ -283,6 +283,30 @@
                                         Energy Deficit
                                     </span>
                                     <span class="stat-card__badge stat-card__badge--up">1,286 kWh</span>
+                                </div>
+
+                                <div class="info-card__row">
+                                    <span class="info-card__label">
+                                        <i class="fa-solid fa-leaf info-card__icon info-card__icon--green"></i>
+                                        CO<sub>2</sub> Credit
+                                    </span>
+                                    <span class="stat-card__badge stat-card__badge--up">7,01,840 kg</span>
+                                </div>
+
+                                <div class="info-card__row">
+                                    <span class="info-card__label">
+                                        <i class="fa-solid fa-leaf info-card__icon info-card__icon--green"></i>
+                                        CO<sub>2</sub> Credit
+                                    </span>
+                                    <span class="stat-card__badge stat-card__badge--up">7,01,840 kg</span>
+                                </div>
+
+                                <div class="info-card__row">
+                                    <span class="info-card__label">
+                                        <i class="fa-solid fa-leaf info-card__icon info-card__icon--green"></i>
+                                        CO<sub>2</sub> Credit
+                                    </span>
+                                    <span class="stat-card__badge stat-card__badge--up">7,01,840 kg</span>
                                 </div>
 
                                 <div class="info-card__row">
@@ -521,9 +545,9 @@
         const calendarInput = document.getElementById('calendarInput');
         const calendarText = document.getElementById('calendarText');
 
-        document.getElementById('calendarBtn').addEventListener('click', () => {
-            calendarInput.showPicker();
-        });
+        // document.getElementById('calendarBtn').addEventListener('click', () => {
+        //     calendarInput.showPicker();
+        // });
 
         calendarInput.addEventListener('change', (e) => {
             const selectedDate = new Date(e.target.value);

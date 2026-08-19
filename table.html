@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Sampatti</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="assets/images/color-map.png" type="image/x-icon">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/styles.css" rel="stylesheet">
+    <link href="assets/css/gatepass.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/CSS/font-awesome/css/all.css">
+    <link href="assets/CSS/table-tools.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="app-shell">
+
+        <main-sidebar data-active="dashboard"></main-sidebar>
+
+
+        <main class="app-main">
+            <header class="tp-header">
+                <div class="tp-header__left">
+                    <button class="tp-header__hamburger-btn" type="button" aria-label="Toggle sidebar">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <h1 class="tp-header__title">Administration</h1>
+                </div>
+                <div class="tp-header__right">
+                    <div class="input-group">
+                        <span class="input-group-text">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </span>
+                        <input type="text" class="form-control" placeholder="Search..." aria-label="Search">
+                    </div>
+                    <button class="tp-header__icon-btn" type="button" aria-label="Notifications">
+                        <i class="fa-regular fa-bell"></i><span class="tp-dot"></span>
+                    </button>
+                    <button class="tp-header__icon-btn" type="button" aria-label="Messages">
+                        <i class="fa-regular fa-envelope"></i>
+                    </button>
+                    <div class="tp-header__divider"></div>
+                    <div class="tp-header__profile">
+                        <div class="tp-header__profile-text">
+                            <div class="name">Mr. Rohit Watts</div>
+                            <div class="org">Last Login: Today, 10:30 AM</div>
+                        </div>
+                        <div class="tp-header__avatar">
+                            <img src="assets/images/profile.webp" alt="Mrs. Arti Garg">
+                            <span class="tp-online"></span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <section>
+
+                <div class="row align-items-start tp-plan-upload-row">
+                    <h3 class="tp-page-heading__title mb-3">
+                        <i class="fa-solid fa-trophy" style="color: #FFD700;"></i>
+                        Top 10 Highest Energy Feeders
+                    </h3>
+                    <div class="table-responsive">
+
+                        <table class="table table-bordered table-hover table-striped tp-pending-table mb-2">
+                            <thead>
+                                <tr>
+                                    <th>Rank</th>
+                                    <th>Feeder Name</th>
+                                    <th>circle</th>
+                                    <th>Today's MU</th>
+                                    <th>MTD MU</th>
+                                    <th>Trend</th>
+
+
+
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Row 1 -->
+                                <tr>
+
+                                    <td>1</td>
+                                    <td>BBSR-01 Industrial</td>
+                                    <td>BBSR</td>
+                                    <td>2.84 MU</td>
+                                    <td>68.2 MU</td>
+                                    <td> <i class="fa-solid fa-arrow-up"></i></td>
+
+                                </tr>
+                                <!-- Row 2 -->
+                                <tr>
+
+                                    <td>2</td>
+                                    <td>BBSR-03 commercial</td>
+                                    <td>BBSR</td>
+                                    <td>2.61 MU</td>
+                                    <td>62.1 MU</td>
+                                    <td> <i class="fa-solid fa-arrow-up"></i></td>
+
+                                </tr>
+                                <!-- Row 3 -->
+                                <tr>
+                                    <td>3</td>
+                                    <td>CTC-02 Main</td>
+                                    <td>Cuttack</td>
+                                    <td>2.45 MU</td>
+                                    <td>58.7 MU</td>
+                                    <td> <i class="fa-solid fa-arrow-up"></i></td>
+
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>BBSR-05 Grid</td>
+                                    <td>BBSR</td>
+                                    <td>2.31 MU</td>
+                                    <td>55.2 MU</td>
+                                    <td> <i class="fa-solid fa-arrow-up"></i></td>
+
+                                </tr>
+
+                                <tr>
+                                    <td>5</td>
+                                    <td>PRD-01 Port</td>
+                                    <td>Paradeep</td>
+                                    <td>2.18 MU</td>
+                                    <td>52.8 MU</td>
+                                    <td> <i class="fa-solid fa-arrow-up"></i></td>
+
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>CTC-4 South</td>
+                                    <td>Cuttack</td>
+                                    <td>2.05 MU</td>
+                                    <td>49.1 MU</td>
+                                    <td> <i class="fa-solid fa-arrow-down"></i></td>
+
+                                </tr>
+
+                                <tr>
+                                    <td>7</td>
+                                    <td>BBSR-05 East</td>
+                                    <td>BBSR</td>
+                                    <td>1.94 MU</td>
+                                    <td>46.3 MU</td>
+                                    <td> <i class="fa-solid fa-arrow-up"></i></td>
+
+                                </tr>
+
+                                <tr>
+                                    <td>8</td>
+                                    <td>DHK-01 Central</td>
+                                    <td>Dhanakanal</td>
+                                    <td>1.82 MU</td>
+                                    <td>43.7 MU</td>
+                                    <td> <i class="fa-solid fa-arrow-down"></i></td>
+
+                                </tr>
+
+                                <tr>
+                                    <td>9</td>
+                                    <td>PRD-03 Industrial</td>
+                                    <td>Paradeep</td>
+                                    <td>1.76 MU</td>
+                                    <td>41.2 MU</td>
+                                    <td> <i class="fa-solid fa-arrow-up"></i></td>
+
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td>CTC-06 North</td>
+                                    <td>Cuttack</td>
+                                    <td>1.68 MU</td>
+                                    <td>39.8 MU</td>
+                                    <td> <i class="fa-solid fa-arrow-up"></i></td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+
+
+
+
+                <div class="row align-items-start tp-plan-upload-row">
+                    <h3 class="tp-page-heading__title mb-3">
+                        <i class="fa-solid fa-arrow-down" style="color: #e60f0f;"></i>
+                        Top 10 Lowest Energy Feeders
+                    </h3>
+                    <div class="table-responsive">
+
+                        <table class="table table-bordered table-hover table-striped tp-pending-table mb-2">
+                            <thead>
+                                <tr>
+                                    <th>Rank</th>
+                                    <th>Feeder Name</th>
+                                    <th>circle</th>
+                                    <th>Today's MU</th>
+                                    <th>MTD MU</th>
+                                    <th>Trend</th>
+
+
+
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Row 1 -->
+                                <tr>
+
+                                    <td>1</td>
+                                    <td>DHK-08 Rural</td>
+                                    <td>Dhenkanal</td>
+                                    <td>0.02 MU</td>
+                                    <td>0.4 MU</td>
+                                    <td> <i class="fa-solid fa-arrow-down"></i></td>
+
+                                </tr>
+                                <!-- Row 2 -->
+                                <tr>
+
+                                    <td>2</td>
+                                    <td>DHK-07 West</td>
+                                    <td>Dhenkanal</td>
+                                    <td>0.05 MU</td>
+                                    <td>1.1 MU</td>
+                                    <td> <i class="fa-solid fa-arrow-down"></i></td>
+
+                                </tr>
+                                <!-- Row 3 -->
+                                <tr>
+                                    <td>3</td>
+                                    <td>PRD-06 Coastal</td>
+                                    <td>Paradeep</td>
+                                    <td>0.08 MU</td>
+                                    <td>1.8 MU</td>
+                                    <td> <i class="fa-solid fa-arrow-down"></i></td>
+
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>CTC-09 suburb</td>
+                                    <td>Cuttack</td>
+                                    <td>0.11 MU</td>
+                                    <td>2.4 MU</td>
+                                    <td> <i class="fa-solid fa-arrow-down"></i></td>
+
+                                </tr>
+
+                                <tr>
+                                    <td>5</td>
+                                    <td>DHK-05 North</td>
+                                    <td>Dhenkanal</td>
+                                    <td>0.14 MU</td>
+                                    <td>3.1 MU</td>
+                                    <td> <i class="fa-solid fa-arrow-up"></i></td>
+
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>PRD-08 south</td>
+                                    <td>Paradeep</td>
+                                    <td>0.18 MU</td>
+                                    <td>3.8 MU</td>
+                                    <td> <i class="fa-solid fa-arrow-down"></i></td>
+
+                                </tr>
+
+                                <tr>
+                                    <td>7</td>
+                                    <td>CTC-11 East</td>
+                                    <td>Cuttack</td>
+                                    <td>0.21 MU</td>
+                                    <td>4.5 MU</td>
+                                    <td> <i class="fa-solid fa-arrow-down"></i></td>
+
+                                </tr>
+
+                                <tr>
+                                    <td>8</td>
+                                    <td>DHK-03 South</td>
+                                    <td>Dhanakanal</td>
+                                    <td>0.25 MU</td>
+                                    <td>5.2 MU</td>
+                                    <td> <i class="fa-solid fa-arrow-up"></i></td>
+
+                                </tr>
+
+                                <tr>
+                                    <td>9</td>
+                                    <td>BBSR-12 outer</td>
+                                    <td>BBSR</td>
+                                    <td>0.28 MU</td>
+                                    <td>5.9 MU</td>
+                                    <td> <i class="fa-solid fa-arrow-down"></i></td>
+
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td>PRD-10 North</td>
+                                    <td>Paradeep</td>
+                                    <td>0.31 MU</td>
+                                    <td>6.6 MU</td>
+                                    <td> <i class="fa-solid fa-arrow-up"></i></td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div class="row align-items-start tp-plan-upload-row">
+                    <h3 class="tp-page-heading__title mb-3">
+                        <i class="fa-solid fa-database" style="color: #28a745;"></i>
+                        Detailed Feeder Analysis
+                    </h3>
+                    <div class="table-responsive">
+
+                        <table class="table table-bordered table-hover table-striped tp-pending-table mb-2">
+                            <thead>
+                                <tr>
+                                    <th>Circle</th>
+                                    <th>Division</th>
+                                    <th>SubDivision</th>
+                                    <th>Section</th>
+                                    <th>Feeder</th>
+                                    <th>Today (MU)</th>
+                                    <th>Yest (MU)</th>
+                                    <th>MTD (MU)</th>
+                                    <th>Target (MU)</th>
+                                    <th>Variance</th>
+                                    <th>Comm Status</th>
+                                    <th>Feeder Status</th>
+                                    <th>Availability</th>
+                                    <th>Health score</th>
+
+
+
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Row 1 -->
+                                <tr>
+
+                                    <td>Odisha Central</td>
+                                    <td>BBSR-1</td>
+                                    <td>BBSR-01</td>
+                                    <td>SEC-A</td>
+                                    <td><b>BBSR-01 Industrial</b></td>
+                                    <td><b>2.84</b></td>
+                                    <td>2.65</td>
+                                    <td><b>68.2</b></td>
+                                    <td>65.0</td>
+                                    <td>+4.9%</td>
+                                    <td>. online</td>
+                                    <td>Active</td>
+                                    <td><b>99.8%</b></td>
+                                    <td>98%</td>
+
+
+                                </tr>
+                                <!-- Row 2 -->
+                                <tr>
+
+                                    <td>Odisha Central</td>
+                                    <td>BBSR-1</td>
+                                    <td>BBSR-01</td>
+                                    <td>SEC-B</td>
+                                    <td><b>BBSR-03 Commercial</b></td>
+                                    <td><b>2.61</b></td>
+                                    <td>2.50</td>
+                                    <td><b>62.1</b></td>
+                                    <td>60.0</td>
+                                    <td>+3.5%</td>
+                                    <td>. online</td>
+                                    <td>Active</td>
+                                    <td><b>99.5%</b></td>
+                                    <td>95%</td>
+
+
+                                </tr>
+                                <!-- Row 3 -->
+                                <tr>
+                                    <td>Odisha Central</td>
+                                    <td>CTC-1</td>
+                                    <td>CTC-02</td>
+                                    <td>SEC-C</td>
+                                    <td><b>CTC-02 Main</b></td>
+                                    <td><b>2.45</b></td>
+                                    <td>2.51</td>
+                                    <td><b>58.7</b></td>
+                                    <td>58.0</td>
+                                    <td>+1.2%</td>
+                                    <td>. online</td>
+                                    <td>Active</td>
+                                    <td><b>98.9%</b></td>
+                                    <td>92%</td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>Odisha Central</td>
+                                    <td>BBSR-1</td>
+                                    <td>BBSR-01</td>
+                                    <td>SEC-D</td>
+                                    <td><b>BBSR-05 Grid</b></td>
+                                    <td><b>2.31</b></td>
+                                    <td>2.45</td>
+                                    <td><b>55.2</b></td>
+                                    <td>56.0</td>
+                                    <td>-1.4%</td>
+                                    <td>. online</td>
+                                    <td>Active</td>
+                                    <td><b>97.2%</b></td>
+                                    <td>88%</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td>Odisha Central</td>
+                                    <td>PRD-1</td>
+                                    <td>PRD-01</td>
+
+                                    <td>SEC-E</td>
+                                    <td><b>PRD-01 part</b></td>
+                                    <td><b>2.18</b></td>
+                                    <td>2.05</td>
+                                    <td><b>52.8</b></td>
+                                    <td>50.0</td>
+                                    <td>+5.6%</td>
+                                    <td>. online</td>
+                                    <td>Active</td>
+                                    <td><b>99.1%</b></td>
+                                    <td>94%</td>
+                                </tr>
+                                <tr>
+                                    <td>Odisha Central</td>
+                                    <td>DHK-1</td>
+                                    <td>DHK-01</td>
+
+                                    <td>SEC-F</td>
+                                    <td><b>DHK-08 Rural</b></td>
+                                    <td><b>0.02</b></td>
+                                    <td>0.03</td>
+                                    <td><b>0.4</b></td>
+                                    <td>5.0</td>
+                                    <td>-92.0%</td>
+                                    <td>.offline</td>
+                                    <td>Faulty</td>
+                                    <td><b>42.5%</b></td>
+                                    <td>38%</td>
+
+                                </tr>
+
+                                <tr>
+                                    <td>Odisha Central</td>
+                                    <td>DHK-1</td>
+                                    <td>DHK-01</td>
+
+                                    <td>SEC-G</td>
+                                    <td><b>DHK-07 West</b></td>
+                                    <td><b>0.05</b></td>
+                                    <td>0.06</td>
+                                    <td><b>1.1</b></td>
+                                    <td>4.5</td>
+                                    <td>-75.5%</td>
+                                    <td>.online</td>
+                                    <td>No load</td>
+                                    <td><b>95.0%</b></td>
+                                    <td>71%</td>
+
+
+                                </tr>
+
+                                <tr>
+                                <tr>
+                                    <td>Odisha Central</td>
+                                    <td>PRD-1</td>
+                                    <td>PRD-01</td>
+
+                                    <td>SEC-H</td>
+                                    <td><b>PRD-06 Coastal </b></td>
+                                    <td><b>0.08</b></td>
+                                    <td>0.10</td>
+                                    <td><b>1.8</b></td>
+                                    <td>5.5</td>
+                                    <td>-67.2%</td>
+                                    <td>.offline</td>
+                                    <td>No load</td>
+                                    <td><b>88.0%</b></td>
+                                    <td>62%</td>
+
+                                </tr>
+
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <main-footer></main-footer>
+
+        </main>x
+
+    </div>
+
+    <script src="assets/JS/jquery.min.js"></script>
+    <script src="assets/JS/bootstrap.bundle.min.js"></script>
+    <script src="assets/pages/header.js"></script>
+    <script src="assets/pages/sidebar.js"></script>
+    <script src="assets/pages/footer.js"></script>
+    <script src="assets/JS/toggle.js"></script>
+    <script src="assets/JS/xlsx.full.min.js"></script>
+    <script src="assets/JS/table-tools.js"></script>
+
+</body>
+
+</html>
