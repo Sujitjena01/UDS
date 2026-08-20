@@ -1713,7 +1713,6 @@ body {
   border: 1px solid #10635A;
   border-radius: 0.5rem;
   overflow: hidden;
-  height: 250px !important;
 }
 .chart-card--main, .chart-card--trend {
   display: flex;
@@ -1756,27 +1755,14 @@ body {
 .chart-card__body {
   flex: 1;
   padding: 0 10px 10px;
-  height: 200px;
   position: relative;
-}
-.chart-card__body canvas {
-  width: 100% !important;
-  height: 100% !important;
 }
 .chart-card__body--trend {
   padding: 0 10px 10px;
 }
-.chart-card__body--trend canvas {
-  width: 100% !important;
-  height: 100% !important;
-}
 .chart-card__body--mini {
   position: relative;
   height: 220px;
-}
-.chart-card__body--mini canvas {
-  width: 100% !important;
-  height: 100% !important;
 }
 .chart-card__mini-header {
   font-size: 20px;
@@ -1846,10 +1832,6 @@ body {
   height: 140px;
   flex-shrink: 0;
 }
-.mtd-donut canvas {
-  width: 100% !important;
-  height: 100% !important;
-}
 .mtd-donut__center {
   position: absolute;
   top: 50%;
@@ -1890,9 +1872,10 @@ body {
   min-width: 0;
 }
 .mtd-stats__row {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr 40px;
+  justify-content: right;
 }
 .mtd-stats__label {
   font-size: 10px;
@@ -1918,7 +1901,7 @@ body {
   color: #D31F1F;
 }
 .mtd-stats__value--up {
-  color: #10635A;
+  color: #0bad77;
 }
 
 .mtd-donut--sm {
@@ -1932,12 +1915,12 @@ body {
 
 .chart-card__body--mtd-wide {
   justify-content: space-between;
-  padding: 0 32px 24px;
+  padding: 0 20px 20px;
 }
 
 .mtd-donut--lg {
-  width: 160px;
-  height: 160px;
+  width: 130px;
+  height: 130px;
 }
 
 .mtd-stats--right {
@@ -1974,10 +1957,6 @@ body {
   position: relative;
   flex: 1;
   padding: 10px 16px 16px;
-}
-.chart-card--circle .chart-card__body--circle canvas {
-  width: 100% !important;
-  height: 100% !important;
 }
 
 .text-muted {

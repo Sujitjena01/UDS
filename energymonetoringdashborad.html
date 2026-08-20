@@ -34,18 +34,15 @@
                     <p class="topbar__subtitle"><strong>Last Updated On:</strong> 01/06/2026 00:00:00</p>
                 </div>
                 <div class="topbar__right">
-                    <div class="topbar__search">
+                    <!-- <div class="topbar__search">
                         <i class="fa fa-magnifying-glass"></i>
                         <input type="text" placeholder="Search for..." />
-                    </div>
-                    <button class="btn-tp btn-tp-primary">
+                    </div> -->
+                    <button class="btn-tp btn-tp-sm btn-tp-secondary">
                         Export Data <i class="fa-solid fa-download"></i>
                     </button>
-                    <button class="btn-tp btn-tp-default">
-                        Create Report <i class="fa-solid fa-plus"></i>
-                    </button>
                     <div class="dropdown">
-                        <a class="btn-tp btn-tp-primary dropdown-toggle" href="#" role="button"
+                        <a class="btn-tp btn-tp-sm btn-tp-primary dropdown-toggle" href="#" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             Today
                         </a>
@@ -69,7 +66,7 @@
                 </div>
             </div>
             <div class="tp-filter-bar" id="tpFilterBar">
-                <div class="row g-2 align-items-end tp-filter-bar__row">
+                <div class="row g-2 align-items-center tp-filter-bar__row">
 
                     <div class="col-6 col-md">
                         <div class="tp-filter-bar__group">
@@ -111,13 +108,13 @@
                     </div>
 
                     <div class="col-6 col-md-auto">
-                        <button class="btn-tp btn-tp-outline-danger w-100" id="filterReset">
+                        <button class="btn-tp btn-tp-sm btn-tp-outline-danger w-100" id="filterReset">
                             <i class="fa-solid fa-rotate-left"></i> Reset
                         </button>
                     </div>
 
                     <div class="col-6 col-md-auto">
-                        <button class="btn-tp btn-tp-primary w-100" id="filterSubmit">
+                        <button class="btn-tp btn-tp-sm btn-tp-primary w-100" id="filterSubmit">
                             <i class="fa-solid fa-check"></i> Submit
                         </button>
                     </div>
@@ -249,7 +246,7 @@
                 <div class="row g-3 mb-3">
 
                     <!-- Active Operational Alerts -->
-                    <div class="col-12 col-xl-4">
+                    <div class="col-12 col-xl-6">
                         <div class="alert-card h-100">
                             <div class="alert-card__header">
                                 <p class="alert-card__title">
@@ -299,7 +296,7 @@
                     </div>
 
                     <!-- Circle Wise Energy Contribution -->
-                    <div class="col-12 col-xl-8">
+                    <div class="col-12 col-xl-6">
                         <div class="chart-card chart-card--circle h-100">
                             <div class="chart-card__header">
                                 <p class="chart-card__title">
@@ -508,7 +505,7 @@
                                     </div>
                                     <div class="mtd-stats__row">
                                         <span class="mtd-stats__label">Exception Feeders</span>
-                                        <span class="mtd-stats__value">94%</span>
+                                        <span class="mtd-stats__value mtd-stats__value--up">94%</span>
                                     </div>
                                     <div class="mtd-stats__row">
                                         <span class="mtd-stats__label">Total Feeders</span>
@@ -526,7 +523,7 @@
                         <div class="section-card">
                             <div class="section-card__header">
                                 <span class="chart-card__title">
-                                    <i class="fa-solid fa-trophy" style="color: #FFD700;"></i>
+                                    <i class="fa-solid fa-trophy"></i>
                                     Top 10 Highest Energy Feeders
                                 </span>
                             </div>
@@ -660,9 +657,8 @@
                     <div class="col-12 col-xl-6">
                         <div class="section-card">
                             <div class="section-card__header">
-                                <span class="chart-card__title"
-                                    style="display: inline-flex; align-items: center; gap: 5px;">
-                                    <i class="fa-regular stat-card__badge--down fa-circle-down tp-icon-down"></i>Bottom to Lowest Energy
+                                <span class="chart-card__title">
+                                    <i class="fa-regular fa-circle-down tp-icon-down"></i> Bottom to Lowest Energy
                                     Feeders
                                 </span>
                             </div>
@@ -795,6 +791,7 @@
 
                 </div>
                 <div class="row g-3 mb-3">
+                    <div class="col-12">
                     <div class="section-card">
                         <div class="section-card__header">
                             <span class="chart-card__title">
@@ -986,7 +983,7 @@
                         </div>
 
                     </div>
-
+</div>
                 </div>
 
             </div>

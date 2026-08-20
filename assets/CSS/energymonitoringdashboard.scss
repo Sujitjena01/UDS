@@ -740,7 +740,7 @@ body {
     border: 1px solid $highlight-green;
     border-radius: $br-8;
     overflow: hidden;
-    height: 250px !important;
+    // height: 250px !important;
 
     &--main,
     &--trend {
@@ -791,31 +791,30 @@ body {
     &__body {
         flex: 1;
         padding: 0 10px 10px;
-        height: 200px;
         position: relative;
 
-        canvas {
-            width: 100% !important;
-            height: 100% !important;
-        }
+        // canvas {
+        //     width: 100% !important;
+        //     height: 100% !important;
+        // }
 
         &--trend {
             padding: 0 10px 10px;
 
-            canvas {
-                width: 100% !important;
-                height: 100% !important;
-            }
+            // canvas {
+            //     width: 100% !important;
+            //     height: 100% !important;
+            // }
         }
 
         &--mini {
             position: relative;
             height: 220px;
 
-            canvas {
-                width: 100% !important;
-                height: 100% !important;
-            }
+            // canvas {
+            //     width: 100% !important;
+            //     height: 100% !important;
+            // }
         }
     }
 
@@ -901,10 +900,10 @@ body {
     height: 140px;
     flex-shrink: 0;
 
-    canvas {
-        width: 100% !important;
-        height: 100% !important;
-    }
+    // canvas {
+    //     width: 100% !important;
+    //     height: 100% !important;
+    // }
 
     &__center {
         position: absolute;
@@ -950,9 +949,10 @@ body {
     min-width: 0;
 
     &__row {
-        display: flex;
-        flex-direction: column;
-        gap: 2px;
+        display: grid;
+        gap: 10px;
+        grid-template-columns: 1fr 40px;
+        justify-content: right;
     }
 
     &__label {
@@ -981,7 +981,7 @@ body {
         }
 
         &--up {
-            color: $highlight-green;
+            color: $success-green;
         }
     }
 }
@@ -997,12 +997,12 @@ body {
 
 .chart-card__body--mtd-wide {
     justify-content: space-between; // pushes donut left, stats right
-    padding: 0 32px 24px;
+    padding: 0 20px 20px;
 }
 
 .mtd-donut--lg {
-    width: 160px;
-    height: 160px;
+    width: 130px;
+    height: 130px;
 }
 
 .mtd-stats--right {
@@ -1046,10 +1046,10 @@ body {
         flex: 1;
         padding: 10px 16px 16px;
 
-        canvas {
-            width: 100% !important;
-            height: 100% !important;
-        }
+        // canvas {
+        //     width: 100% !important;
+        //     height: 100% !important;
+        // }
     }
 }
 
