@@ -1,0 +1,230 @@
+// =====================================================
+// table-tools.scss
+// Theme styles for the reusable table enhancer (assets/JS/table-tools.js):
+// search box, Export-to-Excel button, sortable headers, pagination footer.
+// Colors/spacing come from the shared theme variables so every table
+// matches the rest of the portal.
+// =====================================================
+@use 'variables/variables'as *;
+@use "sass:color";
+
+// ---------------- Toolbar (auto-built search + export) ----------------
+.tt-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+    margin-top: 5px;
+
+    .tt-search {
+        max-width: 260px;
+        font-family: $font-outfit;
+        font-size: 0.875rem;
+        border: 1px solid $gray-60;
+        border-radius: $br-6;
+        color: #202020;
+        margin-left: 12px;
+
+        &::placeholder {
+            color: $black-60;
+        }
+
+        &:focus {
+            box-shadow: none;
+            border-color: $highlight-green;
+        }
+    }
+}
+
+.tt-spacer {
+    flex: 1 1 auto;
+}
+
+// ---------------- Export button (matches .tp-btn-export) ----------------
+.tt-export {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 7px;
+    padding: 6px 9px;
+    border: none;
+    border-radius: $br-7;
+    background: $highlight-green;
+    color: $white;
+    font-family: $font-outfit-semibold;
+    font-size: 0.875rem;
+    white-space: nowrap;
+    transition: background-color .15s ease;
+
+    &:hover,
+    &:focus {
+        background: color.scale($highlight-green, $lightness: -8%);
+        color: $white;
+    }
+
+    i {
+        font-size: 0.85rem;
+    }
+}
+
+// ---------------- Sortable headers ----------------
+table th.tt-sortable {
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    white-space: nowrap;
+
+    &::after {
+        content: "\2195"; // ↕ neutral
+        opacity: 0.35;
+        margin-left: 0.4em;
+        font-size: 0.85em;
+    }
+
+    &.tt-asc::after {
+        content: "\2191"; // ↑
+        opacity: 0.9;
+    }
+
+    &.tt-desc::after {
+        content: "\2193"; // ↓
+        opacity: 0.9;
+    }
+}
+
+// ---------------- Footer (info + rows-per-page + pagination) ----------------
+.tt-footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 5px;
+    margin-bottom: 1.25rem;
+    padding: 0 10px;
+}
+
+.tt-info {
+    font-family: $font-outfit;
+    font-size: 0.85rem;
+    color: $black-60;
+}
+
+.tt-pagesize {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin: 0;
+    font-family: $font-outfit;
+    font-size: 0.85rem;
+    color: $black-60;
+
+    select {
+        width: auto;
+        font-family: $font-outfit;
+        font-size: 0.85rem;
+        border: 1px solid $gray-30;
+        border-radius: $br-5;
+        color: $black-80;
+
+        &:focus {
+            box-shadow: none;
+            border-color: $highlight-green;
+        }
+    }
+}
+
+.tt-pagination {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+        list-style: none;
+    }
+
+    button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 34px;
+        height: 34px;
+        padding: 0 0.5rem;
+        border: 1px solid $gray-30;
+        border-radius: $br-5;
+        background: $white;
+        color: $black-80;
+        font-family: $font-outfit-semibold;
+        font-size: 0.85rem;
+        cursor: pointer;
+        box-shadow: none;
+        transition: background-color .15s ease, color .15s ease, border-color .15s ease;
+
+        &:hover:not(:disabled) {
+            background: $gray-20;
+            color: $black;
+        }
+
+        &.tt-active {
+            background: $highlight-green;
+            border-color: $highlight-green;
+            color: $white;
+        }
+
+        &:disabled {
+            color: $gray-40;
+            background: $white;
+            border-color: $gray-30;
+            cursor: not-allowed;
+        }
+    }
+}
+
+// ---------------- Empty state ----------------
+.tt-empty td {
+    text-align: center;
+    color: $black-60;
+    font-family: $font-outfit;
+    padding: 1rem;
+}
+
+@media #{$small_mobile} {
+    .tt-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+}
+
+// ---------------- Frozen / sticky columns ----------------
+// The wrapper must scroll for position:sticky to have an anchor. table-tools.js
+// adds this class to the table's .table-responsive wrapper when a column is
+// frozen (this project's bootstrap build ships no overflow on .table-responsive).
+.tt-sticky-wrap {
+    overflow: auto;
+}
+
+// A <th data-sticky> pins its whole column while the rest of the table scrolls
+// horizontally. table-tools.js adds .tt-sticky to the header + body cells of
+// that column and sets each cell's `left` offset inline. The opaque background
+// is essential so the scrolling cells pass *behind* the frozen one.
+th.tt-sticky,
+td.tt-sticky {
+    position: sticky;
+    z-index: 2;
+    background-color: $white;
+}
+
+th.tt-sticky {
+    z-index: 3; // header frozen cells sit above body frozen cells
+}
+
+// Divider + shadow marking the right edge of the frozen block, so it reads as
+// "pinned" once the user scrolls the remaining columns underneath it.
+.tt-sticky-edge {
+    box-shadow: 4px 0 6px -3px rgba(0, 0, 0, 0.15);
+}

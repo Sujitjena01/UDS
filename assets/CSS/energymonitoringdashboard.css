@@ -2122,6 +2122,18 @@ body {
 .tp-table--feeder thead th .sort-icon {
   color: rgba(255, 255, 255, 0.6);
 }
+.tp-table--low thead th {
+  background: #D31F1F;
+  color: #fff;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.tp-table--low thead th .sort-icon {
+  color: rgba(255, 255, 255, 0.6);
+}
+.tp-table--low .tp-icon-down {
+  color: #D31F1F;
+}
 
 .tp-status-dot {
   display: inline-block;
@@ -2149,7 +2161,7 @@ body {
 
 .tp-badge {
   display: inline-block;
-  padding: 2px 0.125rem;
+  padding: 2px 5px;
   border-radius: 0.125rem;
   font-size: 0.75rem;
   font-weight: 600;
@@ -2181,4 +2193,8 @@ body {
 .tp-badge--score-bad {
   background: rgba(211, 31, 31, 0.12);
   color: #D31F1F;
+}
+
+.tp-table--low thead th {
+  background: #D31F1F;
 }/*# sourceMappingURL=energymonitoringdashboard.css.map */

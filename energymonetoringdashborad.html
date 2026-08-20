@@ -9,6 +9,7 @@
     <link href="assets/CSS/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/CSS/energymonitoringdashboard.css">
     <link rel="stylesheet" href="assets/CSS/equipment.css">
+    <link rel="stylesheet" href="assets/CSS/table-tools.css">
 
 
 
@@ -524,69 +525,61 @@
                     <div class="col-12 col-xl-6">
                         <div class="section-card">
                             <div class="section-card__header">
-                                <span class="section-card__title"><i class="fa-solid fa-trophy"
-                                        style="color: #FFD700;"></i>
-                                    Top 10 Highest Energy Feeders</span>
-
+                                <span class="chart-card__title">
+                                    <i class="fa-solid fa-trophy" style="color: #FFD700;"></i>
+                                    Top 10 Highest Energy Feeders
+                                </span>
                             </div>
-                            <div class="tp-table-wrap">
-                                <table class="tp-table">
+                            <div class="table-responsive">
+                                <table id="topFeedersTable" class="tp-table" data-table-tools data-page-size="10"
+                                    data-export-name="top-10-highest-energy-feeders">
                                     <thead>
                                         <tr>
-                                            <th>Rank<span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
+                                            <th>Rank <span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
                                                         class="fa-solid fa-caret-down"></i></span></th>
                                             <th>Feeder Name <span class="sort-icon"><i
                                                         class="fa-solid fa-caret-up"></i><i
                                                         class="fa-solid fa-caret-down"></i></span></th>
-                                            <th>circle <span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
+                                            <th>Circle <span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
                                                         class="fa-solid fa-caret-down"></i></span></th>
                                             <th>Today's MU <span class="sort-icon"><i
                                                         class="fa-solid fa-caret-up"></i><i
                                                         class="fa-solid fa-caret-down"></i></span></th>
                                             <th>MTD MU <span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
                                                         class="fa-solid fa-caret-down"></i></span></th>
-                                            <th>Trend <span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
-                                                        class="fa-solid fa-caret-down"></i></span></th>
+                                            <th data-exclude>Trend</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-
                                             <td>1</td>
                                             <td>BBSR-01 Industrial</td>
                                             <td>BBSR</td>
                                             <td>2.84 MU</td>
                                             <td>68.2 MU</td>
-                                            <td> <i
+                                            <td><i
                                                     class="stat-card__badge stat-card__badge--up fa-solid fa-arrow-up"></i>
                                             </td>
-
                                         </tr>
-                                        </tr>
-                                        <!-- Row 2 -->
                                         <tr>
-
                                             <td>2</td>
-                                            <td>BBSR-03 commercial</td>
+                                            <td>BBSR-03 Commercial</td>
                                             <td>BBSR</td>
                                             <td>2.61 MU</td>
                                             <td>62.1 MU</td>
-                                            <td> <i
+                                            <td><i
                                                     class="stat-card__badge stat-card__badge--up fa-solid fa-arrow-up"></i>
                                             </td>
-
                                         </tr>
-                                        <!-- Row 3 -->
                                         <tr>
                                             <td>3</td>
                                             <td>CTC-02 Main</td>
                                             <td>Cuttack</td>
                                             <td>2.45 MU</td>
                                             <td>58.7 MU</td>
-                                            <td> <i
+                                            <td><i
                                                     class="stat-card__badge stat-card__badge--up fa-solid fa-arrow-up"></i>
                                             </td>
-
                                         </tr>
                                         <tr>
                                             <td>4</td>
@@ -594,22 +587,19 @@
                                             <td>BBSR</td>
                                             <td>2.31 MU</td>
                                             <td>55.2 MU</td>
-                                            <td> <i
+                                            <td><i
                                                     class="stat-card__badge stat-card__badge--up fa-solid fa-arrow-up"></i>
                                             </td>
-
                                         </tr>
-
                                         <tr>
                                             <td>5</td>
                                             <td>PRD-01 Port</td>
                                             <td>Paradeep</td>
                                             <td>2.18 MU</td>
                                             <td>52.8 MU</td>
-                                            <td> <i
+                                            <td><i
                                                     class="stat-card__badge stat-card__badge--up fa-solid fa-arrow-up"></i>
                                             </td>
-
                                         </tr>
                                         <tr>
                                             <td>6</td>
@@ -617,46 +607,39 @@
                                             <td>Cuttack</td>
                                             <td>2.05 MU</td>
                                             <td>49.1 MU</td>
-                                            <td> <i
-                                                    class="stat-card__badge stat-card__badge--down stat-card__badge stat-card__badge--down fa-solid fa-arrow-down"></i>
+                                            <td><i
+                                                    class="stat-card__badge stat-card__badge--down fa-solid fa-arrow-down"></i>
                                             </td>
-
                                         </tr>
-
                                         <tr>
                                             <td>7</td>
                                             <td>BBSR-05 East</td>
                                             <td>BBSR</td>
                                             <td>1.94 MU</td>
                                             <td>46.3 MU</td>
-                                            <td> <i
+                                            <td><i
                                                     class="stat-card__badge stat-card__badge--up fa-solid fa-arrow-up"></i>
                                             </td>
-
                                         </tr>
-
                                         <tr>
                                             <td>8</td>
                                             <td>DHK-01 Central</td>
                                             <td>Dhanakanal</td>
                                             <td>1.82 MU</td>
                                             <td>43.7 MU</td>
-                                            <td> <i
+                                            <td><i
                                                     class="stat-card__badge stat-card__badge--down fa-solid fa-arrow-down"></i>
                                             </td>
-
                                         </tr>
-
                                         <tr>
                                             <td>9</td>
                                             <td>PRD-03 Industrial</td>
                                             <td>Paradeep</td>
                                             <td>1.76 MU</td>
                                             <td>41.2 MU</td>
-                                            <td> <i
+                                            <td><i
                                                     class="stat-card__badge stat-card__badge--up fa-solid fa-arrow-up"></i>
                                             </td>
-
                                         </tr>
                                         <tr>
                                             <td>10</td>
@@ -664,31 +647,12 @@
                                             <td>Cuttack</td>
                                             <td>1.68 MU</td>
                                             <td>39.8 MU</td>
-                                            <td> <i
+                                            <td><i
                                                     class="stat-card__badge stat-card__badge--up fa-solid fa-arrow-up"></i>
                                             </td>
-
                                         </tr>
                                     </tbody>
                                 </table>
-                            </div>
-                            <div class="table-footer">
-                                <div class="table-footer__left">
-                                    <span class="table-footer__info">1 - 10 of 460</span>
-                                    <div class="table-footer__rows">
-                                        Rows per page:
-                                        <select class="rows-select">
-                                            <option>10</option>
-                                            <option>25</option>
-                                            <option>50</option>
-                                            <option>100</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="table-footer__pagination">
-                                    <button class="page-btn" disabled><i class="fa-solid fa-chevron-left"></i></button>
-                                    <button class="page-btn"><i class="fa-solid fa-chevron-right"></i></button>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -696,139 +660,121 @@
                     <div class="col-12 col-xl-6">
                         <div class="section-card">
                             <div class="section-card__header">
-                                <span class="section-card__title">Equipment Table View</span>
-                                <button class="btn-tp btn-tp-sm btn-tp-primary">
-                                    <i class="fa-solid fa-file-export"></i> Export
-                                </button>
+                                <span class="chart-card__title" style="display: inline-flex; align-items: center; gap: 8px;">
+                                    <i class="fa-regular fa-circle-down tp-icon-down"></i>Bottom to Lowest Energy
+                                    Feeders
+                                </span>
                             </div>
-                            <div class="tp-table-wrap">
-                                <table class="tp-table">
+                            <div class="table-responsive">
+                                <table id="bottomFeedersTable" class="tp-table tp-table--low" data-table-tools
+                                    data-page-size="10" data-export-name="bottom-10-lowest-energy-feeders">
                                     <thead>
                                         <tr>
-                                            <th>Rank<span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
+                                            <th>Rank <span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
                                                         class="fa-solid fa-caret-down"></i></span></th>
                                             <th>Feeder Name <span class="sort-icon"><i
                                                         class="fa-solid fa-caret-up"></i><i
                                                         class="fa-solid fa-caret-down"></i></span></th>
-                                            <th>circle <span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
+                                            <th>Circle <span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
                                                         class="fa-solid fa-caret-down"></i></span></th>
                                             <th>Today's MU <span class="sort-icon"><i
                                                         class="fa-solid fa-caret-up"></i><i
                                                         class="fa-solid fa-caret-down"></i></span></th>
                                             <th>MTD MU <span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
                                                         class="fa-solid fa-caret-down"></i></span></th>
-                                            <th>Trend <span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
-                                                        class="fa-solid fa-caret-down"></i></span></th>
+                                            <th data-exclude>Trend</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <!-- Row 1 -->
                                         <tr>
-
                                             <td>1</td>
                                             <td>DHK-08 Rural</td>
                                             <td>Dhenkanal</td>
                                             <td>0.02 MU</td>
                                             <td>0.4 MU</td>
-                                            <td> <i
+                                            <td><i
                                                     class="stat-card__badge stat-card__badge--down fa-solid fa-arrow-down"></i>
                                             </td>
-
                                         </tr>
-                                        <!-- Row 2 -->
                                         <tr>
-
                                             <td>2</td>
                                             <td>DHK-07 West</td>
                                             <td>Dhenkanal</td>
                                             <td>0.05 MU</td>
                                             <td>1.1 MU</td>
-                                            <td> <i
+                                            <td><i
                                                     class="stat-card__badge stat-card__badge--down fa-solid fa-arrow-down"></i>
                                             </td>
-
                                         </tr>
-                                        <!-- Row 3 -->
                                         <tr>
                                             <td>3</td>
                                             <td>PRD-06 Coastal</td>
                                             <td>Paradeep</td>
                                             <td>0.08 MU</td>
                                             <td>1.8 MU</td>
-                                            <td> <i
+                                            <td><i
                                                     class="stat-card__badge stat-card__badge--down fa-solid fa-arrow-down"></i>
                                             </td>
-
                                         </tr>
                                         <tr>
                                             <td>4</td>
-                                            <td>CTC-09 suburb</td>
+                                            <td>CTC-09 Suburb</td>
                                             <td>Cuttack</td>
                                             <td>0.11 MU</td>
                                             <td>2.4 MU</td>
-                                            <td> <i
+                                            <td><i
                                                     class="stat-card__badge stat-card__badge--down fa-solid fa-arrow-down"></i>
                                             </td>
-
                                         </tr>
-
                                         <tr>
                                             <td>5</td>
                                             <td>DHK-05 North</td>
                                             <td>Dhenkanal</td>
                                             <td>0.14 MU</td>
                                             <td>3.1 MU</td>
-                                            <td> <i
+                                            <td><i
                                                     class="stat-card__badge stat-card__badge--up fa-solid fa-arrow-up"></i>
                                             </td>
-
                                         </tr>
                                         <tr>
                                             <td>6</td>
-                                            <td>PRD-08 south</td>
+                                            <td>PRD-08 South</td>
                                             <td>Paradeep</td>
                                             <td>0.18 MU</td>
                                             <td>3.8 MU</td>
-                                            <td> <i
+                                            <td><i
                                                     class="stat-card__badge stat-card__badge--down fa-solid fa-arrow-down"></i>
                                             </td>
-
                                         </tr>
-
                                         <tr>
                                             <td>7</td>
                                             <td>CTC-11 East</td>
                                             <td>Cuttack</td>
                                             <td>0.21 MU</td>
                                             <td>4.5 MU</td>
-                                            <td> <i
+                                            <td><i
                                                     class="stat-card__badge stat-card__badge--down fa-solid fa-arrow-down"></i>
                                             </td>
-
                                         </tr>
-
                                         <tr>
                                             <td>8</td>
                                             <td>DHK-03 South</td>
-                                            <td>Dhanakanal</td>
+                                            <td>Dhenkanal</td>
                                             <td>0.25 MU</td>
                                             <td>5.2 MU</td>
-                                            <td> <i
+                                            <td><i
                                                     class="stat-card__badge stat-card__badge--up fa-solid fa-arrow-up"></i>
                                             </td>
-
                                         </tr>
-
                                         <tr>
                                             <td>9</td>
-                                            <td>BBSR-12 outer</td>
+                                            <td>BBSR-12 Outer</td>
                                             <td>BBSR</td>
                                             <td>0.28 MU</td>
                                             <td>5.9 MU</td>
-                                            <td> <i
+                                            <td><i
                                                     class="stat-card__badge stat-card__badge--down fa-solid fa-arrow-down"></i>
                                             </td>
-
                                         </tr>
                                         <tr>
                                             <td>10</td>
@@ -836,31 +782,12 @@
                                             <td>Paradeep</td>
                                             <td>0.31 MU</td>
                                             <td>6.6 MU</td>
-                                            <td> <i
+                                            <td><i
                                                     class="stat-card__badge stat-card__badge--up fa-solid fa-arrow-up"></i>
                                             </td>
-
                                         </tr>
                                     </tbody>
                                 </table>
-                            </div>
-                            <div class="table-footer">
-                                <div class="table-footer__left">
-                                    <span class="table-footer__info">1 - 10 of 460</span>
-                                    <div class="table-footer__rows">
-                                        Rows per page:
-                                        <select class="rows-select">
-                                            <option>10</option>
-                                            <option>25</option>
-                                            <option>50</option>
-                                            <option>100</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="table-footer__pagination">
-                                    <button class="page-btn" disabled><i class="fa-solid fa-chevron-left"></i></button>
-                                    <button class="page-btn"><i class="fa-solid fa-chevron-right"></i></button>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -869,15 +796,13 @@
                 <div class="row g-3 mb-3">
 
                     <div class="section-card">
-                        <div class="section-card__header">
-                            <span class="section-card__title">
-                                <i class="fa-solid fa-database"></i> Detailed Feeder Analysis
-                            </span>
+                        <span class="chart-card__title">
+                            <i class="fa-solid fa-database"></i>Detailed Feeder Analysis
+                        </span>
 
-                        </div>
-
-                        <div class="tp-table-wrap">
-                            <table class="tp-table tp-table--feeder">
+                        <div class="table-responsive">
+                            <table id="detailedFeederTable" class="tp-table tp-table--feeder" data-table-tools
+                                data-page-size="10" data-export-name="detailed-feeder-analysis">
                                 <thead>
                                     <tr>
                                         <th>Circle <span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
@@ -933,8 +858,7 @@
                                         <td><span class="tp-badge tp-badge--active">Active</span></td>
                                         <td class="text-end"><b>99.8%</b></td>
                                         <td class="text-end"><span
-                                                class="tp-badge tp-badge--score tp-badge--score-good">98%</span>
-                                        </td>
+                                                class="tp-badge tp-badge--score tp-badge--score-good">98%</span></td>
                                     </tr>
                                     <tr>
                                         <td>Odisha Central</td>
@@ -951,8 +875,7 @@
                                         <td><span class="tp-badge tp-badge--active">Active</span></td>
                                         <td class="text-end"><b>99.5%</b></td>
                                         <td class="text-end"><span
-                                                class="tp-badge tp-badge--score tp-badge--score-good">95%</span>
-                                        </td>
+                                                class="tp-badge tp-badge--score tp-badge--score-good">95%</span></td>
                                     </tr>
                                     <tr>
                                         <td>Odisha Central</td>
@@ -969,8 +892,7 @@
                                         <td><span class="tp-badge tp-badge--active">Active</span></td>
                                         <td class="text-end"><b>98.9%</b></td>
                                         <td class="text-end"><span
-                                                class="tp-badge tp-badge--score tp-badge--score-good">92%</span>
-                                        </td>
+                                                class="tp-badge tp-badge--score tp-badge--score-good">92%</span></td>
                                     </tr>
                                     <tr>
                                         <td>Odisha Central</td>
@@ -987,8 +909,7 @@
                                         <td><span class="tp-badge tp-badge--active">Active</span></td>
                                         <td class="text-end"><b>97.2%</b></td>
                                         <td class="text-end"><span
-                                                class="tp-badge tp-badge--score tp-badge--score-warn">88%</span>
-                                        </td>
+                                                class="tp-badge tp-badge--score tp-badge--score-warn">88%</span></td>
                                     </tr>
                                     <tr>
                                         <td>Odisha Central</td>
@@ -1005,8 +926,7 @@
                                         <td><span class="tp-badge tp-badge--active">Active</span></td>
                                         <td class="text-end"><b>99.1%</b></td>
                                         <td class="text-end"><span
-                                                class="tp-badge tp-badge--score tp-badge--score-good">94%</span>
-                                        </td>
+                                                class="tp-badge tp-badge--score tp-badge--score-good">94%</span></td>
                                     </tr>
                                     <tr>
                                         <td>Odisha Central</td>
@@ -1040,8 +960,7 @@
                                         <td><span class="tp-badge tp-badge--noload">No Load</span></td>
                                         <td class="text-end"><b>95.0%</b></td>
                                         <td class="text-end"><span
-                                                class="tp-badge tp-badge--score tp-badge--score-warn">71%</span>
-                                        </td>
+                                                class="tp-badge tp-badge--score tp-badge--score-warn">71%</span></td>
                                     </tr>
                                     <tr>
                                         <td>Odisha Central</td>
@@ -1058,8 +977,7 @@
                                         <td><span class="tp-badge tp-badge--noload">No Load</span></td>
                                         <td class="text-end"><b>88.0%</b></td>
                                         <td class="text-end"><span
-                                                class="tp-badge tp-badge--score tp-badge--score-warn">62%</span>
-                                        </td>
+                                                class="tp-badge tp-badge--score tp-badge--score-warn">62%</span></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -1067,30 +985,7 @@
 
                     </div>
 
-                    <div class="table-footer">
-                        <div class="table-footer__left">
-                            <span class="table-footer__info">1 - 10 of 460</span>
-
-                            <div class="table-footer__rows">
-                                Rows per page:
-                                <select class="rows-select">
-                                    <option>10</option>
-                                    <option>25</option>
-                                    <option>50</option>
-                                    <option>100</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="table-footer__pagination">
-                            <button class="page-btn" disabled><i class="fa-solid fa-chevron-left"></i></button>
-                            <button class="page-btn"><i class="fa-solid fa-chevron-right"></i></button>
-                        </div>
-                    </div>
-
                 </div>
-
-
-
 
             </div>
             <main-footer></main-footer>
@@ -1394,6 +1289,7 @@
     <script src="assets/Pages/footer.js"></script>
     <script src="assets/Pages/header.js"></script>
     <script src="assets/JS/customTable.js"></script>
+    <script src="assets/js/table-tools.js"></script>
 
 </body>
 

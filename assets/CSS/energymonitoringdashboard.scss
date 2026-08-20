@@ -1210,15 +1210,35 @@ body {
 
 }
 
-.tp-table--feeder {
-    thead th {
-        // background: $oceanic-green;
-        color: #fff;
-        font-weight: 600;
-        white-space: nowrap;
+.tp-table {
+    &--feeder {
+        thead th {
+            color: #fff;
+            font-weight: 600;
+            white-space: nowrap;
 
-        .sort-icon {
-            color: rgba(#fff, 0.6);
+            .sort-icon {
+                color: rgba(#fff, 0.6);
+            }
+        }
+    }
+
+    &--low {
+        thead th {
+            background: $error-red;
+            color: #fff;
+            font-weight: 600;
+            white-space: nowrap;
+
+            .sort-icon {
+                color: rgba(#fff, 0.6);
+            }
+
+
+        }
+
+        .tp-icon-down {
+            color: $error-red;
         }
     }
 }
@@ -1253,7 +1273,7 @@ body {
 
 .tp-badge {
     display: inline-block;
-    padding: 2px $p-2;
+    padding: 2px 5px;
     border-radius: $br-2;
     font-size: 0.75rem;
     font-weight: 600;
@@ -1294,4 +1314,8 @@ body {
     }
 }
 
-
+.tp-table--low {
+    thead th {
+        background: $error-red;
+    }
+}
