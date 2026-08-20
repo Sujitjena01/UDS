@@ -260,36 +260,45 @@
                                     <div class="alert-card__content">
                                         <p class="alert-card__text"><strong>Critical:</strong> 9 Non-Communicating
                                             Feeders (Odisha Central)</p>
-                                        <span class="alert-card__time">5m ago</span>
                                     </div>
-                                    <i class="fa-solid fa-chevron-right alert-card__arrow"></i>
+                                    <div>
+                                        <span class="alert-card__time">5m ago</span>
+                                        <i class="fa-solid fa-chevron-right alert-card__arrow"></i>
+                                    </div>
+ 
                                 </div>
 
                                 <div class="alert-card__item alert-card__item--warning">
                                     <div class="alert-card__content">
                                         <p class="alert-card__text"><strong>Warning:</strong> 20 No-Load Feeders
                                             reported in Dhenkanal</p>
-                                        <span class="alert-card__time">15m ago</span>
                                     </div>
-                                    <i class="fa-solid fa-chevron-right alert-card__arrow"></i>
+                                    <div>
+                                        <span class="alert-card__time">15m ago</span>
+                                        <i class="fa-solid fa-chevron-right alert-card__arrow"></i>
+                                    </div>
                                 </div>
 
                                 <div class="alert-card__item alert-card__item--caution">
                                     <div class="alert-card__content">
                                         <p class="alert-card__text"><strong>Caution:</strong> Energy consumption down by
                                             29.5% MoM</p>
-                                        <span class="alert-card__time">1h ago</span>
                                     </div>
-                                    <i class="fa-solid fa-chevron-right alert-card__arrow"></i>
+                                    <div>
+                                        <span class="alert-card__time">1h ago</span>
+                                        <i class="fa-solid fa-chevron-right alert-card__arrow"></i>
+                                    </div>
                                 </div>
 
                                 <div class="alert-card__item alert-card__item--ok">
                                     <div class="alert-card__content">
                                         <p class="alert-card__text"><strong>Operational Compliance:</strong> No missing
                                             meters detected</p>
-                                        <span class="alert-card__time">Routine Check</span>
                                     </div>
-                                    <i class="fa-solid fa-chevron-right alert-card__arrow"></i>
+                                    <div>
+                                        <span class="alert-card__time">Routine Check</span>
+                                        <i class="fa-solid fa-chevron-right alert-card__arrow"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -792,198 +801,208 @@
                 </div>
                 <div class="row g-3 mb-3">
                     <div class="col-12">
-                    <div class="section-card">
-                        <div class="section-card__header">
-                            <span class="chart-card__title">
-                                <i class="fa-solid fa-database"></i> Detailed Feeder Analysis
-                            </span>
-                        </div>
+                        <div class="section-card">
+                            <div class="section-card__header">
+                                <span class="chart-card__title">
+                                    <i class="fa-solid fa-database"></i> Detailed Feeder Analysis
+                                </span>
+                            </div>
 
-                        <div class="table-responsive">
-                            <table id="detailedFeederTable" class="tp-table tp-table--feeder" data-table-tools
-                                data-page-size="10" data-export-name="detailed-feeder-analysis">
-                                <thead>
-                                    <tr>
-                                        <th>Circle <span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
-                                                    class="fa-solid fa-caret-down"></i></span></th>
-                                        <th>Division <span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
-                                                    class="fa-solid fa-caret-down"></i></span></th>
-                                        <th>Sub Division <span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
-                                                    class="fa-solid fa-caret-down"></i></span></th>
-                                        <th>Section <span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
-                                                    class="fa-solid fa-caret-down"></i></span></th>
-                                        <th>Feeder <span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
-                                                    class="fa-solid fa-caret-down"></i></span></th>
-                                        <th class="text-end">Today (MU) <span class="sort-icon"><i
-                                                    class="fa-solid fa-caret-up"></i><i
-                                                    class="fa-solid fa-caret-down"></i></span></th>
-                                        <th class="text-end">Yest (MU) <span class="sort-icon"><i
-                                                    class="fa-solid fa-caret-up"></i><i
-                                                    class="fa-solid fa-caret-down"></i></span></th>
-                                        <th class="text-end">MTD (MU) <span class="sort-icon"><i
-                                                    class="fa-solid fa-caret-up"></i><i
-                                                    class="fa-solid fa-caret-down"></i></span></th>
-                                        <th class="text-end">Target (MU) <span class="sort-icon"><i
-                                                    class="fa-solid fa-caret-up"></i><i
-                                                    class="fa-solid fa-caret-down"></i></span></th>
-                                        <th class="text-end">Variance <span class="sort-icon"><i
-                                                    class="fa-solid fa-caret-up"></i><i
-                                                    class="fa-solid fa-caret-down"></i></span></th>
-                                        <th>Comm Status <span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
-                                                    class="fa-solid fa-caret-down"></i></span></th>
-                                        <th>Feeder Status <span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
-                                                    class="fa-solid fa-caret-down"></i></span></th>
-                                        <th class="text-end">Availability <span class="sort-icon"><i
-                                                    class="fa-solid fa-caret-up"></i><i
-                                                    class="fa-solid fa-caret-down"></i></span></th>
-                                        <th class="text-end">Health Score <span class="sort-icon"><i
-                                                    class="fa-solid fa-caret-up"></i><i
-                                                    class="fa-solid fa-caret-down"></i></span></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Odisha Central</td>
-                                        <td>BBSR-I</td>
-                                        <td>BBSR-01</td>
-                                        <td>SEC-A</td>
-                                        <td><b>BBSR-01 Industrial</b></td>
-                                        <td class="text-end"><b>2.84</b></td>
-                                        <td class="text-end">2.65</td>
-                                        <td class="text-end"><b>68.2</b></td>
-                                        <td class="text-end">65.0</td>
-                                        <td class="text-end tp-variance tp-variance--up">+4.9%</td>
-                                        <td><span class="tp-status-dot tp-status-dot--online"></span>Online</td>
-                                        <td><span class="tp-badge tp-badge--active">Active</span></td>
-                                        <td class="text-end"><b>99.8%</b></td>
-                                        <td class="text-end"><span
-                                                class="tp-badge tp-badge--score tp-badge--score-good">98%</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Odisha Central</td>
-                                        <td>BBSR-I</td>
-                                        <td>BBSR-01</td>
-                                        <td>SEC-B</td>
-                                        <td><b>BBSR-03 Commercial</b></td>
-                                        <td class="text-end"><b>2.61</b></td>
-                                        <td class="text-end">2.50</td>
-                                        <td class="text-end"><b>62.1</b></td>
-                                        <td class="text-end">60.0</td>
-                                        <td class="text-end tp-variance tp-variance--up">+3.5%</td>
-                                        <td><span class="tp-status-dot tp-status-dot--online"></span>Online</td>
-                                        <td><span class="tp-badge tp-badge--active">Active</span></td>
-                                        <td class="text-end"><b>99.5%</b></td>
-                                        <td class="text-end"><span
-                                                class="tp-badge tp-badge--score tp-badge--score-good">95%</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Odisha Central</td>
-                                        <td>CTC-I</td>
-                                        <td>CTC-02</td>
-                                        <td>SEC-C</td>
-                                        <td><b>CTC-02 Main</b></td>
-                                        <td class="text-end"><b>2.45</b></td>
-                                        <td class="text-end">2.51</td>
-                                        <td class="text-end"><b>58.7</b></td>
-                                        <td class="text-end">58.0</td>
-                                        <td class="text-end tp-variance tp-variance--up">+1.2%</td>
-                                        <td><span class="tp-status-dot tp-status-dot--online"></span>Online</td>
-                                        <td><span class="tp-badge tp-badge--active">Active</span></td>
-                                        <td class="text-end"><b>98.9%</b></td>
-                                        <td class="text-end"><span
-                                                class="tp-badge tp-badge--score tp-badge--score-good">92%</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Odisha Central</td>
-                                        <td>BBSR-I</td>
-                                        <td>BBSR-01</td>
-                                        <td>SEC-D</td>
-                                        <td><b>BBSR-05 Grid</b></td>
-                                        <td class="text-end"><b>2.31</b></td>
-                                        <td class="text-end">2.45</td>
-                                        <td class="text-end"><b>55.2</b></td>
-                                        <td class="text-end">56.0</td>
-                                        <td class="text-end tp-variance tp-variance--down">-1.4%</td>
-                                        <td><span class="tp-status-dot tp-status-dot--online"></span>Online</td>
-                                        <td><span class="tp-badge tp-badge--active">Active</span></td>
-                                        <td class="text-end"><b>97.2%</b></td>
-                                        <td class="text-end"><span
-                                                class="tp-badge tp-badge--score tp-badge--score-warn">88%</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Odisha Central</td>
-                                        <td>PRD-I</td>
-                                        <td>PRD-01</td>
-                                        <td>SEC-E</td>
-                                        <td><b>PRD-01 Port</b></td>
-                                        <td class="text-end"><b>2.18</b></td>
-                                        <td class="text-end">2.05</td>
-                                        <td class="text-end"><b>52.8</b></td>
-                                        <td class="text-end">50.0</td>
-                                        <td class="text-end tp-variance tp-variance--up">+5.6%</td>
-                                        <td><span class="tp-status-dot tp-status-dot--online"></span>Online</td>
-                                        <td><span class="tp-badge tp-badge--active">Active</span></td>
-                                        <td class="text-end"><b>99.1%</b></td>
-                                        <td class="text-end"><span
-                                                class="tp-badge tp-badge--score tp-badge--score-good">94%</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Odisha Central</td>
-                                        <td>DHK-I</td>
-                                        <td>DHK-01</td>
-                                        <td>SEC-F</td>
-                                        <td><b>DHK-08 Rural</b></td>
-                                        <td class="text-end"><b>0.02</b></td>
-                                        <td class="text-end">0.03</td>
-                                        <td class="text-end"><b>0.4</b></td>
-                                        <td class="text-end">5.0</td>
-                                        <td class="text-end tp-variance tp-variance--down">-92.0%</td>
-                                        <td><span class="tp-status-dot tp-status-dot--offline"></span>Offline</td>
-                                        <td><span class="tp-badge tp-badge--faulty">Faulty</span></td>
-                                        <td class="text-end"><b>42.5%</b></td>
-                                        <td class="text-end"><span
-                                                class="tp-badge tp-badge--score tp-badge--score-bad">38%</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Odisha Central</td>
-                                        <td>DHK-I</td>
-                                        <td>DHK-01</td>
-                                        <td>SEC-G</td>
-                                        <td><b>DHK-07 West</b></td>
-                                        <td class="text-end"><b>0.05</b></td>
-                                        <td class="text-end">0.06</td>
-                                        <td class="text-end"><b>1.1</b></td>
-                                        <td class="text-end">4.5</td>
-                                        <td class="text-end tp-variance tp-variance--down">-75.5%</td>
-                                        <td><span class="tp-status-dot tp-status-dot--online"></span>Online</td>
-                                        <td><span class="tp-badge tp-badge--noload">No Load</span></td>
-                                        <td class="text-end"><b>95.0%</b></td>
-                                        <td class="text-end"><span
-                                                class="tp-badge tp-badge--score tp-badge--score-warn">71%</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Odisha Central</td>
-                                        <td>PRD-I</td>
-                                        <td>PRD-01</td>
-                                        <td>SEC-H</td>
-                                        <td><b>PRD-06 Coastal</b></td>
-                                        <td class="text-end"><b>0.08</b></td>
-                                        <td class="text-end">0.10</td>
-                                        <td class="text-end"><b>1.8</b></td>
-                                        <td class="text-end">5.5</td>
-                                        <td class="text-end tp-variance tp-variance--down">-67.2%</td>
-                                        <td><span class="tp-status-dot tp-status-dot--offline"></span>Offline</td>
-                                        <td><span class="tp-badge tp-badge--noload">No Load</span></td>
-                                        <td class="text-end"><b>88.0%</b></td>
-                                        <td class="text-end"><span
-                                                class="tp-badge tp-badge--score tp-badge--score-warn">62%</span></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                            <div class="table-responsive">
+                                <table id="detailedFeederTable" class="tp-table tp-table--feeder" data-table-tools
+                                    data-page-size="10" data-export-name="detailed-feeder-analysis">
+                                    <thead>
+                                        <tr>
+                                            <th>Circle <span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
+                                                        class="fa-solid fa-caret-down"></i></span></th>
+                                            <th>Division <span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
+                                                        class="fa-solid fa-caret-down"></i></span></th>
+                                            <th>Sub Division <span class="sort-icon"><i
+                                                        class="fa-solid fa-caret-up"></i><i
+                                                        class="fa-solid fa-caret-down"></i></span></th>
+                                            <th>Section <span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
+                                                        class="fa-solid fa-caret-down"></i></span></th>
+                                            <th>Feeder <span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
+                                                        class="fa-solid fa-caret-down"></i></span></th>
+                                            <th class="text-end">Today (MU) <span class="sort-icon"><i
+                                                        class="fa-solid fa-caret-up"></i><i
+                                                        class="fa-solid fa-caret-down"></i></span></th>
+                                            <th class="text-end">Yest (MU) <span class="sort-icon"><i
+                                                        class="fa-solid fa-caret-up"></i><i
+                                                        class="fa-solid fa-caret-down"></i></span></th>
+                                            <th class="text-end">MTD (MU) <span class="sort-icon"><i
+                                                        class="fa-solid fa-caret-up"></i><i
+                                                        class="fa-solid fa-caret-down"></i></span></th>
+                                            <th class="text-end">Target (MU) <span class="sort-icon"><i
+                                                        class="fa-solid fa-caret-up"></i><i
+                                                        class="fa-solid fa-caret-down"></i></span></th>
+                                            <th class="text-end">Variance <span class="sort-icon"><i
+                                                        class="fa-solid fa-caret-up"></i><i
+                                                        class="fa-solid fa-caret-down"></i></span></th>
+                                            <th>Comm Status <span class="sort-icon"><i
+                                                        class="fa-solid fa-caret-up"></i><i
+                                                        class="fa-solid fa-caret-down"></i></span></th>
+                                            <th>Feeder Status <span class="sort-icon"><i
+                                                        class="fa-solid fa-caret-up"></i><i
+                                                        class="fa-solid fa-caret-down"></i></span></th>
+                                            <th class="text-end">Availability <span class="sort-icon"><i
+                                                        class="fa-solid fa-caret-up"></i><i
+                                                        class="fa-solid fa-caret-down"></i></span></th>
+                                            <th class="text-end">Health Score <span class="sort-icon"><i
+                                                        class="fa-solid fa-caret-up"></i><i
+                                                        class="fa-solid fa-caret-down"></i></span></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Odisha Central</td>
+                                            <td>BBSR-I</td>
+                                            <td>BBSR-01</td>
+                                            <td>SEC-A</td>
+                                            <td><b>BBSR-01 Industrial</b></td>
+                                            <td class="text-end"><b>2.84</b></td>
+                                            <td class="text-end">2.65</td>
+                                            <td class="text-end"><b>68.2</b></td>
+                                            <td class="text-end">65.0</td>
+                                            <td class="text-end tp-variance tp-variance--up">+4.9%</td>
+                                            <td><span class="tp-status-dot tp-status-dot--online"></span>Online</td>
+                                            <td><span class="tp-badge tp-badge--active">Active</span></td>
+                                            <td class="text-end"><b>99.8%</b></td>
+                                            <td class="text-end"><span
+                                                    class="tp-badge tp-badge--score tp-badge--score-good">98%</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Odisha Central</td>
+                                            <td>BBSR-I</td>
+                                            <td>BBSR-01</td>
+                                            <td>SEC-B</td>
+                                            <td><b>BBSR-03 Commercial</b></td>
+                                            <td class="text-end"><b>2.61</b></td>
+                                            <td class="text-end">2.50</td>
+                                            <td class="text-end"><b>62.1</b></td>
+                                            <td class="text-end">60.0</td>
+                                            <td class="text-end tp-variance tp-variance--up">+3.5%</td>
+                                            <td><span class="tp-status-dot tp-status-dot--online"></span>Online</td>
+                                            <td><span class="tp-badge tp-badge--active">Active</span></td>
+                                            <td class="text-end"><b>99.5%</b></td>
+                                            <td class="text-end"><span
+                                                    class="tp-badge tp-badge--score tp-badge--score-good">95%</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Odisha Central</td>
+                                            <td>CTC-I</td>
+                                            <td>CTC-02</td>
+                                            <td>SEC-C</td>
+                                            <td><b>CTC-02 Main</b></td>
+                                            <td class="text-end"><b>2.45</b></td>
+                                            <td class="text-end">2.51</td>
+                                            <td class="text-end"><b>58.7</b></td>
+                                            <td class="text-end">58.0</td>
+                                            <td class="text-end tp-variance tp-variance--up">+1.2%</td>
+                                            <td><span class="tp-status-dot tp-status-dot--online"></span>Online</td>
+                                            <td><span class="tp-badge tp-badge--active">Active</span></td>
+                                            <td class="text-end"><b>98.9%</b></td>
+                                            <td class="text-end"><span
+                                                    class="tp-badge tp-badge--score tp-badge--score-good">92%</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Odisha Central</td>
+                                            <td>BBSR-I</td>
+                                            <td>BBSR-01</td>
+                                            <td>SEC-D</td>
+                                            <td><b>BBSR-05 Grid</b></td>
+                                            <td class="text-end"><b>2.31</b></td>
+                                            <td class="text-end">2.45</td>
+                                            <td class="text-end"><b>55.2</b></td>
+                                            <td class="text-end">56.0</td>
+                                            <td class="text-end tp-variance tp-variance--down">-1.4%</td>
+                                            <td><span class="tp-status-dot tp-status-dot--online"></span>Online</td>
+                                            <td><span class="tp-badge tp-badge--active">Active</span></td>
+                                            <td class="text-end"><b>97.2%</b></td>
+                                            <td class="text-end"><span
+                                                    class="tp-badge tp-badge--score tp-badge--score-warn">88%</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Odisha Central</td>
+                                            <td>PRD-I</td>
+                                            <td>PRD-01</td>
+                                            <td>SEC-E</td>
+                                            <td><b>PRD-01 Port</b></td>
+                                            <td class="text-end"><b>2.18</b></td>
+                                            <td class="text-end">2.05</td>
+                                            <td class="text-end"><b>52.8</b></td>
+                                            <td class="text-end">50.0</td>
+                                            <td class="text-end tp-variance tp-variance--up">+5.6%</td>
+                                            <td><span class="tp-status-dot tp-status-dot--online"></span>Online</td>
+                                            <td><span class="tp-badge tp-badge--active">Active</span></td>
+                                            <td class="text-end"><b>99.1%</b></td>
+                                            <td class="text-end"><span
+                                                    class="tp-badge tp-badge--score tp-badge--score-good">94%</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Odisha Central</td>
+                                            <td>DHK-I</td>
+                                            <td>DHK-01</td>
+                                            <td>SEC-F</td>
+                                            <td><b>DHK-08 Rural</b></td>
+                                            <td class="text-end"><b>0.02</b></td>
+                                            <td class="text-end">0.03</td>
+                                            <td class="text-end"><b>0.4</b></td>
+                                            <td class="text-end">5.0</td>
+                                            <td class="text-end tp-variance tp-variance--down">-92.0%</td>
+                                            <td><span class="tp-status-dot tp-status-dot--offline"></span>Offline</td>
+                                            <td><span class="tp-badge tp-badge--faulty">Faulty</span></td>
+                                            <td class="text-end"><b>42.5%</b></td>
+                                            <td class="text-end"><span
+                                                    class="tp-badge tp-badge--score tp-badge--score-bad">38%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Odisha Central</td>
+                                            <td>DHK-I</td>
+                                            <td>DHK-01</td>
+                                            <td>SEC-G</td>
+                                            <td><b>DHK-07 West</b></td>
+                                            <td class="text-end"><b>0.05</b></td>
+                                            <td class="text-end">0.06</td>
+                                            <td class="text-end"><b>1.1</b></td>
+                                            <td class="text-end">4.5</td>
+                                            <td class="text-end tp-variance tp-variance--down">-75.5%</td>
+                                            <td><span class="tp-status-dot tp-status-dot--online"></span>Online</td>
+                                            <td><span class="tp-badge tp-badge--noload">No Load</span></td>
+                                            <td class="text-end"><b>95.0%</b></td>
+                                            <td class="text-end"><span
+                                                    class="tp-badge tp-badge--score tp-badge--score-warn">71%</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Odisha Central</td>
+                                            <td>PRD-I</td>
+                                            <td>PRD-01</td>
+                                            <td>SEC-H</td>
+                                            <td><b>PRD-06 Coastal</b></td>
+                                            <td class="text-end"><b>0.08</b></td>
+                                            <td class="text-end">0.10</td>
+                                            <td class="text-end"><b>1.8</b></td>
+                                            <td class="text-end">5.5</td>
+                                            <td class="text-end tp-variance tp-variance--down">-67.2%</td>
+                                            <td><span class="tp-status-dot tp-status-dot--offline"></span>Offline</td>
+                                            <td><span class="tp-badge tp-badge--noload">No Load</span></td>
+                                            <td class="text-end"><b>88.0%</b></td>
+                                            <td class="text-end"><span
+                                                    class="tp-badge tp-badge--score tp-badge--score-warn">62%</span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
 
+                        </div>
                     </div>
-</div>
                 </div>
 
             </div>
