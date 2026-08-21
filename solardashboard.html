@@ -39,14 +39,11 @@
                         <i class="fa fa-magnifying-glass"></i>
                         <input type="text" placeholder="Search for..." />
                     </div>
-                    <button class="btn-tp btn-tp-primary">
+                    <button class="btn-tp btn-tp-sm btn-tp-secondary">
                         Export Data <i class="fa-solid fa-download"></i>
                     </button>
-                    <button class="btn-tp btn-tp-default">
-                        Create Report <i class="fa-solid fa-plus"></i>
-                    </button>
                     <div class="dropdown">
-                        <a class="btn-tp btn-tp-primary dropdown-toggle" href="#" role="button"
+                        <a class="btn-tp btn-tp-sm btn-tp-primary dropdown-toggle" href="#" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             Today
                         </a>
@@ -57,6 +54,10 @@
                             <li><a class="dropdown-item" href="#">Last 30 Days</a></li>
                         </ul>
                     </div>
+                    <button id="filterToggleBtn" class="topbar__filter-btn" aria-expanded="false"
+                        aria-controls="tpFilterBar">
+                        <i class="fa-solid fa-filter"></i>
+                    </button>
                     <button id="filterToggleBtn" class="topbar__filter-btn" aria-expanded="false"
                         aria-controls="tpFilterBar">
                         <i class="fa-solid fa-filter"></i>
@@ -112,13 +113,13 @@
                     </div>
 
                     <div class="col-6 col-md-auto">
-                        <button class="btn-tp btn-tp-outline-danger w-100" id="filterReset">
+                        <button class="btn-tp btn-tp-sm btn-tp-outline-danger w-100" id="filterReset">
                             <i class="fa-solid fa-rotate-left"></i> Reset
                         </button>
                     </div>
 
                     <div class="col-6 col-md-auto">
-                        <button class="btn-tp btn-tp-primary w-100" id="filterSubmit">
+                        <button class="btn-tp btn-tp-sm btn-tp-primary w-100" id="filterSubmit">
                             <i class="fa-solid fa-check"></i> Submit
                         </button>
                     </div>
@@ -195,9 +196,12 @@
                     <!-- Main Area Chart -->
                     <div class="chart-card chart-card--main col-12 col-xl-8">
                         <div class="chart-card__header">
-                            <div>
+                            <!-- <div>
                                 <p class="chart-card__title">Solar Generation vs Net consumption.</p>
-                            </div>
+                            </div> -->
+                            <span class="chart-card__title">
+                                <i class="fa-solid fa-solar-panel"></i> Solar Generation vs Net consumption.
+                            </span>
 
                             <div class="chart-card__header-right d-flex align-items-center gap-2">
 
@@ -257,8 +261,10 @@
 
                     <div class="col-12 col-xl-4">
                         <div class="info-card h-100">
-                            <div class="info-card__header">
-                                <p class="info-card__title">Key Metrics Summary</p>
+                            <div class="info-card__header d-flex align-items-center gap-2">
+                                <span class="chart-card__title">
+                                    <i class="fa-solid fa-clipboard-list"></i> Key Matrices Summary.
+                                </span>
                             </div>
 
                             <div class="info-card__body">
@@ -298,18 +304,19 @@
 
                                 <div class="info-card__row">
                                     <span class="info-card__label">
-                                        <i class="fa-solid fa-leaf info-card__icon info-card__icon--green"></i>
-                                        CO<sub>2</sub> Credit
+                                        <i class="fa-solid fa-bug info-card__icon info-card__icon--green"></i>
+                                        Comm Faults
                                     </span>
-                                    <span class="stat-card__badge stat-card__badge--up">7,01,840 kg</span>
+                                    <span class="stat-card__badge stat-card__badge--down">4sites</span>
                                 </div>
 
                                 <div class="info-card__row">
                                     <span class="info-card__label">
-                                        <i class="fa-solid fa-leaf info-card__icon info-card__icon--green"></i>
-                                        CO<sub>2</sub> Credit
+                                        <i
+                                            class="fa-solid fa-triangle-exclamation info-card__icon info-card__icon--green"></i>
+                                        Inverter Off
                                     </span>
-                                    <span class="stat-card__badge stat-card__badge--up">7,01,840 kg</span>
+                                    <span class="stat-card__badge stat-card__badge--down">8 sites</span>
                                 </div>
 
                                 <div class="info-card__row">
@@ -332,10 +339,14 @@
                     <div class="col-12 col-xl-6">
                         <div class="chart-card chart-card--main h-100">
                             <div class="chart-card__header">
-                                <div>
-                                    <p class="chart-card__title">Circle-wise Rooftop Solar Generation</p>
+
+                                <span class="chart-card__title">
+                                    <i class="fa-solid fa-map-location-dot"></i> Circle-wise Rooftop Solar Generation.
                                     <p class="chart-card__subtitle">Unit: MWh (This Month)</p>
-                                </div>
+                                </span>
+
+
+
                             </div>
                             <div class="chart-card__body">
                                 <canvas id="circleGenerationChart"></canvas>
@@ -347,9 +358,11 @@
                     <div class="col-12 col-xl-6">
                         <div class="chart-card chart-card--main h-100">
                             <div class="chart-card__header">
-                                <div>
-                                    <p class="chart-card__title">Performance Breakdown by Circle</p>
-                                </div>
+                                <span class="chart-card__title">
+                                    <i class="fa-solid fa-chart-pie"></i> Performance Breakdown by Circle.
+
+                                </span>
+
                             </div>
                             <div class="chart-card__body">
                                 <canvas id="performanceBreakdownChart"></canvas>
@@ -409,8 +422,7 @@
 
                                             <td class="text-end tp-variance tp-variance--up">+4.9%</td>
                                             <td><span class="tp-status-dot tp-status-dot--online"></span>Online</td>
-                                            <td><span class="tp-badge tp-badge--score tp-badge--score-good">98%</span>
-                                            </td>
+
                                             <td class="text-end"><span
                                                     class="tp-badge tp-badge--score tp-badge--score-good">95%</span>
                                             </td>
@@ -425,8 +437,7 @@
 
                                             <td class="text-end tp-variance tp-variance--up">+4.9%</td>
                                             <td><span class="tp-status-dot tp-status-dot--online"></span>Online</td>
-                                            <td><span class="tp-badge tp-badge--score tp-badge--score-good">98%</span>
-                                            </td>
+
                                             <td class="text-end"><span
                                                     class="tp-badge tp-badge--score tp-badge--score-good">95%</span>
                                             </td>
@@ -437,12 +448,11 @@
                                             <td>4 kWp</td>
                                             <td>185 kWh</td>
                                             <td><b>4.07MWh</b></td>
-                                            <td><span class="tp-badge tp-badge--active">Active</span></td>
+                                            <td><span class="tp-badge tp-badge--faulty">Inactive</span></td>
 
                                             <td class="text-end tp-variance tp-variance--up">+4.9%</td>
-                                            <td><span class="tp-status-dot tp-status-dot--online"></span>Online</td>
-                                            <td><span class="tp-badge tp-badge--score tp-badge--score-good">98%</span>
-                                            </td>
+                                            <td><span class="tp-status-dot tp-status-dot--offline"></span>Offline</td>
+
                                             <td class="text-end"><span
                                                     class="tp-badge tp-badge--score tp-badge--score-good">95%</span>
                                             </td>
@@ -506,7 +516,7 @@
                     cornerRadius: 10,
                 };
 
-                const datalabelColor = dark ? '#fff' : '#1A2E2B';
+                const datalabelColor = dark ? '#fff' : '#10635A';
 
                 Chart.defaults.font.family = "'Outfit', sans-serif";
                 Chart.defaults.font.size = 11;
@@ -647,7 +657,7 @@
                                 title: {
                                     display: true,
                                     text: 'MW',
-                                    color: muted,
+                                    color: datalabelColor,
                                     font: { weight: '600', size: 12 },
                                 },
                                 ticks: {
