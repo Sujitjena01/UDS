@@ -608,7 +608,7 @@ body {
     &__body {
         flex: 1;
         padding: 0 10px 10px;
-        height: 200px;
+        // height: 200px;
         position: relative;
 
         canvas {
@@ -667,6 +667,17 @@ body {
         margin-top: 10px;
         padding-top: 5px;
         font-size: 12px;
+    }
+
+    &__subtitle {
+        font-size: 12px;
+        font-weight: 500;
+        color: $black-60;
+        margin: 2px 0 0;
+
+        @at-root [data-theme="dark"] & {
+            color: rgba($white, 0.55);
+        }
     }
 }
 

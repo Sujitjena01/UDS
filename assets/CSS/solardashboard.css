@@ -1605,7 +1605,6 @@ body {
 .chart-card__body {
   flex: 1;
   padding: 0 10px 10px;
-  height: 200px;
   position: relative;
 }
 .chart-card__body canvas {
@@ -1655,6 +1654,15 @@ body {
   margin-top: 10px;
   padding-top: 5px;
   font-size: 12px;
+}
+.chart-card__subtitle {
+  font-size: 12px;
+  font-weight: 500;
+  color: #797979;
+  margin: 2px 0 0;
+}
+[data-theme=dark] .chart-card__subtitle {
+  color: rgba(255, 255, 255, 0.55);
 }
 
 [data-theme=dark] .chart-card {

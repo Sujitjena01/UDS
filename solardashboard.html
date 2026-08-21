@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="assets/CSS/font-awesome/css/all.css">
     <link rel="stylesheet" href="assets/CSS/solardashboard.css">
     <link href="assets/CSS/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/CSS/equipment.css">
+    <link rel="stylesheet" href="assets/CSS/energymonitoringdashboard.css">
+    <link rel="stylesheet" href="assets/CSS/table-tools.css">
 
 
 
@@ -323,6 +326,137 @@
 
                 </div>
 
+                <div class="charts-row row g-3">
+
+                    <!-- Circle-wise Rooftop Solar Generation -->
+                    <div class="col-12 col-xl-6">
+                        <div class="chart-card chart-card--main h-100">
+                            <div class="chart-card__header">
+                                <div>
+                                    <p class="chart-card__title">Circle-wise Rooftop Solar Generation</p>
+                                    <p class="chart-card__subtitle">Unit: MWh (This Month)</p>
+                                </div>
+                            </div>
+                            <div class="chart-card__body">
+                                <canvas id="circleGenerationChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Performance Breakdown by Circle -->
+                    <div class="col-12 col-xl-6">
+                        <div class="chart-card chart-card--main h-100">
+                            <div class="chart-card__header">
+                                <div>
+                                    <p class="chart-card__title">Performance Breakdown by Circle</p>
+                                </div>
+                            </div>
+                            <div class="chart-card__body">
+                                <canvas id="performanceBreakdownChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="charts-row row g-3">
+                    <div class="col-12">
+                        <div class="section-card">
+                            <div class="section-card__header">
+                                <span class="chart-card__title">
+                                    <i class="fa-solid fa-database"></i> Detailed Feeder Analysis
+                                </span>
+                            </div>
+
+                            <div class="table-responsive">
+                                <table id="detailedFeederTable" class="tp-table tp-table--feeder" data-table-tools
+                                    data-page-size="10" data-export-name="detailed-feeder-analysis">
+                                    <thead>
+                                        <tr>
+                                            <th>Circle <span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
+                                                        class="fa-solid fa-caret-down"></i></span></th>
+                                            <th>Plant/ Side Name <span class="sort-icon"><i
+                                                        class="fa-solid fa-caret-up"></i><i
+                                                        class="fa-solid fa-caret-down"></i></span></th>
+                                            <th>Capacity <span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
+                                                        class="fa-solid fa-caret-down"></i></span></th>
+                                            <th>Today Gen <span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
+                                                        class="fa-solid fa-caret-down"></i></span></th>
+                                            <th class="text-center">PR% <span class="sort-icon"><i
+                                                        class="fa-solid fa-caret-up"></i><i
+                                                        class="fa-solid fa-caret-down"></i></span></th>
+                                            <th>MTD Gen <span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
+                                                        class="fa-solid fa-caret-down"></i></span></th>
+                                            <th>Telemetry <span class="sort-icon"><i class="fa-solid fa-caret-up"></i><i
+                                                        class="fa-solid fa-caret-down"></i></span></th>
+                                            <th>Inverter Status <span class="sort-icon"><i
+                                                        class="fa-solid fa-caret-up"></i><i
+                                                        class="fa-solid fa-caret-down"></i></span></th>
+
+                                            <th class="text-end">Health Score <span class="sort-icon"><i
+                                                        class="fa-solid fa-caret-up"></i><i
+                                                        class="fa-solid fa-caret-down"></i></span></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Balasore</td>
+                                            <td>ULA Govt High School</td>
+                                            <td>4 kWp</td>
+                                            <td>185 kWh</td>
+                                            <td><b>4.07MWh</b></td>
+                                            <td><span class="tp-badge tp-badge--active">Active</span></td>
+
+                                            <td class="text-end tp-variance tp-variance--up">+4.9%</td>
+                                            <td><span class="tp-status-dot tp-status-dot--online"></span>Online</td>
+                                            <td><span class="tp-badge tp-badge--score tp-badge--score-good">98%</span>
+                                            </td>
+                                            <td class="text-end"><span
+                                                    class="tp-badge tp-badge--score tp-badge--score-good">95%</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Balasore</td>
+                                            <td>ULA Govt High School</td>
+                                            <td>4 kWp</td>
+                                            <td>185 kWh</td>
+                                            <td><b>4.07MWh</b></td>
+                                            <td><span class="tp-badge tp-badge--active">Active</span></td>
+
+                                            <td class="text-end tp-variance tp-variance--up">+4.9%</td>
+                                            <td><span class="tp-status-dot tp-status-dot--online"></span>Online</td>
+                                            <td><span class="tp-badge tp-badge--score tp-badge--score-good">98%</span>
+                                            </td>
+                                            <td class="text-end"><span
+                                                    class="tp-badge tp-badge--score tp-badge--score-good">95%</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Balasore</td>
+                                            <td>ULA Govt High School</td>
+                                            <td>4 kWp</td>
+                                            <td>185 kWh</td>
+                                            <td><b>4.07MWh</b></td>
+                                            <td><span class="tp-badge tp-badge--active">Active</span></td>
+
+                                            <td class="text-end tp-variance tp-variance--up">+4.9%</td>
+                                            <td><span class="tp-status-dot tp-status-dot--online"></span>Online</td>
+                                            <td><span class="tp-badge tp-badge--score tp-badge--score-good">98%</span>
+                                            </td>
+                                            <td class="text-end"><span
+                                                    class="tp-badge tp-badge--score tp-badge--score-good">95%</span>
+                                            </td>
+                                        </tr>
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
 
 
 
@@ -576,11 +710,156 @@
             });
         })();
     </script>
+    <script>
+        (function () {
+            const isDark = () => document.documentElement.getAttribute('data-theme') === 'dark';
+
+            function initSecondaryCharts() {
+                const generationEl = document.getElementById('circleGenerationChart');
+                const performanceEl = document.getElementById('performanceBreakdownChart');
+                if (!generationEl || !performanceEl) return;
+
+                [generationEl, performanceEl].forEach(el => {
+                    const existing = Chart.getChart(el);
+                    if (existing) existing.destroy();
+                });
+
+                const muted = '#7EADA6';
+
+                Chart.register(ChartDataLabels);
+
+                // ── 1. Circle-wise Rooftop Solar Generation ─────
+                new Chart(generationEl.getContext('2d'), {
+                    type: 'bar',
+                    data: {
+                        labels: ['Balasore', 'Bhadrak', 'Baripada', 'Keonjhar'],
+                        datasets: [{
+                            label: 'Generation',
+                            data: [480, 320, 290, 190],
+                            backgroundColor: '#10635A',
+                            datalabels: {
+                                color: '#fff',
+                            },
+                        }],
+                    },
+                    options: {
+                        indexAxis: 'y',
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: {
+                                callbacks: {
+                                    label: ctx => ` ${ctx.raw} MWh`,
+                                },
+                            },
+                            datalabels: {
+                                anchor: 'center',
+                                align: 'center',
+                                font: { weight: '600', size: 11 },
+                                formatter: v => `${v} MWh`,
+                            },
+                        },
+                        scales: {
+                            x: {
+                                display: false,
+                                max: 500,
+                            },
+                            y: {
+                                grid: { display: false },
+                                ticks: { color: muted, font: { weight: '600' } },
+                                border: { display: false },
+                            },
+                        },
+                    },
+                });
+
+                // ── 2. Performance Breakdown by Circle ─────
+                new Chart(performanceEl.getContext('2d'), {
+                    type: 'bar',
+                    data: {
+                        labels: ['Balasore', 'Baripada', 'Keonjhar', 'Bhadrak'],
+                        datasets: [
+                            {
+                                label: 'Good',
+                                data: [70, 55, 45, 40],
+                                backgroundColor: '#10635A',
+                                datalabels: { color: '#fff' },
+                            },
+                            {
+                                label: 'Average',
+                                data: [30, 35, 30, 25],
+                                backgroundColor: '#D78202',
+                                datalabels: { color: '#fff' },
+                            },
+                            {
+                                label: 'Poor',
+                                data: [0, 10, 25, 35],
+                                backgroundColor: '#D31F1F',
+                                datalabels: { color: '#fff' },
+                            },
+                        ],
+                    },
+                    options: {
+                        indexAxis: 'y',
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'bottom',
+                                align: 'center',
+                                labels: {
+                                    boxWidth: 10,
+                                    usePointStyle: true,
+                                    pointStyle: 'circle',
+                                    color: muted,
+                                    font: { size: 12, weight: '600' },
+                                },
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: ctx => ` ${ctx.dataset.label}: ${ctx.raw}%`,
+                                },
+                            },
+                            datalabels: {
+                                anchor: 'center',
+                                align: 'center',
+                                font: { weight: '600', size: 11 },
+                                formatter: v => v > 0 ? `${v}%` : '',
+                            },
+                        },
+                        scales: {
+                            x: {
+                                stacked: true,
+                                display: false,
+                            },
+                            y: {
+                                stacked: true,
+                                grid: { display: false },
+                                ticks: { color: muted, font: { weight: '600' } },
+                                border: { display: false },
+                            },
+                        },
+                    },
+                });
+            }
+
+            initSecondaryCharts();
+            new MutationObserver(initSecondaryCharts).observe(document.documentElement, {
+                attributes: true,
+                attributeFilter: ['data-theme'],
+            });
+            window.addEventListener('resize', initSecondaryCharts);
+        })();
+    </script>
 
     <script src="assets/JS/theme.js"></script>
     <script src="assets/Pages/sidebar.js"></script>
     <script src="assets/Pages/footer.js"></script>
     <script src="assets/Pages/header.js"></script>
+    <script src="assets/JS/customTable.js"></script>
+    <script src="assets/js/table-tools.js"></script>
 
 </body>
 
