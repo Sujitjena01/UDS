@@ -91,7 +91,6 @@ body {
         border-radius: $br-5;
         cursor: pointer;
 
-        // Chevron uses $black-60 (#797979) — remember to URL-encode # as %23
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6' fill='none'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23797979' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
         background-repeat: no-repeat;
         background-position: right 12px center;
@@ -102,18 +101,15 @@ body {
             box-shadow: 0 0 0 3px rgba($highlight-green, 0.12);
         }
 
-        // Larger touch target on mobile — 44px is the standard minimum tap size
         @media #{$mobile_device} {
             padding: 12px 36px 12px 12px;
-            font-size: 14px; // also prevents iOS Safari auto-zoom-on-focus below 16px
+            font-size: 14px;
         }
 
         @at-root [data-theme="dark"] & {
             color: rgba($white, 0.85);
             border-color: $oceanic-green-80;
 
-            // Chevron needs to be re-encoded for dark mode — %23FFFFFF (or a light muted tone) instead of %23797979,
-            // since the same dark chevron would be near-invisible on this background
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6' fill='none'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23BFBFBF' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 
             &:focus {
@@ -141,7 +137,6 @@ body {
         }
     }
 
-    // Wrap Reset + Export in this element in the HTML so they can be targeted as a pair on mobile
     &__buttons {
         display: flex;
         gap: 0.75rem;
@@ -191,9 +186,6 @@ body {
             }
         }
 
-        // Border-left reads fine sitting beside the buttons on desktop,
-        // but once everything stacks it becomes a stray vertical line —
-        // swap to a border-top full-width divider instead.
         @media #{$mobile_device} {
             flex-direction: row;
             align-items: center;
@@ -225,7 +217,7 @@ body {
 }
 
 .topbar__filter-btn {
-    display: none; // hidden on desktop by default
+    display: none;
     align-items: center;
     justify-content: center;
     width: 36px;
@@ -250,7 +242,7 @@ body {
     }
 
     @media #{$mobile_device} {
-        display: inline-flex; // only shown on mobile
+        display: inline-flex;
     }
 
     @at-root [data-theme="dark"] & {
@@ -260,8 +252,6 @@ body {
     }
 }
 
-
-// Collapse the filter bar on mobile by default, expand via JS toggle
 @media #{$mobile_device} {
     .tp-filter-bar {
         display: none;
@@ -271,7 +261,6 @@ body {
         }
     }
 }
-
 
 .ca-info-bar {
     background: $highlight-green;
@@ -348,8 +337,8 @@ body {
     }
 
     &--smart {
-        background: rgba($royal-blue, 0.20);
-        color: lighten($royal-blue, 25%);
+        background: rgb(79 108 145 / 85%);
+        color: rgb(158 201 255);
     }
 
     &--postpaid {
@@ -359,6 +348,7 @@ body {
 }
 
 .tab-box {
+    // position: sticky;
     top: 50px;
     background: color-mix(in srgb, $highlight-green 8%, $white 100%);
     z-index: 10;
@@ -382,7 +372,6 @@ body {
             color: $highlight-green !important;
             background-color: transparent;
             border: none !important;
-            // border-bottom: none !important;
 
             &::after {
                 content: "";
@@ -453,7 +442,7 @@ body {
         display: flex;
         flex-direction: column;
         gap: 7px;
-        min-width: 0; // allows text truncation if needed
+        min-width: 0;
     }
 
     &__label {
@@ -481,7 +470,7 @@ body {
         justify-content: center;
         font-size: 16px;
         flex-shrink: 0;
-        align-self: center; // vertically centered against the card
+        align-self: center;
     }
 
     &__badge {
@@ -531,7 +520,6 @@ body {
         gap: 4px;
     }
 
-    // ── Accent variants ──────────────────────────────
     &--blue {
         background: rgba($royal-blue, 0.07);
         border: 1px solid rgba($royal-blue, 0.25);
@@ -571,10 +559,8 @@ body {
             background: rgba($highlight-green, 0.15);
             color: $highlight-green;
 
-
             @at-root [data-theme="dark"] & {
                 color: $neon;
-
             }
         }
 
@@ -598,13 +584,12 @@ body {
         }
     }
 
-    // ── Mini variant (chart-header stat chips) ────────
     &--mini {
         display: flex;
         align-items: center;
         gap: 8px;
-        width: auto; // override base .stat-card's 100% width
-        flex: 0 0 auto; // don't grow/shrink to fill the row — size to content
+        width: auto;
+        flex: 0 0 auto;
         min-width: max-content;
         padding: 6px 10px;
         border-radius: $br-2;
@@ -676,9 +661,6 @@ body {
 }
 
 // ── Charts ────────────────────────────────────────────────────
-// Layout (display/columns) is handled entirely by Bootstrap's
-// .row + col-12/col-xl-8/col-xl-4 classes in the HTML — this class
-// only adds spacing, so it doesn't fight Bootstrap's flex grid.
 .charts-row {
     margin-bottom: 24px;
 }
@@ -694,6 +676,14 @@ body {
     &--trend {
         display: flex;
         flex-direction: column;
+    }
+
+    &--compact {
+        height: 260px !important;
+
+        .chart-card__body {
+            padding: 0 10px 10px;
+        }
     }
 
     &--trend {
@@ -722,6 +712,17 @@ body {
         margin: 0;
     }
 
+    &__subtitle-inline {
+        font-size: 12px;
+        font-weight: 500;
+        color: $black-60;
+        margin-left: auto;
+
+        @at-root [data-theme="dark"] & {
+            color: rgba($white, 0.5);
+        }
+    }
+
     &__value {
         font-size: 22px;
         font-weight: 700;
@@ -735,8 +736,8 @@ body {
     &__body {
         flex: 1;
         padding: 0 10px 10px;
-        // height: 200px;
         position: relative;
+        min-height: 0;
 
         canvas {
             width: 100% !important;
@@ -830,7 +831,7 @@ body {
     &__weekday {
         background: $gray-40;
         text-align: center;
-        color:#000;
+        color: #000;
         font-family: $font-outfit;
         font-weight: 700;
         font-size: 12px;
@@ -973,6 +974,251 @@ body {
     }
 }
 
+.tp-tod-card {
+    .info-card__body {
+        padding-top: $p-4;
+    }
+}
+
+.tp-tod-bar {
+    display: flex;
+    border-radius: $br-8;
+    overflow: hidden;
+    margin-bottom: $p-6;
+
+    &__segment {
+        padding: $p-6 $p-8;
+        min-width: 0;
+
+        &--night {
+            background: rgba($oceanic-green, 0.08);
+
+            .tp-tod-bar__label,
+            .tp-tod-bar__value {
+                color: darken($oceanic-green, 10%);
+            }
+        }
+
+        &--morning {
+            background: rgba($orange, 0.08);
+
+            .tp-tod-bar__label,
+            .tp-tod-bar__value {
+                color: darken($orange, 5%);
+            }
+        }
+
+        &--normal {
+            background: rgba(#000, 0.04);
+
+            .tp-tod-bar__label,
+            .tp-tod-bar__value {
+                color: #6c757d;
+            }
+        }
+
+        &--peak {
+            background: rgba($error-red, 0.09);
+
+            .tp-tod-bar__label,
+            .tp-tod-bar__value {
+                color: $error-red;
+            }
+        }
+    }
+
+    &__label {
+        display: block;
+        font-size: 12px;
+        margin-bottom: $p-2;
+    }
+
+    &__value {
+        display: block;
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    @media #{$mobile_device} {
+        flex-wrap: wrap;
+
+        &__segment {
+            flex-basis: 50% !important;
+        }
+    }
+}
+
+.tp-tod-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $p-8 $p-10;
+    font-size: 12px;
+
+    &__item {
+        display: flex;
+        align-items: center;
+        gap: $p-4;
+        color: #6c757d;
+
+        &--night .tp-tod-legend__dot {
+            background: $oceanic-green;
+        }
+
+        &--morning .tp-tod-legend__dot {
+            background: $orange;
+        }
+
+        &--normal .tp-tod-legend__dot {
+            background: #6c757d;
+        }
+
+        &--peak .tp-tod-legend__dot {
+            background: $error-red;
+        }
+    }
+
+    &__dot {
+        width: 8px;
+        height: 8px;
+        border-radius: $br-7;
+        display: inline-block;
+    }
+}
+
+.detail-table {
+    &__row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0.7rem 0;
+        border-bottom: 1px solid var(--border-color, #EDF2F0);
+
+        &--last {
+            border-bottom: none;
+        }
+    }
+
+    &__label {
+        font-size: 12px;
+        color: var(--text-muted, #7EADA6);
+        white-space: nowrap;
+    }
+
+    &__value {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--text-primary, #1A2E2B);
+        text-align: right;
+
+        &--placeholder {
+            color: var(--text-muted, #7EADA6);
+            font-style: italic;
+        }
+    }
+
+}
+
+[data-theme="dark"] .detail-table {
+    &__row {
+        border-bottom-color: #2E4A45;
+    }
+
+    &__value {
+        color: #fff;
+    }
+
+    &__action-btn {
+        border-color: #fff;
+        color: #fff;
+    }
+}
+
+.org-hierarchy {
+    display: flex;
+    gap: 1rem;
+
+    &__tile {
+        flex: 1 1 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.35rem;
+        padding: 1.1rem 1rem;
+        background: var(--surface-muted, #EBEAE5);
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    &__value {
+        font-size: 1.15rem;
+        font-weight: 600;
+        color: var(--text-primary, #1A2E2B);
+        letter-spacing: 0.02em;
+    }
+
+    &__label {
+        font-size: 0.78rem;
+        color: var(--text-muted, #7EADA6);
+    }
+}
+
+@media (max-width: 768px) {
+    .org-hierarchy {
+        flex-wrap: wrap;
+    }
+
+    .org-hierarchy__tile {
+        flex: 1 1 calc(50% - 0.5rem);
+    }
+}
+
+[data-theme="dark"] .org-hierarchy {
+    &__tile {
+        background: #223834;
+    }
+
+    &__value {
+        color: #fff;
+    }
+}
+
+.segment-toggle {
+    display: inline-flex;
+    align-items: center;
+    background: var(--surface-muted, #EBEAE5);
+    border-radius: 999px;
+    padding: 3px;
+    gap: 2px;
+}
+
+.segment-toggle__btn {
+    border: none;
+    background: transparent;
+    color: var(--text-primary, #1A2E2B);
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.segment-toggle__btn--active {
+    background: var(--accent-dark, #1F7A4D);
+    color: #fff;
+}
+
+[data-theme="dark"] .segment-toggle {
+    background: #223834;
+}
+
+[data-theme="dark"] .segment-toggle__btn {
+    color: #fff;
+}
+
+
 // ── Utilities ─────────────────────────────────────────────────
 .text-muted {
     color: $highlight-green;
@@ -1036,7 +1282,6 @@ body {
     .stat-card__badge--down {
         font-size: 14px;
     }
-
 
     @at-root [data-theme="dark"] & {
         background-color: #031c19;

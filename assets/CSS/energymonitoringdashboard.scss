@@ -1103,7 +1103,7 @@ body {
 .info-card {
     display: flex;
     flex-direction: column;
-    border: 1px solid #000;
+    border: 1px solid $highlight-green;
     background-color: $white;
     border-radius: 8px;
     box-shadow: 0 1px 3px rgba($black, 0.06);
