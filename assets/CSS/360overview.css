@@ -1325,7 +1325,6 @@ body {
   justify-content: space-between;
   align-items: center;
   gap: 16px;
-  margin: 12px;
 }
 .ca-info-bar__avatar {
   width: 46px;
@@ -1389,15 +1388,13 @@ body {
   color: rgb(158, 201, 255);
 }
 .ca-badge--postpaid {
-  background: rgba(215, 130, 2, 0.25);
-  color: #D78202;
+  background: rgba(255, 216, 158, 0.25);
+  color: #ffc977;
 }
 
 .tab-box {
   top: 50px;
-  background: color-mix(in srgb, #10635A 8%, #FFFFFF 100%);
   z-index: 10;
-  padding: 0px 10px 0px 10px;
 }
 
 .custom-tabs .nav-link {
@@ -1849,7 +1846,6 @@ body {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  border: 1px solid #D9D9D9;
   border-radius: 0.5rem;
   padding: 14px 16px;
 }
@@ -1886,12 +1882,37 @@ body {
   color: #FFFFFF;
 }
 .tp-comm-legend__stat {
-  margin-left: auto;
   color: #797979;
   font-size: 12px;
 }
 :host-context([data-theme=dark]) .tp-comm-legend__stat {
   color: rgba(255, 255, 255, 0.6);
+}
+
+.tp-comm-avail {
+  font-size: 12px;
+  width: 100%;
+  font-weight: 600;
+  padding: 3px 6px;
+  border-radius: 0.3125rem;
+  border-left: 3px solid transparent;
+  white-space: nowrap;
+  margin-top: 50px;
+}
+.tp-comm-avail--green {
+  background: rgba(16, 99, 90, 0.1);
+  color: #10635A;
+  border-left-color: #10635A;
+}
+.tp-comm-avail--yellow {
+  background: rgba(215, 130, 2, 0.1);
+  color: #D78202;
+  border-left-color: #D78202;
+}
+.tp-comm-avail--red {
+  background: rgba(211, 31, 31, 0.1);
+  color: #D31F1F;
+  border-left-color: #D31F1F;
 }
 
 .chart-tooltip {
@@ -2061,21 +2082,21 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.35rem;
-  padding: 1.1rem 1rem;
-  background: var(--surface-muted, #EBEAE5);
-  border-radius: 10px;
+  gap: 3px;
+  padding: 10px;
+  background: #10635A;
+  border-radius: 5px;
   text-align: center;
 }
 .org-hierarchy__value {
   font-size: 1.15rem;
   font-weight: 600;
-  color: var(--text-primary, #1A2E2B);
+  color: #FFFFFF;
   letter-spacing: 0.02em;
 }
 .org-hierarchy__label {
   font-size: 0.78rem;
-  color: var(--text-muted, #7EADA6);
+  color: #FFFFFF;
 }
 
 @media (max-width: 768px) {

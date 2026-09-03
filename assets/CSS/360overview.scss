@@ -271,7 +271,6 @@ body {
     justify-content: space-between;
     align-items: center;
     gap: 16px;
-    margin: 12px;
 
     &__avatar {
         width: 46px;
@@ -342,17 +341,15 @@ body {
     }
 
     &--postpaid {
-        background: rgba($orange, 0.25);
-        color: $orange;
+        background: rgb(255 216 158 / 25%);
+        color: #ffc977;
     }
 }
 
 .tab-box {
     // position: sticky;
     top: 50px;
-    background: color-mix(in srgb, $highlight-green 8%, $white 100%);
     z-index: 10;
-    padding: 0px 10px 0px 10px;
 }
 
 .custom-tabs {
@@ -890,7 +887,6 @@ body {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    border: 1px solid $gray-40;
     border-radius: $br-8;
     padding: 14px 16px;
 
@@ -935,13 +931,42 @@ body {
     }
 
     &__stat {
-        margin-left: auto;
+
         color: $black-60;
         font-size: 12px;
 
         :host-context([data-theme="dark"]) & {
             color: rgba($white, 0.6);
         }
+    }
+}
+
+.tp-comm-avail {
+    font-size: 12px;
+    width: 100%;
+    font-weight: 600;
+    padding: 3px 6px;
+    border-radius: 0.3125rem;
+    border-left: 3px solid transparent;
+    white-space: nowrap;
+    margin-top: 50px;
+
+    &--green {
+        background: rgba($highlight-green, 0.1);
+        color: $highlight-green;
+        border-left-color: $highlight-green;
+    }
+
+    &--yellow {
+        background: rgba($orange, 0.1);
+        color: $orange;
+        border-left-color: $orange;
+    }
+
+    &--red {
+        background: rgba($error-red, 0.1);
+        color: $error-red;
+        border-left-color: $error-red;
     }
 }
 
@@ -1144,23 +1169,23 @@ body {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 0.35rem;
-        padding: 1.1rem 1rem;
-        background: var(--surface-muted, #EBEAE5);
-        border-radius: 10px;
+        gap: 3px;
+        padding: 10px;
+        background: $highlight-green;
+        border-radius: 5px;
         text-align: center;
     }
 
     &__value {
         font-size: 1.15rem;
         font-weight: 600;
-        color: var(--text-primary, #1A2E2B);
+        color: $white;
         letter-spacing: 0.02em;
     }
 
     &__label {
         font-size: 0.78rem;
-        color: var(--text-muted, #7EADA6);
+        color: $white;
     }
 }
 

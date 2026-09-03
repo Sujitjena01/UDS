@@ -156,7 +156,7 @@
                                                 <i class="fa-solid fa-arrow-trend-up"></i>12% vs last month
                                             </span>
                                         </div>
-                                        <div class="stat-card__icon"><i class="fa-solid fa-plus"></i></div>
+                                        <div class="stat-card__icon"><i class="fa-solid fa-calendar-days"></i></div>
                                     </div>
                                 </div>
 
@@ -169,7 +169,7 @@
                                                 19 May 19:15h
                                             </span>
                                         </div>
-                                        <div class="stat-card__icon"><i class="fa-solid fa-circle-check"></i></div>
+                                        <div class="stat-card__icon"><i class="fa-solid fa-gauge-high"></i></div>
                                     </div>
                                 </div>
 
@@ -178,16 +178,16 @@
                                         <div class="stat-card__content">
                                             <span class="stat-card__label">Load Factor</span>
                                             <div class="stat-card__value">60%</div>
-                                            
+
                                         </div>
-                                        <div class="stat-card__icon"><i class="fa-solid fa-link-slash"></i></div>
+                                        <div class="stat-card__icon"><i class="fa-solid fa-percent"></i></div>
                                     </div>
                                 </div>
 
                             </div>
                         </div>
 
-                        <div class="charts-row row g-3">
+                        <div class="row mb-3">
 
                             <!-- Left column: Daily Consumption + Monthly Trend stacked -->
                             <div class="col-12 col-xl-8 d-flex flex-column gap-3">
@@ -233,13 +233,14 @@
                             <div class="col-12 col-xl-4">
                                 <div class="info-card h-100">
                                     <div class="info-card__header d-flex flex-column gap-1">
-                                        <div class="d-flex justify-content-end">
-                                            <span class="chart-card__subtitle-inline">Last Read : 3 min ago</span>
-                                        </div>
+
                                         <div class="d-flex align-items-center gap-2">
                                             <span class="chart-card__title">
                                                 Communication Calendar - May 2026
                                             </span>
+                                        </div>
+                                        <div class="d-flex justify-content-end">
+                                            <span class="chart-card__subtitle-inline">Last Read : 3 min ago</span>
                                         </div>
                                     </div>
 
@@ -292,13 +293,13 @@
                                                     class="tp-comm-cal__dot tp-comm-cal__dot--good"></span></div>
                                             <div class="tp-comm-cal__cell"><span
                                                     class="tp-comm-cal__date">13</span><span
-                                                    class="tp-comm-cal__dot tp-comm-cal__dot--good"></span></div>
+                                                    class="tp-comm-cal__dot tp-comm-cal__dot--partial"></span></div>
                                             <div class="tp-comm-cal__cell"><span
                                                     class="tp-comm-cal__date">14</span><span
                                                     class="tp-comm-cal__dot tp-comm-cal__dot--good"></span></div>
                                             <div class="tp-comm-cal__cell"><span
                                                     class="tp-comm-cal__date">15</span><span
-                                                    class="tp-comm-cal__dot tp-comm-cal__dot--good"></span></div>
+                                                    class="tp-comm-cal__dot tp-comm-cal__dot--partial"></span></div>
                                             <div class="tp-comm-cal__cell"><span
                                                     class="tp-comm-cal__date">16</span><span
                                                     class="tp-comm-cal__dot tp-comm-cal__dot--good"></span></div>
@@ -307,7 +308,7 @@
                                                     class="tp-comm-cal__dot tp-comm-cal__dot--good"></span></div>
                                             <div class="tp-comm-cal__cell"><span
                                                     class="tp-comm-cal__date">18</span><span
-                                                    class="tp-comm-cal__dot tp-comm-cal__dot--good"></span></div>
+                                                    class="tp-comm-cal__dot tp-comm-cal__dot--bad"></span></div>
 
                                             <!-- Row 4 (19–25) -->
                                             <div class="tp-comm-cal__cell"><span
@@ -349,9 +350,11 @@
                                             </div>
                                             <div class="tp-comm-legend__row">
                                                 <span class="tp-comm-legend__dot tp-comm-legend__dot--bad"></span>
-                                                <span class="tp-comm-legend__label">Non Comm. : <strong>5
+                                                <span class="tp-comm-legend__label">Non Communicating : <strong>5
                                                         Days</strong></span>
-                                                <span class="tp-comm-legend__stat">Availability : 95.2%</span>
+                                                <div class="tp-comm-avail tp-comm-avail--green">
+                                                    Availability : 95.2%
+                                                </div>
                                             </div>
                                         </div>
 
@@ -721,16 +724,7 @@
                         },
                         plugins: {
                             legend: {
-                                display: true,
-                                position: 'bottom',
-                                align: 'center',
-                                labels: {
-                                    boxWidth: 12,
-                                    padding: 20,
-                                    usePointStyle: true,
-                                    pointStyle: 'circle',
-                                    color: muted,
-                                },
+                                display: false,
                             },
                             tooltip: {
                                 ...tooltipTheme,

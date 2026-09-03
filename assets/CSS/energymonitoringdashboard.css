@@ -2039,7 +2039,7 @@ body {
   display: flex;
   flex-direction: column;
   flex: 1;
-  padding: 0.5rem 1.25rem;
+  padding: 0px 10px 10px 10px;
 }
 .info-card__row {
   display: flex;
