@@ -1392,6 +1392,56 @@ body {
   color: #ffc977;
 }
 
+.ca-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  flex-direction: column;
+}
+.ca-status__icon {
+  font-size: 22px;
+  color: rgba(255, 255, 255, 0.25);
+  transition: color 0.2s, text-shadow 0.2s;
+}
+.ca-status__text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.ca-status__value {
+  font-family: "Outfit", sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+.ca-status__meta {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+}
+.ca-status__label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+}
+.ca-status--on .ca-status__icon {
+  color: #FFC531;
+  text-shadow: 0 0 10px rgba(255, 197, 49, 0.7);
+}
+.ca-status--off .ca-status__icon {
+  color: rgba(255, 255, 255, 0.25);
+  text-shadow: none;
+}
+.ca-status--connected .ca-status__icon {
+  color: #03FFAB;
+}
+.ca-status--disconnected .ca-status__icon {
+  color: #D31F1F;
+}
+
 .tab-box {
   top: 50px;
   z-index: 10;

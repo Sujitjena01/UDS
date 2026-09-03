@@ -1,7 +1,7 @@
 class MainSidebar extends HTMLElement {
-    connectedCallback() {
-        this.innerHTML = `
-        <aside class="sidebar" id="sidebar">
+  connectedCallback() {
+    this.innerHTML = `
+        <aside class="sidebar collapsed" id="sidebar">
 
             <button class="sidebar__collapse-btn" id="collapseBtn" title="Collapse sidebar">
                 <i class="fa fa-chevron-left"></i>
@@ -72,119 +72,129 @@ class MainSidebar extends HTMLElement {
         </aside>
         `;
 
-        this._init();
-        this._initMobile();
+    this._init();
+    this._initMobile();
+  }
+
+  _init() {
+    const root = this;
+    const sidebar = root.querySelector("#sidebar");
+    const collapseBtn = root.querySelector("#collapseBtn");
+
+    function expandIfCollapsed() {
+      if (sidebar.classList.contains("collapsed")) {
+        sidebar.classList.remove("collapsed");
+      }
     }
 
-    _init() {
-        const root        = this;
-        const sidebar     = root.querySelector('#sidebar');
-        const collapseBtn = root.querySelector('#collapseBtn');
+    // ── Plain nav links (no submenu) ───────────────────────────
+    root
+      .querySelectorAll(".nav > ul > li:not(.btnToggle) > a")
+      .forEach(function (link) {
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+          expandIfCollapsed();
 
-        function expandIfCollapsed() {
-            if (sidebar.classList.contains('collapsed')) {
-                sidebar.classList.remove('collapsed');
-            }
+          root.querySelectorAll(".btnToggle.open").forEach(function (el) {
+            el.classList.remove("open");
+            el.querySelector(".toggleDiv").style.display = "none";
+            el.querySelector(".nav__chevron").classList.remove("rotated");
+          });
+
+          root
+            .querySelectorAll(".nav > ul > li")
+            .forEach((li) => li.classList.remove("active"));
+          root
+            .querySelectorAll(".toggleDiv li")
+            .forEach((li) => li.classList.remove("active"));
+          this.closest("li").classList.add("active");
+        });
+      });
+
+    // ── Submenu items ──────────────────────────────────────────
+    root.querySelectorAll(".toggleDiv li a").forEach(function (link) {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        expandIfCollapsed();
+
+        root
+          .querySelectorAll(".nav > ul > li")
+          .forEach((li) => li.classList.remove("active"));
+        root
+          .querySelectorAll(".toggleDiv li")
+          .forEach((li) => li.classList.remove("active"));
+
+        this.closest("li").classList.add("active");
+        this.closest(".btnToggle").classList.add("active");
+      });
+    });
+
+    // ── Submenu accordion ──────────────────────────────────────
+    root.querySelectorAll(".btnToggle").forEach(function (item) {
+      item.querySelector(":scope > a").addEventListener("click", function (e) {
+        e.preventDefault();
+        expandIfCollapsed();
+
+        const targetId = item.dataset.div;
+        const chevronId = item.dataset.chevron;
+        const submenu = root.querySelector("#" + targetId);
+        const chevron = root.querySelector("#" + chevronId);
+        const isOpen = item.classList.contains("open");
+
+        root.querySelectorAll(".btnToggle.open").forEach(function (el) {
+          el.classList.remove("open");
+          el.querySelector(".toggleDiv").style.display = "none";
+          el.querySelector(".nav__chevron").classList.remove("rotated");
+        });
+
+        if (!isOpen) {
+          item.classList.add("open");
+          submenu.style.display = "block";
+          chevron.classList.add("rotated");
         }
+      });
+    });
 
-        // ── Plain nav links (no submenu) ───────────────────────────
-        root.querySelectorAll('.nav > ul > li:not(.btnToggle) > a').forEach(function (link) {
-            link.addEventListener('click', function (e) {
-                e.preventDefault();
-                expandIfCollapsed();
+    // ── Collapse button ────────────────────────────────────────
+    collapseBtn.addEventListener("click", function () {
+      sidebar.classList.toggle("collapsed");
+    });
 
-                root.querySelectorAll('.btnToggle.open').forEach(function (el) {
-                    el.classList.remove('open');
-                    el.querySelector('.toggleDiv').style.display = 'none';
-                    el.querySelector('.nav__chevron').classList.remove('rotated');
-                });
+    // ── Default open: first dashboard item active ──────────────
+    (function () {
+      const dashToggle = root.querySelector('[data-div="dashboard"]');
+      const submenu = root.querySelector("#dashboard");
+      const chevron = root.querySelector("#ch-dashboard");
+      const firstItem = submenu.querySelector("li:first-child");
 
-                root.querySelectorAll('.nav > ul > li').forEach(li => li.classList.remove('active'));
-                root.querySelectorAll('.toggleDiv li').forEach(li => li.classList.remove('active'));
-                this.closest('li').classList.add('active');
-            });
-        });
+      dashToggle.classList.add("open");
+      submenu.style.display = "block";
+      chevron.classList.add("rotated");
 
-        // ── Submenu items ──────────────────────────────────────────
-        root.querySelectorAll('.toggleDiv li a').forEach(function (link) {
-            link.addEventListener('click', function (e) {
-                e.preventDefault();
-                expandIfCollapsed();
+      firstItem.classList.add("active");
+      dashToggle.classList.add("active");
+    })();
+  }
 
-                root.querySelectorAll('.nav > ul > li').forEach(li => li.classList.remove('active'));
-                root.querySelectorAll('.toggleDiv li').forEach(li => li.classList.remove('active'));
+  _initMobile() {
+    const sidebar = this.querySelector("#sidebar");
+    const mobileToggle = document.getElementById("mobileToggle");
+    const overlay = document.getElementById("sidebarOverlay");
 
-                this.closest('li').classList.add('active');
-                this.closest('.btnToggle').classList.add('active');
-            });
-        });
-
-        // ── Submenu accordion ──────────────────────────────────────
-        root.querySelectorAll('.btnToggle').forEach(function (item) {
-            item.querySelector(':scope > a').addEventListener('click', function (e) {
-                e.preventDefault();
-                expandIfCollapsed();
-
-                const targetId  = item.dataset.div;
-                const chevronId = item.dataset.chevron;
-                const submenu   = root.querySelector('#' + targetId);
-                const chevron   = root.querySelector('#' + chevronId);
-                const isOpen    = item.classList.contains('open');
-
-                root.querySelectorAll('.btnToggle.open').forEach(function (el) {
-                    el.classList.remove('open');
-                    el.querySelector('.toggleDiv').style.display = 'none';
-                    el.querySelector('.nav__chevron').classList.remove('rotated');
-                });
-
-                if (!isOpen) {
-                    item.classList.add('open');
-                    submenu.style.display = 'block';
-                    chevron.classList.add('rotated');
-                }
-            });
-        });
-
-        // ── Collapse button ────────────────────────────────────────
-        collapseBtn.addEventListener('click', function () {
-            sidebar.classList.toggle('collapsed');
-        });
-
-        // ── Default open: first dashboard item active ──────────────
-        (function () {
-            const dashToggle = root.querySelector('[data-div="dashboard"]');
-            const submenu    = root.querySelector('#dashboard');
-            const chevron    = root.querySelector('#ch-dashboard');
-            const firstItem  = submenu.querySelector('li:first-child');
-
-            dashToggle.classList.add('open');
-            submenu.style.display = 'block';
-            chevron.classList.add('rotated');
-
-            firstItem.classList.add('active');
-            dashToggle.classList.add('active');
-        })();
+    if (mobileToggle) {
+      mobileToggle.addEventListener("click", function () {
+        sidebar.classList.toggle("open");
+        overlay.classList.toggle("active");
+      });
     }
 
-    _initMobile() {
-        const sidebar      = this.querySelector('#sidebar');
-        const mobileToggle = document.getElementById('mobileToggle');
-        const overlay      = document.getElementById('sidebarOverlay');
-
-        if (mobileToggle) {
-            mobileToggle.addEventListener('click', function () {
-                sidebar.classList.toggle('open');
-                overlay.classList.toggle('active');
-            });
-        }
-
-        if (overlay) {
-            overlay.addEventListener('click', function () {
-                sidebar.classList.remove('open');
-                overlay.classList.remove('active');
-            });
-        }
+    if (overlay) {
+      overlay.addEventListener("click", function () {
+        sidebar.classList.remove("open");
+        overlay.classList.remove("active");
+      });
     }
+  }
 }
 
-customElements.define('main-sidebar', MainSidebar);
+customElements.define("main-sidebar", MainSidebar);

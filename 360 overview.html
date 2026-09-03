@@ -33,7 +33,7 @@
                     <button id="mobileToggle" class="sidebar__toggle-btn">
                         <i class="fa-solid fa-bars"></i>
                     </button>
-                    <p class="topbar__subtitle"><strong>Last Updated On:</strong> 01/06/2026 00:00:00</p>
+                    <p class="topbar__subtitle"><strong>Last Login On:</strong> 01/06/2026 00:00:00</p>
                 </div>
                 <div class="topbar__right">
                     <div class="topbar__search">
@@ -43,18 +43,7 @@
                     <button class="btn-tp btn-tp-sm btn-tp-secondary">
                         Export Data <i class="fa-solid fa-download"></i>
                     </button>
-                    <div class="dropdown">
-                        <a class="btn-tp btn-tp-sm btn-tp-primary dropdown-toggle" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Today
-                        </a>
 
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Today</a></li>
-                            <li><a class="dropdown-item" href="#">Last 7 Days</a></li>
-                            <li><a class="dropdown-item" href="#">Last 30 Days</a></li>
-                        </ul>
-                    </div>
                     <button id="filterToggleBtn" class="topbar__filter-btn" aria-expanded="false"
                         aria-controls="tpFilterBar">
                         <i class="fa-solid fa-filter"></i>
@@ -80,14 +69,54 @@
                                 Name : Ramesh Kumar Gupta &middot; Meter: DL-SMT-00412 &middot; Central Ward 7, New
                                 Delhi
                             </p>
+                            <div class="d-flex align-items-center gap-2 mt-1">
+                                <span class="ca-badge ca-badge--active"><i class="fa-solid fa-circle"></i> Active</span>
+                                <span class="ca-badge ca-badge--smart">Smart meter</span>
+                                <span class="ca-badge ca-badge--postpaid">Postpaid</span>
+                                <span class="ca-info-bar__tariff">Domestic LT &middot; 5 kW</span>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="ca-info-bar__right d-flex align-items-center gap-2">
-                        <span class="ca-badge ca-badge--active"><i class="fa-solid fa-circle"></i> Active</span>
-                        <span class="ca-badge ca-badge--smart">Smart meter</span>
-                        <span class="ca-badge ca-badge--postpaid">Postpaid</span>
-                        <span class="ca-info-bar__tariff">Domestic LT &middot; 5 kW</span>
+                    <div class="ca-info-bar__right d-flex align-items-center gap-4">
+
+                        <!-- Power status: toggle ca-status--on / ca-status--off, and swap the icon class to match -->
+                        <div class="ca-status d-block ca-status--on">
+                            <i class="fa-solid fa-lightbulb ca-status__icon"></i>
+                            <div class="ca-status__text">
+                                <span class="ca-status__value">ON</span>
+                                <span class="ca-status__label">Power Status</span>
+                            </div>
+                        </div>
+
+                        <div class="ca-status d-none ca-status--off">
+                            <i class="fa-solid fa-lightbulb ca-status__icon"></i>
+                            <div class="ca-status__text">
+                                <span class="ca-status__value">OFF</span>
+                                <span class="ca-status__label">Power Status</span>
+                            </div>
+                        </div>
+
+                        <!-- Relay status: toggle ca-status--connected / ca-status--disconnected, and swap the icon class to match -->
+                        <!-- Relay status: toggle ca-status--connected / ca-status--disconnected, and swap the icon class to match -->
+                        <div class="ca-status d-block ca-status--connected">
+                            <i class="fa-solid fa-plug-circle-check ca-status__icon"></i>
+                            <div class="ca-status__text">
+                                <span class="ca-status__value">Connected</span>
+                                <span class="ca-status__meta">As on (05-07-2026)</span>
+                                <span class="ca-status__label">Relay Status</span>
+                            </div>
+                        </div>
+
+                        <div class="ca-status d-none ca-status--disconnected">
+                            <i class="fa-solid fa-plug-circle-xmark ca-status__icon"></i>
+                            <div class="ca-status__text">
+                                <span class="ca-status__value">Disconnected</span>
+                                <span class="ca-status__meta">As on (05-07-2026)</span>
+                                <span class="ca-status__label">Relay Status</span>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 

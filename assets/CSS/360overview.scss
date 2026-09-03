@@ -346,6 +346,75 @@ body {
     }
 }
 
+.ca-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+    flex-direction: column;
+
+    &__icon {
+        font-size: 22px;
+        color: rgba(#fff, 0.25);
+        transition: color 0.2s, text-shadow 0.2s;
+    }
+
+    &__text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__value {
+        font-family: $font-outfit;
+        font-weight: 700;
+        font-size: 1.1rem;
+        color: rgba(#fff, 0.9);
+    }
+
+    &__meta {
+        font-size: 0.7rem;
+        font-weight: 600;
+        color: rgba(#fff, 0.85);
+    }
+
+    &__label {
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: rgba(#fff, 0.5);
+    }
+
+    // ── Power states ──────────────────────────
+    &--on {
+        .ca-status__icon {
+            color: #FFC531;
+            text-shadow: 0 0 10px rgba(#FFC531, 0.7);
+        }
+    }
+
+    &--off {
+        .ca-status__icon {
+            color: rgba(#fff, 0.25);
+            text-shadow: none;
+        }
+    }
+
+    // ── Relay states ──────────────────────────
+    &--connected {
+        .ca-status__icon {
+            color: $neon;
+        }
+    }
+
+    &--disconnected {
+        .ca-status__icon {
+            color: $error-red;
+        }
+    }
+}
+
 .tab-box {
     // position: sticky;
     top: 50px;
