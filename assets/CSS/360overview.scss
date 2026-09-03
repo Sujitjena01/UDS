@@ -29,7 +29,7 @@ body {
     padding: 0.5rem 0.5rem;
     box-shadow: 0 1px 3px rgba($black, 0.06);
 
-    @at-root [data-theme="dark"] & {
+    :host-context([data-theme="dark"]) & {
         background-color: #031c19;
         border: 1px solid $oceanic-green-80;
         box-shadow: none;
@@ -73,7 +73,7 @@ body {
         text-transform: uppercase;
         color: $black-60;
 
-        @at-root [data-theme="dark"] & {
+        :host-context([data-theme="dark"]) & {
             color: rgba($white, 0.6);
         }
     }
@@ -106,7 +106,7 @@ body {
             font-size: 14px;
         }
 
-        @at-root [data-theme="dark"] & {
+        :host-context([data-theme="dark"]) & {
             color: rgba($white, 0.85);
             border-color: $oceanic-green-80;
 
@@ -160,7 +160,7 @@ body {
         border-left: 1px solid $gray-40;
         white-space: nowrap;
 
-        @at-root [data-theme="dark"] & {
+        :host-context([data-theme="dark"]) & {
             border-left-color: $oceanic-green-80;
         }
 
@@ -171,7 +171,7 @@ body {
             text-transform: uppercase;
             color: $black-60;
 
-            @at-root [data-theme="dark"] & {
+            :host-context([data-theme="dark"]) & {
                 color: rgba($white, 0.6);
             }
         }
@@ -181,7 +181,7 @@ body {
             font-weight: 700;
             color: $black;
 
-            @at-root [data-theme="dark"] & {
+            :host-context([data-theme="dark"]) & {
                 color: $white;
             }
         }
@@ -197,7 +197,7 @@ body {
             border-top: 1px solid $gray-40;
             white-space: normal;
 
-            @at-root [data-theme="dark"] & {
+            :host-context([data-theme="dark"]) & {
                 border-top-color: $oceanic-green-80;
             }
         }
@@ -245,7 +245,7 @@ body {
         display: inline-flex;
     }
 
-    @at-root [data-theme="dark"] & {
+    :host-context([data-theme="dark"]) & {
         background-color: #031c19;
         border-color: $oceanic-green-80;
         color: rgba($white, 0.6);
@@ -412,7 +412,7 @@ body {
         padding: 25px 16px 20px;
     }
 
-    @at-root [data-theme="dark"] & {
+    :host-context([data-theme="dark"]) & {
         background: $dark-green;
     }
 }
@@ -488,7 +488,7 @@ body {
         &--up {
             color: $highlight-green;
 
-            @at-root [data-theme="dark"] & {
+            :host-context([data-theme="dark"]) & {
                 color: $neon;
             }
         }
@@ -559,7 +559,7 @@ body {
             background: rgba($highlight-green, 0.15);
             color: $highlight-green;
 
-            @at-root [data-theme="dark"] & {
+            :host-context([data-theme="dark"]) & {
                 color: $neon;
             }
         }
@@ -621,7 +621,7 @@ body {
     }
 }
 
-@at-root [data-theme="dark"] {
+:host-context([data-theme="dark"]) {
     .stat-card {
         background: #031c19;
         border-color: $oceanic-green-80;
@@ -718,7 +718,7 @@ body {
         color: $black-60;
         margin-left: auto;
 
-        @at-root [data-theme="dark"] & {
+        :host-context([data-theme="dark"]) & {
             color: rgba($white, 0.5);
         }
     }
@@ -803,13 +803,13 @@ body {
         color: $black-60;
         margin: 2px 0 0;
 
-        @at-root [data-theme="dark"] & {
+        :host-context([data-theme="dark"]) & {
             color: rgba($white, 0.55);
         }
     }
 }
 
-@at-root [data-theme="dark"] {
+:host-context([data-theme="dark"]) {
     .chart-card {
         background: #031c19;
         border-color: #343b4f;
@@ -838,7 +838,7 @@ body {
         padding: 8px 4px;
         border-radius: $br-5;
 
-        @at-root [data-theme="dark"] & {
+        :host-context([data-theme="dark"]) & {
             background: rgba($white, 0.08);
             color: rgba($white, 0.8);
         }
@@ -862,7 +862,7 @@ body {
         font-weight: 500;
         color: $black;
 
-        @at-root [data-theme="dark"] & {
+        :host-context([data-theme="dark"]) & {
             color: $white;
         }
     }
@@ -894,7 +894,7 @@ body {
     border-radius: $br-8;
     padding: 14px 16px;
 
-    @at-root [data-theme="dark"] & {
+    :host-context([data-theme="dark"]) & {
         border-color: $oceanic-green-80;
     }
 
@@ -929,7 +929,7 @@ body {
     &__label {
         color: $black;
 
-        @at-root [data-theme="dark"] & {
+        :host-context([data-theme="dark"]) & {
             color: $white;
         }
     }
@@ -939,7 +939,7 @@ body {
         color: $black-60;
         font-size: 12px;
 
-        @at-root [data-theme="dark"] & {
+        :host-context([data-theme="dark"]) & {
             color: rgba($white, 0.6);
         }
     }
@@ -1091,7 +1091,7 @@ body {
         align-items: center;
         justify-content: space-between;
         gap: 1rem;
-        padding: 0.7rem 0;
+        padding: 6px 0;
         border-bottom: 1px solid var(--border-color, #EDF2F0);
 
         &--last {
@@ -1283,7 +1283,7 @@ body {
         font-size: 14px;
     }
 
-    @at-root [data-theme="dark"] & {
+    :host-context([data-theme="dark"]) & {
         background-color: #031c19;
         border-color: #343b4f;
     }
@@ -1291,7 +1291,7 @@ body {
     &__header {
         padding: 10px 13px;
 
-        @at-root [data-theme="dark"] & {
+        :host-context([data-theme="dark"]) & {
             border-color: $gray-80;
         }
     }
@@ -1302,7 +1302,7 @@ body {
         font-weight: 700;
         color: $highlight-green;
 
-        @at-root [data-theme="dark"] & {
+        :host-context([data-theme="dark"]) & {
             color: $white;
         }
     }
@@ -1324,7 +1324,7 @@ body {
         &:not(:last-child) {
             border-bottom: 1px solid $gray-40;
 
-            @at-root [data-theme="dark"] & {
+            :host-context([data-theme="dark"]) & {
                 border-color: $gray-90;
             }
         }
@@ -1342,7 +1342,7 @@ body {
             margin-left: -8px;
         }
 
-        @at-root [data-theme="dark"] & {
+        :host-context([data-theme="dark"]) & {
             color: $gray-50;
         }
     }

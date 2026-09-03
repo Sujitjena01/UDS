@@ -137,10 +137,10 @@
                                 <div class="col-6 col-xl-3">
                                     <div class="stat-card stat-card--red h-100">
                                         <div class="stat-card__content">
-                                            <span class="stat-card__label">TOTAL SOLAR CONNECTION</span>
-                                            <div class="stat-card__value">14922</div>
-                                            <span class="stat-card__badge stat-card__badge--down">
-                                                <i class="fa-solid fa-arrow-trend-down"></i> 14,922 kWp DC capacity
+                                            <span class="stat-card__label">Todays Consumption</span>
+                                            <div class="stat-card__value">8.2kWh</div>
+                                            <span class="stat-card__badge stat-card__badge--up">
+                                                <i class="fa-solid fa-arrow-trend-up"></i> 12 % vs yesterday
                                             </span>
                                         </div>
                                         <div class="stat-card__icon"><i class="fa-solid fa-bolt"></i></div>
@@ -150,10 +150,10 @@
                                 <div class="col-6 col-xl-3">
                                     <div class="stat-card stat-card--blue h-100">
                                         <div class="stat-card__content">
-                                            <span class="stat-card__label">TOTAL SOLAR GENERATION</span>
-                                            <div class="stat-card__value">13,487.3 kWh</div>
+                                            <span class="stat-card__label">Month-to-date (Day-19)</span>
+                                            <div class="stat-card__value">247 kWh</div>
                                             <span class="stat-card__badge stat-card__badge--up">
-                                                30 June 2026
+                                                <i class="fa-solid fa-arrow-trend-up"></i>12% vs last month
                                             </span>
                                         </div>
                                         <div class="stat-card__icon"><i class="fa-solid fa-plus"></i></div>
@@ -163,10 +163,10 @@
                                 <div class="col-6 col-xl-3">
                                     <div class="stat-card stat-card--yellow h-100">
                                         <div class="stat-card__content">
-                                            <span class="stat-card__label">CUMULATIVE GENERATION</span>
-                                            <div class="stat-card__value">749,829 kWh</div>
+                                            <span class="stat-card__label">Max Demand Month</span>
+                                            <div class="stat-card__value">4.2 kW</div>
                                             <span class="stat-card__badge stat-card__badge--up">
-                                                vs 0kWh in May
+                                                19 May 19:15h
                                             </span>
                                         </div>
                                         <div class="stat-card__icon"><i class="fa-solid fa-circle-check"></i></div>
@@ -176,11 +176,9 @@
                                 <div class="col-6 col-xl-3">
                                     <div class="stat-card stat-card--green h-100">
                                         <div class="stat-card__content">
-                                            <span class="stat-card__label">TOTAL CONSUMPTION</span>
-                                            <div class="stat-card__value">181</div>
-                                            <span class="stat-card__badge stat-card__badge--up">
-                                                1.2% of installed, 2 > days
-                                            </span>
+                                            <span class="stat-card__label">Load Factor</span>
+                                            <div class="stat-card__value">60%</div>
+                                            
                                         </div>
                                         <div class="stat-card__icon"><i class="fa-solid fa-link-slash"></i></div>
                                     </div>
@@ -856,7 +854,7 @@
                     const demandThreshold = 10.7;
                     const demandTime = '19:20';
 
-                    const demandColor = '#6FA8DC';
+                    const demandColor = '#FFB020';
                     const normalColor = '#1F7A4D';
 
                     const barColors = dailyMayValues.map(v => v > demandThreshold ? demandColor : normalColor);
@@ -894,7 +892,7 @@
                                     align: 'top',
                                     anchor: 'end',
                                     offset: 10,
-                                    color: '#1565C0',
+                                    color: '#FFB020',
                                     font: { weight: '700', size: isMobile ? 10 : 12 },
                                     formatter: () => `Demand Value = ${demandThreshold} (${demandTime})`,
                                 },
@@ -919,7 +917,7 @@
                 // ── Year-on-year comparison charts (FY labels: Apr → Mar) ─────────
                 const fyLabels = ['Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar'];
                 const fyCurrentColor = '#1F7A4D'; // FY 25–26
-                const fyPriorColor = '#8AC0F0';   // FY 24–25
+                const fyPriorColor = '#FFB020';   // FY 24–25
 
                 function buildYoyChart(canvasId, currentData, priorData, unitLabel, yMax, yStep) {
                     const el = document.getElementById(canvasId);
